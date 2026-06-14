@@ -45,11 +45,13 @@
 ├── README.md
 ├── .gitignore
 ├── .gitattributes
-├── zh/           ← 17篇中文教学文档
-│   └── images/   ← 配套解剖图册（16幅SVG/PNG）
-├── en/           ← 17篇英文教学文档
-├── raw/           ← 原始源文件（未修改）
-└── tools/        ← 辅助脚本
+├── zh/                 ← 17篇中文教学文档
+│   └── images/         ← 配套解剖图册（16幅SVG/PNG）
+├── en/                 ← 17篇英文教学文档
+├── levels/             ← 原有8级体系文档（旧版归档）
+├── raw/                ← 原始源文件（未修改）
+├── tools/              ← 辅助脚本
+└── archive/            ← 项目说明文档（LICENSE、贡献指南等）
 ```
 
 ---
