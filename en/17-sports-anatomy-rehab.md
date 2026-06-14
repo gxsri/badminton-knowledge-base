@@ -1559,4 +1559,4 @@ Ask: How did the pain start?
 
 ---
 
-> **📖 Companion illustrations**: Anatomical diagrams for this chapter (motor control chain, trigger point mechanism, referred pain, upper/lower cross syndrome, rotator cuff, etc.) are available in `docs/zh/images/17/README.md` or directly in the `docs/zh/images/17/` directory as SVG files.
+> **📖 Companion illustrations**: Anatomical diagrams for this chapter (motor control chain, trigger point mechanism, referred pain, upper/lower cross syndrome, rotator cuff, etc.) are available in `images/17/README.md` or directly in the `images/17/` directory as SVG files.
