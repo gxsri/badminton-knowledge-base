@@ -1,0 +1,458 @@
+# Level 0: Training Plan — Adaptive Framework
+
+> **Who it's for**: Trainees and coaches
+> **Goal**: It's not about giving you a fixed 28-day schedule. It's about teaching you how to arrange each week, each day, based on your own recovery status and progress rate
+> **Core philosophy**: A good training plan isn't written on paper — it's something you adjust every day based on what your body tells you
+
+---
+
+## Chapter 1: The Training Plan is Not a Timetable
+
+### 1.1 Weekly Training Frequency Decision Formula
+
+```
+Weekly training days = Your recovery capacity coefficient × 3 (base frequency)
+
+The recovery capacity coefficient is determined by two factors:
+
+1. Age coefficient:
+   < 25 years → 1.2 (can train 3-4 times per week)
+   25-40 years → 1.0 (train 3 times per week)
+   > 40 years → 0.8 (train 2-3 times per week)
+
+2. Training history correction:
+   < 3 months training experience → age coefficient × 0.8
+   3-12 months → × 1.0
+   > 1 year → × 1.1
+
+Combined formula: Weekly training days = 3 × Age coefficient × Training history correction
+
+Example 1: 22 years old, trained for 2 months
+  Weekly = 3 × 1.2 × 0.8 = 2.88 → 2-3 times/week
+
+Example 2: 30 years old, trained for 2 years
+  Weekly = 3 × 1.0 × 1.1 = 3.3 → 3 times/week
+
+Example 3: 50 years old, trained for 6 months
+  Weekly = 3 × 0.8 × 1.0 = 2.4 → 2 times/week (add 1 recovery session in between)
+```
+
+### 1.2 What Determines Whether You Train Today (Not "It's Tuesday, Time to Train")
+
+**Three questions before every training session:**
+
+```
+First question: Have you recovered since the last session?
+  ● No soreness at all, full of energy → Normal training
+  ● Slight soreness, but it disappears once you warm up → Can train, reduce volume by 20%
+  ● Noticeable soreness, painful even without touching → Rest or recovery training
+  ● Sharp pain in a specific area → Rest, do not train that area
+
+Second question: What is your energy level today (1-10)?
+  ● 7-10 → Normal training
+  ● 4-6 → Reduce volume by 50%
+  ● 1-3 → Rest
+
+Third question: Will this training session help progress from last week?
+  ● Yes, I can feel progress → Continue
+  ● No noticeable effect → Consider changing the training approach
+  ● I feel like I'm regressing → Check if it's overtraining
+```
+
+**Only if both the first and second questions are answered "can train" should you actually train.**
+
+---
+
+## Chapter 2: Weekly Training Structure — Not Random Arrangement
+
+### 2.1 Principles for Arranging a Week (Not a Schedule)
+
+```
+Principle 1: Leave at least 24 hours between training sessions
+Principle 2: Leave at least 48 hours between two strength sessions
+Principle 3: Schedule low-intensity or recovery days after high-intensity sessions
+Principle 4: Have at least one complete rest day per week
+```
+
+### 2.2 Three Types of Training Days
+
+| Type | Purpose | Content Arrangement | Duration |
+|:-----|:--------|:--------------------|:--------:|
+| **Type A (Main Training Day)** | Technical / Strength progress | Technical training + Main strength training | 45-60 min |
+| **Type B (Auxiliary Training Day)** | Supplementary reinforcement | Auxiliary strength training + Recovery training | 25-35 min |
+| **Type R (Recovery Training Day)** | Active recovery | Fascia release + Stretching + Basic activation | 15-20 min |
+
+### 2.3 How to Arrange a Week
+
+Whether your weekly training days are 2, 3, or 4, the arrangement differs:
+
+**2 times per week (suitable for > 40 years or 0-3 month beginners):**
+
+```
+Example: Tuesday Type A / Friday Type A
+         Thursday Type R
+```
+
+**3 times per week (suitable for most Level 0-1):**
+
+```
+Example: Monday Type A / Wednesday Type B / Friday Type A
+```
+
+**4 times per week (suitable for < 25 years or good recovery ability):**
+
+```
+Example: Monday Type A / Tuesday Type B / Thursday Type A / Friday Type B
+         Rest Wednesday and one weekend day
+```
+
+---
+
+## Chapter 3: Structure of Each Session — Warm-up / Main Training / Cool-down
+
+### 3.1 Warm-up Time Calculation Formula
+
+```
+Warm-up time (minutes) = Age ÷ 10 + 2
+Cool-down time (minutes) = Age ÷ 15 + 5
+
+Example:
+20 years: warm-up 4 min, cool-down 6 min
+35 years: warm-up 5.5 min, cool-down 7 min
+50 years: warm-up 7 min, cool-down 8 min
+```
+
+### 3.2 Warm-up Content (Not "Run a Couple of Laps")
+
+| Phase | Time % | What to Do | Purpose |
+|:------|:------:|:-----------|:--------|
+| Activation | 30% | Band-activated rotator cuff + Glute medius activation | Wake up the joints you'll use |
+| Dynamic Stretching | 30% | Arm circles, leg swings, thoracic spine rotations | Increase range of motion |
+| Heart Rate Preparation | 40% | Jumping jacks / high knees / jogging in place | Raise heart rate and body temperature |
+
+### 3.3 Main Training Content Allocation
+
+```
+Technical Training (40% of total time):
+- Set 1: Slow, find the feel (don't use full force)
+- Set 2: Normal speed
+- Set 3: Application speed
+
+Strength Training (30% of total time):
+- First: Full-body compound movements (squats / lunges etc.)
+- Then: Stability training (shoulders / knees)
+- Finally: Core work
+
+Recovery Training (30% of total time):
+- Fascia release (foam roller / massage ball) — 50%
+- Static stretching — 30%
+- Breathing regulation — 20%
+```
+
+### 3.4 Cool-down Content
+
+```
+1. Fascia Release (5-10 minutes)
+   Order: Soles of feet → Back of calves → Front of thighs → Glutes → Back
+   Method: Find sore points on each area, hold with deep breathing for 30 seconds
+
+2. Static Stretching (3-5 minutes)
+   Stretch each area trained today for 30 seconds
+
+3. Breathing Regulation (2-3 minutes)
+   4-7-8 breathing technique: inhale for 4 sec, hold for 7 sec, exhale for 8 sec, repeat 4 times
+```
+
+---
+
+## Chapter 4: Choosing Training Content — Not a Fixed Menu
+
+### 4.1 Principles for Choosing What to Train Today
+
+```
+What you train today is determined by three factors:
+
+Factor 1: What was your weak link last week?
+  - Can't stand on one leg for 10 seconds? → Prioritize proprioception today
+  - Knees still collapsing inward? → Prioritize knee training today
+  - Easily distracted? → Incorporate attention training
+
+Factor 2: What is your recovery status?
+  - Full-body feels good → Can do a full Type A training session
+  - A specific area is still sore → Skip training that area
+  - Mental state is poor but body is fine → Do Type B training, not Type A
+
+Factor 3: What did you train last time?
+  - Last time was upper body → Train lower body today
+  - Last time was left leg → Train right leg first today (asymmetries need correction)
+  - Last time was heavy weights → Do technical training today
+```
+
+### 4.2 Module Rotation Template for Beginners (0-3 Months)
+
+It's not "A on Monday, B on Wednesday, C on Friday." Instead, rotate by module:
+
+```
+First session: Neuromuscular Control Module (proprioception + core stability + footwork basics)
+Second session: Structural Strength Module (shoulder joint + knee joint + basic strength endurance)
+Third session: Neuropsychological Module (attention + decision making) + Kinetic chain training
+
+After one rest day:
+Fourth session: Start again from the Neuromuscular Control Module, but with increased intensity / volume
+```
+
+**How to determine "volume" for each session:**
+
+```
+Select 2-3 core movements per module
+Number of sets per movement = as calculated in the core content section
+Number of reps per movement = 60-70% of baseline test values
+Rest between sets = Trainee's age ÷ 5 + 15 seconds
+  (Example: 30 years → 30÷5+15=21 sec → approximately 20-30 sec)
+```
+
+### 4.3 Progression Criteria — Not "How Many Weeks Have You Done," But "Can You Do It"
+
+```
+Criteria for progressing from the "Neuromuscular Control" module to the "Structural Strength" module:
+It's not about having practiced for 2 weeks, so it's time to switch.
+
+It's about:
+☐ Single-leg stance with eyes closed > 15 seconds (each side)
+☐ Can complete 15 standard dead bug reps
+☐ Plank hold > 45 seconds
+☐ Split squat form is correct (no wobbling, knees don't cave inward)
+All checked → Ready to enter the structural-strength-focused training phase
+Any one not checked → Continue with neuromuscular-control-focused training
+```
+
+---
+
+## Chapter 5: Deloading and Resting — It's Not Slacking Off
+
+### 5.1 When to Deload
+
+| Signal | What to Do | How Long |
+|:-------|:-----------|:---------|
+| Movement quality declining for 3 consecutive sessions | Reduce next session volume by 50% | Return to normal after 1 session |
+| Still sore 48 hours after training | Reduce volume by 50% or switch to recovery training | Until recovery time shortens to 24-48 hours |
+| Energy level consistently < 5/10 for 1 week | Take 2 days off + improve sleep | Restart after recovery |
+| Feeling resistant to training | Reduce volume by 50%; if still resistant, rest | 3-7 days |
+| Same area hurts for 3 consecutive sessions | Stop training that area | Swap to alternative exercises; return when pain is gone |
+
+### 5.2 The Deload Week Is Not Optional
+
+```
+Schedule a deload week every 4-6 weeks:
+Training volume: 40-50% of normal training volume
+Training frequency: 60-70% of normal frequency
+Training intensity: Use the lightest resistance / bodyweight
+
+The purpose of a deload week is not to "get weaker" — it's to allow the body to absorb the training adaptations from the previous weeks.
+Skipping deload weeks → A plateau or overtraining is guaranteed within 3-4 months.
+```
+
+### 5.3 Recovery Training Day (Type R) — Specific Arrangement
+
+```
+Time: 15-20 minutes
+
+1. Full-body foam rolling (8 minutes)
+   Soles of feet → Calves → Front / back / outside of thighs → Glutes → Back
+   1 minute per area
+
+2. Major joint mobility (5 minutes)
+   Shoulder circles: 10 reps each direction
+   Hip circles: 10 reps each direction
+   Thoracic spine rotations: 8 reps per side
+   Ankle mobility: 10 reps per side
+
+3. Breathing regulation (3 minutes)
+   4-7-8 breathing technique × 4 times
+
+4. Assessment (2 minutes)
+   Today's body self-assessment:
+   Recovery level ____/10
+   What would you like to train tomorrow? ____
+```
+
+---
+
+## Chapter 6: How Coaches Use This Framework to Arrange Training for Trainees
+
+### 6.1 Four Questions to Ask at the First Meeting
+
+```
+1. Have you trained before? How long exactly? What did you do?
+   → Determines the training history correction coefficient
+
+2. Do you have any current injuries?
+   → Injured → Deal with the injury first; training must avoid the injured area
+   → No injury → Move to the next question
+
+3. How many times a week can you come?
+   → It's not "how many times do you want to train," it's "how many times can you come"
+   → Work backwards from available time to determine training frequency
+
+4. What is your goal?
+   → Fat loss / Muscle gain / Skill improvement / Rehabilitation / Competition?
+   → Different goals mean different training ratios in the first few weeks
+```
+
+### 6.2 Coach's Observation Priorities in the First Month
+
+| Week | Observation Priority | Signal That Adjustment is Needed |
+|:-----|:--------------------|:---------------------------------|
+| Week 1 | Trainee's movement learning speed, compensation patterns, attention span | A movement is completely unachievable → Regress to a more basic variation |
+| Week 2 | Post-training recovery speed, response to training | Extreme fatigue after every session → Deload |
+| Week 3 | Is there progress? How fast? | No progress at all → Check training volume or training approach |
+| Week 4 | Assess readiness to move to the next phase | Has baseline testing shown significant improvement? |
+
+### 6.3 Principles for Prescribing Training Volume (Not About Giving Numbers, But About Giving Judgment Methods)
+
+As a coach, you should not tell your trainee "do 3 sets × 15 reps."
+
+You should tell your trainee:
+
+```
+"Today you're doing squats. Do one set first to feel out your energy level today.
+Start with 10 reps. If you can still maintain good form at rep 12, then go to 12 reps.
+Keep your knees tracking over your second toe throughout. After 3 sets, tell me how it felt."
+```
+
+**Give judgment methods, not numbers. Once trainees learn to judge for themselves, they won't need to wait for your instructions every time.**
+
+### 6.4 Training Plan Templates — Fill and Use
+
+The three sections above taught you "how to judge." This section gives you **fillable templates** ready to use. They are not fixed schedules — every item is calculated from the formulas taught earlier.
+
+---
+
+#### Template 1: Weekly Plan Overview (One copy for coach, one for trainee)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│                     Week ____  Training Plan Overview                 │
+│                                                                       │
+│ ● Training frequency this week: ___ (Formula: 3×age coeff×history = _)│
+│ ● Deload week this week? Y / N (Normally every 4-6 weeks)            │
+│ ● Focus module: □Neuromuscular  □Structural Strength  □Neuropsych    │
+│                                                                       │
+├─────┬──────┬────────────┬────────────┬────────────────┬──────────────┤
+│ Day │ Type │ Main Goal  │ Warm-up    │ Main Content   │ Cool-down    │
+│     │A/B/R │            │(age÷10+2)  │ (module items) │(age÷15+5)    │
+├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
+│ Mon │      │            │ ____ min   │                │ ____ min     │
+├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
+│ Tue │      │            │ ____ min   │                │ ____ min     │
+├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
+│ Wed │      │            │ ____ min   │                │ ____ min     │
+├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
+│ Thu │      │            │ ____ min   │                │ ____ min     │
+├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
+│ Fri │      │            │ ____ min   │                │ ____ min     │
+├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
+│ Sat │      │            │ ____ min   │                │ ____ min     │
+├─────┴──────┴────────────┴────────────┴────────────────┴──────────────┤
+│ Fill after each session: Recovery ____/10  Energy ____/10            │
+│ End of week: Progress □Improved  □No change  □Regressed             │
+│ Adjustment for next week: ___________________________________        │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+**How to fill each field:**
+
+| Field | How to Fill |
+|:------|:------------|
+| **Training frequency** | Use Chapter 1 formula: 3 × Age coefficient × History correction, rounded |
+| **Type** | A=Main day (technique+strength), B=Auxiliary (auxiliary strength+recovery), R=Recovery |
+| **Main goal** | Based on 3 factors from 4.1: last week's weakness, recovery status, what you did last time |
+| **Warm-up time** | Use Chapter 3 formula: Age÷10+2 (minutes) |
+| **Main content** | Choose from the 3 modules in Chapter 4.2, 2-3 core exercises per module |
+| **Cool-down time** | Use Chapter 3 formula: Age÷15+5 (minutes) |
+| **Recovery self-rating** | Fill after each session. If <5 for 3 consecutive sessions → schedule a deload |
+
+---
+
+#### Template 2: Single Session Worksheet (Fill before each session)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Date: ____________  Type: A / B / R                         │
+│                                                               │
+│  Pre-training checklist:                                     │
+│  □ Q1: Fully recovered / Slightly sore / Very sore / Sharp   │
+│  □ Q2: Energy ____/10 (don't train if <4)                   │
+│  □ Q3: Will this help last week's progress? Y/N              │
+│                                                               │
+│  Warm-up (____ min): □Activation  □Dynamic  □HR prep         │
+│                                                               │
+│  Main training:                                               │
+│  Exercise 1: __________  Sets___  Reps___  RPE____           │
+│  Exercise 2: __________  Sets___  Reps___  RPE____           │
+│  Exercise 3: __________  Sets___  Reps___  RPE____           │
+│                                                               │
+│  Rest between sets: formula Age÷5+15 = ____ sec              │
+│                                                               │
+│  Cool-down (____ min):                                        │
+│  □Fascia release  □Static stretch  □Breathing regulation     │
+│                                                               │
+│  Post-training assessment:                                    │
+│  Session quality: ____/10                                     │
+│  Estimated recovery time: ____ hours                          │
+│  Notes: _____________________________________________        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+#### Filled Example (30-year-old trainee, 6 months training, 3x/week, Week 5 — week before deload)
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│                     Week 5  Training Plan Overview                    │
+│                                                                       │
+│ ● Training frequency this week: 3 (Formula: 3×1.0×1.0 = 3/week)      │
+│ ● Deload week this week? No (deload scheduled for next week)         │
+│ ● Focus module: □Neuromuscular  ☑Structural Strength  □Neuropsych    │
+│                                                                       │
+├─────┬──────┬──────────────┬───────────┬─────────────────┬────────────┤
+│ Day │ Type │ Main Goal    │ Warm-up   │ Main Content    │ Cool-down  │
+├─────┼──────┼──────────────┼───────────┼─────────────────┼────────────┤
+│ Mon │  A   │ Lower body   │ 5 min     │ Split squat     │ 7 min      │
+│     │      │ +Propriocep. │           │ +Glute bridge   │            │
+│     │      │              │           │ +Dead bug       │            │
+├─────┼──────┼──────────────┼───────────┼─────────────────┼────────────┤
+│ Wed │  R   │ Active recov │ 5 min     │ Foam rolling    │ 7 min      │
+│     │      │              │           │ +Joint mobility │            │
+├─────┼──────┼──────────────┼───────────┼─────────────────┼────────────┤
+│ Fri │  A   │ Upper body   │ 5 min     │ Shoulder rehab  │ 7 min      │
+│     │      │ +Core stabil │           │ +Plank var.     │            │
+├─────┴──────┴──────────────┴───────────┴─────────────────┴────────────┤
+│ Recovery: Mon____ Wed____ Fri____  Energy: Mon____ Wed____ Fri____   │
+│ Progress: □Improved  ☑No change  □Regressed                         │
+│ Note: Energy dropped on Friday. May need an extra R day next week    │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+**Coach Usage Guide:**
+
+```
+1. First meeting: Fill in the frequency formula from Chapter 1 to determine how many times per week
+2. Use Template 1 (Weekly Plan Overview) — fill in Week 1 together with the trainee
+3. Before each session, the trainee fills out the Single Session Worksheet (3 pre-training questions)
+4. At the end of each week, review the "Progress" assessment to decide next week's adjustments
+5. Schedule a deload week every 4-6 weeks (volume reduced to 40-50%)
+
+Notes:
+- The template is not "for the trainee to follow," it's "the process of filling it in teaches the trainee how to judge"
+- First 2 weeks: coach can help fill it in. Starting week 3: trainee fills it in, coach reviews
+- When the trainee can judge "what to train today" without looking at the formula — they've learned
+```
+
+---
+
+*Version: v2.1 (Adaptive Framework + Templates)*
+*Key change: Added 6.4 Training Plan Templates (weekly overview + single session worksheet + filled example), ready for coaches and trainees to fill and use directly*
