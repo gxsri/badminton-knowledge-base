@@ -1,0 +1,17 @@
+# 统一行尾为LF（GitHub友好）
+* text=auto eol=lf
+
+# Markdown
+*.md text diff=markdown
+
+# Python脚本
+*.py text diff=python
+
+# SVG 图片
+*.svg binary
+
+# PNG 图片
+*.png binary
+
+# docx 原始文件
+*.docx binary
