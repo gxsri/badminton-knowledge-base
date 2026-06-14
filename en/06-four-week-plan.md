@@ -883,7 +883,7 @@ Principles: Neural system first → power first → compound first
 │  Power        | 30-60%    | 3-6   | 3-5  | 2-3min   | Max Speed│
 │  Endurance    | 40-60%    | 15-25 | 2-3  | 30-60s   | Moderate │
 │  Core stab    | BW        | 8-15  | 2-3  | 45-60s   | Slow Ctrl│
-│  Neural/agility| BW       | Low   | 3-5  | Full     | Max Speed│
+|  Neural/agility| BW       | Low   | 3-5  | Full     | Max Speed|
 │                                                                  │
 │  Annual cycle:                                                   │
 │  Off-season → hypertrophy+strength → Pre-season → strength+power│
@@ -896,6 +896,179 @@ Principles: Neural system first → power first → compound first
 
 ---
 
-*Version: v3.0 (Adaptive Framework + Templates + S&C Periodization)*
+### 7.8 Ready-to-Use Training Tables — Copy and Follow
+
+The tables below are organized by phase. Each is a complete weekly plan. Just follow them directly.
+
+#### Beginner 3-Cycle: Cycle 1 — Hypertrophy Base (Weeks 1-5)
+
+| Day | Exercise | Sets×Reps | Load | Rest | Notes |
+|:----|:---------|:---------:|:----|:----:|:------|
+| **Mon** | ① Goblet squat | 3×10-12 | 60-65%1RM | 60s | Knees track toes |
+| | ② Bench press | 3×10-12 | 60-65%1RM | 60s | Scapulae retracted |
+| | ③ Bent-over row | 3×10-12 | 60-65%1RM | 60s | Squeeze back |
+| | ④ Glute bridge | 3×12 | BW | 45s | Hold peak 2s |
+| | ⑤ Plank | 3×30-45s | BW | 45s | Straight line |
+| | ⑥ Band ext. rotation | 2×15 | Light | 45s | Elbow to side |
+| **Wed** | ① Split squat(ea) | 3×10-12 | 60-65%1RM | 60s | Front knee stable |
+| | ② Shoulder press | 3×10-12 | 60-65%1RM | 60s | Core tight |
+| | ③ Pull-up(assist/BW) | 3×8-12 | BW | 60s | Chin over bar |
+| | ④ Dead bug | 3×8-10/side | BW | 45s | Low back to floor |
+| | ⑤ Farmer carry | 3×30s | Med | 45s | Core braced |
+| **Fri** | Same as Monday | | | | |
+
+#### Beginner 3-Cycle: Cycle 2 — Strength Building (Weeks 6-10)
+
+| Day | Exercise | Sets×Reps | Load | Rest | Notes |
+|:----|:---------|:---------:|:----|:----:|:------|
+| **Mon** | ① Barbell squat | 4×5-8 | 75-80%1RM | 90s | Parallel depth |
+| | ② Bench press | 4×5-8 | 75-80%1RM | 90s | Explosive up |
+| | ③ Bent-over row | 4×6-8 | 75-80%1RM | 90s | 45° torso |
+| | ④ Glute bridge(wt) | 3×8-10 | 70%1RM | 60s | Add plate |
+| | ⑤ Dead bug | 3×10-12/side | BW | 45s | Slow control |
+| | ⑥ Farmer carry | 3×40s | Heavy | 45s | Max load |
+| **Wed** | ① Bulgarian split squat | 4×6-8/side | 75%1RM | 90s | Rear foot elevated |
+| | ② Shoulder press | 4×5-8 | 75-80%1RM | 90s | Seated |
+| | ③ Pull-up(wt/BW) | 4×5-8 | BW+ | 90s | Slow down, fast up |
+| | ④ Pallof press | 3×10-12/side | Band | 45s | Resist rotation |
+| | ⑤ Band face pull | 3×12-15 | Med | 45s | Scapular retraction |
+| **Fri** | Same as Monday | | | | |
+
+#### Beginner 3-Cycle: Cycle 3 — On-Court Conversion (Weeks 11-16)
+
+| Day | Exercise | Sets×Reps | Load | Rest | Notes |
+|:----|:---------|:---------:|:----|:----:|:------|
+| **Mon(Str)** | ① Goblet squat | 3×5 | 80%1RM | 2min | Controlled |
+| | ② Bench press | 3×5 | 80%1RM | 2min | Explosive |
+| | ③ Bent-over row | 3×5 | 80%1RM | 2min | Heavy pull |
+| | ④ Glute bridge(wt) | 3×5 | 80%1RM | 90s | Peak hold |
+| | ⑤ Box jump | 3×5 | BW | 2min | Soft landing |
+| | ⑥ Med ball side throw | 3×5/side | 4-6kg | 90s | Explosive rotation |
+| **Wed(Pow)** | ① Depth jump→box | 4×4 | BW | 2min | Land<0.2s |
+| | ② Med ball overhead toss | 4×5 | 4-6kg | 90s | Full power |
+| | ③ Agility ladder(COD) | 5 rounds | BW | Full | Various patterns |
+| | ④ Split squat(fast) | 3×5/side | 50%1RM | 90s | Max speed |
+| | ⑤ Clap push-up | 3×5-8 | BW | 90s | Explosive |
+| **Fri(Str)** | Same as Monday | 3×5 | 80%1RM | 2min | |
+| | +Endurance: row 15×2, glute bridge 20×2, rest 45s | | | | |
+
+#### Intermediate 5-Cycle: Cycle 1 — Hypertrophy (Weeks 1-5)
+
+| Day | Exercise | Sets×Reps | Load | Rest |
+|:----|:---------|:---------:|:----|:----:|
+| **Mon(Lower)** | ① Barbell squat 4×8-10 | 70-75%1RM | 75s |
+| | ② Bulgarian split squat 3×10-12/side | 65-70%1RM | 75s |
+| | ③ Leg press 4×10-12 | 70%1RM | 60s |
+| | ④ Lying leg curl 3×12-15 | 60%1RM | 60s |
+| | ⑤ Standing calf raise 4×15-20 | BW+ | 45s |
+| **Tue(Upper)** | ① Bench press 4×8-10 | 70-75%1RM | 75s |
+| | ② Bent-over row 4×8-10 | 70-75%1RM | 75s |
+| | ③ Incline bench 3×10-12 | 65%1RM | 60s |
+| | ④ Pull-up 4×8-12 | BW | 75s |
+| | ⑤ Lateral raise 3×12-15 | Light | 45s |
+| **Thu(Lower)** | ① Conventional DL 4×8 | 70%1RM | 90s |
+| | ② Split squat 3×10-12/side | 65-70%1RM | 75s |
+| | ③ Hip thrust 4×10-12 | 70%1RM | 60s |
+| | ④ Adductor/Abductor 3×12-15 | 60%1RM | 45s |
+| **Fri(Upper)** | ① Shoulder press 4×8-10 | 70-75%1RM | 75s |
+| | ② T-bar row 4×8-10 | 70%1RM | 75s |
+| | ③ Dips 3×10-12 | BW | 60s |
+| | ④ Face pull 3×15 | Light | 45s |
+| | ⑤ Bicep curl 3×12-15 | Light | 45s |
+
+#### Intermediate 5-Cycle: Cycle 2 — Strength Accumulation (Weeks 6-10)
+
+| Day | Exercise | Sets×Reps | Load | Rest |
+|:----|:---------|:---------:|:----|:----:|
+| **Mon(Push)** | ① Barbell squat 5×4-6 | 82-87%1RM | 2.5min |
+| | ② Bench press 5×4-6 | 82-87%1RM | 2.5min |
+| | ③ Shoulder press 4×4-6 | 80-85%1RM | 2min |
+| | ④ Dips(wt) 4×6-8 | +10-20kg | 2min |
+| **Tue(Pull)** | ① Conventional DL 5×3-5 | 82-87%1RM | 3min |
+| | ② Bent-over row 5×4-6 | 80-85%1RM | 2.5min |
+| | ③ Pull-up(wt) 4×4-6 | +5-15kg | 2.5min |
+| | ④ Face pull 3×12-15 | Med | 60s |
+| **Thu(Legs)** | ① Barbell squat 4×4-6 | 85%1RM | 3min |
+| | ② Bulg split squat 4×5-7/side | 80%1RM | 2.5min |
+| | ③ Hip thrust 4×6-8 | 82%1RM | 2min |
+| | ④ Standing calf raise(wt) 4×8-10 | Heavy | 60s |
+| **Fri(P+P)** | ① Bench(narrow) 4×6-8 | 75%1RM | 2min |
+| | ② Row 4×6-8 | 80%1RM | 2min |
+| | ③ Incline bench 4×6-8 | 75%1RM | 2min |
+| | ④ Pull-up 4×6-8 | BW+ | 2min |
+
+#### Intermediate 5-Cycle: Cycle 3 — Strength Peak + Power Start (Weeks 11-15)
+
+| Day | Type | Exercise | Sets×Reps | Load | Rest |
+|:----|:-----|:---------|:---------:|:----|:----:|
+| **Mon** | Str | ① Barbell squat 3×2-4 | 87-92%1RM | 3min |
+| | | ② Bench press 3×2-4 | 87-92%1RM | 3min |
+| | | ③ Deadlift 3×2-3 | 87-90%1RM | 3min |
+| | | ④ Standing shoulder press 3×3-5 | 82-87%1RM | 2.5min |
+| **Tue** | Pow | ① Box jump 4×4 | BW | 2min |
+| | | ② Med ball rotational throw 4×5/side | 4-6kg | 90s |
+| | | ③ Push press 4×3-5 | 50-60%1RM | 2min |
+| | | ④ Agility ladder 5 rounds | BW | Full |
+| **Thu** | Str | ① Bulg split squat 3×3-5/side | 85-90%1RM | 3min |
+| | | ② Incline bench 3×3-5 | 85-87%1RM | 3min |
+| | | ③ Pull-up(wt) 3×3-5 | +10-20kg | 3min |
+| | | ④ Pallof press 3×10-12/side | Band | 60s |
+| **Fri** | Pow | ① Depth jump+box 4×4 | BW | 2.5min |
+| | | ② Med ball overhead toss 4×5 | 4-6kg | 90s |
+| | | ③ Clap push-up 3×5-8 | BW | 90s |
+| | | ④ Reaction drills 5 rounds | BW | Full |
+
+#### Intermediate 5-Cycle: Cycle 4 — Power Peak + Transfer (Weeks 16-20)
+
+| Day | Exercise | Sets×Reps | Load | Rest |
+|:----|:---------|:---------:|:----|:----:|
+| **Mon** | ① Barbell squat 3×3-5 | 80-85%1RM | 2.5min |
+| | ② Box jump(high) 4×3-4 | BW | 2min |
+| | ③ Med ball rotational throw 4×5/side | 4-6kg | 60s |
+| | ④ Agility ladder COD 5 rounds | BW | Full |
+| **Wed** | ① Depth jump 4×3-4 | BW | 2.5min |
+| | ② Med ball overhead toss 4×5 | 4-6kg | 60s |
+| | ③ COD runs 5 rounds | BW | Full |
+| | ④ Plank var. 3×45-60s | BW | 45s |
+| **Fri** | ① Bulg split squat 3×5/side | 80%1RM | 2min |
+| | ② Med ball side throw 4×5/side | 4-6kg | 60s |
+| | ③ Reaction lights/starts 5 rounds | BW | Full |
+| | ④ Clap push-up 3×5 | BW | 60s |
+
+#### Advanced Pre-Season Weekly Example
+
+| Day | Training | Details |
+|:----|:---------|:--------|
+| **Mon** | Lower str+pow | Squat 5×5(80%) → Box jump 4×4 → DL 4×5(80%) → Med ball rotational throw 4×5/side |
+| **Tue** | Upper str+stab | Bench 5×5(80%) → Pull-up 5×5(wt) → Row 4×6 → Face pull 3×15 + Plank 3×60s |
+| **Wed** | Court+recovery | Technique 60min + Fascial release 20min |
+| **Thu** | Lower pow+neural | Depth jump 4×4 → Med ball overhead toss 4×5 → Agility ladder 6 patterns×2 → COD runs 5 |
+| **Fri** | Upper pow+core | Push press 4×5(50%) → Med ball side throw 4×5/side → Clap push-up 3×5 → Dead bug 3×12/side + Pallof 3×10/side |
+| **Sat** | Court training | Tactical 60min + Interval footwork 20min |
+| **Sun** | Active recovery | Light swim/cycle 30-40min + Full body stretch |
+
+#### In-Season Maintenance (2x/week, 30-40 min)
+
+```
+Workout A (2 days before match):
+  Barbell squat 5×5 @80%1RM
+  Bench press 5×5 @80%1RM
+  Pull-up 5×5 @BW
+  Med ball rotational throw 3×5/side
+
+Workout B (day after match or between matches):
+  Box jump 4×4
+  Med ball overhead toss 4×5
+  Agility ladder 5 rounds
+  Core control 3 rounds
+
+Principle: Don't chase progress — maintain what you have.
+           No max strength work within 48 hours of a match.
+```
+
+---
+
+*Instructions: Tables are organized by phase. Beginners start from Cycle 1 and progress sequentially.
+Intermediate users start from Cycle 1 and progress to Cycle 5. Just follow the tables — Day 1 = Monday's workout.*
 *Key change: Added Chapter 7 — Badminton-Specific S&C Periodization, covering 6 training adaptation types, NSCA CSCS periodization model (annual/pre-season/in-season/off-season), beginner-to-pro 3-level periodization, RM parameter quick reference*
 
