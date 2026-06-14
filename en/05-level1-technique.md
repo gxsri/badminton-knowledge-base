@@ -77,45 +77,205 @@ Elbow extension (accelerate) → Wrist rotation (fine-tune) → Finger power (fi
 
 ---
 
-## 3. 7-Step Movement Breakdown
+## Chapter 3: Power Generation Sequence — Foot → Hip → Waist → Shoulder → Arm
 
-### 3.1 Ready Position
-- Right foot back, left foot forward (right-handed grip)
-- Feet shoulder-width apart or slightly wider
-- Weight between feet, slightly biased toward back foot
-- Knees slightly bent, springy
-- Body facing the net, attention on incoming shuttle
+### 3.1 The Kinetic Chain
 
-### 3.2 Side Turn (Power Starting Point)
-- **Timing**: Start immediately after judging the direction of the incoming shuttle
-- **Action**: Left foot as pivot, right foot steps back half a step
-- **Angle**: Body turned sideways to the net, about 45-60 degrees
-- **Weight**: Transfer to back foot (right foot)
+**This is not "theory" — this is the physics of every forehand clear you hit.**
 
-### 3.3 Backswing (Store Energy)
-- Right hand naturally draws the racket back
-- Left hand raises to balance the body
-- Shoulder joint fully opened
+The power of a forehand clear does NOT start from the arm. It starts from the ground. The sequence in which power travels from your foot to the racket face determines how far and how effortlessly the shuttle goes.
 
-### 3.4 Contact Moment
-- Contact point is above and in front of the right side of the body
-- Full body coordinated power: push off → rotate hips → rotate shoulders → swing arm
-- Grip the racket handle firmly at the moment of contact
+**The correct power sequence (bottom to top):**
 
-### 3.5 Follow-Through
-- Continue the swing after contact
-- Racket naturally swings to the lower left
-- Ensure a complete movement arc
+```
+① Foot push-off (triple extension: ankle + knee + hip)
+     ↓
+② Hip rotation (transfers lower body power to torso)
+     ↓
+③ Waist/core rotation (amplifies hip power to upper body)
+     ↓
+④ Shoulder girdle (scapular protraction + shoulder internal rotation)
+     ↓
+⑤ Arm + wrist (final 0.1 second acceleration + racket face control)
+```
 
-### 3.6 Weight Transfer
-- From back foot → front foot
-- Use weight transfer to increase power
-- Prepare for recovery
+**These five segments do NOT happen at the same time — they overlap sequentially.**
+The previous segment hasn't finished before the next one begins.
+But the starting order is ALWAYS: foot before hip, hip before waist, waist before shoulder, shoulder before arm.
 
-### 3.7 Recovery and Preparation
-- Return to center immediately after hitting
-- Resume ready position
-- Prepare for the next shot
+---
+
+#### 3.1.1 Segment 1: Foot Push-Off — Triple Extension
+
+```
+Triple extension = ankle extension + knee extension + hip extension, executed simultaneously.
+
+This is the starting point of the entire power chain. Without this step, everything that follows is meaningless.
+
+How to do it:
+1. Place weight on the back foot (same side as racket hand)
+2. Just before hitting, push the ball of the back foot into the ground
+3. Simultaneously: push off the ankle (heel rises), straighten the knee (leg extends), 
+   push the hip forward (glutes contract)
+4. These three "extensions" happen at the same time — this is triple extension
+
+Triple extension check:
+☐ Does your back heel lift off the ground after hitting?
+    Yes → you did ankle extension
+    No → you ignored the ankle
+
+☐ Does your back leg go from bent to straight during the hit?
+    Yes → you did knee extension
+    No → your leg didn't contribute
+
+☐ Do you feel your glutes tighten at the moment of impact?
+    Yes → you did hip extension
+    No → your glutes didn't participate
+
+If all three are "No" → your clear is entirely arm-powered.
+```
+
+**Why "triple" — because these three extensions multiply, not add.**
+
+```
+Arm only → how far? ≈ 30m (half the court)
++ Knee extension → ≈ 45m
++ Hip extension → ≈ 60m
++ Ankle extension → ≈ 75m (full triple extension)
+All three → 80m+ (easily clears the baseline)
+
+You don't need a stronger arm — you need your ankle, knee, and hip to participate.
+```
+
+---
+
+#### 3.1.2 Segment 2: Hip Rotation — Sends Ground Power to the Torso
+
+```
+The force from the foot push transmits upward through the hip joint.
+
+Key action:
+1. As the back foot pushes, rotate the hip forward
+2. It's NOT "twisting the waist" — it's "sending the back hip forward"
+3. Imagine your hip is a steering wheel: you turn it from facing right to facing forward
+
+Self-check:
+☐ Before hitting, is your hip facing to the right (right-handed) or forward?
+    Right → correct, you have room to rotate
+    Forward → you probably didn't turn sideways; no room for hip rotation
+
+☐ After hitting, is your hip facing forward?
+    Forward → correct, power was transmitted
+    Still facing right → hip didn't rotate; power stopped at the waist
+```
+
+---
+
+#### 3.1.3 Segment 3: Waist/Core Rotation — The Power Amplifier
+
+```
+Hip rotation drives the pelvis, the pelvis drives the lumbar spine,
+and the lumbar spine drives the thoracic spine.
+
+Key action:
+1. As the hip starts rotating, the upper body follows
+2. It's NOT "actively twist the waist" — the waist follows naturally as 
+   lower body power flows upward
+3. The core (transversus abdominis + multifidus) stays engaged throughout —
+   if loose, power "leaks" out the middle
+
+Self-check:
+☐ After hitting, is your chest facing the net?
+    Forward → waist participated in rotation
+    Still sideways → waist didn't rotate; power stopped at the core
+
+☐ After 10 clears, do you feel your lower back?
+    Slight soreness (back side) → normal, waist participated
+    No soreness → waist didn't participate; you're hitting with just the arm
+    Very sore (front abs) → core wasn't engaged; you're "whipping" not "rotating"
+```
+
+---
+
+#### 3.1.4 Segment 4: Shoulder Girdle — Sends Power to the Arm
+
+```
+Waist power transmits to the scapula, and the scapula drives the upper arm.
+
+Key action:
+1. During backswing: retract scapulae (squeeze shoulder blades together)
+2. During hitting: protract scapulae (push the arm forward)
+3. Shoulder internal rotation (like turning a screwdriver)
+
+This is the hardest segment for most people — because most people have poor
+scapular control.
+
+Self-check:
+☐ During backswing, can you feel your upper back (between scapulae) tightening?
+    Yes → your scapulae are retracting properly
+    No → you're backswinging with just the arm; scapulae aren't involved
+
+☐ After hitting, does your arm feel like it was "thrown" forward?
+    Yes → scapulae protracted properly
+    No → scapulae got stuck; power broke at the shoulder
+```
+
+---
+
+#### 3.1.5 Segment 5: Arm + Wrist — The Final 0.1 Second Acceleration
+
+```
+The first four segments accelerate the chain to 80% of the final speed.
+The arm and wrist provide only the last 20% — plus racket face direction control.
+
+Key action:
+1. Before the first four segments complete, keep the arm relaxed (like a whip)
+2. 0.1 seconds before contact: forearm pronation + wrist flexion
+   (not a forceful "snap" — a "rotation")
+3. Grip tightens at the moment of contact
+
+This is why "sore arm" is a signal of wrong power sequence —
+if your arm is already tensing before the first four segments complete,
+you've skipped the lower body and core, forcing your arm to do their work.
+
+Self-check:
+☐ After 10 clears, is your forearm more sore than your shoulder?
+    Yes → your arm activated too early.
+    Correction: imagine your arm is a rope — stay relaxed until 0.1 second
+    before contact, then tighten.
+
+☐ Does the shuttle make a crisp "crack" sound when hit?
+    Yes → timing is correct; enough acceleration distance
+    No → racket face didn't accelerate at contact, or face angle was off
+```
+
+---
+
+#### 3.1.6 Full Power Sequence Self-Check
+
+```
+Hit 5 clears and record them (or watch yourself), then answer:
+
+☐ Did your back heel lift off the ground?      → Triple extension (ankle)
+☐ Did your back leg go from bent to straight?  → Triple extension (knee)
+☐ Did you feel your glutes tighten?            → Triple extension (hip)
+☐ Did your hip turn from sideways to forward?  → Hip rotation
+☐ Is your chest facing the net after hitting?  → Waist/core rotation
+☐ Did you feel your upper back tighten during backswing? → Scapular retraction
+☐ Does your arm feel "thrown" forward after hitting?     → Scapular protraction
+☐ Was your arm relaxed before the final moment?           → Correct timing
+
+If more than 3 are "No" → your power sequence has a break.
+Find the first "No" — that's likely your problem starting point.
+```
+
+**Correction priority:**
+```
+Fix the foot first (triple extension) → then hip → then waist → then shoulder → finally arm
+
+Because: the lower segments, when fixed, naturally drive the upper segments.
+But if the lower segments aren't fixed, fixing the upper ones is useless.
+```
 
 ---
 
