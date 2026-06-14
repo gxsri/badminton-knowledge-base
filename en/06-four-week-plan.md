@@ -456,3 +456,446 @@ Notes:
 
 *Version: v2.1 (Adaptive Framework + Templates)*
 *Key change: Added 6.4 Training Plan Templates (weekly overview + single session worksheet + filled example), ready for coaches and trainees to fill and use directly*
+
+---
+
+## Chapter 7: Badminton-Specific Strength & Conditioning Periodization (NSCA CSCS Framework)
+
+> **For**: Players who have stable training habits and want to improve on-court performance through systematic S&C
+> **Core principle**: On-court technique training teaches you "how to play"; off-court S&C training teaches you "how to play hard"
+> **Reference**: NSCA CSCS periodization model, exercise physiology adaptation principles
+
+### 7.1 Six Types of Training Adaptation — Know What You're Training
+
+Every muscle and energy system adapts differently to different training types. The six adaptations below are the foundation of badminton-specific S&C, listed in training order.
+
+#### Type ①: Hypertrophy — Build the "Material" First
+
+```
+Definition: Increase in muscle fiber cross-sectional area (muscle gets bigger).
+Principle: Larger muscle volume → larger base for force production.
+Why first: Without muscle mass, strength and power have no "material" to work with.
+
+Training parameters:
+  Load: 60-75% 1RM (8-12RM)
+  Sets: 3-5
+  Reps: 8-12
+  Rest between sets: 60-90 seconds
+  Tempo: Moderate, controlled (2s concentric / 2s eccentric)
+  Frequency: Each muscle group 2x/week
+  Duration: 4-6 weeks
+
+One sentence: Hypertrophy is the foundation. A small foundation can't support a tall building.
+```
+
+#### Type ②: Max Strength — Make the Material "Strong"
+
+```
+Definition: The nervous system's ability to produce maximum force in a single voluntary contraction.
+Principle: Increased motor unit recruitment + improved intermuscular coordination.
+Why after hypertrophy: Hypertrophy gives you the "material"; max strength training teaches you how to use it.
+
+Training parameters:
+  Load: 80-90% 1RM (1-5RM)
+  Sets: 3-5
+  Reps: 1-5
+  Rest: 2-5 minutes (full recovery required)
+  Tempo: Explosive concentric (fast push), controlled eccentric
+  Frequency: Each muscle group 1-2x/week
+  Duration: 4-6 weeks
+
+One sentence: Strength training doesn't make you bigger — it makes you more "efficient".
+```
+
+#### Type ③: Power — Strong AND Fast
+
+```
+Definition: Maximum force production per unit time (Force × Velocity).
+Principle: Plyometrics + light-load explosive movements.
+Why after strength: Power needs strength as its base — no strength, no "force" to "explode."
+
+Training parameters:
+  Load: 30-60% 1RM (explosive), or bodyweight/light loads (jumps, medicine ball)
+  Sets: 3-5
+  Reps: 3-6 (every rep must be explosive)
+  Rest: 2-3 minutes (full recovery required for quality)
+  Tempo: As fast as possible (explosive concentric, fast stretch-shortening)
+  Frequency: Each movement 2x/week
+  Duration: 4-6 weeks
+
+The key to power training is not "how heavy" — it's "how fast."
+If you're not moving fast, it's not power training.
+```
+
+#### Type ④: Muscular Endurance — Last the Whole Match
+
+```
+Definition: The ability to maintain force output during prolonged, repeated contractions.
+Principle: Increased capillary density + mitochondrial oxidative capacity + waste clearance.
+
+Training parameters:
+  Load: 40-60% 1RM (15-25+RM)
+  Sets: 2-3
+  Reps: 15-25+
+  Rest: 30-60 seconds
+  Tempo: Moderate, continuous
+  Frequency: Each muscle group 2-3x/week
+  Duration: Year-round (concurrent with strength/power)
+
+In badminton, you don't need to explode at 100% for one shot.
+You need to maintain 70% output for 3 consecutive games.
+That's muscular endurance.
+```
+
+#### Type ⑤: Stability — The Ability to Control Force
+
+```
+Definition: Maintaining posture and joint alignment through co-contraction of core and small stabilizing muscles.
+Principle: Proximal stability enables distal mobility. Unstable core → power can't be transmitted.
+
+Training parameters:
+  Load: Bodyweight or light resistance
+  Sets: 2-3
+  Reps: 8-15, or 30-60 second holds
+  Rest: 45-60 seconds
+  Tempo: Slow, controlled
+  Frequency: As activation before each session, or 2-3x/week dedicated work
+
+Stability training doesn't produce "visible strength gains" —
+but it's the key to whether all your other training transfers to the court.
+```
+
+#### Type ⑥: Neuromuscular Training — Faster and More Coordinated
+
+```
+Definition: Training the nervous system's reaction speed, intermuscular coordination patterns, and proprioception.
+Includes: Agility training, reaction training, balance training, coordination training.
+
+Training parameters:
+  Load: Bodyweight primarily
+  Volume: Low to moderate (neural training fatigues quickly)
+  Rest: Full recovery (neural recovery takes time)
+  Frequency: 2-3x/week
+  Timing: First part of training session (best when neural system is fresh)
+
+Neuromuscular training is the bridge between "training hard" and "playing well."
+```
+
+---
+
+### 7.2 Training Order — Why Hypertrophy First, Power Later
+
+```
+NSCA CSCS core periodization principle:
+The order in which you arrange training determines your final performance level.
+
+Correct order (from a long-term development perspective):
+  Phase 1: Hypertrophy (4-6 weeks) →  Build the material
+  Phase 2: Max Strength (4-6 weeks) →  Neural efficiency
+  Phase 3: Power + Endurance (4-6 weeks) →  On-court transfer
+  Stability + Neuromuscular: Throughout, not as separate phases
+
+Why can't you skip hypertrophy and go straight to strength?
+  Not enough muscle → limited strength gains
+  Not enough strength → limited power gains
+  Not enough power → no on-court improvement
+
+In other words:
+  Hypertrophy first → strength training has "material" to work with
+  Strength built → power has "force" to "explode"
+  Power gained → faster smash, quicker initiation
+```
+
+**Annual training distribution (amateur to professional):**
+
+```
+              Hypertrophy  Strength  Power  Endurance  Stability  Neural
+Beginner(yr1)    40%        20%      10%      15%       10%        5%
+Intermediate    25%        25%      20%      15%       10%        5%
+Advanced/Pro    15%        20%      25%      15%       10%       15%
+```
+
+---
+
+### 7.3 Periodization Model — Annual / Pre-Season / In-Season / Off-Season
+
+#### Annual Cycle (for players with a defined season)
+
+```
+         ┌──────────────────────────────────────────────────────────────┐
+         │  Off-Season  │  Pre-Season  │  In-Season    │  Transition   │
+         │  (4-8 wks)   │  (6-10 wks)  │  (16-24 wks)  │  (2-4 wks)    │
+         └──────────────────────────────────────────────────────────────┘
+Focus   : Hypertrophy→Str  Strength→Power  Maintenance+Neural  Active Recovery
+Court   : Technique fix   Tactical build  Match rhythm        Rest/Light
+Intensity: Med-High        High            Med-Very High       Low
+Volume  : High             Medium          Low-Medium          Low
+```
+
+**Off-Season — Reserve Phase**
+
+```
+Goal: Build strength foundation, correct technical flaws,
+      increase muscle mass (if needed), increase endurance capacity
+
+Training focus:
+  First 4 weeks: hypertrophy (8-12RM, 3-5 sets)
+  Last 4 weeks: transition to max strength (4-6RM, 3-5 sets)
+  Endurance as supplement: 2x/week (15-20RM, 2-3 sets)
+  Stability: 10 minutes before each session
+  Court training: 2-3x/week, technical correction focus
+
+Time allocation:
+  S&C: 3-4x/week
+  Court: 2-3x/week
+  Duration: 60-75 minutes per session
+```
+
+**Pre-Season — Conversion Phase**
+
+```
+Goal: Convert the strength base built in off-season into on-court power and speed
+
+Training focus:
+  First 4 weeks: strength maintenance (5RM, 3 sets) + power development (3-5 reps@30-60%, explosive)
+  Last 4 weeks: strength reduction (3RM, 2 sets) + power peak (med ball/jumps, low volume high quality)
+  Endurance: maintain (15-20RM, 2-3 sets)
+  Neural: 2x/week — agility ladder, reaction drills, change-of-direction drills
+
+Time allocation:
+  S&C: 2-3x/week
+  Court: 3-4x/week
+  Duration: 45-60 minutes per session
+```
+
+**In-Season — Maintenance Phase**
+
+```
+Goal: Maintain the fitness level built during off/pre-season;
+      prioritize on-court performance
+
+Training focus:
+  Strength: maintenance (5×5 or 3×3, moderate-heavy), 1-2x/week
+  Power: low volume high quality (1x/week med ball/jumps)
+  Endurance: maintained through court training
+  Neural: 1-2x/week, before court training
+
+Key principles:
+  "In-season is not for improvement — it's for maintenance."
+  No high-intensity strength training within 48 hours of a match.
+  Recovery between matches is more important than training.
+```
+
+**Transition — Active Recovery Phase**
+
+```
+Goal: Physical and psychological active recovery, prepare for the next cycle
+
+Training focus:
+  Low-intensity activities: swimming, cycling, light court work
+  Flexibility and fascial recovery
+  No systematic strength training (2-4 weeks)
+```
+
+---
+
+### 7.4 Three-Level Periodization Progression — Beginner to Pro
+
+#### Beginner 3-Cycle Model (Year 1)
+
+```
+For: Players with no systematic strength training experience
+Total duration: 16-18 weeks (3 cycles, 4-6 weeks each + 1 deload week)
+
+Cycle 1: Hypertrophy Base (Weeks 1-5)
+  Load: 60-70% 1RM (10-12RM)
+  Sets: 3
+  Frequency: 2x/week full body
+  Exercises: compound movements
+        Goblet squat/split squat, bent-over row, bench press, glute bridge,
+        shoulder press, pull-ups (assisted/bodyweight)
+  Per session: 6-7 exercises
+  Rest: 60 seconds
+  Week 5: deload (50% volume)
+
+Cycle 2: Strength Building (Weeks 6-10)
+  Load: 75-85% 1RM (5-8RM)
+  Sets: 3-4
+  Frequency: 2x/week (upper/lower split)
+  Exercises: same, heavier
+  Rest: 90-120 seconds
+  Add: core stability (before each session)
+  Week 10: deload
+
+Cycle 3: On-Court Conversion (Weeks 11-16)
+  Load: strength maintenance (5RM×3) + power (3-5 reps×3@30-50%)
+  Frequency: 2x/week (1 strength + 1 power)
+  Add: medicine ball side throw, box jumps, agility ladder
+  Endurance: 2 exercises after each session (15-20×3)
+  Neural: 1x/week
+  Week 16: deload + retest
+```
+
+**Beginner RM Reference Table:**
+
+```
+Exercise             | Cycle 1(10-12RM) | Cycle 2(5-8RM) | Cycle 3(str+pow)
+--------------------|:----------------:|:--------------:|:----------------:
+Goblet squat        | 10-12×3         | 6-8×4          | 5×3 + box jumps
+Split squat(per leg)| 10-12×3         | 6-8×3          | 5×3 + med ball
+Glute bridge        | 12×3            | 8×4            | 5×3 (weighted)
+Bent-over row       | 10-12×3         | 6-8×4          | 5×3
+Bench press         | 10-12×3         | 6-8×4          | 5×3
+Shoulder press      | 10-12×3         | 6-8×3          | 5×3
+Pull-up/lat pulldown| 10-12×3         | 6-8×3          | 5×3
+```
+
+#### Intermediate 5-Cycle Model (2-3 Years Experience)
+
+```
+For: Players with 1-2 years of systematic training, established strength base
+Total duration: 24-30 weeks (5 cycles, 4-6 weeks each)
+
+Cycle 1: Hypertrophy (Weeks 1-5)
+  Load: 70-80% 1RM (8-10RM)
+  Sets: 4
+  Split: Upper/lower (4x/week: 2 upper + 2 lower)
+  Rest: 60-75 seconds
+  Exercises per body part: 3-4
+
+Cycle 2: Strength Accumulation (Weeks 6-10)
+  Load: 80-87% 1RM (3-6RM)
+  Sets: 4-5
+  Split: Push/pull/legs
+  Rest: 2-3 minutes
+  Add: accessory work (rotator cuff, unilateral)
+
+Cycle 3: Strength Peak + Power Start (Weeks 11-15)
+  Load: strength day 85-92% 1RM (2-4RM×3-4)
+        power day 50-60% 1RM (3-5 reps×3-5, explosive)
+  Split: Alternate strength day / power day
+  Rest: strength 3min, power 2min
+  Add: jump training (2x/week)
+
+Cycle 4: Power Peak + On-Court Transfer (Weeks 16-20)
+  Load: strength maintenance 80-85% (3-5RM×3)
+        power 30-50% (3-5 reps×3, as fast as possible)
+  Add: neural training 3x/week (agility ladder, reaction lights, COD)
+       med ball rotational throw, side throw, overhead throw
+  Rest: 2+ minutes for power work
+
+Cycle 5: In-Season Maintenance (Weeks 21-26)
+  Load: strength 80% 1RM (5×5), 1x/week
+        power 30-40% (3-5 reps×2-3), 1x/week
+  Frequency: 2 integrated (strength+power) sessions/week
+  Duration: 30-40 minutes (efficient maintenance)
+```
+
+#### Advanced/Professional Annual Cycle Model
+
+```
+For: 5+ years systematic training, defined annual competition schedule
+Cycle structure:
+  Off-season (4-8 wks): hypertrophy (8-12RM) + strength base (5RM)
+  Pre-season (6-10 wks): strength peak (3RM) + power development
+  In-season (16-24 wks): strength + power maintenance
+  Transition (2-4 wks): active recovery
+
+Training split (off-season/pre-season):
+  Mon: Lower body strength + power
+  Tue: Upper body strength + stability
+  Thu: Lower body power + neural training
+  Fri: Upper body power + core
+  Wed/Sat/Sun: Recovery / court training
+
+In-season weekly example:
+  Mon (D-2 before match): full body strength maintenance (5×5, 80% 1RM), 30min
+  Tue (D-1): activation only, no fatigue
+  Wed-Sat: match/training
+  Sun (D+1): active recovery
+
+Per-session parameter quick reference:
+  Hypertrophy day: 8-12RM×3-5, 60-75s rest
+  Strength day: 3-5RM×3-5, 2-3min rest
+  Power day: 3-5 reps×3-5 (30-60% 1RM), 2-3min rest
+  Endurance day: 15-25RM×2-3, 30-45s rest
+```
+
+---
+
+### 7.5 Badminton-Specific Exercise Selection (by Training Goal)
+
+| Goal | Exercises | RM/Sets | Notes |
+|:-----|:----------|:--------|:------|
+| **Lower hypertrophy** | Barbell squat, goblet squat, Bulgarian split squat, leg press | 8-12×3-5 | Split squat mimics lunge pattern |
+| **Lower strength** | Barbell squat, conventional deadlift, weighted split squat | 3-5×3-5 | Deadlift excellent for backcourt drive |
+| **Lower power** | Box jumps, depth jumps, bounding, med ball squat throw | 3-6×3-5 | Height/distance > weight |
+| **Upper hypertrophy** | Bench press, bent-over row, shoulder press, pull-ups | 8-12×3-5 | Shoulder press most important for overhead |
+| **Upper strength** | Bench press, row, weighted pull-ups | 3-5×3-5 | Pull-ups = scapular stability foundation |
+| **Upper power** | Med ball overhead throw, side throw, clap push-ups | 3-6×3-5 | Med ball throws simulate whipping motion |
+| **Core stability** | Dead bug, plank variations, Pallof press, bird dog | 8-15 or 30-60s×2-3 | Quality > quantity |
+| **Core power** | Med ball rotational throw, woodchop, Russian twist (weighted) | 6-10×3 | Simulates rotational smash power |
+| **Rotator cuff/stability** | Band external rotation, band face pull, Y/T/W | 12-15×2-3 | Key for injury prevention |
+| **Neural/agility** | Agility ladder, reaction ball, COD runs, reactive starts | Low volume, high quality | Do when neural system is fresh |
+
+---
+
+### 7.6 Training Session Order (Within One Session)
+
+```
+Correct training session order (NSCA CSCS recommended):
+
+① Neural activation / Agility (5-10 min)
+   First — best when neural system is fresh
+   Example: agility ladder, reaction drills
+
+② Power training (15-20 min)
+   Before strength — neural system must be fresh
+   Example: box jumps, med ball throws
+
+③ Main strength training (20-30 min)
+   Compound exercises first, accessory later
+   Example: squat → split squat → leg press
+
+④ Accessory strength / Endurance (10-15 min)
+   Single-joint work, rotator cuff, core
+   Example: band external rotation, dead bug
+
+⑤ Recovery / Stretching (5-10 min)
+   Static stretching, fascial release
+
+Principles: Neural system first → power first → compound first
+           Warm up joints from small to large (ankle→knee→hip→core→shoulder→wrist)
+```
+
+---
+
+### 7.7 Quick Parameter Reference Card
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                   Training Parameter Quick Reference             │
+│                                                                  │
+│  Goal         | Load(%1RM) | Reps  | Sets | Rest     | Tempo    │
+│  -------------|-----------|-------|------|----------|--------- │
+│  Hypertrophy  | 60-75%    | 8-12  | 3-5  | 60-90s   | Control  │
+│  Max Strength | 80-90%    | 1-5   | 3-5  | 2-5min   | Expl Conc│
+│  Power        | 30-60%    | 3-6   | 3-5  | 2-3min   | Max Speed│
+│  Endurance    | 40-60%    | 15-25 | 2-3  | 30-60s   | Moderate │
+│  Core stab    | BW        | 8-15  | 2-3  | 45-60s   | Slow Ctrl│
+│  Neural/agility| BW       | Low   | 3-5  | Full     | Max Speed│
+│                                                                  │
+│  Annual cycle:                                                   │
+│  Off-season → hypertrophy+strength → Pre-season → strength+power│
+│  → In-season → maintenance → Transition → active recovery        │
+│                                                                  │
+│  Session order:                                                  │
+│  Neural activation → Power → Main strength → Accessory → Recovery│
+└──────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+*Version: v3.0 (Adaptive Framework + Templates + S&C Periodization)*
+*Key change: Added Chapter 7 — Badminton-Specific S&C Periodization, covering 6 training adaptation types, NSCA CSCS periodization model (annual/pre-season/in-season/off-season), beginner-to-pro 3-level periodization, RM parameter quick reference*
+
