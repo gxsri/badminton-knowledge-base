@@ -207,8 +207,12 @@ Fourth session: Start again from the Neuromuscular Control Module, but with incr
 Select 2-3 core movements per module
 Number of sets per movement = as calculated in the core content section
 Number of reps per movement = 60-70% of baseline test values
-Rest between sets = Trainee's age ÷ 5 + 15 seconds
-  (Example: 30 years → 30÷5+15=21 sec → approximately 20-30 sec)
+Rest between sets (determined by training goal, not age):
+  Neuromuscular/technique training: 45-90 sec (allow CNS recovery for movement quality)
+  Strength endurance: 30-60 sec (increase metabolic stress)
+  Power training: 90 sec-3 min (ensure ATP-PC system recovery)
+  (Note: age can be a secondary factor, but training goal is the primary determinant;
+  see NSCA's Essentials of Strength Training and Conditioning, 4th ed.)
 ```
 
 ### 4.3 Progression Criteria — Not "How Many Weeks Have You Done," But "Can You Do It"
@@ -392,7 +396,7 @@ The three sections above taught you "how to judge." This section gives you **fil
 │  Exercise 2: __________  Sets___  Reps___  RPE____           │
 │  Exercise 3: __________  Sets___  Reps___  RPE____           │
 │                                                               │
-│  Rest between sets: formula Age÷5+15 = ____ sec              │
+│  Rest between sets: see training goal guidelines = ____ sec    │
 │                                                               │
 │  Cool-down (____ min):                                        │
 │  □Fascia release  □Static stretch  □Breathing regulation     │

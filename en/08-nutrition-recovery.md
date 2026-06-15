@@ -68,7 +68,7 @@ TDEE = 1674 × 1.55 = **2595 kcal/day**
 | Adolescent athletes | 1.8-2.2 g/kg | 126-154g |
 
 **Distribution principles (don't eat it all at once):**
-- 20-40g protein per meal (single-meal absorption limit is ~40g)
+- 20-40g protein per meal (optimal range for muscle protein synthesis per meal)
 - 20-30g fast-absorbing protein within 30 minutes post-training
 - 20-30g slow protein before bed (casein / yogurt)
 
@@ -175,7 +175,12 @@ Total calories ____ kcal
 
 ## Chapter 3: Strategy Differences by Body Type
 
-### 3.1 The Three Body Types
+> ⚠️ **Note**: The somatotype classification (ectomorph/mesomorph/endomorph) originated from Sheldon (1940s).
+> Modern sports nutrition guidelines (ACSM, ISSN) recommend basing nutrition prescriptions on measured data
+> (body weight, body fat %, training volume) rather than body type classification.
+> **Provided here as rough reference only** — your actual plan should be adjusted based on your body's response.
+
+### 3.1 The Three Body Types (Reference)
 
 | Body Type | Characteristics | Metabolic Traits | Nutritional Strategy Focus |
 |:----------|:---------------|:-----------------|:--------------------------|
@@ -489,7 +494,7 @@ Body type adjustment → training day / rest day distinction → supplements nee
 | "No time to eat before training" | "Eat a banana" | "You need 0.3g/kg carbs within 30 minutes before training. Any portable carb works: banana = 25g carbs, energy bar = check the label" |
 | "How to eat at the cafeteria / ordering delivery" | "Order a chicken salad" | "Check how much protein you still need, pick a main dish with that amount of protein, cut your rice portion in half, double the vegetables" |
 | "Hungry during fat loss" | "Drink more water" | "Check if all your carbs are around training time. Put the largest carb meal right after training. If hungry before bed, have 30g protein (yogurt / casein)" |
-| "Can't eat enough during bulking" | "Eat smaller, more frequent meals" | "Liquid meals (shakes / protein drinks). Don't exceed 0.5g/kg protein per meal (absorption limit)." |
+| "Can't eat enough during bulking" | "Eat smaller, more frequent meals" | "Liquid meals (shakes / protein drinks). Don't exceed 0.5g/kg protein per meal (muscle protein synthesis saturates at this point)." |
 | "What to eat on competition day" | "Have pasta 2 hours before" | "3 hours before: 1-2g/kg carbs (low GI). 1 hour before: 0.3g/kg carbs (moderate GI). During >60 min: 30g carbs/hour. Within 1 hour post: 1g/kg carbs + 0.3g/kg protein." |
 
 ---

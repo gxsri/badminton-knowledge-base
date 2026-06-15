@@ -5,6 +5,12 @@
 
 ---
 
+> **📎 关联文档**：
+> - 训练计划框架 → [06-四周计划](06-four-week-plan.md)
+> - 评估标准参考 → [01-核心内容](01-core-content.md)
+> - 心理训练日志 → [07-心理训练](07-psychological-training.md)
+> - 训练日志模板（可打印）→ [templates/](../templates/)
+
 ## 一、每日训练日志
 
 ### 训练日志模板

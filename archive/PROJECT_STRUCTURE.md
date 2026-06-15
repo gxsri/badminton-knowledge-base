@@ -1,192 +1,127 @@
 # 项目结构
 
-本文档说明《从零到一：羽毛球系统教学与训练体系》项目的文件结构和组织方式。
+> **注意**：本文档为项目归档说明。最新目录结构请参阅根目录 [`README.md`](../README.md)。
 
-## 目录结构
+本文档记录《从零到一：羽毛球系统教学与训练体系》项目 v2.1 的最终结构。
+
+---
+
+## v2.1 目录结构（2026-06-14）
 
 ```
-badminton-training-system/
 ├── README.md                    # 项目主说明文档
-├── LICENSE.md                   # 许可证文件
-├── CONTRIBUTING.md              # 贡献指南
-├── CONTRIBUTORS.md              # 贡献者列表
-├── PROJECT_STRUCTURE.md         # 项目结构说明（本文档）
-├── .gitignore                   # Git忽略文件配置
-├── Levels/                      # 训练级别文档目录
-│   ├── Level0_零基础启蒙阶段.md    # Level 0文档（待完善）
-│   ├── Level1_基础建立阶段.md      # Level 1文档（待完善）
-│   ├── Level2_技术入门阶段.md      # Level 2文档（待完善）
-│   ├── Level3_技术熟练阶段.md      # Level 3文档（待完善）
-│   ├── Level4_技术精进阶段.md      # Level 4文档（已完成）
-│   ├── Level5_技术成熟阶段.md      # Level 5文档（已完成）
-│   ├── Level6_战术应用阶段.md      # Level 6文档（已完成）
-│   ├── Level7_比赛准备阶段.md      # Level 7文档（已完成）
-│   └── Level8_专业水平阶段.md      # Level 8文档（已完成）
-├── docs/                        # 附加文档目录（预留）
-├── tools/                       # 工具和脚本目录（预留）
-└── resources/                   # 资源文件目录（预留）
+├── LICENSE.md                   # 许可证（CC BY-NC-ND 4.0）
+├── CHANGELOG.md                 # 更新日志
+├── TERMINOLOGY.md               # 中英术语对照表
+├── .gitignore                   # Git忽略配置
+├── .gitattributes               # Git属性配置
+│
+├── zh/                          # 17篇中文教学文档
+│   ├── 01-core-content.md
+│   ├── 02-summary.md
+│   ├── 03-full-version.md
+│   ├── 04-image-requirements.md
+│   ├── 05-level1-technique.md
+│   ├── 06-four-week-plan.md
+│   ├── 07-psychological-training.md
+│   ├── 08-nutrition-recovery.md
+│   ├── 09-strength-conditioning.md
+│   ├── 10-training-log.md
+│   ├── 11-footwork-training.md
+│   ├── 12-shot-patterns.md
+│   ├── 13-match-training.md
+│   ├── 14-match-strategy.md
+│   ├── 15-technical-training.md
+│   ├── 16-match-reading.md
+│   └── 17-sports-anatomy-rehab.md
+│
+├── en/                          # 17篇英文教学文档（1:1对应中文）
+│   └── ...（同上17个编号）
+│
+├── images/17/                   # 第17章配套解剖图册
+│   ├── motor-control-chain.svg  # 运动控制链条
+│   ├── trigger-point-cycle.svg  # 激痛点循环
+│   ├── referred-pain.svg        # 牵涉痛机制
+│   ├── upper-cross-syndrome.svg # 上交叉综合征
+│   ├── lower-cross-syndrome.svg # 下交叉综合征
+│   ├── rotator-cuff.svg         # 肩袖四肌
+│   ├── muscle_front.svg         # 全身肌肉正面(自制)
+│   ├── muscle_back.svg          # 全身肌肉背面(自制)
+│   ├── muscle_map_front.png     # 全身肌肉正面(网络)
+│   ├── muscle_map_back.png      # 全身肌肉背面(网络)
+│   ├── skeleton_front.svg       # 全身骨骼正面
+│   ├── trigger_points_front.svg # 激痛点分布(正面)
+│   ├── trigger_points_back.svg  # 激痛点分布(背面)
+│   ├── fascial_lines.svg        # 五大筋膜经线
+│   ├── knee_anatomy.svg         # 膝关节解剖
+│   ├── ankle_anatomy.svg        # 踝关节解剖
+│   └── README.md                # 图册说明
+│
+├── Levels/                      # 旧版8级体系文档（已归档）
+│   ├── 预备级_羽毛球训练预备指南.md
+│   ├── Level0_零基础入门阶段.md
+│   ├── Level1_预备阶段.md
+│   ├── Level1_正手高远球技术详解.md
+│   ├── Level1_Chinese.md        ← v2.1 不再引用，保留为历史参考
+│   ├── Level1_Forehand_Clear_Technique.md
+│   ├── Level2_基础建立阶段.md
+│   ├── Level3_技术入门阶段.md
+│   ├── Level4_技术精进阶段.md
+│   ├── Level5_技术成熟阶段.md
+│   ├── Level6_战术应用阶段.md
+│   ├── Level7_比赛准备阶段.md
+│   └── Level8_专业水平阶段.md
+│
+├── raw/                         # 原始源文件（初始版本，未修改）
+│   ├── 羽毛球教学项目_核心内容.txt
+│   ├── 羽毛球教学项目_项目总结.txt
+│   ├── 羽毛球系统教学项目_完整版.md
+│   ├── 羽毛球系统教学项目_专业版.docx
+│   ├── 羽毛球项目_图像需求说明.md
+│   └── Level1_Badminton_Forehand_Clear_Technique.md
+│
+├── tools/                       # 辅助脚本
+│   ├── append_en_17.py          # 追加英文版第17章内容
+│   ├── gen_17_images.py         # 生成第17章解剖图（第一部分）
+│   ├── gen_17_images_p2.py      # 生成第17章解剖图（第二部分）
+│   └── README.md                # 脚本说明
+│
+└── archive/                     # 项目说明文档（归档）
+    ├── LICENSE.md               # → 指向根目录 LICENSE.md
+    ├── CONTRIBUTING.md          # 贡献指南
+    ├── CONTRIBUTORS.md          # 贡献者列表
+    └── PROJECT_STRUCTURE.md     # 本文件
 ```
 
-## 文件说明
+---
 
-### 根目录文件
+## 文档状态（v2.1）
 
-1. **README.md** - 项目主说明文档
-   - 项目简介和特点
-   - 快速开始指南
-   - 使用建议
-   - 专业标准参考
-   - 版权说明
-   - 贡献与反馈
+| 状态 | 内容 |
+|:----:|:-----|
+| ✅ | 17篇中文文档 — 全部完成 |
+| ✅ | 17篇英文文档 — 全部完成 |
+| ✅ | 配套图册 — 16张解剖示意图（SVG/PNG） |
+| 🔄 | Levels/ — 旧版归档，不再主动更新 |
+| 📋 | raw/ — 原始底稿，保留未修改 |
+| ⏳ | Website — 待需求确认后启动 |
 
-2. **LICENSE.md** - 许可证文件
-   - 版权声明
-   - 许可条款（CC BY-NC-ND 4.0）
-   - 特别说明和教育用途
-   - 完整许可协议链接
+---
 
-3. **CONTRIBUTING.md** - 贡献指南
-   - 贡献方式和类型
-   - 贡献规范和要求
-   - 开发环境设置
-   - 内容审核流程
-   - 行为准则
-
-4. **CONTRIBUTORS.md** - 贡献者列表
-   - 核心贡献者信息
-   - 贡献类型说明
-   - 如何成为贡献者
-   - 致谢和更新日志
-
-5. **PROJECT_STRUCTURE.md** - 项目结构说明（本文档）
-   - 目录结构说明
-   - 文件功能说明
-   - 文档风格指南
-   - 维护和更新说明
-
-6. **.gitignore** - Git忽略文件配置
-   - 依赖目录忽略
-   - 构建输出忽略
-   - 编辑器文件忽略
-   - 临时文件忽略
-
-### Levels目录
-
-包含8个训练级别的详细文档，每个Level文档遵循相同的结构：
-
-#### 文档结构（每个Level）
-```
-# Level X：阶段名称（训练时长）
-
-## 1. 这个阶段我们要达到什么？
-（口语化介绍阶段目标）
-
-## 2. 重点技术讲解
-（口语化技术教学，像教练在说话）
-
-## 3. 身体训练要点
-（简单易懂的训练方法）
-
-## 4. 心理技能培养
-（像教练在谈心）
-
-## 5. 营养与恢复
-（实用的建议）
-
-## 6. 训练计划安排
-（NSCA风格专业表格）
-
-## 7. 评估与进步监测
-（专业评估表格，参照NSCA标准）
-
-## 8. 阶段总结
-（专业总结，保持现有格式）
-```
-
-#### 当前状态
-- ✅ **Level 4-8**：已完成，采用新风格（口语化+NSCA专业排版）
-- 🔄 **Level 0-3**：待完善，需要调整为统一的新风格
-
-### 预留目录
-
-1. **docs/** - 附加文档目录
-   - 计划存放：技术细节文档、科学依据文档、参考文献等
-
-2. **tools/** - 工具和脚本目录
-   - 计划存放：训练计划生成工具、评估工具、数据分析脚本等
-
-3. **resources/** - 资源文件目录
-   - 计划存放：训练视频链接、参考图片、模板文件等
-
-## 文档风格指南
+## 设计原则
 
 ### 语言风格
 - **口语化讲解**：像教练现场教学一样亲切易懂
 - **专业术语**：使用准确的专业术语，但要有解释
-- **文化融合**：适当融入中国传统文化元素
-- **国际化**：参考国际专业标准（NSCA CSCS）
-
-### 排版风格
-- **标题层级**：使用规范的Markdown标题层级
-- **表格格式**：使用NSCA风格的专业表格
-- **列表使用**：适当使用有序和无序列表
-- **代码块**：技术说明时使用代码块格式
-- **引用标注**：专业内容要有引用标注
+- **自适应框架**：不教"做3组×15次"，教公式+自检
+- **双角色视角**：同时面向教练（怎么教）和学员（怎么练）
 
 ### 内容要求
-- **科学性**：内容必须科学准确
-- **实用性**：内容必须对用户有用
-- **系统性**：内容必须系统完整
-- **渐进性**：内容必须循序渐进
-- **评估性**：必须有明确的评估标准
-
-## 维护和更新
-
-### 版本管理
-- 使用Git进行版本控制
-- 主分支：main（稳定版本）
-- 开发分支：develop（开发中的版本）
-- 特性分支：feature/*（新功能开发）
-
-### 更新流程
-1. 在特性分支上进行修改
-2. 提交Pull Request
-3. 代码审查和测试
-4. 合并到develop分支
-5. 测试通过后合并到main分支
-6. 打标签发布版本
-
-### 文档更新
-1. 内容更新：直接在对应文档中修改
-2. 结构调整：更新PROJECT_STRUCTURE.md
-3. 版本更新：更新README.md中的版本信息
-4. 贡献者更新：更新CONTRIBUTORS.md
-
-## 扩展计划
-
-### 短期计划（1-3个月）
-1. 完善Level 0-3文档，统一风格
-2. 创建英文翻译版本
-3. 添加训练视频资源链接
-4. 开发基础训练工具
-
-### 中期计划（3-6个月）
-1. 创建移动端适配版本
-2. 开发交互式训练计划生成器
-3. 添加更多科学依据和参考文献
-4. 建立用户反馈和评价系统
-
-### 长期计划（6-12个月）
-1. 开发完整的在线训练平台
-2. 建立教练认证体系
-3. 开展科学研究合作
-4. 国际化推广和本地化
-
-## 联系方式
-
-- GitHub仓库：https://github.com/your-username/badminton-training-system
-- 问题反馈：通过GitHub Issues提交
-- 贡献参与：通过GitHub Pull Request提交
+- **科学性**：基于 NSCA CSCS 标准
+- **实用性**：可执行、可自检、可评估
+- **系统性**：从零到一的完整闭环
+- **渐进性**：每个模块都有基线→公式→进阶→自诊
 
 ---
-*最后更新：2026-03-28*
+
+*最后更新：2026-06-14 (v2.1)*
