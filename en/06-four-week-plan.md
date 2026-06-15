@@ -340,33 +340,24 @@ The three sections above taught you "how to judge." This section gives you **fil
 #### Template 1: Weekly Plan Overview (One copy for coach, one for trainee)
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│                     Week ____  Training Plan Overview                 │
-│                                                                       │
-│ ● Training frequency this week: ___ (Formula: 3×age coeff×history = _)│
-│ ● Deload week this week? Y / N (Normally every 4-6 weeks)            │
-│ ● Focus module: □Neuromuscular  □Structural Strength  □Neuropsych    │
-│                                                                       │
-├─────┬──────┬────────────┬────────────┬────────────────┬──────────────┤
-│ Day │ Type │ Main Goal  │ Warm-up    │ Main Content   │ Cool-down    │
-│     │A/B/R │            │(age÷10+2)  │ (module items) │(age÷15+5)    │
-├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
-│ Mon │      │            │ ____ min   │                │ ____ min     │
-├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
-│ Tue │      │            │ ____ min   │                │ ____ min     │
-├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
-│ Wed │      │            │ ____ min   │                │ ____ min     │
-├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
-│ Thu │      │            │ ____ min   │                │ ____ min     │
-├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
-│ Fri │      │            │ ____ min   │                │ ____ min     │
-├─────┼──────┼────────────┼────────────┼────────────────┼──────────────┤
-│ Sat │      │            │ ____ min   │                │ ____ min     │
-├─────┴──────┴────────────┴────────────┴────────────────┴──────────────┤
-│ Fill after each session: Recovery ____/10  Energy ____/10            │
-│ End of week: Progress □Improved  □No change  □Regressed             │
-│ Adjustment for next week: ___________________________________        │
-└──────────────────────────────────────────────────────────────────────┘
+> **Week ____ Training Plan Overview**
+>
+> Training frequency this week: ___ (Formula: 3×age coeff×history = _)
+> Deload week this week? Y / N (Normally every 4-6 weeks)
+> Focus module: □Neuromuscular □Structural Strength □Neuropsych
+
+| Day | Type(A/B/R) | Main Goal | Warm-up | Main Content | Cool-down |
+|:---:|:----------:|:----------|:-------:|:------------|:---------:|
+| Mon |  |  | ____ min |  | ____ min |
+| Tue |  |  | ____ min |  | ____ min |
+| Wed |  |  | ____ min |  | ____ min |
+| Thu |  |  | ____ min |  | ____ min |
+| Fri |  |  | ____ min |  | ____ min |
+| Sat |  |  | ____ min |  | ____ min |
+
+> Fill after each session: Recovery ____/10  Energy ____/10
+> End of week: Progress □Improved □No change □Regressed
+> Adjustment for next week: ___________________________________
 ```
 
 **How to fill each field:**
@@ -385,63 +376,50 @@ The three sections above taught you "how to judge." This section gives you **fil
 
 #### Template 2: Single Session Worksheet (Fill before each session)
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  Date: ____________  Type: A / B / R                         │
-│                                                               │
-│  Pre-training checklist:                                     │
-│  □ Q1: Fully recovered / Slightly sore / Very sore / Sharp   │
-│  □ Q2: Energy ____/10 (don't train if <4)                   │
-│  □ Q3: Will this help last week's progress? Y/N              │
-│                                                               │
-│  Warm-up (____ min): □Activation  □Dynamic  □HR prep         │
-│                                                               │
-│  Main training:                                               │
-│  Exercise 1: __________  Sets___  Reps___  RPE____           │
-│  Exercise 2: __________  Sets___  Reps___  RPE____           │
-│  Exercise 3: __________  Sets___  Reps___  RPE____           │
-│                                                               │
-│  Rest between sets: see training goal guidelines = ____ sec    │
-│                                                               │
-│  Cool-down (____ min):                                        │
-│  □Fascia release  □Static stretch  □Breathing regulation     │
-│                                                               │
-│  Post-training assessment:                                    │
-│  Session quality: ____/10                                     │
-│  Estimated recovery time: ____ hours                          │
-│  Notes: _____________________________________________        │
-└─────────────────────────────────────────────────────────────┘
-```
+**Date:** ____________ **Type:** A / B / R
+
+**Pre-training checklist:**
+□ Q1: Fully recovered / Slightly sore / Very sore / Sharp
+□ Q2: Energy ____/10 (don't train if <4)
+□ Q3: Will this help last week's progress? Y/N
+
+**Warm-up (____ min):** □Activation □Dynamic □HR prep
+
+**Main training:** **Rest between sets:** see training goal guidelines = ____ sec
+
+| Exercise | Sets | Reps | RPE |
+|:---------|:----:|:----:|:---:|
+| 1.__________ | ___ | ___ | ___ |
+| 2.__________ | ___ | ___ | ___ |
+| 3.__________ | ___ | ___ | ___ |
+
+**Cool-down (____ min):** □Fascia release □Static stretch □Breathing regulation
+
+**Post-training assessment:**
+Session quality: ____/10
+Estimated recovery time: ____ hours
+Notes: _____________________________________________
 
 ---
 
 #### Filled Example (30-year-old trainee, 6 months training, 3x/week, Week 5 — week before deload)
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│                     Week 5  Training Plan Overview                    │
-│                                                                       │
-│ ● Training frequency this week: 3 (Formula: 3×1.0×1.0 = 3/week)      │
-│ ● Deload week this week? No (deload scheduled for next week)         │
-│ ● Focus module: □Neuromuscular  ☑Structural Strength  □Neuropsych    │
-│                                                                       │
-├─────┬──────┬──────────────┬───────────┬─────────────────┬────────────┤
-│ Day │ Type │ Main Goal    │ Warm-up   │ Main Content    │ Cool-down  │
-├─────┼──────┼──────────────┼───────────┼─────────────────┼────────────┤
-│ Mon │  A   │ Lower body   │ 5 min     │ Split squat     │ 7 min      │
-│     │      │ +Propriocep. │           │ +Glute bridge   │            │
-│     │      │              │           │ +Dead bug       │            │
-├─────┼──────┼──────────────┼───────────┼─────────────────┼────────────┤
-│ Wed │  R   │ Active recov │ 5 min     │ Foam rolling    │ 7 min      │
-│     │      │              │           │ +Joint mobility │            │
-├─────┼──────┼──────────────┼───────────┼─────────────────┼────────────┤
-│ Fri │  A   │ Upper body   │ 5 min     │ Shoulder rehab  │ 7 min      │
-│     │      │ +Core stabil │           │ +Plank var.     │            │
-├─────┴──────┴──────────────┴───────────┴─────────────────┴────────────┤
-│ Recovery: Mon____ Wed____ Fri____  Energy: Mon____ Wed____ Fri____   │
-│ Progress: □Improved  ☑No change  □Regressed                         │
-│ Note: Energy dropped on Friday. May need an extra R day next week    │
-└──────────────────────────────────────────────────────────────────────┘
+> **Week 5 Training Plan Overview**
+>
+> Training frequency this week: 3 (Formula: 3×1.0×1.0 = 3/week)
+> Deload week this week? No (deload scheduled for next week)
+> Focus module: □Neuromuscular ☑Structural Strength □Neuropsych
+
+| Day | Type | Main Goal | Warm-up | Main Content | Cool-down |
+|:---:|:----:|:----------|:-------:|:------------|:---------:|
+| Mon | A | Lower body+Propriocep. | 5 min | Split squat+Glute bridge+Dead bug | 7 min |
+| Wed | R | Active recovery | 5 min | Foam rolling+Joint mobility | 7 min |
+| Fri | A | Upper body+Core stabil. | 5 min | Shoulder rehab+Plank var. | 7 min |
+
+> Recovery: Mon____ Wed____ Fri____  Energy: Mon____ Wed____ Fri____
+> Progress: □Improved ☑No change □Regressed
+> Note: Energy dropped on Friday. May need an extra R day next week
 ```
 
 ---
@@ -631,14 +609,12 @@ Advanced/Pro    15%        20%      25%      15%       10%       15%
 #### Annual Cycle (for players with a defined season)
 
 ```
-         ┌──────────────────────────────────────────────────────────────┐
-         │  Off-Season  │  Pre-Season  │  In-Season    │  Transition   │
-         │  (4-8 wks)   │  (6-10 wks)  │  (16-24 wks)  │  (2-4 wks)    │
-         └──────────────────────────────────────────────────────────────┘
-Focus   : Hypertrophy→Str  Strength→Power  Maintenance+Neural  Active Recovery
-Court   : Technique fix   Tactical build  Match rhythm        Rest/Light
-Intensity: Med-High        High            Med-Very High       Low
-Volume  : High             Medium          Low-Medium          Low
+| Phase | Duration | Focus | Court Training | Intensity | Volume |
+|:------|:--------:|:------|:--------------|:---------:|:-----:|
+| Off-Season | 4-8 wks | Hypertrophy→Strength | Technique fix | Med-High | High |
+| Pre-Season | 6-10 wks | Strength→Power | Tactical build | High | Medium |
+| In-Season | 16-24 wks | Maintenance+Neural | Match rhythm | Med-Very High | Low-Medium |
+| Transition | 2-4 wks | Active Recovery | Rest/Light | Low | Low |
 ```
 
 **Off-Season — Reserve Phase**
@@ -882,25 +858,20 @@ Principles: Neural system first → power first → compound first
 ### 7.7 Quick Parameter Reference Card
 
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│                   Training Parameter Quick Reference             │
-│                                                                  │
-│  Goal         | Load(%1RM) | Reps  | Sets | Rest     | Tempo    │
-│  -------------|-----------|-------|------|----------|--------- │
-│  Hypertrophy  | 60-75%    | 8-12  | 3-5  | 60-90s   | Control  │
-│  Max Strength | 80-90%    | 1-5   | 3-5  | 2-5min   | Expl Conc│
-│  Power        | 30-60%    | 3-6   | 3-5  | 2-3min   | Max Speed│
-│  Endurance    | 40-60%    | 15-25 | 2-3  | 30-60s   | Moderate │
-│  Core stab    | BW        | 8-15  | 2-3  | 45-60s   | Slow Ctrl│
-|  Neural/agility| BW       | Low   | 3-5  | Full     | Max Speed|
-│                                                                  │
-│  Annual cycle:                                                   │
-│  Off-season → hypertrophy+strength → Pre-season → strength+power│
-│  → In-season → maintenance → Transition → active recovery        │
-│                                                                  │
-│  Session order:                                                  │
-│  Neural activation → Power → Main strength → Accessory → Recovery│
-└──────────────────────────────────────────────────────────────────┘
+- Training Parameter Quick Reference
+- Goal         | Load(%1RM) | Reps  | Sets | Rest     | Tempo
+- -------------|-----------|-------|------|----------|---------
+- Hypertrophy  | 60-75%    | 8-12  | 3-5  | 60-90s   | Control
+- Max Strength | 80-90%    | 1-5   | 3-5  | 2-5min   | Expl Conc
+- Power        | 30-60%    | 3-6   | 3-5  | 2-3min   | Max Speed
+- Endurance    | 40-60%    | 15-25 | 2-3  | 30-60s   | Moderate
+- Core stab    | BW        | 8-15  | 2-3  | 45-60s   | Slow Ctrl
+- |  Neural/agility| BW       | Low   | 3-5  | Full     | Max Speed|
+- Annual cycle:
+- Off-season → hypertrophy+strength → Pre-season → strength+power
+- → In-season → maintenance → Transition → active recovery
+- Session order:
+- Neural activation → Power → Main strength → Accessory → Recovery
 ```
 
 ---

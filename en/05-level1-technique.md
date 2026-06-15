@@ -76,16 +76,12 @@ If any link "breaks" (doesn't participate or participates in wrong order):
 If your clear is bad, the cause is one of only three possibilities.
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  These three types cover 95% of all forehand clear problems  │
-│                                                              │
-│  Type A: Slow shuttle (the shuttle floats, no power)         │
-│  Type B: Low trajectory (flat, net-clipping, or dropping)    │
-│  Type C: Wrong direction (left/right unpredictable)          │
-│                                                              │
-│  Most people are "A+B" mixed — slow AND flat.                │
-│  A few are "C" — speed is OK but direction is uncontrolled.  │
-└──────────────────────────────────────────────────────────────┘
+- These three types cover 95% of all forehand clear problems
+- Type A: Slow shuttle (the shuttle floats, no power)
+- Type B: Low trajectory (flat, net-clipping, or dropping)
+- Type C: Wrong direction (left/right unpredictable)
+- Most people are "A+B" mixed — slow AND flat.
+- A few are "C" — speed is OK but direction is uncontrolled.
 ```
 
 **Self-test: Hit 5 clears to a partner. Ask them three questions:**

@@ -127,19 +127,14 @@ How:
 ## 3.1 A Single Training Session
 
 ```
-┌──────────────┐
-│ Warm-up 15min│  ← Never skip. See [22-warmup-cooldown](22-warmup-cooldown.md)
-├──────────────┤
-│ Technique    │  ← See "Technique Workflow" below
-│ (30-50 min)  │
-├──────────────┤
-│ Conditioning │  ← Choose based on your goal
-│ or Match     │
-│ (15-30 min)  │
-├──────────────┤
-│ Cool-down    │  ← Never skip. See [22-warmup-cooldown](22-warmup-cooldown.md)
-│ 10 min       │
-└──────────────┘
+- Warm-up 15min│  ← Never skip. See [22-warmup-cooldown](22-warmup-cooldown.md)
+- Technique    │  ← See "Technique Workflow" below
+- (30-50 min)
+- Conditioning │  ← Choose based on your goal
+- or Match
+- (15-30 min)
+- Cool-down    │  ← Never skip. See [22-warmup-cooldown](22-warmup-cooldown.md)
+- 10 min
 ```
 
 ## 3.2 Technique Learning Workflow

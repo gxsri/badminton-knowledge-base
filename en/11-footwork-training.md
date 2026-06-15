@@ -67,24 +67,20 @@ If any one phase breaks down → the entire cycle slows down.
 Steps from your current position to the hitting position tell you directly
 how proactive you are on that shot:
 
-┌─────────────────────────────────────────────────────────────┐
-│  1 step    =  Proactive                                     │
-│              You're already near the ball's landing point.   │
-│              Means your anticipation was correct, or your    │
-│              previous recovery was spot-on.                  │
-│                                                              │
-│  2-3 steps =  Normal                                        │
-│              Standard for most situations. From center to    │
-│              any court position, 2-3 steps is the norm.      │
-│              This is the standard you should aim for.        │
-│                                                              │
-│  >3 steps  =  Passive                                       │
-│              You're too far from the ball.                   │
-│              Cause: slow initiation / wrong route / poor      │
-│              recovery from last shot.                        │
-│              Consecutive >3-step shots → you'll likely       │
-│              lose this rally.                                │
-└─────────────────────────────────────────────────────────────┘
+- 1 step    =  Proactive
+- You're already near the ball's landing point.
+- Means your anticipation was correct, or your
+- previous recovery was spot-on.
+- 2-3 steps =  Normal
+- Standard for most situations. From center to
+- any court position, 2-3 steps is the norm.
+- This is the standard you should aim for.
+- >3 steps  =  Passive
+- You're too far from the ball.
+- Cause: slow initiation / wrong route / poor
+- recovery from last shot.
+- Consecutive >3-step shots → you'll likely
+- lose this rally.
 
 Self-check: Play one game and count your step distribution:
   ☐ 1-step shots: ____%  →  Higher = better anticipation
@@ -161,32 +157,28 @@ and "preparing the muscles," NOT for "pre-moving the body."
 **The correct split-step sequence:**
 
 ```
-┌───────────────────────────────────────────────────────────────┐
-│  Step 1: Ready position (before opponent hits)                │
-│    Feet shoulder-width or slightly wider, balls of feet        │
-│    Knees slightly bent, weight over mid-foot                   │
-│    Body slightly forward, hands naturally extended             │
-│    Weight stays NEUTRAL — your brain anticipates,              │
-│    your body does NOT move.                                     │
-│                                                                 │
-│  Step 2: Split hop (during opponent's backswing)               │
-│    A light split hop (jump 2-3 cm off the ground)              │
-│    Purpose: break the stationary state, pre-activate foot      │
-│    muscles                                                     │
-│    Land on the balls of your feet, knees bend to absorb         │
-│    At the lowest point of the landing — this is your           │
-│    power-start position                                        │
-│    KEY: When you land from the split hop, your weight is       │
-│    still NEUTRAL — no shift to any direction                    │
-│                                                                 │
-│  Step 3: Confirm direction + go (after opponent hits)          │
-│    See the racket contact the shuttle → eyes confirm the       │
-│    shuttle's direction → weight and first step go               │
-│    simultaneously                                              │
-│    The first step is "sending your weight" — not a big step,   │
-│    it's sending your center of gravity in that direction        │
-│    Weight goes first, feet follow                               │
-└───────────────────────────────────────────────────────────────┘
+- Step 1: Ready position (before opponent hits)
+- Feet shoulder-width or slightly wider, balls of feet
+- Knees slightly bent, weight over mid-foot
+- Body slightly forward, hands naturally extended
+- Weight stays NEUTRAL — your brain anticipates,
+- your body does NOT move.
+- Step 2: Split hop (during opponent's backswing)
+- A light split hop (jump 2-3 cm off the ground)
+- Purpose: break the stationary state, pre-activate foot
+- muscles
+- Land on the balls of your feet, knees bend to absorb
+- At the lowest point of the landing — this is your
+- power-start position
+- KEY: When you land from the split hop, your weight is
+- still NEUTRAL — no shift to any direction
+- Step 3: Confirm direction + go (after opponent hits)
+- See the racket contact the shuttle → eyes confirm the
+- shuttle's direction → weight and first step go
+- simultaneously
+- The first step is "sending your weight" — not a big step,
+- it's sending your center of gravity in that direction
+- Weight goes first, feet follow
 ```
 
 ### 3.2 Re-Initiation — Why You Must Not Pre-Shift
@@ -446,39 +438,34 @@ Formula-based decisions:
 "Fast recovery, controlled landing" (快回慢踩) is the most overlooked
 technique in the recovery phase.
 
-┌───────────────────────────────────────────────────────────────────┐
-│  FAST RECOVERY (快回)                                               │
-│  ─────────────────────────                                           │
-│  The moment your swing finishes, your feet should already be         │
-│  moving back toward center.                                          │
-│  Not "finish the shot, watch where it goes, then recover" —          │
-│  by the time you watch, it's too late.                               │
-│                                                                      │
-│  Key points for fast recovery:                                       │
-│  - While hitting, your back foot (non-hitting foot) is already        │
-│    preparing to take the first recovery step                         │
-│  - As the racket completes its follow-through, your back foot        │
-│    has already stepped toward center                                 │
-│  - Don't wait until the ball lands to start recovering               │
-│  - The better your shot quality → the FASTER you must recover        │
-│    (because your opponent is also fighting to get there)             │
-│                                                                      │
-│  CONTROLLED LANDING (慢踩)                                           │
-│  ──────────────────────────                                           │
-│  On the final step of recovery, land with CONTROL instead of         │
-│  charging back. "Controlled" doesn't mean slow — it means stable.   │
-│                                                                      │
-│  Key points for controlled landing:                                  │
-│  - The last step of recovery should land on the ball of your foot    │
-│    (not slamming down with the whole foot)                           │
-│  - When landing, bend your knees slightly to absorb impact           │
-│  - Your weight should not extend past your toes                      │
-│  - The core purpose of this step is not "to get back to position" —  │
-│    it's "to get back to position AND be ready for the next shot"     │
-│  - If the last step of recovery is a lunge (can't stop) → you're     │
-│    recovering too fast, or your center of gravity was too far        │
-│    forward when hitting                                              │
-└───────────────────────────────────────────────────────────────────┘
+- FAST RECOVERY (快回)
+- ─────────────────────────
+- The moment your swing finishes, your feet should already be
+- moving back toward center.
+- Not "finish the shot, watch where it goes, then recover" —
+- by the time you watch, it's too late.
+- Key points for fast recovery:
+- - While hitting, your back foot (non-hitting foot) is already
+- preparing to take the first recovery step
+- - As the racket completes its follow-through, your back foot
+- has already stepped toward center
+- - Don't wait until the ball lands to start recovering
+- - The better your shot quality → the FASTER you must recover
+- (because your opponent is also fighting to get there)
+- CONTROLLED LANDING (慢踩)
+- ──────────────────────────
+- On the final step of recovery, land with CONTROL instead of
+- charging back. "Controlled" doesn't mean slow — it means stable.
+- Key points for controlled landing:
+- - The last step of recovery should land on the ball of your foot
+- (not slamming down with the whole foot)
+- - When landing, bend your knees slightly to absorb impact
+- - Your weight should not extend past your toes
+- - The core purpose of this step is not "to get back to position" —
+- it's "to get back to position AND be ready for the next shot"
+- - If the last step of recovery is a lunge (can't stop) → you're
+- recovering too fast, or your center of gravity was too far
+- forward when hitting
 ```
 
 **The relationship between fast recovery and controlled landing:**
@@ -606,24 +593,18 @@ not to teach names of movements.
 **Step Count Quick Reference Card (printable):**
 
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│     Step Count = Proactivity Level                               │
-│                                                                   │
-│     1 step = Proactive (you anticipated correctly)                │
-│     2-3 steps = Normal (standard coverage)                        │
-│     >3 steps = Passive (initiation or route issue)                │
-│                                                                   │
-│     Complete rhythm:                                               │
-│     Initiation → Route → Hitting → Recovery                       │
-│                                                                   │
-│     Initiation mantra:                                            │
-│     "Split-hop landing = neutral weight. Confirm direction first"  │
-│     "Better one step late than one re-initiation"                  │
-│                                                                   │
-│     Recovery mantra:                                               │
-│     "Recover fast the moment you hit,                             │
-│      land controlled on your final step"                          │
-└──────────────────────────────────────────────────────────────────┘
+- Step Count = Proactivity Level
+- 1 step = Proactive (you anticipated correctly)
+- 2-3 steps = Normal (standard coverage)
+- >3 steps = Passive (initiation or route issue)
+- Complete rhythm:
+- Initiation → Route → Hitting → Recovery
+- Initiation mantra:
+- "Split-hop landing = neutral weight. Confirm direction first"
+- "Better one step late than one re-initiation"
+- Recovery mantra:
+- "Recover fast the moment you hit,
+- land controlled on your final step"
 ```
 
 ---

@@ -12,30 +12,30 @@
 
 ```
 球打不远 ──┬─ 发力顺序错了（脚→髋→腰→肩→手的顺序断了一环）
-            │   → [15-技术全解析](../zh/15-technical-training.md) 第2章
+   → [15-技术全解析](../zh/15-technical-training.md) 第2章
             ├─ 击球点太后/太低
-            │   → [05-高远球](../zh/05-level1-technique.md) 第4章
+   → [05-高远球](../zh/05-level1-technique.md) 第4章
             ├─ 握拍太紧（击球前就握死了）
-            │   → [15-技术全解析](../zh/15-technical-training.md) 第1章
+   → [15-技术全解析](../zh/15-technical-training.md) 第1章
             └─ 步伐不到位导致没有时间做完整动作
                 → [11-步伐训练](../zh/11-footwork-training.md) 第3-4章
 
 球太平（容易出界或下网） ──┬─ 击球点太后（球到了头顶后方才打）
-                          │   → [05-高远球](../zh/05-level1-technique.md) 第4章
+   → [05-高远球](../zh/05-level1-technique.md) 第4章
                           ├─ 拍面朝下关闭角度太大
                           └─ 引拍太晚
 
 球太高（飞到半场就被拦截） ──┬─ 击球点太前
-                          │   → [05-高远球](../zh/05-level1-technique.md) 第4章
+   → [05-高远球](../zh/05-level1-technique.md) 第4章
                           └─ 拍面太朝上（后仰过度）
 
 杀球下网 ──┬─ 击球点太低
-          │   → [15-技术全解析](../zh/15-technical-training.md) 第3章
+   → [15-技术全解析](../zh/15-technical-training.md) 第3章
           ├─ 拍面太朝下
           └─ 手腕没有内旋（直臂下压）
 
 杀球没力 ──┬─ 只用手臂发力（没有用到全身）
-          │   → [15-技术全解析](../zh/15-technical-training.md) 第2章
+   → [15-技术全解析](../zh/15-technical-training.md) 第2章
           ├─ 击球点不够高
           └─ 力量基础不足 → [09-力量体能](../zh/09-strength-conditioning.md) 第3章
 ```
@@ -44,10 +44,10 @@
 
 ```
 反手打不远 ──┬─ 肘没有先走（手先出去了）
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第2章
+   → [15-技术全解析](../zh/15-technical-training.md) 第2章
              ├─ 前臂没有外旋（没有旋转发力）
              ├─ 拇指位置不对（贴在宽面上了）
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第1章
+   → [15-技术全解析](../zh/15-technical-training.md) 第1章
              └─ 步法不到位（反手位需要用更多的脚步去抢位置）
                  → [11-步伐训练](../zh/11-footwork-training.md) 第4章
 ```
@@ -56,16 +56,16 @@
 
 ```
 放网弹太高 ──┬─ 拍面太朝上
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第4章
+   → [15-技术全解析](../zh/15-technical-training.md) 第4章
              ├─ 手腕紧张（有主动发力意图）
              └─ 触球点太高（应该在网带以下10cm以内触球）
 
 放网弹太远 ──┬─ 手腕紧张有发力
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第4章
+   → [15-技术全解析](../zh/15-technical-training.md) 第4章
              └─ 握拍太紧（应该用网前握拍，手指轻捏）
 
 挑球不到位 ──┬─ 用了手腕发力（应该用前臂）
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第4章
+   → [15-技术全解析](../zh/15-technical-training.md) 第4章
              └─ 拍面角度不对
 ```
 
@@ -75,42 +75,42 @@
 
 ```
 打完手臂酸 ──┬─ 发力顺序错了（手臂代偿了原本应该由腿/髋提供的力）
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第2章
+   → [15-技术全解析](../zh/15-technical-training.md) 第2章
              ├─ 握拍太紧（全程用力握拍）
-             │   → [15-技术全解析](../zh/15-technical-training.md) 第1章
+   → [15-技术全解析](../zh/15-technical-training.md) 第1章
              └─ 力量不足 → [09-力量体能](../zh/09-strength-conditioning.md) 第3-4章
 
 打完膝盖痛 ──┬─ 膝盖内扣（落地/弓步时膝盖超过脚尖且内扣）
-             │   → [09-力量体能](../zh/09-strength-conditioning.md) 第4章
+   → [09-力量体能](../zh/09-strength-conditioning.md) 第4章
              ├─ 股四头肌/臀肌力量不足
-             │   → [09-力量体能](../zh/09-strength-conditioning.md) 第4章
+   → [09-力量体能](../zh/09-strength-conditioning.md) 第4章
              ├─ 热身不够 → [22-热身与整理](../zh/22-warmup-cooldown.md)
              ├─ 已经有软骨/韧带损伤 → [17-运动解剖与康复](../zh/17-sports-anatomy-rehab.md)
              └─ (女性)激素周期中韧带松弛期 → [21-女性训练专项](../zh/21-women-training.md) 第3章
 
 打完腰酸/痛 ──┬─ 核心力量不足（靠腰椎代偿了核心的稳定功能）
-             │   → [09-力量体能](../zh/09-strength-conditioning.md) 第3-4章
+   → [09-力量体能](../zh/09-strength-conditioning.md) 第3-4章
              ├─ 髋屈肌过紧（骨盆前倾）
-             │   → [22-热身与整理](../zh/22-warmup-cooldown.md) 第2章
+   → [22-热身与整理](../zh/22-warmup-cooldown.md) 第2章
              └─ 击球时过度后仰（用腰去够球）
                  → [15-技术全解析](../zh/15-technical-training.md) 第3章
 
 打完肩痛 ──┬─ 肩袖力量不足
-           │   → [09-力量体能](../zh/09-strength-conditioning.md) 第3章
+   → [09-力量体能](../zh/09-strength-conditioning.md) 第3章
            ├─ 击球时肘关节低于肩膀（肩峰撞击风险）
-           │   → [15-技术全解析](../zh/15-technical-training.md) 第3章
+   → [15-技术全解析](../zh/15-technical-training.md) 第3章
            └─ 胸肌过紧/圆肩 → [22-热身与整理](../zh/22-warmup-cooldown.md) 第2章
 
 打完脚踝痛 ──┬─ 球鞋包裹性不够/鞋底磨平了
-             │   → [20-装备选择指南](../zh/20-equipment-guide.md) 第4章
+   → [20-装备选择指南](../zh/20-equipment-guide.md) 第4章
              ├─ 落地时脚踝不稳定（踝关节周围小肌群力量不足）
-             │   → [09-力量体能](../zh/09-strength-conditioning.md) 第4章
+   → [09-力量体能](../zh/09-strength-conditioning.md) 第4章
              └─ 已经有旧伤没有完全恢复 → [17-运动解剖与康复](../zh/17-sports-anatomy-rehab.md)
 
 第3局跑不动 ──┬─ 有氧基础不够
-             │   → [09-力量体能](../zh/09-strength-conditioning.md) 第5章
+   → [09-力量体能](../zh/09-strength-conditioning.md) 第5章
              ├─ 前两局节奏太快（体能分配不合理）
-             │   → [14-比赛策略](../zh/14-match-strategy.md) 第1章
+   → [14-比赛策略](../zh/14-match-strategy.md) 第1章
              └─ 营养补充不足/赛前碳水没吃够
                  → [08-营养恢复](../zh/08-nutrition-recovery.md) 第5章
 ```
@@ -121,34 +121,34 @@
 
 ```
 一打比赛就紧张 ──┬─ 激活水平过高（心率太快、手抖）
-                 │   → [07-心理训练](../zh/07-psychological-training.md) 第6章
+   → [07-心理训练](../zh/07-psychological-training.md) 第6章
                  ├─ 技术自动化程度不够（技术还需要想，比赛时没余量思考）
-                 │   → [15-技术全解析](../zh/15-technical-training.md) 第5章
+   → [15-技术全解析](../zh/15-technical-training.md) 第5章
                  └─ 缺乏赛前流程 → [07-心理训练](../zh/07-psychological-training.md) 第6章
 
 失误后连锁失误 ──┬─ 没有"打断按钮"（失误后的情绪没有阻断机制）
-                 │   → [07-心理训练](../zh/07-psychological-training.md) 第4章
+   → [07-心理训练](../zh/07-psychological-training.md) 第4章
                  └─ 注意力被上一分占用了
                      → [07-心理训练](../zh/07-psychological-training.md) 第2章
 
 关键分掉链子 ──┬─ 关键分时改变了打法（突然保守了）
-               │   → [07-心理训练](../zh/07-psychological-training.md) 第5章
+   → [07-心理训练](../zh/07-psychological-training.md) 第5章
                ├─ 体力下降导致技术变形
-               │   → [14-比赛策略](../zh/14-match-strategy.md) 第1章
+   → [14-比赛策略](../zh/14-match-strategy.md) 第1章
                └─ 没有关键分的战术预案
                    → [14-比赛策略](../zh/14-match-strategy.md) 第4章
 
 总是被假动作骗 ──┬─ 判断得太早（对手引拍就动了）
-                │   → [16-阅读比赛](../zh/16-match-reading.md) 第3章
+   → [16-阅读比赛](../zh/16-match-reading.md) 第3章
                 ├─ 重心提前偏移（预判了但身体跟着预判动了）
-                │   → [11-步伐训练](../zh/11-footwork-training.md) 第3章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第3章
                 └─ 只看了球没看人
                     → [16-阅读比赛](../zh/16-match-reading.md) 第2章
 
 领先被翻盘 ──┬─ 领先时松懈了（心理上觉得"稳了"）
-             │   → [07-心理训练](../zh/07-psychological-training.md) 第6章
+   → [07-心理训练](../zh/07-psychological-training.md) 第6章
              ├─ 节奏被打断了（暂停/局间休息后失去了节奏）
-             │   → [14-比赛策略](../zh/14-match-strategy.md) 第3章
+   → [14-比赛策略](../zh/14-match-strategy.md) 第3章
              └─ 战术被对手看穿了但没有调整
                  → [14-比赛策略](../zh/14-match-strategy.md) 第4章
 ```
@@ -159,23 +159,23 @@
 
 ```
 启动慢 ──┬─ 对手击球前重心已经偏移了（不是中立位）
-         │   → [11-步伐训练](../zh/11-footwork-training.md) 第3章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第3章
          ├─ 准备姿势太高（膝盖太直，需要先下蹲再启动，多了一步）
-         │   → [11-步伐训练](../zh/11-footwork-training.md) 第3章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第3章
          └─ 反应慢（看球出来了才判断方向）
              → [16-阅读比赛](../zh/16-match-reading.md) 第2章
 
 到位置了来不及打 ──┬─ 跑动中没有提前架拍
-                  │   → [11-步伐训练](../zh/11-footwork-training.md) 第5章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第5章
                   ├─ 最后一步跨幅不够大（到了但距离球还有距离）
-                  │   → [11-步伐训练](../zh/11-footwork-training.md) 第5章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第5章
                   └─ 路线不是直线（走了弧线，多跑了步数）
                       → [11-步伐训练](../zh/11-footwork-training.md) 第4章
 
 打完回不去 ──┬─ 击球后站在原地看自己的球
-             │   → [11-步伐训练](../zh/11-footwork-training.md) 第6章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第6章
              ├─ 击球时重心太靠前（往前冲了）
-             │   → [11-步伐训练](../zh/11-footwork-training.md) 第6章
+   → [11-步伐训练](../zh/11-footwork-training.md) 第6章
              └─ 回位时最后一步没控制（冲过头了）
                  → [11-步伐训练](../zh/11-footwork-training.md) 第6章
 ```

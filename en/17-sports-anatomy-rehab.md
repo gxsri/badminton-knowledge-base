@@ -1525,13 +1525,13 @@ When you feel discomfort somewhere, follow this process:
 Pain felt ↓
 Ask: How did the pain start?
   ├─ Sudden violent movement → acute injury (ligament/tendon/muscle tear)
-  │   └─ Can you walk/move? → Yes → find corresponding test → No → see doctor
-  │
+   └─ Can you walk/move? → Yes → find corresponding test → No → see doctor
+
   ├─ Gradual onset → chronic overuse (tendinitis/trigger points/muscle imbalance)
-  │   └─ Do the corresponding test
-  │       Positive → follow rehab protocol
-  │       Negative → check trigger points (see Chapter 4)
-  │
+   └─ Do the corresponding test
+       Positive → follow rehab protocol
+       Negative → check trigger points (see Chapter 4)
+
   └─ Can't determine how → trigger point or compensatory tension
       └─ Check trigger point maps (Figures 12-13)
           Press the indicated area → does it reproduce your pain?
