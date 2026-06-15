@@ -6,6 +6,11 @@
 
 ---
 
+> **📎 Related docs**:
+> - Match reading → [16-match-reading](16-match-reading.md)
+> - Shot patterns → [12-shot-patterns](12-shot-patterns.md)
+> - Psychology → [07-psychological-training](07-psychological-training.md)
+
 ## Chapter 1: Energy/Stamina Distribution — Not "Saving Energy", It's "Calculating Energy"
 
 ### 1.1 Match Energy Budget

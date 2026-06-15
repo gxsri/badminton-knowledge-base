@@ -6,6 +6,11 @@
 
 ---
 
+> **📎 Related docs**:
+> - Core concepts → [01-core-content](01-core-content.md)
+> - Training log → [10-training-log](10-training-log.md)
+> - Warm-up → [22-warmup-cooldown](22-warmup-cooldown.md)
+
 ## Chapter 1: The Training Plan is Not a Timetable
 
 ### 1.1 Weekly Training Frequency Decision Formula

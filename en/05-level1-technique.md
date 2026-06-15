@@ -6,6 +6,11 @@
 
 ---
 
+> **📎 Related docs**:
+> - Technical analysis → [15-technical-training](15-technical-training.md)
+> - Footwork → [11-footwork-training](11-footwork-training.md)
+> - Strength training → [09-strength-conditioning](09-strength-conditioning.md)
+
 ## Chapter 1: The Physics of the Clear — Three Conditions, All Required
 
 ### 1.1 A good clear needs three things simultaneously

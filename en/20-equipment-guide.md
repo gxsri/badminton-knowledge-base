@@ -1,0 +1,152 @@
+# Badminton Equipment Guide
+
+> **For**: Players of all levels  
+> **Core idea**: The right equipment isn't the most expensive — it's what fits you  
+> **Reference**: Xiaohongshu blogger "Badminton vav⚡" (Shenzhen coach, ID: 465516365)
+
+---
+
+## Chapter 1: The Three Biggest Buying Mistakes
+
+```
+Mistake ①: Beginners buy flagship rackets
+  "Buy once, cry once" — wrong.
+  A 3U head-heavy stiff-shaft racket is unusable for beginners.
+  Result: bad form → injury → "this racket sucks"
+
+Mistake ②: Buying shoes by looks, not fit
+  Badminton shoes come in narrow/standard/wide lasts.
+  Wrong last → foot slides inside → blisters → ankle sprain.
+
+Mistake ③: Buying what the pros use
+  Lin Dan uses a specific racket — it's built for Lin Dan, not for you.
+```
+
+## Chapter 2: Racket Selection by Budget (2025-2026 China Market)
+
+### Under 500 RMB (Entry)
+
+| Model | Price | Spec | Best for |
+|:------|:-----:|:-----|:---------|
+| Li-Ning HC1100 | 300-400 | 4U, even | Beginners |
+| Victor TK66 | 350-450 | 5U, head-light | Women/light users |
+| Yonex NR-D8 | 400-500 | 5U, head-light | Women |
+
+### 500-900 RMB (Mid-range — best value)
+
+| Model | Price | Spec | Best for |
+|:------|:-----:|:-----|:---------|
+| Victor Speed LYC | 700-900 | 4U, even | All-round intermediate |
+| Li-Ning Windstorm 500 | 700-900 | 4U, even | All-round |
+| Yonex Astrox 77 | 800-900 | 4U, even | Stable control |
+
+### 900-1500 RMB (High-mid)
+
+| Model | Price | Spec | Best for |
+|:------|:-----:|:-----|:---------|
+| Yonex Astrox 88S/D PRO | 1200-1500 | 4U | Doubles |
+| Li-Ning Thunder 80 | 1200-1500 | 4U, head-heavy | Control attack |
+| Victor Black Gold Falcon | 1100-1400 | 4U | All-round |
+
+### 1500+ RMB (Flagship)
+
+| Model | Price | Spec |
+|:------|:-----:|:-----|
+| Yonex Astrox 99 PRO | 1600-1900 | 4U, head-heavy, stiff |
+| Yonex Nanflare 800/1000Z | 1600-2000 | 4U-5U, head-light |
+| Li-Ning Thunder 100 | 1500-1800 | 4U, head-heavy |
+
+## Chapter 3: Strings & Tension
+
+### String Selection
+
+```
+Thin (0.65mm) — best feel, least durable
+  Yonex BG-66 Ultimax: 35-45 RMB
+  Best for: touch players
+
+Standard (0.67mm) — best balance
+  Yonex BG-80: 30-40 RMB
+  Best for: most players
+
+Thick (0.70mm) — most durable
+  Yonex BG-65: 25-30 RMB
+  Best for: frequent players
+```
+
+### Tension Progression
+
+```
+First stringing: 22-24 lbs (elastic feel, easy power)
+After 6 months: 24-25 lbs (better control)
+After 1 year: 25-26 lbs (precision)
+After 3 years: 26-28 lbs (stiff, requires clean hitting)
+```
+
+### How to Talk to Your Stringer
+
+```
+❌ Bad: "String it at 25 lbs, BG-80."
+✓ Good: "I've been playing about a year, 4U racket, 
+   I'm using BG-80 at 25 lbs. I feel like I can't get 
+   the shuttle deep enough. Should I lower tension?"
+
+The stringer needs your FEEDBACK, not your command.
+```
+
+## Chapter 4: Shoes — Don't Skimp Here
+
+### Fit by Foot Type
+
+```
+Narrow feet: Yonex (most models run narrow)
+  Yonex 65Z3, 88 Dial
+
+Normal feet: Li-Ning, Victor (standard fit)
+  Li-Ning Flight, Victor P9200
+
+Wide feet: Look for "wide" versions
+  Li-Ning Chamaleon, Victor P9200 Wide
+```
+
+### Shoe Lifespan
+
+```
+3x/week: 6-8 months
+2x/week: 8-12 months
+1x/week: 12-18 months
+
+Replace when:
+☐ Sole tread worn smooth (check front inside edge)
+☐ Cushioning feels dead
+☐ Ankle support feels loose
+```
+
+## Chapter 5: Grips & Accessories
+
+```
+Thin PU (0.5-0.6mm): best feel, for light sweaters
+  Yonex AC102EX: 15-25 RMB (3-pack)
+  
+Standard PU (0.7-0.8mm): balanced
+  Li-Ning GP1000: 10-15 RMB (3-pack)
+
+Replace grip: weekly (heavy sweat) / bi-weekly (light sweat)
+```
+
+## Chapter 6: Counterfeit Alert
+
+```
+High-risk fakes in China (2025-2026):
+① Yonex high-end rackets (Astrox 99, Nanflare 800)
+② Yonex BG series strings
+③ Yonex AC series grips
+
+Buy only from authorized dealers.
+If the price is >20% below market — it's fake.
+```
+
+---
+
+*Version: v1.0 (EN)*
+*See zh/20-equipment-guide.md for the full Chinese version*

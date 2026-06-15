@@ -7,6 +7,11 @@
 
 ---
 
+> **📎 Related docs**:
+> - Training plans → [06-四周计划](06-four-week-plan.md)
+> - Strength & conditioning → [09-力量体能](09-strength-conditioning.md)
+> - Training logs → [10-训练日志](10-training-log.md)
+
 ## 1. Training Philosophy
 
 | Principle | Description | Training Application |

@@ -5,6 +5,11 @@
 
 ---
 
+> **📎 Related docs**:
+> - Technical training → [15-technical-training](15-technical-training.md)
+> - Match reading → [16-match-reading](16-match-reading.md)
+> - Match strategy → [14-match-strategy](14-match-strategy.md)
+
 ## Chapter 1: Psychological Training Is Not "Be Strong"
 
 ### 1.1 The Four Trainable Dimensions of Psychology

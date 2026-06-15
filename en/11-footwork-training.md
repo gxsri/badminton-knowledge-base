@@ -6,6 +6,12 @@
 
 ---
 
+> **📎 Related docs**:
+> - Leg strength → [09-strength-conditioning](09-strength-conditioning.md)
+> - Technique → [15-technical-training](15-technical-training.md)
+> - Match reading → [16-match-reading](16-match-reading.md)
+> - Elite analysis → [18-elite-player-analysis](18-elite-player-analysis.md)
+
 ## Chapter 1: Footwork Is Not "Practicing Movements," It's "Saving Steps"
 
 ### 1.1 Footwork Efficiency Metrics

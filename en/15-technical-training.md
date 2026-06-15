@@ -5,6 +5,12 @@
 
 ---
 
+> **📎 Related docs**:
+> - Forehand clear → [05-level1-technique](05-level1-technique.md)
+> - Footwork → [11-footwork-training](11-footwork-training.md)
+> - Strength → [09-strength-conditioning](09-strength-conditioning.md)
+> - Elite methods → [18-elite-player-analysis](18-elite-player-analysis.md)
+
 ## Chapter 1: The Grip — The Starting Point of All Techniques
 
 If your grip is wrong, every subsequent technique will require compensation. This is not a matter of "personal habit."

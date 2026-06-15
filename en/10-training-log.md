@@ -5,6 +5,11 @@
 
 ---
 
+> **📎 Related docs**:
+> - Training plan → [06-four-week-plan](06-four-week-plan.md)
+> - Core evaluation → [01-core-content](01-core-content.md)
+> - Psychology log → [07-psychological-training](07-psychological-training.md)
+
 ## I. Daily Training Log
 
 ### Training Log Template

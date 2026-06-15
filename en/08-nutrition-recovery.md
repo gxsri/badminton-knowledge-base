@@ -6,6 +6,10 @@
 
 ---
 
+> **📎 Related docs**:
+> - Training energy needs → [06-four-week-plan](06-four-week-plan.md)
+> - Anatomy & rehab → [17-sports-anatomy-rehab](17-sports-anatomy-rehab.md)
+
 ## Chapter 1: Energy — Start with the Numbers
 
 ### 1.1 Calculating TDEE

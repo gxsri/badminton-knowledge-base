@@ -6,6 +6,12 @@
 
 ---
 
+> **📎 Related docs**:
+> - Match strategy → [14-match-strategy](14-match-strategy.md)
+> - Shot patterns → [12-shot-patterns](12-shot-patterns.md)
+> - Psychology → [07-psychological-training](07-psychological-training.md)
+> - Elite visual search → [18-elite-player-analysis](18-elite-player-analysis.md)
+
 ## Before you read this article, do one thing
 
 ```
