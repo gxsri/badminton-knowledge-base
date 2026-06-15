@@ -167,13 +167,16 @@ https://你的用户名.github.io/badminton-training-system/
 
 ## 🚀 部署方式
 
-### GitHub Pages（推荐）
+### GitHub Pages
 
-```yaml
-# .github/workflows/deploy.yml 已配置
-# 推送到 main 分支 → 自动部署
-# 或手动：Settings → Pages → Deploy from branch → main → / (root)
-```
+**方式一：自动部署（推荐）**
+1. 推送到 GitHub
+2. 进入仓库 Settings → Pages → Source: "Deploy from branch" → `gh-pages` → `/ (root)`
+3. 以后每次 push 到 main，自动部署到 gh-pages
+
+**方式二：手动部署**
+1. 进入仓库 Settings → Pages → Source: "Deploy from branch" → `main` → `/ (root)`
+2. 不需要 workflow，推送 main 后稍等几分钟即可访问
 
 ### 本地预览
 
