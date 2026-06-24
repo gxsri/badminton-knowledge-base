@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比赛准备流程 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(34,197,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--green);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .phase{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .phase-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+        .phase-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+        .phase-icon.pre{background:rgba(59,130,246,0.15)}
+        .phase-icon.during{background:rgba(249,115,22,0.15)}
+        .phase-icon.post{background:rgba(34,197,94,0.15)}
+        .phase-title{font-size:1.2rem;font-weight:700}
+        .phase-subtitle{font-size:0.85rem;color:var(--text-2)}
+        .checklist{list-style:none;margin:1rem 0}
+        .checklist li{padding:0.5rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem;color:var(--text-2);font-size:0.9rem}
+        .checklist li::before{content:'✓';color:var(--green);font-weight:600}
+        .timeline{position:relative;padding-left:2rem;margin:1.5rem 0}
+        .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+        .timeline-item{position:relative;padding:1rem 0;padding-left:1.5rem;border-bottom:1px solid var(--border)}
+        .timeline-item:last-child{border-bottom:none}
+        .timeline-item::before{content:'';position:absolute;left:-2rem;top:1.5rem;width:12px;height:12px;background:var(--accent);border-radius:50%;transform:translateX(-5px)}
+        .timeline-time{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);margin-bottom:0.25rem}
+        .timeline-content{font-size:0.9rem;color:var(--text-2)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        .food-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin:0.5rem 0}
+        .food-title{font-weight:600;margin-bottom:0.25rem;font-size:0.9rem}
+        .food-desc{font-size:0.8rem;color:var(--text-2)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">比赛指南</div>
+        <h1>比赛准备流程</h1>
+        <div class="meta">赛前准备 → 赛中执行 → 赛后恢复 · 完整的比赛流程</div>
+
+        <div class="callout info">
+            <p><strong>比赛是训练的检验。</strong>正确的比赛准备和恢复流程，能让你在比赛中发挥最佳水平，并为下一场比赛做好准备。</p>
+        </div>
+
+        <h2>📅 赛前准备</h2>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon pre">📋</div>
+                <div>
+                    <div class="phase-title">赛前24小时</div>
+                    <div class="phase-subtitle">准备工作和心理调整</div>
+                </div>
+            </div>
+            <ul class="checklist">
+                <li>整理装备（球拍、球线、球鞋、手胶）</li>
+                <li>检查比赛信息（时间、地点、对手）</li>
+                <li>制定比赛策略（针对对手特点）</li>
+                <li>保证7-9小时睡眠</li>
+                <li>避免新食物或补充剂</li>
+                <li>保持正常作息，不要熬夜</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon pre">🍎</div>
+                <div>
+                    <div class="phase-title">赛前营养</div>
+                    <div class="phase-subtitle">为比赛储备能量</div>
+                </div>
+            </div>
+            <div class="food-card">
+                <div class="food-title">赛前2-3小时</div>
+                <div class="food-desc">低GI碳水 + 中等蛋白 + 低脂肪（如：燕麦+鸡蛋+香蕉）</div>
+            </div>
+            <div class="food-card">
+                <div class="food-title">赛前1小时</div>
+                <div class="food-desc">中GI碳水 + 少量蛋白（如：全麦面包+花生酱）</div>
+            </div>
+            <div class="food-card">
+                <div class="food-title">赛前15分钟</div>
+                <div class="food-desc">快速碳水（如：香蕉、运动饮料）</div>
+            </div>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon pre">🔥</div>
+                <div>
+                    <div class="phase-title">赛前热身</div>
+                    <div class="phase-subtitle">比赛前30-45分钟</div>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">30-25分钟前</div>
+                    <div class="timeline-content">慢跑5分钟，逐渐提高心率</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">25-20分钟前</div>
+                    <div class="timeline-content">动态拉伸（手臂环绕、躯干转体、弓步走）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">20-15分钟前</div>
+                    <div class="timeline-content">专项激活（弹力带外旋、分腿蹲、启动步）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">15-10分钟前</div>
+                    <div class="timeline-content">技术激活（徒手挥拍、多球练习）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">10-5分钟前</div>
+                    <div class="timeline-content">轻度对打，找到手感</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">5-0分钟前</div>
+                    <div class="timeline-content">深呼吸，调整心态，准备上场</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🏸 赛中执行</h2>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon during">⚡</div>
+                <div>
+                    <div class="phase-title">比赛策略</div>
+                    <div class="phase-subtitle">执行战术，保持专注</div>
+                </div>
+            </div>
+            <ul class="checklist">
+                <li>执行赛前制定的战术</li>
+                <li>专注每一球，不想上一球的失误</li>
+                <li>观察对手的习惯和弱点</li>
+                <li>保持稳定的呼吸节奏</li>
+                <li>局间休息时补水和能量</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon during">⏸️</div>
+                <div>
+                    <div class="phase-title">局间休息</div>
+                    <div class="phase-subtitle">60-90秒的恢复时间</div>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">0-30秒</div>
+                    <div class="timeline-content">坐下休息，调整呼吸</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">30-60秒</div>
+                    <div class="timeline-content">补水和能量（运动饮料、香蕉）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">60-90秒</div>
+                    <div class="timeline-content">思考战术调整，准备下一局</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🔄 赛后恢复</h2>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon post">💧</div>
+                <div>
+                    <div class="phase-title">赛后即时恢复（0-30分钟）</div>
+                    <div class="phase-subtitle">黄金恢复窗口</div>
+                </div>
+            </div>
+            <ul class="checklist">
+                <li>慢走2-3分钟，让心率下降</li>
+                <li>补充碳水（1-1.2g/kg体重）</li>
+                <li>补充蛋白质（0.3-0.4g/kg体重）</li>
+                <li>补水（减重×1.5倍）</li>
+                <li>静态拉伸（每个动作30秒）</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon post">🍜</div>
+                <div>
+                    <div class="phase-title">赛后2小时</div>
+                    <div class="phase-subtitle">正餐和继续恢复</div>
+                </div>
+            </div>
+            <ul class="checklist">
+                <li>吃正餐（碳水+蛋白+蔬菜）</li>
+                <li>继续补水</li>
+                <li>轻度活动（散步）</li>
+                <li>筋膜放松（泡沫轴10分钟）</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-icon post">😴</div>
+                <div>
+                    <div class="phase-title">赛后睡前</div>
+                    <div class="phase-subtitle">促进恢复的睡眠</div>
+                </div>
+            </div>
+            <ul class="checklist">
+                <li>热水澡（促进血液循环）</li>
+                <li>如有疼痛，冰敷15分钟</li>
+                <li>补充镁元素（帮助睡眠）</li>
+                <li>保证7-9小时睡眠</li>
+            </ul>
+        </div>
+
+        <div class="callout success">
+            <p><strong>多日比赛恢复：</strong>如果连续比赛，第二天要做主动恢复（散步、游泳、骑车），不要完全休息。完全不动会让肌肉更僵硬。</p>
+        </div>
+
+        <h2>📋 赛前检查清单</h2>
+        <table>
+            <thead><tr><th>类别</th><th>检查项目</th><th>✓</th></tr></thead>
+            <tbody>
+                <tr><td><strong>装备</strong></td><td>球拍（2支以上）、备用拍线、球鞋、手胶、毛巾</td><td>☐</td></tr>
+                <tr><td><strong>营养</strong></td><td>水、运动饮料、香蕉/能量棒、赛后恢复食物</td><td>☐</td></tr>
+                <tr><td><strong>衣物</strong></td><td>比赛服（2套）、备用衣服、袜子</td><td>☐</td></tr>
+                <tr><td><strong>医疗</strong></td><td>肌贴、冰袋、常用药品</td><td>☐</td></tr>
+                <tr><td><strong>其他</strong></td><td>身份证/参赛证、毛巾、替换鞋带</td><td>☐</td></tr>
+            </tbody>
+        </table>
+
+        <div class="cta">
+            <a href="22-warmup-cooldown.html">查看热身整理指南</a>
+            <a href="08-nutrition-recovery.html" class="secondary">查看营养恢复</a>
+        </div>
+
+        <div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="22-warmup-cooldown.html">热身整理 →</a>
+        </div>
+    </div>
+</body>
+</html>

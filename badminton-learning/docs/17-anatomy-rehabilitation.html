@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动解剖与康复 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .callout.danger{border-left-color:#ef4444}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .injury-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1rem 0}
+        .injury-title{font-weight:600;margin-bottom:0.5rem;color:var(--accent-2)}
+        .injury-meta{display:flex;gap:1rem;font-size:0.8rem;color:var(--text-2);margin-bottom:0.75rem}
+        .injury-tag{padding:0.15rem 0.5rem;background:var(--surface-2);border-radius:4px}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">17</div>
+        <h1>运动解剖与康复</h1>
+        <div class="meta">Level 3+ · 神经 → 肌肉 → 筋膜 · 16块肌肉 · 8种损伤 · 诊断测试</div>
+
+        <h2>羽毛球常见损伤</h2>
+        <p>预防优于治疗。了解损伤机制，才能有效预防。</p>
+
+        <div class="injury-card">
+            <div class="injury-title">网球肘（肱骨外上髁炎）</div>
+            <div class="injury-meta">
+                <span class="injury-tag">发生率 35%</span>
+                <span class="injury-tag">上肢损伤</span>
+            </div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>原因：</strong>反手击球时前臂伸肌过度使用，或握拍太紧<br>
+                <strong>症状：</strong>肘关节外侧疼痛，握物无力<br>
+                <strong>预防：</strong>加强前臂伸肌离心训练，检查握拍松紧
+            </p>
+        </div>
+
+        <div class="injury-card">
+            <div class="injury-title">肩袖损伤</div>
+            <div class="injury-meta">
+                <span class="injury-tag">发生率 27%</span>
+                <span class="injury-tag">上肢损伤</span>
+            </div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>原因：</strong>反复过顶击球，肩袖肌群疲劳<br>
+                <strong>症状：</strong>肩部夜间痛，举臂时疼痛<br>
+                <strong>预防：</strong>肩袖肌群强化训练，控制训练量
+            </p>
+        </div>
+
+        <div class="injury-card">
+            <div class="injury-title">膝关节损伤</div>
+            <div class="injury-meta">
+                <span class="injury-tag">发生率 35%</span>
+                <span class="injury-tag">下肢损伤</span>
+            </div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>原因：</strong>急停急转、膝关节内扣、臀中肌无力<br>
+                <strong>症状：</strong>膝关节疼痛、肿胀、活动受限<br>
+                <strong>预防：</strong>臀中肌激活训练，正确的落地技术
+            </p>
+        </div>
+
+        <div class="injury-card">
+            <div class="injury-title">跟腱炎</div>
+            <div class="injury-meta">
+                <span class="injury-tag">发生率 20%</span>
+                <span class="injury-tag">下肢损伤</span>
+            </div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>原因：</strong>小腿肌肉紧张，反复跳跃<br>
+                <strong>症状：</strong>晨起时跟腱僵硬，运动后疼痛<br>
+                <strong>预防：</strong>小腿拉伸，离心训练，合适鞋子
+            </p>
+        </div>
+
+        <div class="injury-card">
+            <div class="injury-title">腰背痛</div>
+            <div class="injury-meta">
+                <span class="injury-tag">发生率 25%</span>
+                <span class="injury-tag">躯干损伤</span>
+            </div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>原因：</strong>核心力量不足，击球时过度后仰<br>
+                <strong>症状：</strong>腰部酸痛，弯腰时加重<br>
+                <strong>预防：</strong>核心稳定性训练，正确的击球姿势
+            </p>
+        </div>
+
+        <h2>RICE损伤处理</h2>
+        <div class="callout danger">
+            <p><strong>急性损伤48小时内，必须执行RICE原则：</strong></p>
+        </div>
+
+        <div class="code-block">
+<span class="k">R - Rest（休息）</span>
+  停止所有训练，避免加重损伤
+
+<span class="k">I - Ice（冰敷）</span>
+  每次15-20分钟，每2小时一次
+  用毛巾隔开，不要直接接触皮肤
+
+<span class="k">C - Compression（加压）</span>
+  弹性绷带包扎，减少肿胀
+  不要太紧，避免影响血液循环
+
+<span class="k">E - Elevation（抬高）</span>
+  将受伤部位抬高到心脏以上
+  帮助减少肿胀
+
+<span class="c">48小时后：</span>
+  可以开始轻度活动
+  热敷替代冰敷
+  逐渐恢复训练
+        </div>
+
+        <h2>重返运动标准</h2>
+        <table>
+            <thead><tr><th>级别</th><th>标准</th><th>时间</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Level 1</strong></td><td>无痛完成日常活动</td><td>损伤后即可</td></tr>
+                <tr><td><strong>Level 2</strong></td><td>无痛完成轻度活动</td><td>1-2天</td></tr>
+                <tr><td><strong>Level 3</strong></td><td>无痛完成跑步/跳跃</td><td>3-7天</td></tr>
+                <tr><td><strong>Level 4</strong></td><td>无痛完成专项训练</td><td>1-2周</td></tr>
+                <tr><td><strong>Level 5</strong></td><td>无痛完成全强度训练/比赛</td><td>2-4周</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout warn">
+            <p><strong>关键原则：</strong>只有完成当前级别且无痛24小时，才能进入下一级别。任何一级出现疼痛，退回上一级别。</p>
+        </div>
+
+        <h2>预防性训练</h2>
+        <div class="exercise">
+            <div class="exercise-title">每日预防性训练（5分钟）</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>1. 肩袖激活：</strong>弹力带外旋 2×15次<br>
+                <strong>2. 臀中肌激活：</strong>蚌式开合 2×15次<br>
+                <strong>3. 小腿拉伸：</strong>每次30秒<br>
+                <strong>4. 核心激活：</strong>平板支撑 30秒<br>
+                <strong>频率：</strong>每次训练前必做
+            </p>
+        </div>
+
+        <h2>什么情况不能练</h2>
+        <div class="callout danger">
+            <p><strong>出现以下情况，立即停止训练：</strong><br>
+            • 刺痛/锐痛（不是酸胀感）<br>
+            • 关节肿胀<br>
+            • 活动范围明显受限<br>
+            • 疼痛持续超过48小时<br>
+            • 伴随发热/红肿</p>
+        </div>
+
+        <div class="next">
+            <a href="15-technique-analysis.html">← 技术全解析</a>
+            <a href="22-warmup-cooldown.html">热身与整理 →</a>
+        </div>
+    </div>
+</body>
+</html>

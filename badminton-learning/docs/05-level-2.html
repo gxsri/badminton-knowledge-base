@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2：技术入门 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(168,85,247,0.15);border-radius:4px;font-size:0.8rem;color:var(--purple);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .checklist{list-style:none;margin:1rem 0}
+        .checklist li{padding:0.75rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem;color:var(--text-2);cursor:pointer}
+        .checklist li::before{content:'☐';color:var(--accent);font-size:1.2rem}
+        .checklist li.done{color:var(--text)}
+        .checklist li.done::before{content:'☑';color:var(--green)}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .exercise-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.75rem;font-size:0.85rem;margin-bottom:1rem}
+        .exercise-meta span{color:var(--text-2)}
+        .exercise-meta strong{color:var(--text)}
+        .exercise-steps{list-style:none;counter-reset:step}
+        .exercise-steps li{counter-increment:step;padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-2);font-size:0.9rem}
+        .exercise-steps li::before{content:counter(step) ". ";color:var(--accent);font-weight:600}
+        .week-plan{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .week-title{font-weight:600;margin-bottom:1rem}
+        .week-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+        .day-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .day-name{font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;color:var(--accent-2)}
+        .day-content{font-size:0.8rem;color:var(--text-2)}
+        .assessment{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .assessment-title{font-weight:600;margin-bottom:1rem}
+        .assessment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+        .assessment-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .assessment-label{font-size:0.8rem;color:var(--text-2);margin-bottom:0.25rem}
+        .assessment-value{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--accent)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        .progress-bar{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .progress-title{font-weight:600;margin-bottom:1rem}
+        .progress-track{background:var(--bg);border-radius:4px;height:8px;overflow:hidden}
+        .progress-fill{background:var(--purple);height:100%;transition:width 0.3s}
+        .progress-text{font-size:0.85rem;color:var(--text-2);margin-top:0.5rem;text-align:right}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">Level 2</div>
+        <h1>技术入门</h1>
+        <div class="meta">6-12个月 · 掌握基础击球技术，建立步法连贯性</div>
+
+        <div class="progress-bar">
+            <div class="progress-title">学习进度</div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+            <div class="progress-text" id="progress-text">0/10 完成</div>
+        </div>
+
+        <h2>🎯 目标</h2>
+        <p>掌握正手高远球、吊球、杀球，建立基本步法体系，理解简单战术。</p>
+
+        <div class="callout info">
+            <p><strong>核心理念：</strong>这个阶段是"学会打球"的关键期。技术动作必须标准化，为以后的提高打下基础。</p>
+        </div>
+
+        <h2>📋 通关条件</h2>
+
+        <div class="assessment">
+            <div class="assessment-title">Level 2 评估标准</div>
+            <div class="assessment-grid">
+                <div class="assessment-item">
+                    <div class="assessment-label">高远球落点</div>
+                    <div class="assessment-value">底线1米内</div>
+                </div>
+                <div class="assessment-item">
+                    <div class="assessment-label">全场4点移动</div>
+                    <div class="assessment-value"><4秒</div>
+                </div>
+                <div class="assessment-item">
+                    <div class="assessment-label">11分制胜率</div>
+                    <div class="assessment-value">≥60%</div>
+                </div>
+                <div class="assessment-item">
+                    <div class="assessment-label">连续对打</div>
+                    <div class="assessment-value">≥20拍</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🏸 技术训练</h2>
+
+        <div class="exercise">
+            <div class="exercise-title">训练1：正手高远球（7步分解）</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>4组</span>
+                <span><strong>次数：</strong>50次/组</span>
+                <span><strong>频率：</strong>每天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>准备姿势：侧身对网，双脚与肩同宽</li>
+                <li>引拍后拉：大臂外展，肘弯曲90度</li>
+                <li>蹬地转体：后脚蹬地，髋关节先转</li>
+                <li>肩部内旋：躯干带动肩关节内旋</li>
+                <li>前臂旋内+闪腕：产生"鞭打"效果</li>
+                <li>击球点：身体右前上方，手臂接近伸直</li>
+                <li>随挥收拍：自然向左下方随挥</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>关键：</strong>力量从地面开始，通过下肢→核心→上肢传递。</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练2：吊球技术</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>次数：</strong>30次/组</span>
+                <span><strong>频率：</strong>隔天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>准备动作与高远球相同</li>
+                <li>击球瞬间减速</li>
+                <li>拍面稍后仰，切削球托底部</li>
+                <li>落点在对方前场，贴网下落</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>变化：</strong>轻吊、劈吊、拦吊三种。</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练3：杀球技术</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>次数：</strong>20次/组</span>
+                <span><strong>频率：</strong>隔天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>双脚起跳，身体后仰成弓形</li>
+                <li>击球点在身体前上方</li>
+                <li>全身协调发力</li>
+                <li>落点在对方身体或边线附近</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>检查点：</strong>是否用全身发力？击球点是否够高？</p>
+        </div>
+
+        <h2>👟 步法训练</h2>
+
+        <div class="exercise">
+            <div class="exercise-title">训练4：启动步</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>次数：</strong>20次/组</span>
+                <span><strong>频率：</strong>每天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>准备姿势：双脚与肩同宽，膝盖微曲</li>
+                <li>小跳蓄力：对手击球瞬间，双脚离地2-3cm</li>
+                <li>落地蹬出：根据来球方向，异侧脚蹬地</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>关键：</strong>小跳要轻，落地要稳，蹬出要快。</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练5：全场4点移动</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>4组</span>
+                <span><strong>时间：</strong>30秒/组</span>
+                <span><strong>频率：</strong>隔天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>从中心位置出发</li>
+                <li>移动到前场左、前场右、后场左、后场右</li>
+                <li>每次移动后回中</li>
+                <li>计时，目标<4秒</li>
+            </ol>
+        </div>
+
+        <h2>📅 4周训练计划</h2>
+
+        <div class="week-plan">
+            <div class="week-title">第1周：技术建立</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">高远球 4×50次<br>启动步 3×20次</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">吊球 3×30次<br>4点移动 4×30秒</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">杀球 3×20次<br>启动步 3×20次</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-plan">
+            <div class="week-title">第2周：技术巩固</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">高远球 4×50次<br>启动步 3×25次</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">吊球 3×35次<br>4点移动 4×30秒</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">杀球 3×25次<br>启动步 3×25次</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-plan">
+            <div class="week-title">第3周：战术应用</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">高远球+吊球组合<br>实战练习</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">杀球+吊球组合<br>4点移动 4×30秒</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">全场对打<br>战术执行</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-plan">
+            <div class="week-title">第4周：评估周</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">正常训练<br>准备评估</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">技术测试<br>评估日</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">评估通过？<br>进入Level 3</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>✅ 学习清单</h2>
+        <ul class="checklist" id="checklist">
+            <li onclick="toggleCheck(this)">掌握高远球7步分解</li>
+            <li onclick="toggleCheck(this)">掌握吊球技术</li>
+            <li onclick="toggleCheck(this)">掌握杀球技术</li>
+            <li onclick="toggleCheck(this)">掌握启动步</li>
+            <li onclick="toggleCheck(this)">完成第1周训练</li>
+            <li onclick="toggleCheck(this)">完成第2周训练</li>
+            <li onclick="toggleCheck(this)">完成第3周训练</li>
+            <li onclick="toggleCheck(this)">高远球落点在底线1米内</li>
+            <li onclick="toggleCheck(this)">全场4点移动<4秒</li>
+            <li onclick="toggleCheck(this)">通过Level 2评估</li>
+        </ul>
+
+        <div class="cta">
+            <a href="06-level-3.html">通过评估？进入Level 3</a>
+            <a href="20-error-correction.html" class="secondary">查看纠错指南</a>
+        </div>
+
+        <div class="next">
+            <a href="04-level-1.html">← Level 1</a>
+            <a href="06-level-3.html">Level 3训练 →</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleCheck(el) {
+            el.classList.toggle('done');
+            saveProgress();
+        }
+
+        function saveProgress() {
+            const items = document.querySelectorAll('#checklist li');
+            const progress = Array.from(items).map(item => item.classList.contains('done'));
+            localStorage.setItem('level2-progress', JSON.stringify(progress));
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const items = document.querySelectorAll('#checklist li');
+            const done = document.querySelectorAll('#checklist li.done').length;
+            const total = items.length;
+            const percent = Math.round((done / total) * 100);
+            
+            document.getElementById('progress-fill').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = `${done}/${total} 完成`;
+        }
+
+        function loadProgress() {
+            const progress = JSON.parse(localStorage.getItem('level2-progress') || '[]');
+            const items = document.querySelectorAll('#checklist li');
+            items.forEach((item, i) => {
+                if (progress[i]) item.classList.add('done');
+            });
+            updateProgressBar();
+        }
+
+        loadProgress();
+    </script>
+</body>
+</html>

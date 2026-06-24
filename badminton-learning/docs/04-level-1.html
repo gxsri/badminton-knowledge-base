@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1：基础建立 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(59,130,246,0.15);border-radius:4px;font-size:0.8rem;color:var(--blue);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .checklist{list-style:none;margin:1rem 0}
+        .checklist li{padding:0.75rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem;color:var(--text-2);cursor:pointer}
+        .checklist li::before{content:'☐';color:var(--accent);font-size:1.2rem}
+        .checklist li.done{color:var(--text)}
+        .checklist li.done::before{content:'☑';color:var(--green)}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .exercise-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.75rem;font-size:0.85rem;margin-bottom:1rem}
+        .exercise-meta span{color:var(--text-2)}
+        .exercise-meta strong{color:var(--text)}
+        .exercise-steps{list-style:none;counter-reset:step}
+        .exercise-steps li{counter-increment:step;padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-2);font-size:0.9rem}
+        .exercise-steps li::before{content:counter(step) ". ";color:var(--accent);font-weight:600}
+        .week-plan{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .week-title{font-weight:600;margin-bottom:1rem}
+        .week-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+        .day-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .day-name{font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;color:var(--accent-2)}
+        .day-content{font-size:0.8rem;color:var(--text-2)}
+        .assessment{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .assessment-title{font-weight:600;margin-bottom:1rem}
+        .assessment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+        .assessment-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .assessment-label{font-size:0.8rem;color:var(--text-2);margin-bottom:0.25rem}
+        .assessment-value{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--accent)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        .progress-bar{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .progress-title{font-weight:600;margin-bottom:1rem}
+        .progress-track{background:var(--bg);border-radius:4px;height:8px;overflow:hidden}
+        .progress-fill{background:var(--blue);height:100%;transition:width 0.3s}
+        .progress-text{font-size:0.85rem;color:var(--text-2);margin-top:0.5rem;text-align:right}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">Level 1</div>
+        <h1>基础建立</h1>
+        <div class="meta">3-6个月 · 固化基础动作模式，建立关节稳定性</div>
+
+        <div class="progress-bar">
+            <div class="progress-title">学习进度</div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+            <div class="progress-text" id="progress-text">0/10 完成</div>
+        </div>
+
+        <h2>🎯 目标</h2>
+        <p>在3个月内，固化基础动作模式，建立关节稳定性和基础力量，为技术学习打好基础。</p>
+
+        <div class="callout info">
+            <p><strong>核心理念：</strong>这个阶段的重点是"学会正确动作"，而不是"练出肌肉"。动作质量永远第一位。</p>
+        </div>
+
+        <h2>📋 通关条件</h2>
+
+        <div class="assessment">
+            <div class="assessment-title">Level 1 评估标准</div>
+            <div class="assessment-grid">
+                <div class="assessment-item">
+                    <div class="assessment-label">平板支撑</div>
+                    <div class="assessment-value">≥90秒</div>
+                </div>
+                <div class="assessment-item">
+                    <div class="assessment-label">俯卧撑</div>
+                    <div class="assessment-value">男性≥15次/女性≥8次</div>
+                </div>
+                <div class="assessment-item">
+                    <div class="assessment-label">深蹲</div>
+                    <div class="assessment-value">≥20次标准</div>
+                </div>
+                <div class="assessment-item">
+                    <div class="assessment-label">单腿下蹲</div>
+                    <div class="assessment-value">能做8次不晃</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🏋️ 训练内容</h2>
+
+        <div class="exercise">
+            <div class="exercise-title">训练1：俯卧撑（上肢力量）</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>次数：</strong>8-15次</span>
+                <span><strong>频率：</strong>隔天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>双手撑地，与肩同宽</li>
+                <li>身体成一条直线</li>
+                <li>下降至胸部接近地面</li>
+                <li>推起至手臂伸直</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>进阶：</strong>跪姿俯卧撑 → 标准俯卧撑 → 击掌俯卧撑</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练2：深蹲（下肢力量）</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>次数：</strong>15-20次</span>
+                <span><strong>频率：</strong>隔天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>双脚与肩同宽</li>
+                <li>臀部向后坐，膝盖弯曲</li>
+                <li>下蹲至大腿平行地面</li>
+                <li>蹬地站起</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>检查点：</strong>膝盖是否超过脚尖？背部是否挺直？</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练3：平板支撑（核心耐力）</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>时间：</strong>60-90秒</span>
+                <span><strong>频率：</strong>每天</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>前臂撑地，手肘在肩膀正下方</li>
+                <li>身体成一条直线</li>
+                <li>收紧腹部，保持呼吸</li>
+                <li>不要塌腰或弓背</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>进阶：</strong>标准平板 → 侧平板 → 动态平板</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练4：弹力带行走（臀中肌激活）</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>2组</span>
+                <span><strong>次数：</strong>每侧10步</span>
+                <span><strong>频率：</strong>每次训练前</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>弹力带套在脚踝</li>
+                <li>微蹲姿势</li>
+                <li>向侧面行走</li>
+                <li>保持弹力带张力</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>检查点：</strong>是否用臀部发力？膝盖是否内扣？</p>
+        </div>
+
+        <h2>📅 4周训练计划</h2>
+
+        <div class="week-plan">
+            <div class="week-title">第1周：适应周</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">俯卧撑 3×8次<br>深蹲 3×15次<br>平板支撑 3×60秒</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">俯卧撑 3×8次<br>深蹲 3×15次<br>弹力带行走 2×10步</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">俯卧撑 3×8次<br>深蹲 3×15次<br>平板支撑 3×60秒</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-plan">
+            <div class="week-title">第2周：巩固周</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">俯卧撑 3×10次<br>深蹲 3×18次<br>平板支撑 3×70秒</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">俯卧撑 3×10次<br>深蹲 3×18次<br>弹力带行走 2×12步</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">俯卧撑 3×10次<br>深蹲 3×18次<br>平板支撑 3×70秒</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-plan">
+            <div class="week-title">第3周：进阶周</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">俯卧撑 3×12次<br>深蹲 3×20次<br>平板支撑 3×80秒</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">俯卧撑 3×12次<br>深蹲 3×20次<br>弹力带行走 2×15步</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">俯卧撑 3×12次<br>深蹲 3×20次<br>平板支撑 3×80秒</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-plan">
+            <div class="week-title">第4周：评估周</div>
+            <div class="week-grid">
+                <div class="day-card">
+                    <div class="day-name">周一</div>
+                    <div class="day-content">正常训练<br>准备评估</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周三</div>
+                    <div class="day-content">轻度训练<br>评估日</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-name">周五</div>
+                    <div class="day-content">评估通过？<br>进入Level 2</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>✅ 学习清单</h2>
+        <ul class="checklist" id="checklist">
+            <li onclick="toggleCheck(this)">掌握俯卧撑正确姿势</li>
+            <li onclick="toggleCheck(this)">掌握深蹲正确姿势</li>
+            <li onclick="toggleCheck(this)">掌握平板支撑正确姿势</li>
+            <li onclick="toggleCheck(this)">掌握弹力带行走</li>
+            <li onclick="toggleCheck(this)">完成第1周训练</li>
+            <li onclick="toggleCheck(this)">完成第2周训练</li>
+            <li onclick="toggleCheck(this)">完成第3周训练</li>
+            <li onclick="toggleCheck(this)">俯卧撑达到15次（男）/8次（女）</li>
+            <li onclick="toggleCheck(this)">深蹲达到20次标准</li>
+            <li onclick="toggleCheck(this)">通过Level 1评估</li>
+        </ul>
+
+        <div class="cta">
+            <a href="05-level-2.html">通过评估？进入Level 2</a>
+            <a href="20-error-correction.html" class="secondary">查看纠错指南</a>
+        </div>
+
+        <div class="next">
+            <a href="03-level-0.html">← Level 0</a>
+            <a href="05-level-2.html">Level 2训练 →</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleCheck(el) {
+            el.classList.toggle('done');
+            saveProgress();
+        }
+
+        function saveProgress() {
+            const items = document.querySelectorAll('#checklist li');
+            const progress = Array.from(items).map(item => item.classList.contains('done'));
+            localStorage.setItem('level1-progress', JSON.stringify(progress));
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const items = document.querySelectorAll('#checklist li');
+            const done = document.querySelectorAll('#checklist li.done').length;
+            const total = items.length;
+            const percent = Math.round((done / total) * 100);
+            
+            document.getElementById('progress-fill').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = `${done}/${total} 完成`;
+        }
+
+        function loadProgress() {
+            const progress = JSON.parse(localStorage.getItem('level1-progress') || '[]');
+            const items = document.querySelectorAll('#checklist li');
+            items.forEach((item, i) => {
+                if (progress[i]) item.classList.add('done');
+            });
+            updateProgressBar();
+        }
+
+        loadProgress();
+    </script>
+</body>
+</html>

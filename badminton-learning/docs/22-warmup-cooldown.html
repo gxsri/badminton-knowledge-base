@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热身与整理 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .calc-field{display:flex;flex-direction:column;gap:0.3rem}
+        .calc-field label{font-size:0.85rem;color:var(--text-2)}
+        .calc-field input{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;font-family:inherit;outline:none}
+        .calc-field input:focus{border-color:var(--accent)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1rem}
+        .calc-result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-result-value{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.7rem 1.5rem;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:0.5rem}
+        .calc-btn:hover{background:var(--accent-2)}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .exercise-list{list-style:none;margin:0;padding:0}
+        .exercise-list li{padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-2);font-size:0.9rem}
+        .exercise-list li:last-child{border:none}
+        .exercise-list li strong{color:var(--text)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">22</div>
+        <h1>热身与整理</h1>
+        <div class="meta">Level 0+ · 赛前热身工作流 · 训练后整理工作流</div>
+
+        <h2>热身时间计算器</h2>
+        <div class="calc">
+            <div class="calc-title">⏱️ 计算你的热身时间</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>年龄（岁）</label>
+                    <input type="number" id="warmup-age" value="25" min="10" max="80">
+                </div>
+                <div class="calc-field">
+                    <label>训练类型</label>
+                    <select id="warmup-type" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="light">轻度训练</option>
+                        <option value="moderate" selected>中等强度</option>
+                        <option value="intense">高强度/比赛</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcWarmup()">计算</button>
+            <div class="calc-result" id="warmup-result" style="display:none">
+                <div class="calc-result-title">你的热身方案</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;margin-bottom:0.5rem">
+                    热身: <span id="warmup-time" style="color:var(--accent)">0</span>分钟 · 
+                    整理: <span id="cooldown-time" style="color:var(--green)">0</span>分钟
+                </div>
+                <div style="font-size:0.85rem;color:var(--text-2)" id="warmup-advice"></div>
+            </div>
+        </div>
+
+        <h2>15分钟标准热身方案</h2>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段1：激活（3分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>慢跑/高抬腿</strong> — 2分钟，逐渐提高心率</li>
+                <li><strong>开合跳</strong> — 1分钟，激活全身肌肉</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段2：动态拉伸（5分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>手臂环绕</strong> — 前后各10次</li>
+                <li><strong>躯干转体</strong> — 左右各10次</li>
+                <li><strong>弓步走</strong> — 每侧8步</li>
+                <li><strong>侧向移动</strong> — 每侧8步</li>
+                <li><strong>脚踝环绕</strong> — 每侧10圈</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段3：专项激活（4分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>弹力带外旋</strong> — 2×15次（肩袖激活）</li>
+                <li><strong>蚌式开合</strong> — 2×15次（臀中肌激活）</li>
+                <li><strong>分腿蹲</strong> — 2×8次/侧（下肢激活）</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段4：技术激活（3分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>徒手挥拍</strong> — 20次慢速</li>
+                <li><strong>轻力对打</strong> — 1分钟</li>
+            </ul>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>重要原则：</strong>热身前不做静态拉伸！静态拉伸会降低肌肉力量。动态拉伸才是正确的热身方式。</p>
+        </div>
+
+        <h2>25分钟比赛热身方案</h2>
+
+        <div class="code-block">
+<span class="k">阶段1：一般热身（5分钟）</span>
+  慢跑 → 高抬腿 → 开合跳 → 后踢腿
+
+<span class="k">阶段2：动态拉伸（8分钟）</span>
+  手臂环绕 → 躯干转体 → 弓步走 → 侧向移动
+  → 腿摆动 → 脚踝环绕 → 颈部环绕
+
+<span class="k">阶段3：专项激活（7分钟）</span>
+  弹力带外旋 2×15 → 蚌式开合 2×15
+  → 分腿蹲 2×8 → 单腿站立 30秒
+
+<span class="k">阶段4：技术激活（5分钟）</span>
+  徒手挥拍 20次 → 多球高远球 20个
+  → 吊球 10个 → 轻杀 10个
+        </div>
+
+        <h2>训练后整理方案</h2>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段1：冷身（2-3分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>慢走</strong> — 让心率从运动水平降到<100bpm</li>
+                <li><strong>不要突然坐下</strong> — 血液会淤积在下肢</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段2：静态拉伸（5-8分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>小腿后侧</strong> — 每次30秒</li>
+                <li><strong>大腿前侧</strong> — 每次30秒</li>
+                <li><strong>大腿后侧</strong> — 每次30秒</li>
+                <li><strong>髋屈肌</strong> — 每次30秒</li>
+                <li><strong>胸部拉伸</strong> — 每次30秒</li>
+                <li><strong>前臂拉伸</strong> — 每次30秒</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">阶段3：筋膜放松（5-10分钟）</div>
+            <ul class="exercise-list">
+                <li><strong>泡沫轴</strong> — 每个部位30-60秒</li>
+                <li><strong>顺序：</strong>小腿→大腿前侧→大腿外侧→臀部→背部</li>
+                <li><strong>重点：</strong>找到酸痛点停留20秒</li>
+            </ul>
+        </div>
+
+        <h2>训练后营养补充时间表</h2>
+        <div class="code-block">
+<span class="k">0-15分钟</span>：
+  快速碳水 <span class="v">1-1.2g/kg</span>（白米饭/香蕉）
+  快速蛋白 <span class="v">0.3-0.4g/kg</span>（乳清蛋白）
+  水分：减重×1.5倍
+
+<span class="k">15-60分钟</span>：
+  正常饮食（碳水+蛋白+蔬菜）
+  继续补水
+
+<span class="k">睡前</span>：
+  慢速蛋白 <span class="v">20-30g</span>（酪蛋白/酸奶）
+        </div>
+
+        <div class="next">
+            <a href="17-anatomy-rehabilitation.html">← 运动解剖与康复</a>
+            <a href="24-safety-guide.html">训练安全边界 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcWarmup() {
+            const age = +document.getElementById('warmup-age').value;
+            const type = document.getElementById('warmup-type').value;
+            
+            let warmupBase = Math.floor(age / 10) + 2;
+            let cooldownBase = Math.floor(age / 15) + 5;
+            
+            let multiplier;
+            if (type === 'light') multiplier = 0.7;
+            else if (type === 'moderate') multiplier = 1.0;
+            else multiplier = 1.3;
+            
+            const warmup = Math.round(warmupBase * multiplier);
+            const cooldown = Math.round(cooldownBase * multiplier);
+            
+            let advice;
+            if (type === 'intense') {
+                advice = '比赛前必须充分热身。建议在标准方案基础上增加专项激活时间。';
+            } else if (type === 'light') {
+                advice = '轻度训练可以适当缩短热身，但不能省略。';
+            } else {
+                advice = '中等强度训练的标准热身方案。';
+            }
+            
+            document.getElementById('warmup-time').textContent = warmup;
+            document.getElementById('cooldown-time').textContent = cooldown;
+            document.getElementById('warmup-advice').textContent = advice;
+            document.getElementById('warmup-result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>营养与恢复 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        /* Calculator */
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .calc-field{display:flex;flex-direction:column;gap:0.3rem}
+        .calc-field label{font-size:0.85rem;color:var(--text-2)}
+        .calc-field input,.calc-field select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;font-family:inherit;outline:none;transition:border 0.2s}
+        .calc-field input:focus,.calc-field select:focus{border-color:var(--accent)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1rem}
+        .calc-result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-result-value{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:var(--accent)}
+        .calc-result-unit{font-size:0.9rem;color:var(--text-2);margin-left:0.25rem}
+        .calc-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:1rem}
+        .calc-macro{background:var(--surface-2);border-radius:6px;padding:0.75rem;text-align:center}
+        .calc-macro-label{font-size:0.75rem;color:var(--text-2);margin-bottom:0.25rem}
+        .calc-macro-value{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.2rem}
+        .calc-macro-unit{font-size:0.75rem;color:var(--text-2)}
+        .calc-macro.protein .calc-macro-value{color:var(--blue)}
+        .calc-macro.fat .calc-macro-value{color:var(--purple)}
+        .calc-macro.carb .calc-macro-value{color:var(--green)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.7rem 1.5rem;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:0.5rem}
+        .calc-btn:hover{background:var(--accent-2);transform:translateY(-1px)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">08</div>
+        <h1>营养与恢复指南</h1>
+        <div class="meta">Level 0+ · TDEE计算 → 营养素 → 训练后时间轴 → 恢复评估</div>
+
+        <h2>能量 — 从计算开始</h2>
+        <p>一切营养方案的第一步，是算出你一天到底消耗多少热量。</p>
+
+        <div class="calc">
+            <div class="calc-title">🔥 TDEE计算器（每日总能耗）</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>性别</label>
+                    <select id="gender">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>年龄（岁）</label>
+                    <input type="number" id="age" value="25" min="10" max="80">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>体重（kg）</label>
+                    <input type="number" id="weight" value="70" min="30" max="200" step="0.1">
+                </div>
+                <div class="calc-field">
+                    <label>身高（cm）</label>
+                    <input type="number" id="height" value="175" min="100" max="220">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>活动水平</label>
+                    <select id="activity">
+                        <option value="1.2">久坐（几乎不运动）</option>
+                        <option value="1.375">轻度（每周1-3次低强度）</option>
+                        <option value="1.55" selected>中度（每周3-5次中强度）</option>
+                        <option value="1.725">高度（每周6-7次高强度）</option>
+                        <option value="1.9">极高（每天2次训练）</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>目标</label>
+                    <select id="goal">
+                        <option value="0">保持体重</option>
+                        <option value="-300">减脂（慢速 -300kcal）</option>
+                        <option value="-500">减脂（快速 -500kcal）</option>
+                        <option value="200">增肌（慢速 +200kcal）</option>
+                        <option value="500">增肌（快速 +500kcal）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcTDEE()">计算</button>
+            <div class="calc-result" id="tdee-result" style="display:none">
+                <div class="calc-result-title">你的每日总能耗（TDEE）</div>
+                <div><span class="calc-result-value" id="tdee-value">0</span><span class="calc-result-unit">kcal/天</span></div>
+                <div style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-2)">
+                    BMR: <span id="bmr-value">0</span> kcal · 调整后: <span id="adjusted-value">0</span> kcal
+                </div>
+            </div>
+        </div>
+
+        <h2>三大营养素 — 按体重算</h2>
+
+        <div class="calc">
+            <div class="calc-title">🥩 三大营养素计算器</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>体重（kg）</label>
+                    <input type="number" id="macro-weight" value="70" min="30" max="200" step="0.1">
+                </div>
+                <div class="calc-field">
+                    <label>训练目标</label>
+                    <select id="macro-goal">
+                        <option value="maintain">维持（1.4g/kg蛋白）</option>
+                        <option value="bulk">增肌（1.8g/kg蛋白）</option>
+                        <option value="cut">减脂（2.2g/kg蛋白）</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>每日热量（kcal，从上面计算）</label>
+                    <input type="number" id="macro-tdee" value="2500" min="1000" max="6000">
+                </div>
+                <div class="calc-field">
+                    <label>训练日/休息日</label>
+                    <select id="macro-day">
+                        <option value="train">训练日（碳水3-5g/kg）</option>
+                        <option value="rest">休息日（碳水2-3g/kg）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcMacros()">计算</button>
+            <div class="calc-result" id="macro-result" style="display:none">
+                <div class="calc-result-title">你的每日营养素分配</div>
+                <div class="calc-breakdown">
+                    <div class="calc-macro protein">
+                        <div class="calc-macro-label">蛋白质</div>
+                        <div class="calc-macro-value" id="protein-g">0</div>
+                        <div class="calc-macro-unit">克</div>
+                    </div>
+                    <div class="calc-macro fat">
+                        <div class="calc-macro-label">脂肪</div>
+                        <div class="calc-macro-value" id="fat-g">0</div>
+                        <div class="calc-macro-unit">克</div>
+                    </div>
+                    <div class="calc-macro carb">
+                        <div class="calc-macro-label">碳水</div>
+                        <div class="calc-macro-value" id="carb-g">0</div>
+                        <div class="calc-macro-unit">克</div>
+                    </div>
+                </div>
+                <div style="margin-top:1rem;font-size:0.85rem;color:var(--text-2)">
+                    <div>蛋白质: <span id="protein-cal">0</span> kcal (×4) · 脂肪: <span id="fat-cal">0</span> kcal (×9) · 碳水: <span id="carb-cal">0</span> kcal (×4)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>减脂底线：</strong>男性不低于1500kcal/天，女性不低于1200kcal/天。低于此线，代谢适应会大幅降低效果。</p>
+        </div>
+
+        <h3>蛋白质分配原则</h3>
+        <ul>
+            <li>每餐20-40g蛋白质（单次肌蛋白合成效率最高的区间）</li>
+            <li>训练后30分钟内补充20-30g快速吸收蛋白</li>
+            <li>睡前20-30g慢速蛋白（酪蛋白/酸奶）</li>
+        </ul>
+
+        <h3>碳水时机选择</h3>
+        <table>
+            <thead><tr><th>时机</th><th>GI值</th><th>食物选择</th></tr></thead>
+            <tbody>
+                <tr><td>训练前2-3小时</td><td>低GI &lt;55</td><td>燕麦、全麦面包、红薯</td></tr>
+                <tr><td>训练前30分钟</td><td>中GI 55-70</td><td>香蕉、全麦饼干</td></tr>
+                <tr><td>训练中（&gt;60分钟）</td><td>高GI &gt;70</td><td>运动饮料、葡萄糖凝胶</td></tr>
+                <tr><td>训练后30分钟内</td><td>高GI &gt;70</td><td>白米饭、土豆、蜂蜜</td></tr>
+                <tr><td>训练后1-2小时</td><td>中GI 55-70</td><td>全麦意面、糙米</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout info">
+            <p><strong>关键原则：</strong>训练前低GI提供稳定能量，训练后高GI快速补充肌糖原，睡前低GI或不吃避免血糖波动影响生长激素。</p>
+        </div>
+
+        <h2>水合计算</h2>
+
+        <div class="calc">
+            <div class="calc-title">💧 水合计算器</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>体重（kg）</label>
+                    <input type="number" id="water-weight" value="70" min="30" max="200">
+                </div>
+                <div class="calc-field">
+                    <label>训练时长（分钟）</label>
+                    <input type="number" id="water-duration" value="60" min="0" max="300">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>环境温度（°C）</label>
+                    <input type="number" id="water-temp" value="25" min="-10" max="50">
+                </div>
+                <div class="calc-field"></div>
+            </div>
+            <button class="calc-btn" onclick="calcWater()">计算</button>
+            <div class="calc-result" id="water-result" style="display:none">
+                <div class="calc-result-title">你的每日水合需求</div>
+                <div><span class="calc-result-value" id="water-total">0</span><span class="calc-result-unit">ml/天</span></div>
+                <div style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-2)">
+                    基础: <span id="water-base">0</span>ml + 训练: <span id="water-train">0</span>ml<span id="water-heat"></span>
+                </div>
+            </div>
+        </div>
+
+        <h2>训练后恢复时间轴</h2>
+
+        <div class="code-block">
+<span class="k">0-30分钟</span>：营养窗口 + 整理拉伸
+  → 快速碳水 <span class="v">1-1.2g/kg</span> + 快速蛋白 <span class="v">0.3-0.4g/kg</span>
+  例：70kg → 碳水84g（2碗米饭）+ 蛋白28g（1勺乳清+1个蛋）
+
+<span class="k">30分钟-2小时</span>：正餐 + 补水
+  → 碳水+蛋白+蔬菜，分次补水（不要一次性喝大量水）
+
+<span class="k">2小时-睡前</span>：轻度活动 + 筋膜放松
+  → 泡沫轴全身10-15分钟，热水澡
+
+<span class="k">睡觉（7-9小时）</span>：生长激素分泌 + 组织修复
+  → 不可替代，最重要的恢复手段
+  → 睡眠&lt;6小时：糖原合成效率下降30%
+  → 连续3天睡眠&lt;6小时：反应速度下降15-20%
+
+<span class="k">第二天早上</span>：评估恢复状态 → 决定今天训练强度
+        </div>
+
+        <h2>恢复状态评估</h2>
+        <div class="calc">
+            <div class="calc-title">📊 每日恢复状态自检</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>静息心率（比平时高吗？）</label>
+                    <select id="rec-hr">
+                        <option value="3">正常</option>
+                        <option value="2">高了5次以上</option>
+                        <option value="1">高了10次以上</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>身体感觉</label>
+                    <select id="rec-feel">
+                        <option value="3">精力充沛</option>
+                        <option value="2">懒洋洋</option>
+                        <option value="1">全身沉重</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>睡眠质量</label>
+                    <select id="rec-sleep">
+                        <option value="3">7小时+，醒来有精神</option>
+                        <option value="2">睡了但醒来还是累</option>
+                        <option value="1">没睡好/失眠</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>训练部位感觉</label>
+                    <select id="rec-muscle">
+                        <option value="3">没有明显感觉</option>
+                        <option value="2">轻微酸痛，活动后消失</option>
+                        <option value="1">明显酸痛，不碰都疼</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcRecovery()">评估</button>
+            <div class="calc-result" id="rec-result" style="display:none">
+                <div class="calc-result-title">你的恢复状态</div>
+                <div class="calc-result-value" id="rec-status">--</div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="rec-advice"></div>
+            </div>
+        </div>
+
+        <h2>不同训练类型恢复时间</h2>
+        <table>
+            <thead><tr><th>训练类型</th><th>恢复时间</th><th>建议频率</th></tr></thead>
+            <tbody>
+                <tr><td>纯技术训练</td><td>4-8小时</td><td>每天都可以练</td></tr>
+                <tr><td>步伐训练</td><td>24-36小时</td><td>隔天练</td></tr>
+                <tr><td>力量训练</td><td>48-72小时</td><td>每周2-3次</td></tr>
+                <tr><td>高强度间歇</td><td>48-72小时</td><td>每周2次</td></tr>
+                <tr><td>对抗/比赛</td><td>48-72小时</td><td>每周1-2次</td></tr>
+            </tbody>
+        </table>
+
+        <div class="next">
+            <a href="07-psychological-training.html">← 心理训练</a>
+            <a href="09-strength-conditioning.html">力量体能 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcTDEE() {
+            const gender = document.getElementById('gender').value;
+            const age = +document.getElementById('age').value;
+            const weight = +document.getElementById('weight').value;
+            const height = +document.getElementById('height').value;
+            const activity = +document.getElementById('activity').value;
+            const goal = +document.getElementById('goal').value;
+            
+            let bmr;
+            if (gender === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+            
+            const tdee = Math.round(bmr * activity + goal);
+            
+            document.getElementById('bmr-value').textContent = Math.round(bmr);
+            document.getElementById('adjusted-value').textContent = tdee;
+            document.getElementById('tdee-value').textContent = tdee;
+            document.getElementById('tdee-result').style.display = 'block';
+            
+            document.getElementById('macro-tdee').value = tdee;
+        }
+
+        function calcMacros() {
+            const weight = +document.getElementById('macro-weight').value;
+            const goal = document.getElementById('macro-goal').value;
+            const tdee = +document.getElementById('macro-tdee').value;
+            const day = document.getElementById('macro-day').value;
+            
+            let proteinPerKg;
+            if (goal === 'maintain') proteinPerKg = 1.4;
+            else if (goal === 'bulk') proteinPerKg = 1.8;
+            else proteinPerKg = 2.2;
+            
+            const protein = Math.round(weight * proteinPerKg);
+            const fat = Math.round(weight * 0.9);
+            
+            const proteinCal = protein * 4;
+            const fatCal = fat * 9;
+            const carbCal = tdee - proteinCal - fatCal;
+            const carb = Math.round(carbCal / 4);
+            
+            document.getElementById('protein-g').textContent = protein;
+            document.getElementById('fat-g').textContent = fat;
+            document.getElementById('carb-g').textContent = carb;
+            document.getElementById('protein-cal').textContent = proteinCal;
+            document.getElementById('fat-cal').textContent = fatCal;
+            document.getElementById('carb-cal').textContent = carbCal;
+            document.getElementById('macro-result').style.display = 'block';
+        }
+
+        function calcWater() {
+            const weight = +document.getElementById('water-weight').value;
+            const duration = +document.getElementById('water-duration').value;
+            const temp = +document.getElementById('water-temp').value;
+            
+            let base = weight * 33;
+            let train = duration * 12;
+            let heat = 0;
+            
+            if (temp > 30) {
+                heat = (base + train) * 0.2;
+            }
+            
+            const total = Math.round(base + train + heat);
+            
+            document.getElementById('water-base').textContent = Math.round(base);
+            document.getElementById('water-train').textContent = Math.round(train);
+            document.getElementById('water-heat').heat > 0 ? ` + 高温: ${Math.round(heat)}ml` : '';
+            document.getElementById('water-heat').textContent = heat > 0 ? ` + 高温: ${Math.round(heat)}ml` : '';
+            document.getElementById('water-total').textContent = total;
+            document.getElementById('water-result').style.display = 'block';
+        }
+
+        function calcRecovery() {
+            const hr = +document.getElementById('rec-hr').value;
+            const feel = +document.getElementById('rec-feel').value;
+            const sleep = +document.getElementById('rec-sleep').value;
+            const muscle = +document.getElementById('rec-muscle').value;
+            
+            const total = hr + feel + sleep + muscle;
+            
+            let status, advice, color;
+            if (total >= 10) {
+                status = '✅ 完全恢复';
+                advice = '可以正常训练，按计划执行。';
+                color = 'var(--green)';
+            } else if (total >= 7) {
+                status = '⚠️ 部分恢复';
+                advice = '建议减量20-30%，或做恢复训练。';
+                color = '#f59e0b';
+            } else {
+                status = '🚫 未恢复';
+                advice = '建议休息一天，或做轻度主动恢复。';
+                color = 'var(--accent)';
+            }
+            
+            document.getElementById('rec-status').textContent = status;
+            document.getElementById('rec-status').style.color = color;
+            document.getElementById('rec-advice').textContent = advice;
+            document.getElementById('rec-result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
