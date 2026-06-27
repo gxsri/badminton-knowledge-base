@@ -1,0 +1,97 @@
+# 🏸 羽毛球训练体系 - MkDocs网站配置
+# 构建方式: python -m mkdocs build
+# 输出目录: site/
+
+site_name: 羽毛球系统教学与训练体系
+site_description: 从零到一：NSCA CSCS认证专家 × 世界顶级羽毛球教练联合设计
+site_url: https://your-username.github.io/badminton-training-system/
+repo_url: https://github.com/your-username/badminton-training-system
+repo_name: badminton-training-system
+
+docs_dir: .
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+  favicon: images/17/motor-control-chain.svg
+  logo: images/17/motor-control-chain.svg
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: 暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: 亮色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - admonition
+  - footnotes
+  - attr_list
+
+extra:
+  version:
+    provider: mike
+
+nav:
+  - 🏠 首页: index.html
+  - 📖 操作手册: zh/00-quickstart-manual.md
+  - 📚 中文文档:
+      - 核心内容: zh/01-core-content.md
+      - 高远球: zh/05-level1-technique.md
+      - 四周计划: zh/06-four-week-plan.md
+      - 心理训练: zh/07-psychological-training.md
+      - 营养与恢复: zh/08-nutrition-recovery.md
+      - 力量体能: zh/09-strength-conditioning.md
+      - 训练日志: zh/10-training-log.md
+      - 步伐训练: zh/11-footwork-training.md
+      - 球路训练: zh/12-shot-patterns.md
+      - 比赛训练: zh/13-match-training.md
+      - 比赛策略: zh/14-match-strategy.md
+      - 技术全解析: zh/15-technical-training.md
+      - 阅读比赛: zh/16-match-reading.md
+      - 解剖康复: zh/17-sports-anatomy-rehab.md
+      - 精英分析: zh/18-elite-player-analysis.md
+      - 各国体系: zh/19-national-team-systems.md
+      - 装备指南: zh/20-equipment-guide.md
+      - 女性训练: zh/21-women-training.md
+      - 热身整理: zh/22-warmup-cooldown.md
+      - 诊断索引: zh/23-diagnosis-index.md
+      - 安全边界: zh/24-safety-guide.md
+  - 🇬🇧 English:
+      - Quickstart: en/00-quickstart-manual.md
+      - Core Content: en/01-core-content.md
+      - Forehand Clear: en/05-level1-technique.md
+      - Training Plan: en/06-four-week-plan.md
+      - Nutrition & Recovery: en/08-nutrition-recovery.md
+      - Footwork: en/11-footwork-training.md
+      - Technical Training: en/15-technical-training.md
+      - Equipment Guide: en/20-equipment-guide.md
+      - Women's Training: en/21-women-training.md
+      - Warm-up: en/22-warmup-cooldown.md
+      - Diagnosis Index: en/23-diagnosis-index.md
+      - Safety Guide: en/24-safety-guide.md
+  - 📋 训练表格: templates/README.md
+  - 📄 更新日志: CHANGELOG.md

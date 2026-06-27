@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>步伐训练 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .calc-field{display:flex;flex-direction:column;gap:0.3rem}
+        .calc-field label{font-size:0.85rem;color:var(--text-2)}
+        .calc-field input,.calc-field select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;font-family:inherit;outline:none}
+        .calc-field input:focus,.calc-field select:focus{border-color:var(--accent)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1rem}
+        .calc-result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-result-value{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.7rem 1.5rem;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:0.5rem}
+        .calc-btn:hover{background:var(--accent-2)}
+        .step-grid{display:grid;gap:1rem;margin:1.5rem 0}
+        .step{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:flex;gap:1rem;align-items:flex-start}
+        .step-num{flex-shrink:0;width:32px;height:32px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem}
+        .step-content{flex:1}.step-title{font-weight:600;margin-bottom:0.25rem}.step-desc{font-size:0.9rem;color:var(--text-2)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">11</div>
+        <h1>步伐训练</h1>
+        <div class="meta">Level 1-3 · 步数法则 · 启动步 · 完整节奏循环 · 快回慢踩</div>
+
+        <h2>为什么步伐是羽毛球的命脉</h2>
+        <p>羽毛球是"用脚打球"的运动。再好的技术，如果不到位，就发挥不出来。高效步法节省能量消耗25%，让你在第三局仍有体力。</p>
+
+        <div class="callout">
+            <p><strong>步法核心变量：</strong>不是"能做多少"，是"能在多大速度下保持稳定"。先控制幅度，再提升速度。幅度未稳定前不加速。</p>
+        </div>
+
+        <h2>步法节奏公式</h2>
+        <div class="calc">
+            <div class="calc-title">👟 步法节奏计算器</div>
+            <p style="margin:0 0 1rem;color:var(--text-2);font-size:0.9rem">输入你的步法参数，计算最佳训练节奏</p>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>训练水平</label>
+                    <select id="foot-level">
+                        <option value="beginner">初学者</option>
+                        <option value="intermediate">中级</option>
+                        <option value="advanced">高级</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>场地类型</label>
+                    <select id="foot-court">
+                        <option value="half">半场</option>
+                        <option value="full">全场</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcFootwork()">计算</button>
+            <div class="calc-result" id="foot-result" style="display:none">
+                <div class="calc-result-title">你的步法训练节奏</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;margin-bottom:0.5rem">
+                    启动步: <span style="color:var(--accent)" id="foot-split">0.2</span>秒 · 
+                    移动步: <span style="color:var(--green)" id="foot-move">0.3</span>秒/步 · 
+                    回位步: <span style="color:var(--blue)" id="foot-recover">0.4</span>秒/步
+                </div>
+                <div style="font-size:0.85rem;color:var(--text-2)">
+                    单次移动总时间: <span id="foot-total">0</span>秒 · 建议组数: <span id="foot-sets">0</span>组
+                </div>
+            </div>
+        </div>
+
+        <h2>启动步 — 一切的起点</h2>
+        <p>启动步是羽毛球步法的灵魂。对手击球瞬间，你必须有一个小跳步，为下一步移动蓄力。</p>
+
+        <div class="step-grid">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <div class="step-title">准备姿势</div>
+                    <div class="step-desc">双脚与肩同宽，膝盖微曲，重心在前脚掌。身体放松但警觉。</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <div class="step-title">小跳蓄力</div>
+                    <div class="step-desc">对手击球瞬间，双脚同时离地2-3cm，像弹簧压缩一样蓄力。</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <div class="step-title">落地蹬出</div>
+                    <div class="step-desc">落地时根据来球方向，异侧脚蹬地发力，启动第一步。</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练1：启动步专项</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>方法：</strong>原地做启动步，教练喊方向后蹬出第一步。3组×20次。<br>
+                <strong>要点：</strong>小跳要轻，落地要稳，蹬出要快。
+            </p>
+        </div>
+
+        <h2>四种基本步法</h2>
+        <table>
+            <thead><tr><th>步法</th><th>用途</th><th>节奏</th><th>要点</th></tr></thead>
+            <tbody>
+                <tr><td><strong>并步</strong></td><td>左右移动</td><td>蹬-并-蹬</td><td>重心平稳，不要上下起伏</td></tr>
+                <tr><td><strong>交叉步</strong></td><td>后退移动</td><td>转-交叉-蹬</td><td>后脚交叉到前脚后方</td></tr>
+                <tr><td><strong>垫步</strong></td><td>调整位置</td><td>小步调整</td><td>步幅小，频率快</td></tr>
+                <tr><td><strong>跨步</strong></td><td>最后一步</td><td>大步蹬出</td><td>脚跟先着地，膝盖不超过脚尖</td></tr>
+            </tbody>
+        </table>
+
+        <h2>完整步法循环</h2>
+        <div class="code-block">
+<span class="k">后场高远球步法</span>：
+  启动步 → 交叉步后退(2-3步) → 起跳击球 → 并步回中
+
+<span class="k">前场挑球步法</span>：
+  启动步 → 并步向前(1-2步) → 跨步到位 → 蹬地回中
+
+<span class="k">中场接杀步法</span>：
+  启动步 → 跨步/并步侧移 → 击球 → 回中
+
+<span class="c">关键原则：</span>
+<span class="v">快回慢踩</span> — 回位要快，到位要稳
+<span class="v">最后一步</span> — 一定是跨步，脚跟先着地
+<span class="v">回中意识</span> — 每次击球后必须回中
+        </div>
+
+        <h2>步法进阶标准</h2>
+        <div class="calc">
+            <div class="calc-title">📊 步法水平评估</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>启动步反应时间</label>
+                    <select id="foot-react">
+                        <option value="3">0.2秒以内</option>
+                        <option value="2">0.2-0.3秒</option>
+                        <option value="1">0.3秒以上</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>全场4点移动时间</label>
+                    <select id="foot-speed">
+                        <option value="3">3秒以内</option>
+                        <option value="2">3-4秒</option>
+                        <option value="1">4秒以上</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>回中意识</label>
+                    <select id="foot-center">
+                        <option value="3">每次击球后自动回中</option>
+                        <option value="2">大部分时候回中</option>
+                        <option value="1">经常忘记回中</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>步法稳定性</label>
+                    <select id="foot-stable">
+                        <option value="3">到位后稳定，不晃</option>
+                        <option value="2">轻微晃动</option>
+                        <option value="1">经常失去平衡</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcFootLevel()">评估</button>
+            <div class="calc-result" id="foot-level-result" style="display:none">
+                <div class="calc-result-title">你的步法水平</div>
+                <div class="calc-result-value" id="foot-level-text">--</div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="foot-level-advice"></div>
+            </div>
+        </div>
+
+        <div class="next">
+            <a href="09-strength-conditioning.html">← 力量体能</a>
+            <a href="15-technique-analysis.html">技术全解析 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcFootwork() {
+            const level = document.getElementById('foot-level').value;
+            const court = document.getElementById('foot-court').value;
+            
+            let split, move, recover, steps, sets;
+            
+            if (level === 'beginner') {
+                split = 0.3; move = 0.4; recover = 0.5;
+                steps = court === 'half' ? 3 : 5;
+                sets = 4;
+            } else if (level === 'intermediate') {
+                split = 0.2; move = 0.3; recover = 0.4;
+                steps = court === 'half' ? 4 : 6;
+                sets = 6;
+            } else {
+                split = 0.15; move = 0.25; recover = 0.35;
+                steps = court === 'half' ? 5 : 7;
+                sets = 8;
+            }
+            
+            const total = (split + move * steps + recover * 2).toFixed(1);
+            
+            document.getElementById('foot-split').textContent = split;
+            document.getElementById('foot-move').textContent = move;
+            document.getElementById('foot-recover').textContent = recover;
+            document.getElementById('foot-total').textContent = total;
+            document.getElementById('foot-sets').textContent = sets;
+            document.getElementById('foot-result').style.display = 'block';
+        }
+
+        function calcFootLevel() {
+            const react = +document.getElementById('foot-react').value;
+            const speed = +document.getElementById('foot-speed').value;
+            const center = +document.getElementById('foot-center').value;
+            const stable = +document.getElementById('foot-stable').value;
+            const total = react + speed + center + stable;
+            
+            let level, advice;
+            if (total >= 10) {
+                level = '熟练';
+                advice = '步法基础扎实，可以增加速度变化和假动作训练。';
+            } else if (total >= 7) {
+                level = '进阶';
+                advice = '步法基本正确，需要提高速度和稳定性。建议多练启动步和回中。';
+            } else if (total >= 4) {
+                level = '基础';
+                advice = '步法需要巩固。重点练习启动步和单个步法的稳定性。';
+            } else {
+                level = '初级';
+                advice = '从最基础的启动步开始，不要急着练全场步法。';
+            }
+            
+            document.getElementById('foot-level-text').textContent = level;
+            document.getElementById('foot-level-advice').textContent = advice;
+            document.getElementById('foot-level-result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

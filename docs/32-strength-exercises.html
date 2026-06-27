@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>力量训练动作指导 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(168,85,247,0.15);border-radius:4px;font-size:0.8rem;color:var(--purple);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .exercise-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+        .exercise-icon{width:48px;height:48px;background:var(--gradient-1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+        .exercise-title{font-size:1.2rem;font-weight:700}
+        .exercise-subtitle{font-size:0.85rem;color:var(--text-2)}
+        .exercise-section{margin-top:1.5rem}
+        .exercise-section-title{font-weight:600;margin-bottom:0.75rem;color:var(--accent-2);font-size:0.9rem}
+        .steps{list-style:none;counter-reset:step}
+        .steps li{counter-increment:step;padding:0.75rem 0;border-bottom:1px solid var(--border);color:var(--text-2);font-size:0.9rem;display:flex;gap:0.75rem}
+        .steps li::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--accent);border-radius:50%;font-size:0.75rem;font-weight:600;color:white;flex-shrink:0}
+        .muscles{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1rem 0}
+        .muscle{padding:0.25rem 0.75rem;background:var(--surface-2);border-radius:50px;font-size:0.8rem;color:var(--text-2)}
+        .muscle.primary{background:rgba(233,63,94,0.2);color:var(--accent)}
+        .common-errors{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin:1rem 0}
+        .error-item{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--text-2)}
+        .error-item:last-child{border:none}
+        .error-item strong{color:var(--accent)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        .progression{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+        .progression-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
+        .progression-level{font-weight:600;margin-bottom:0.25rem}
+        .progression-desc{font-size:0.8rem;color:var(--text-2)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">体能训练</div>
+        <h1>力量训练动作指导</h1>
+        <div class="meta">正确动作 · 避免受伤 · 循序渐进</div>
+
+        <div class="callout info">
+            <p><strong>力量训练原则：</strong>动作质量 > 重量。先掌握正确动作，再逐渐增加负荷。每个动作都要从最简单的版本开始。</p>
+        </div>
+
+        <h2>🏋️ 下肢训练</h2>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">🦵</div>
+                <div>
+                    <div class="exercise-title">深蹲（Squat）</div>
+                    <div class="exercise-subtitle">下肢力量基础动作</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">股四头肌</span>
+                <span class="muscle primary">臀大肌</span>
+                <span class="muscle">腘绳肌</span>
+                <span class="muscle">核心</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>双脚与肩同宽，脚尖略微外展（15-30度）</li>
+                    <li>挺胸收腹，目视前方</li>
+                    <li>臀部向后坐，膝盖弯曲</li>
+                    <li>下蹲至大腿与地面平行或更低</li>
+                    <li>脚跟用力蹬地，站起还原</li>
+                </ol>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">常见错误</div>
+                <div class="common-errors">
+                    <div class="error-item"><strong>膝盖内扣：</strong>臀中肌无力，需要加强臀中肌训练</div>
+                    <div class="error-item"><strong>弓背：</strong>核心力量不足，需要加强核心训练</div>
+                    <div class="error-item"><strong>脚跟离地：</strong>踝关节灵活性不足，需要拉伸小腿</div>
+                </div>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">进阶路径</div>
+                <div class="progression">
+                    <div class="progression-item">
+                        <div class="progression-level">初级</div>
+                        <div class="progression-desc">徒手深蹲</div>
+                    </div>
+                    <div class="progression-item">
+                        <div class="progression-level">中级</div>
+                        <div class="progression-desc">高脚杯深蹲</div>
+                    </div>
+                    <div class="progression-item">
+                        <div class="progression-level">高级</div>
+                        <div class="progression-desc">杠铃深蹲</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">🦵</div>
+                <div>
+                    <div class="exercise-title">弓步蹲（Lunge）</div>
+                    <div class="exercise-subtitle">单侧下肢力量训练</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">股四头肌</span>
+                <span class="muscle primary">臀大肌</span>
+                <span class="muscle">臀中肌</span>
+                <span class="muscle">核心</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>站立，双脚与髋同宽</li>
+                    <li>一脚向前迈出一大步</li>
+                    <li>下蹲至前腿大腿与地面平行</li>
+                    <li>后腿膝盖接近地面但不触地</li>
+                    <li>前脚蹬地，回到起始位置</li>
+                </ol>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">常见错误</div>
+                <div class="common-errors">
+                    <div class="error-item"><strong>步幅太小：</strong>膝盖超过脚尖过多，增加膝关节压力</div>
+                    <div class="error-item"><strong>躯干前倾：</strong>核心没有收紧，身体不稳定</div>
+                    <div class="error-item"><strong>膝盖内扣：</strong>臀中肌无力，需要加强臀中肌训练</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">🦵</div>
+                <div>
+                    <div class="exercise-title">罗马尼亚硬拉（Romanian Deadlift）</div>
+                    <div class="exercise-subtitle">后链肌群训练</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">腘绳肌</span>
+                <span class="muscle primary">臀大肌</span>
+                <span class="muscle">竖脊肌</span>
+                <span class="muscle">核心</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>双脚与髋同宽，膝盖微曲</li>
+                    <li>双手持哑铃或杠铃</li>
+                    <li>臀部向后推，上身前倾</li>
+                    <li>杠铃/哑铃沿腿部下降</li>
+                    <li>感受腘绳肌拉伸，然后臀部发力站起</li>
+                </ol>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">常见错误</div>
+                <div class="common-errors">
+                    <div class="error-item"><strong>弓背：</strong>核心没有收紧，腰部压力过大</div>
+                    <div class="error-item"><strong>膝盖弯曲过多：</strong>变成了深蹲，没有练到目标肌群</div>
+                    <div class="error-item"><strong>杠铃离身体太远：</strong>增加腰部负担</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>💪 上肢训练</h2>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">💪</div>
+                <div>
+                    <div class="exercise-title">俯卧撑（Push-up）</div>
+                    <div class="exercise-subtitle">上肢推力基础动作</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">胸大肌</span>
+                <span class="muscle primary">三角肌前束</span>
+                <span class="muscle">肱三头肌</span>
+                <span class="muscle">核心</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>双手撑地，与肩同宽或略宽</li>
+                    <li>身体成一条直线，收紧核心</li>
+                    <li>屈肘下降，胸部接近地面</li>
+                    <li>推起至手臂伸直</li>
+                    <li>保持身体稳定，不要塌腰或弓背</li>
+                </ol>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">进阶路径</div>
+                <div class="progression">
+                    <div class="progression-item">
+                        <div class="progression-level">初级</div>
+                        <div class="progression-desc">跪姿俯卧撑</div>
+                    </div>
+                    <div class="progression-item">
+                        <div class="progression-level">中级</div>
+                        <div class="progression-desc">标准俯卧撑</div>
+                    </div>
+                    <div class="progression-item">
+                        <div class="progression-level">高级</div>
+                        <div class="progression-desc">击掌俯卧撑</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">💪</div>
+                <div>
+                    <div class="exercise-title">引体向上（Pull-up）</div>
+                    <div class="exercise-subtitle">上肢拉力基础动作</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">背阔肌</span>
+                <span class="muscle primary">肱二头肌</span>
+                <span class="muscle">菱形肌</span>
+                <span class="muscle">核心</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>双手正握单杠，与肩同宽</li>
+                    <li>身体悬垂，肩胛骨下沉</li>
+                    <li>背部发力，将身体拉起</li>
+                    <li>下巴超过单杠</li>
+                    <li>控制下放，回到起始位置</li>
+                </ol>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">进阶路径</div>
+                <div class="progression">
+                    <div class="progression-item">
+                        <div class="progression-level">初级</div>
+                        <div class="progression-desc">弹力带辅助</div>
+                    </div>
+                    <div class="progression-item">
+                        <div class="progression-level">中级</div>
+                        <div class="progression-desc">标准引体</div>
+                    </div>
+                    <div class="progression-item">
+                        <div class="progression-level">高级</div>
+                        <div class="progression-desc">负重引体</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🎯 核心训练</h2>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">🎯</div>
+                <div>
+                    <div class="exercise-title">平板支撑（Plank）</div>
+                    <div class="exercise-subtitle">核心稳定性基础动作</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">腹直肌</span>
+                <span class="muscle primary">腹横肌</span>
+                <span class="muscle">竖脊肌</span>
+                <span class="muscle">臀肌</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>前臂撑地，手肘在肩膀正下方</li>
+                    <li>身体成一条直线，收紧核心</li>
+                    <li>不要塌腰或弓背</li>
+                    <li>保持呼吸，不要憋气</li>
+                    <li>保持姿势直到力竭</li>
+                </ol>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">常见错误</div>
+                <div class="common-errors">
+                    <div class="error-item"><strong>塌腰：</strong>核心没有收紧，腰部压力过大</div>
+                    <div class="error-item"><strong>弓背：</strong>臀部太高，没有练到目标肌群</div>
+                    <div class="error-item"><strong>憋气：</strong>应该保持正常呼吸</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-header">
+                <div class="exercise-icon">🎯</div>
+                <div>
+                    <div class="exercise-title">死虫式（Dead Bug）</div>
+                    <div class="exercise-subtitle">核心稳定性进阶动作</div>
+                </div>
+            </div>
+            <div class="muscles">
+                <span class="muscle primary">腹横肌</span>
+                <span class="muscle primary">腹直肌</span>
+                <span class="muscle">髂腰肌</span>
+            </div>
+            <div class="exercise-section">
+                <div class="exercise-section-title">动作分解</div>
+                <ol class="steps">
+                    <li>仰卧，手脚举起朝天</li>
+                    <li>下背部紧贴地面</li>
+                    <li>呼气时对侧手脚伸直</li>
+                    <li>吸气时还原</li>
+                    <li>保持下背部始终贴地</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2>📊 训练量指南</h2>
+        <table>
+            <thead><tr><th>目标</th><th>组数</th><th>次数</th><th>间歇</th><th>频率</th></tr></thead>
+            <tbody>
+                <tr><td><strong>力量</strong></td><td>4-6组</td><td>1-5次</td><td>3-5分钟</td><td>每周2-3次</td></tr>
+                <tr><td><strong>肌肉量</strong></td><td>3-4组</td><td>8-12次</td><td>60-90秒</td><td>每周3-4次</td></tr>
+                <tr><td><strong>耐力</strong></td><td>2-3组</td><td>15-20次</td><td>30-60秒</td><td>每周3-4次</td></tr>
+                <tr><td><strong>爆发力</strong></td><td>3-5组</td><td>3-6次</td><td>2-3分钟</td><td>每周2次</td></tr>
+            </tbody>
+        </table>
+
+        <div class="cta">
+            <a href="09-strength-conditioning.html">查看力量体能训练</a>
+            <a href="20-error-correction.html" class="secondary">查看纠错指南</a>
+        </div>
+
+        <div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="09-strength-conditioning.html">力量体能 →</a>
+        </div>
+    </div>
+</body>
+</html>

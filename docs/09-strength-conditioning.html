@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>力量体能 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .calc-field{display:flex;flex-direction:column;gap:0.3rem}
+        .calc-field label{font-size:0.85rem;color:var(--text-2)}
+        .calc-field input,.calc-field select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;font-family:inherit;outline:none}
+        .calc-field input:focus,.calc-field select:focus{border-color:var(--accent)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1rem}
+        .calc-result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-result-value{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.7rem 1.5rem;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:0.5rem}
+        .calc-btn:hover{background:var(--accent-2)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">09</div>
+        <h1>力量体能</h1>
+        <div class="meta">Level 1+ · 关节稳定 → 代谢适应 → 间歇训练 → 周期安排</div>
+
+        <h2>肩关节力量诊断</h2>
+        <p>肩关节损伤率27%，必须用数据诊断，不是靠感觉猜。</p>
+
+        <div class="calc">
+            <div class="calc-title">💪 肩关节力量比计算器</div>
+            <p style="margin:0 0 1rem;color:var(--text-2);font-size:0.9rem">用弹力带测试：外旋和内旋各做最多能做几个标准动作</p>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>外旋最大次数</label>
+                    <input type="number" id="er-count" value="15" min="1" max="100">
+                </div>
+                <div class="calc-field">
+                    <label>内旋最大次数</label>
+                    <input type="number" id="ir-count" value="22" min="1" max="100">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>年龄</label>
+                    <input type="number" id="shoulder-age" value="25" min="10" max="80">
+                </div>
+                <div class="calc-field"></div>
+            </div>
+            <button class="calc-btn" onclick="calcShoulder()">诊断</button>
+            <div class="calc-result" id="shoulder-result" style="display:none">
+                <div class="calc-result-title">你的肩关节力量比</div>
+                <div><span class="calc-result-value" id="shoulder-ratio">--</span></div>
+                <div style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-2)">
+                    正常值: 外旋:内旋 = <strong style="color:var(--green)">2:3</strong>
+                </div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="shoulder-advice"></div>
+            </div>
+        </div>
+
+        <h2>膝关节风险自评</h2>
+        <div class="calc">
+            <div class="calc-title">🦵 膝关节风险评估</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>下蹲时膝盖是否内扣？</label>
+                    <select id="knee-valgus">
+                        <option value="0">不内扣，对准第二脚趾</option>
+                        <option value="1">轻微内扣</option>
+                        <option value="2">明显内扣</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>侧卧抬腿能感受到臀肌发力吗？</label>
+                    <select id="knee-glute">
+                        <option value="0">能，臀部明显发力</option>
+                        <option value="1">不太确定</option>
+                        <option value="2">不能，大腿外侧发力</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>单腿站立能稳定10秒吗？</label>
+                    <select id="knee-balance">
+                        <option value="0">能，很稳定</option>
+                        <option value="1">有点晃</option>
+                        <option value="2">不能，需要脚触地</option>
+                    </select>
+                </div>
+                <div class="calc-field"></div>
+            </div>
+            <button class="calc-btn" onclick="calcKnee()">评估</button>
+            <div class="calc-result" id="knee-result" style="display:none">
+                <div class="calc-result-title">膝关节风险等级</div>
+                <div class="calc-result-value" id="knee-risk">--</div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="knee-advice"></div>
+            </div>
+        </div>
+
+        <h2>核心训练模块</h2>
+
+        <h3>模块一：关节稳定性</h3>
+        <div class="exercise">
+            <div class="exercise-title">肩袖肌群激活</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>外旋训练：</strong>弹力带外旋，3组×15次。小重量，高次数。<br>
+                <strong>内旋训练：</strong>控制性内旋，3组×15次。<br>
+                <strong>频率：</strong>每次训练前进行。<br>
+                <strong>进阶：</strong>从1组开始，稳定后加到2-3组。
+            </p>
+        </div>
+        <div class="exercise">
+            <div class="exercise-title">膝关节预防性训练</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>单腿下蹲离心：</strong>3秒下降，1秒上升。3组×每侧8次。<br>
+                <strong>臀中肌激活：</strong>侧卧抬腿，3组×每侧15次。<br>
+                <strong>蚌式开合：</strong>激活臀中肌，防止膝关节内扣。
+            </p>
+        </div>
+
+        <h3>模块二：代谢适应</h3>
+        <p>羽毛球是间歇性高强度运动，需要特殊代谢适应。</p>
+
+        <div class="calc">
+            <div class="calc-title">⏱️ 间歇训练计算器</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>你的训练水平</label>
+                    <select id="interval-level">
+                        <option value="beginner">初学者（Level 0-2）</option>
+                        <option value="intermediate">中级（Level 3-5）</option>
+                        <option value="advanced">高级（Level 6+）</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>训练目标</label>
+                    <select id="interval-goal">
+                        <option value="phosphagen">磷酸原系统（10秒全力）</option>
+                        <option value="glycolytic">糖酵解系统（30秒高强度）</option>
+                        <option value="aerobic">有氧系统（持续低强度）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcInterval()">计算</button>
+            <div class="calc-result" id="interval-result" style="display:none">
+                <div class="calc-result-title">你的间歇训练方案</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;margin-bottom:0.5rem">
+                    工作: <span id="interval-work" style="color:var(--accent)">0</span>秒 · 休息: <span id="interval-rest" style="color:var(--green)">0</span>秒
+                </div>
+                <div style="font-size:0.85rem;color:var(--text-2)">
+                    组数: <span id="interval-sets">0</span>组 · 总时间: <span id="interval-total">0</span>分钟
+                </div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="interval-advice"></div>
+            </div>
+        </div>
+
+        <h2>训练周期安排</h2>
+        <div class="calc">
+            <div class="calc-title">📅 周训练频率计算器</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>年龄</label>
+                    <input type="number" id="freq-age" value="25" min="10" max="80">
+                </div>
+                <div class="calc-field">
+                    <label>训练类型</label>
+                    <select id="freq-type">
+                        <option value="strength">力量训练</option>
+                        <option value="technique">技术训练</option>
+                        <option value="interval">间歇训练</option>
+                        <option value="match">比赛/对抗</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcFreq()">计算</button>
+            <div class="calc-result" id="freq-result" style="display:none">
+                <div class="calc-result-title">建议训练频率</div>
+                <div><span class="calc-result-value" id="freq-value">--</span><span style="font-size:0.9rem;color:var(--text-2)"> 次/周</span></div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="freq-advice"></div>
+            </div>
+        </div>
+
+        <h2>训练进阶判定</h2>
+        <div class="callout">
+            <p><strong>可以进阶的条件（必须同时满足）：</strong><br>
+            1. 当前动作能连续完成目标次数且不变形 × 2次训练<br>
+            2. 训练后24小时无不适感<br>
+            3. 用力感（不是酸胀感）&lt; 3/10</p>
+        </div>
+
+        <div class="next">
+            <a href="08-nutrition-recovery.html">← 营养与恢复</a>
+            <a href="11-footwork.html">步伐训练 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcShoulder() {
+            const er = +document.getElementById('er-count').value;
+            const ir = +document.getElementById('ir-count').value;
+            const age = +document.getElementById('shoulder-age').value;
+            
+            const ratio = (er / ir).toFixed(2);
+            const targetRatio = 0.67; // 2:3
+            
+            let advice, color;
+            if (Math.abs(ratio - targetRatio) < 0.1) {
+                advice = '✅ 力量比正常，继续保持。';
+                color = 'var(--green)';
+            } else if (ratio < targetRatio) {
+                const ageCoeff = age < 25 ? 4 : age <= 40 ? 3 : 2;
+                const deficit = Math.round((targetRatio - ratio) / targetRatio * 100);
+                const sets = Math.round(ageCoeff * (1 + deficit / 100));
+                advice = `⚠️ 外旋偏弱。建议外旋训练${sets}组，内旋2组。每周3次。`;
+                color = '#f59e0b';
+            } else {
+                advice = '⚠️ 内旋偏弱，较少见。建议均衡训练。';
+                color = '#f59e0b';
+            }
+            
+            document.getElementById('shoulder-ratio').textContent = `${er}:${ir} = ${ratio}`;
+            document.getElementById('shoulder-ratio').style.color = color;
+            document.getElementById('shoulder-advice').textContent = advice;
+            document.getElementById('shoulder-result').style.display = 'block';
+        }
+
+        function calcKnee() {
+            const valgus = +document.getElementById('knee-valgus').value;
+            const glute = +document.getElementById('knee-glute').value;
+            const balance = +document.getElementById('knee-balance').value;
+            const total = valgus + glute + balance;
+            
+            let risk, advice, color;
+            if (total === 0) {
+                risk = '低风险';
+                advice = '✅ 膝关节功能良好，可以正常训练。';
+                color = 'var(--green)';
+            } else if (total <= 2) {
+                risk = '中等风险';
+                advice = '⚠️ 建议增加臀中肌激活训练，每次训练前2组蚌式开合。';
+                color = '#f59e0b';
+            } else {
+                risk = '高风险';
+                advice = '🚫 暂停所有单腿下蹲训练。先做臀中肌激活+蚌式开合2周，再评估。';
+                color = 'var(--accent)';
+            }
+            
+            document.getElementById('knee-risk').textContent = risk;
+            document.getElementById('knee-risk').style.color = color;
+            document.getElementById('knee-advice').textContent = advice;
+            document.getElementById('knee-result').style.display = 'block';
+        }
+
+        function calcInterval() {
+            const level = document.getElementById('interval-level').value;
+            const goal = document.getElementById('interval-goal').value;
+            
+            let work, rest, sets, total, advice;
+            
+            if (goal === 'phosphagen') {
+                work = 10; rest = 50; sets = 8;
+                advice = '磷酸原系统训练：全力输出10秒，充分恢复50秒。';
+            } else if (goal === 'glycolytic') {
+                work = 30; rest = 90; sets = 6;
+                advice = '糖酵解系统训练：高强度30秒，恢复90秒。';
+            } else {
+                work = 180; rest = 60; sets = 4;
+                advice = '有氧系统训练：持续低强度3分钟，间歇1分钟。';
+            }
+            
+            if (level === 'beginner') { sets = Math.round(sets * 0.6); }
+            else if (level === 'advanced') { sets = Math.round(sets * 1.3); }
+            
+            total = Math.round((work + rest) * sets / 60);
+            
+            document.getElementById('interval-work').textContent = work;
+            document.getElementById('interval-rest').textContent = rest;
+            document.getElementById('interval-sets').textContent = sets;
+            document.getElementById('interval-total').textContent = total;
+            document.getElementById('interval-advice').textContent = advice;
+            document.getElementById('interval-result').style.display = 'block';
+        }
+
+        function calcFreq() {
+            const age = +document.getElementById('freq-age').value;
+            const type = document.getElementById('freq-type').value;
+            
+            let baseFreq, recovery, advice;
+            
+            if (type === 'strength') {
+                baseFreq = 3; recovery = age < 25 ? 1.2 : age <= 40 ? 1.0 : 0.8;
+                advice = '力量训练需要48-72小时恢复，确保同一肌群不连续训练。';
+            } else if (type === 'technique') {
+                baseFreq = 6; recovery = 1.0;
+                advice = '技术训练以神经疲劳为主，每天都可以练，但注意不要过度。';
+            } else if (type === 'interval') {
+                baseFreq = 2; recovery = age < 25 ? 1.0 : 0.8;
+                advice = '间歇训练对神经系统消耗大，确保充分恢复。';
+            } else {
+                baseFreq = 2; recovery = age < 25 ? 1.0 : 0.8;
+                advice = '比赛/对抗需要48-72小时恢复。';
+            }
+            
+            const freq = Math.round(baseFreq * recovery * 10) / 10;
+            
+            document.getElementById('freq-value').textContent = freq;
+            document.getElementById('freq-advice').textContent = advice;
+            document.getElementById('freq-result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

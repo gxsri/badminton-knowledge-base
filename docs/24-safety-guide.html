@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>训练安全边界 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .callout.danger{border-left-color:#ef4444}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">24</div>
+        <h1>训练安全边界</h1>
+        <div class="meta">Level 0+ · RICE损伤处理 · 重返运动五级标准 · 什么情况不能练</div>
+
+        <h2>疼痛 vs 酸痛 — 必须区分</h2>
+        <div class="callout danger">
+            <p><strong>这是最重要的安全原则：</strong>酸痛是正常的训练反应，疼痛是身体的警告信号。混淆两者会导致严重损伤。</p>
+        </div>
+
+        <table>
+            <thead><tr><th>特征</th><th>酸痛（DOMS）</th><th>疼痛（损伤）</th></tr></thead>
+            <tbody>
+                <tr><td><strong>时间</strong></td><td>训练后12-72小时出现</td><td>训练中或训练后立即出现</td></tr>
+                <tr><td><strong>感觉</strong></td><td>酸胀、紧绷</td><td>刺痛、锐痛、灼烧感</td></tr>
+                <tr><td><strong>范围</strong></td><td>整个肌群</td><td>局部明确位置</td></tr>
+                <tr><td><strong>活动时</strong></td><td>活动开后减轻</td><td>活动后加重</td></tr>
+                <tr><td><strong>持续</strong></td><td>3-5天消退</td><td>超过7天不消退</td></tr>
+                <tr><td><strong>应对</strong></td><td>正常训练，可轻微活动</td><td>停止训练，就医检查</td></tr>
+            </tbody>
+        </table>
+
+        <h2>RICE损伤处理原则</h2>
+        <div class="code-block">
+<span class="k">急性损伤48小时内执行：</span>
+
+<span class="v">R - Rest</span>（休息）
+  停止所有训练
+  避免加重损伤的动作
+
+<span class="v">I - Ice</span>（冰敷）
+  每次15-20分钟
+  每2小时一次
+  用毛巾隔开，不直接接触皮肤
+
+<span class="v">C - Compression</span>（加压）
+  弹性绷带包扎
+  减少肿胀
+  不要太紧，避免影响血液循环
+
+<span class="v">E - Elevation</span>（抬高）
+  将受伤部位抬高到心脏以上
+  帮助减少肿胀
+
+<span class="c">48小时后：</span>
+  可以开始轻度活动
+  热敷替代冰敷
+  逐渐恢复训练
+        </div>
+
+        <h2>重返运动五级标准</h2>
+        <table>
+            <thead><tr><th>级别</th><th>标准</th><th>时间参考</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Level 1</strong></td><td>无痛完成日常活动</td><td>损伤后即可</td></tr>
+                <tr><td><strong>Level 2</strong></td><td>无痛完成轻度活动（散步、骑车）</td><td>1-2天</td></tr>
+                <tr><td><strong>Level 3</strong></td><td>无痛完成跑步、跳跃</td><td>3-7天</td></tr>
+                <tr><td><strong>Level 4</strong></td><td>无痛完成专项训练</td><td>1-2周</td></tr>
+                <tr><td><strong>Level 5</strong></td><td>无痛完成全强度训练/比赛</td><td>2-4周</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout warn">
+            <p><strong>关键原则：</strong>只有完成当前级别且无痛24小时，才能进入下一级别。任何一级出现疼痛，退回上一级别。</p>
+        </div>
+
+        <h2>什么情况不能练</h2>
+        <div class="callout danger">
+            <p><strong>出现以下情况，立即停止训练并就医：</strong><br>
+            • 刺痛/锐痛（不是酸胀感）<br>
+            • 关节肿胀<br>
+            • 活动范围明显受限<br>
+            • 疼痛持续超过48小时<br>
+            • 伴随发热/红肿<br>
+            • 关节"卡住"或"弹响"伴疼痛<br>
+            • 肌肉/韧带感觉"断裂"</p>
+        </div>
+
+        <h2>红码状态处理</h2>
+        <div class="code-block">
+<span class="k">以下情况必须休息：</span>
+
+<span class="v">精力评分 < 4/10</span>
+  → 身体没有准备好接受训练刺激
+
+<span class="v">任何部位出现刺痛</span>
+  → 可能是急性损伤信号
+
+<span class="v">睡眠严重不足（<5小时）</span>
+  → 恢复不足，训练效果差且易受伤
+
+<span class="v">生病中</span>
+  → 免疫系统正在战斗，不要额外消耗
+
+<span class="v">连续3天以上感觉"没有完全恢复"</span>
+  → 训练量超过了恢复能力，需要减量
+
+<span class="c">处理方式：</span>
+  完全休息 或 做轻度主动恢复（散步/游泳）
+  不要"硬撑"训练——一次受伤倒退3-10倍时间
+        </div>
+
+        <h2>常见训练错误</h2>
+        <table>
+            <thead><tr><th>错误</th><th>后果</th><th>正确做法</th></tr></thead>
+            <tbody>
+                <tr><td>训练前不热身</td><td>肌肉拉伤风险增加</td><td>至少10分钟动态热身</td></tr>
+                <tr><td>训练后不拉伸</td><td>肌肉紧张，柔韧性下降</td><td>5-10分钟静态拉伸</td></tr>
+                <tr><td>疼痛时硬撑</td><td>小伤变大伤</td><td>立即停止，评估原因</td></tr>
+                <tr><td>每天高强度训练</td><td>过度训练，免疫力下降</td><td>每周至少1-2天休息</td></tr>
+                <tr><td>只练喜欢的</td><td>肌肉失衡，易受伤</td><td>全面发展，均衡训练</td></tr>
+                <tr><td>睡眠不足还练</td><td>恢复不足，效果差</td><td>保证7-9小时睡眠</td></tr>
+            </tbody>
+        </table>
+
+        <div class="next">
+            <a href="22-warmup-cooldown.html">← 热身与整理</a>
+            <a href="../index.html">返回首页 →</a>
+        </div>
+    </div>
+</body>
+</html>

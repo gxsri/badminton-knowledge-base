@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>级别定位器 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(99,102,241,0.15);border-radius:4px;font-size:0.8rem;color:var(--indigo);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-field{margin-bottom:1.5rem}
+        .calc-field label{display:block;font-size:0.9rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-field select,.calc-field input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;color:var(--text);font-size:0.95rem;font-family:inherit;outline:none}
+        .calc-field select:focus,.calc-field input:focus{border-color:var(--accent)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.8rem 2rem;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;width:100%}
+        .calc-btn:hover{background:var(--accent-2)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-top:1.5rem;display:none}
+        .calc-result.show{display:block}
+        .result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.75rem}
+        .result-level{font-size:2rem;font-weight:900;margin-bottom:0.5rem}
+        .result-name{font-size:1.2rem;font-weight:600;margin-bottom:0.5rem}
+        .result-desc{font-size:0.9rem;color:var(--text-2);margin-bottom:1rem}
+        .result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:1rem 0}
+        .result-stat{background:var(--surface);border-radius:8px;padding:0.75rem;text-align:center}
+        .result-stat-num{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)}
+        .result-stat-label{font-size:0.75rem;color:var(--text-2);margin-top:0.25rem}
+        .result-link{display:inline-block;margin-top:1rem;padding:0.75rem 1.5rem;background:var(--accent);color:white;border-radius:6px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .result-link:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .level-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2rem 0}
+        .level-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:all 0.2s}
+        .level-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+        .level-num{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent);margin-bottom:0.25rem}
+        .level-name{font-weight:600;margin-bottom:0.25rem}
+        .level-time{font-size:0.8rem;color:var(--accent-2);margin-bottom:0.5rem}
+        .level-desc{font-size:0.85rem;color:var(--text-2)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){
+            .level-cards{grid-template-columns:1fr}
+            .result-stats{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">P1工具</div>
+        <h1>级别定位器</h1>
+        <div class="meta">回答几个问题，找到你的起始训练级别</div>
+
+        <div class="callout info">
+            <p><strong>为什么需要级别定位？</strong>每个人的基础不同，直接从Level 0开始可能太简单，从Level 3开始可能太难。找到合适的起点，训练效率最高。</p>
+        </div>
+
+        <h2>🎯 快速定位</h2>
+
+        <div class="calc">
+            <div class="calc-title">📝 级别定位问卷</div>
+            
+            <div class="calc-field">
+                <label>1. 你的羽毛球经验？</label>
+                <select id="q1">
+                    <option value="0">完全不会，没打过</option>
+                    <option value="1">打过几次，但不规律</option>
+                    <option value="2">经常打，有固定球友</option>
+                    <option value="3">受过训练，参加过比赛</option>
+                    <option value="4">专业训练背景</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>2. 你的体能基础？</label>
+                <select id="q2">
+                    <option value="0">很少运动，体能差</option>
+                    <option value="1">偶尔运动，体能一般</option>
+                    <option value="2">规律运动，体能良好</option>
+                    <option value="3">经常运动，体能优秀</option>
+                    <option value="4">专业运动员体能</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>3. 你能做多少个标准俯卧撑？</label>
+                <select id="q3">
+                    <option value="0">不到5个</option>
+                    <option value="1">5-10个</option>
+                    <option value="2">10-20个</option>
+                    <option value="3">20-30个</option>
+                    <option value="4">30个以上</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>4. 你能做多少次标准深蹲？</label>
+                <select id="q4">
+                    <option value="0">不到10次</option>
+                    <option value="1">10-15次</option>
+                    <option value="2">15-20次</option>
+                    <option value="3">20-30次</option>
+                    <option value="4">30次以上</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>5. 你的年龄？</label>
+                <select id="q5">
+                    <option value="0">50岁以上</option>
+                    <option value="1">35-50岁</option>
+                    <option value="2">18-35岁</option>
+                    <option value="3">15-18岁</option>
+                    <option value="4">15岁以下</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>6. 你每周能训练几天？</label>
+                <select id="q6">
+                    <option value="0">0-1天</option>
+                    <option value="1">2-3天</option>
+                    <option value="2">4-5天</option>
+                    <option value="3">6-7天</option>
+                    <option value="4">每天2次以上</option>
+                </select>
+            </div>
+
+            <button class="calc-btn" onclick="calcLevel()">确定我的级别</button>
+
+            <div class="calc-result" id="level-result">
+                <div class="result-title">你的起始级别</div>
+                <div class="result-level" id="result-level">Level 0</div>
+                <div class="result-name" id="result-name">零基础启蒙</div>
+                <div class="result-desc" id="result-desc">你是完全的新手，建议从零基础开始，先建立正确的运动模式。</div>
+                <div class="result-stats" id="result-stats"></div>
+                <a href="#" class="result-link" id="result-link">开始Level 0训练</a>
+            </div>
+        </div>
+
+        <h2>📋 8级体系概览</h2>
+        <p>根据你的定位结果，选择对应的级别开始训练：</p>
+
+        <div class="level-cards">
+            <a href="03-level-0.html" class="level-card">
+                <div class="level-num">00</div>
+                <div class="level-name">零基础启蒙</div>
+                <div class="level-time">0-3个月</div>
+                <div class="level-desc">完全新手，建立运动模式</div>
+            </a>
+            <a href="04-level-1.html" class="level-card">
+                <div class="level-num">01</div>
+                <div class="level-name">基础建立</div>
+                <div class="level-time">3-6个月</div>
+                <div class="level-desc">有运动基础，巩固动作模式</div>
+            </a>
+            <a href="05-level-2.html" class="level-card">
+                <div class="level-num">02</div>
+                <div class="level-name">技术入门</div>
+                <div class="level-time">6-12个月</div>
+                <div class="level-desc">会打球，掌握基础技术</div>
+            </a>
+            <a href="06-level-3.html" class="level-card">
+                <div class="level-num">03</div>
+                <div class="level-name">技术熟练</div>
+                <div class="level-time">1-2年</div>
+                <div class="level-desc">经常打，技术自动化</div>
+            </a>
+            <a href="07-level-4.html" class="level-card">
+                <div class="level-num">04</div>
+                <div class="level-name">技术精进</div>
+                <div class="level-time">2-3年</div>
+                <div class="level-desc">技术稳定，追求精细化</div>
+            </a>
+            <a href="08-level-5.html" class="level-card">
+                <div class="level-num">05</div>
+                <div class="level-name">战术应用</div>
+                <div class="level-time">3-4年</div>
+                <div class="level-desc">有战术意识，参加业余比赛</div>
+            </a>
+            <a href="09-level-6.html" class="level-card">
+                <div class="level-num">06</div>
+                <div class="level-name">准专业</div>
+                <div class="level-time">4-5年</div>
+                <div class="level-desc">全面发展，参加省级比赛</div>
+            </a>
+            <a href="10-level-7.html" class="level-card">
+                <div class="level-num">07</div>
+                <div class="level-name">职业水平</div>
+                <div class="level-time">5年+</div>
+                <div class="level-desc">专业水平，参加职业比赛</div>
+            </a>
+        </div>
+
+        <div class="cta">
+            <a href="02-assessment.html">完成详细基线评估</a>
+            <a href="00-quickstart.html" class="secondary">返回快速开始</a>
+        </div>
+
+        <div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="02-assessment.html">基线评估 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcLevel() {
+            const q1 = +document.getElementById('q1').value;
+            const q2 = +document.getElementById('q2').value;
+            const q3 = +document.getElementById('q3').value;
+            const q4 = +document.getElementById('q4').value;
+            const q5 = +document.getElementById('q5').value;
+            const q6 = +document.getElementById('q6').value;
+            
+            const total = q1 + q2 + q3 + q4 + q5 + q6;
+            
+            let level, name, desc, link, color;
+            
+            if (total <= 6) {
+                level = 'Level 0';
+                name = '零基础启蒙';
+                desc = '你是完全的新手，建议从零基础开始，先建立正确的运动模式和基础力量。';
+                link = '03-level-0.html';
+                color = 'var(--accent)';
+            } else if (total <= 10) {
+                level = 'Level 1';
+                name = '基础建立';
+                desc = '你有一定的运动基础，建议从基础建立开始，巩固动作模式。';
+                link = '04-level-1.html';
+                color = 'var(--blue)';
+            } else if (total <= 14) {
+                level = 'Level 2';
+                name = '技术入门';
+                desc = '你会打羽毛球，建议从技术入门开始，掌握标准动作。';
+                link = '05-level-2.html';
+                color = 'var(--purple)';
+            } else if (total <= 18) {
+                level = 'Level 3';
+                name = '技术熟练';
+                desc = '你经常打球，建议从技术熟练开始，进一步精进技术。';
+                link = '06-level-3.html';
+                color = 'var(--green)';
+            } else {
+                level = 'Level 4+';
+                name = '技术精进';
+                desc = '你有不错的基础，建议从技术精进开始，追求更高水平。';
+                link = '07-level-4.html';
+                color = 'var(--orange)';
+            }
+            
+            document.getElementById('result-level').textContent = level;
+            document.getElementById('result-level').style.color = color;
+            document.getElementById('result-name').textContent = name;
+            document.getElementById('result-desc').textContent = desc;
+            document.getElementById('result-link').href = link;
+            
+            // 显示统计
+            document.getElementById('result-stats').innerHTML = `
+                <div class="result-stat">
+                    <div class="result-stat-num">${q1}</div>
+                    <div class="result-stat-label">羽毛球经验</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-num">${q2}</div>
+                    <div class="result-stat-label">体能基础</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-num">${total}</div>
+                    <div class="result-stat-label">总分</div>
+                </div>
+            `;
+            
+            document.getElementById('level-result').classList.add('show');
+            
+            // 保存到localStorage
+            localStorage.setItem('badminton-level-locator', JSON.stringify({
+                scores: {q1, q2, q3, q4, q5, q6},
+                total: total,
+                level: level,
+                date: new Date().toISOString()
+            }));
+        }
+    </script>
+</body>
+</html>

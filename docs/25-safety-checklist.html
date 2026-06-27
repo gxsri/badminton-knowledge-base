@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>训练前安全检查 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(239,68,68,0.15);border-radius:4px;font-size:0.8rem;color:#ef4444;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        .callout.danger{border-left-color:#ef4444}
+        .checklist-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .checklist-title{font-weight:700;font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .checklist-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .checklist{list-style:none}
+        .checklist li{padding:0.75rem 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:0.75rem;color:var(--text-2);cursor:pointer;transition:color 0.2s}
+        .checklist li::before{content:'☐';color:var(--accent);font-size:1.2rem;flex-shrink:0}
+        .checklist li.done{color:var(--text)}
+        .checklist li.done::before{content:'☑';color:var(--green)}
+        .checklist li:hover{color:var(--text)}
+        .status-bar{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:2rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .status-text{font-size:0.9rem}
+        .status-btn{padding:0.6rem 1.2rem;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all 0.2s}
+        .status-btn.go{background:var(--green);color:white}
+        .status-btn.caution{background:var(--yellow);color:black}
+        .status-btn.stop{background:var(--accent);color:white}
+        .status-btn:disabled{opacity:0.5;cursor:not-allowed}
+        .traffic-light{display:flex;gap:0.5rem;align-items:center}
+        .light{width:24px;height:24px;border-radius:50%;border:2px solid var(--border)}
+        .light.red{background:var(--accent)}
+        .light.yellow{background:var(--yellow)}
+        .light.green{background:var(--green)}
+        .light.active{box-shadow:0 0 10px currentColor}
+        .light.red.active{box-shadow:0 0 10px var(--accent)}
+        .light.yellow.active{box-shadow:0 0 10px var(--yellow)}
+        .light.green.active{box-shadow:0 0 10px var(--green)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        .result-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1rem;display:none}
+        .result-box.show{display:block}
+        .result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem}
+        .result-value{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700}
+        .result-advice{font-size:0.85rem;color:var(--text-2);margin-top:0.5rem}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">安全第一</div>
+        <h1>训练前安全检查</h1>
+        <div class="meta">每次训练前必做 · 2分钟完成 · 预防损伤</div>
+
+        <div class="callout danger">
+            <p><strong>重要提醒：</strong>任何一项检查结果为"否"，请立即停止训练并评估风险。安全永远第一位。</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="traffic-light">
+                <div class="light red" id="light-red"></div>
+                <div class="light yellow" id="light-yellow"></div>
+                <div class="light green" id="light-green"></div>
+            </div>
+            <div class="status-text" id="status-text">请完成以下检查</div>
+            <div>
+                <button class="status-btn go" id="btn-go" onclick="setStatus('go')" disabled>可以训练</button>
+                <button class="status-btn caution" id="btn-caution" onclick="setStatus('caution')" disabled>减量训练</button>
+                <button class="status-btn stop" id="btn-stop" onclick="setStatus('stop')" disabled>停止训练</button>
+            </div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="checklist-title">💤 身体状态检查</div>
+            <ul class="checklist" id="checklist1">
+                <li onclick="toggleCheck(this)">昨晚睡眠≥7小时</li>
+                <li onclick="toggleCheck(this)">醒来感觉精力充沛</li>
+                <li onclick="toggleCheck(this)">没有明显的肌肉酸痛</li>
+                <li onclick="toggleCheck(this)">没有关节疼痛</li>
+                <li onclick="toggleCheck(this)">没有感冒或不适症状</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <div class="checklist-title">🧠 心理状态检查</div>
+            <ul class="checklist" id="checklist2">
+                <li onclick="toggleCheck(this)">注意力能集中</li>
+                <li onclick="toggleCheck(this)">对训练有积极性</li>
+                <li onclick="toggleCheck(this)">没有过度焦虑</li>
+                <li onclick="toggleCheck(this)">情绪状态稳定</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <div class="checklist-title">🏃 身体准备检查</div>
+            <ul class="checklist" id="checklist3">
+                <li onclick="toggleCheck(this)">训练前2小时已进食</li>
+                <li onclick="toggleCheck(this)">已补充足够水分</li>
+                <li onclick="toggleCheck(this)">已完成动态热身</li>
+                <li onclick="toggleCheck(this)">关节活动度正常</li>
+            </ul>
+        </div>
+
+        <div class="checklist-section">
+            <div class="checklist-title">🏸 装备检查</div>
+            <ul class="checklist" id="checklist4">
+                <li onclick="toggleCheck(this)">球拍状态良好</li>
+                <li onclick="toggleCheck(this)">球线张力正常</li>
+                <li onclick="toggleCheck(this)">球鞋合适且无损坏</li>
+                <li onclick="toggleCheck(this)">穿着合适的运动服</li>
+            </ul>
+        </div>
+
+        <div class="result-box" id="result-box">
+            <div class="result-title">检查结果</div>
+            <div class="result-value" id="result-value"></div>
+            <div class="result-advice" id="result-advice"></div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>出现以下情况，请停止训练：</strong><br>
+            • 任何部位有刺痛感<br>
+            • 关节肿胀或活动受限<br>
+            • 发热或全身不适<br>
+            • 睡眠严重不足（<5小时）<br>
+            • 情绪极度低落或焦虑</p>
+        </div>
+
+        <div class="cta">
+            <a href="00-quickstart.html">开始训练</a>
+            <a href="20-error-correction.html" class="secondary">查看纠错指南</a>
+        </div>
+
+        <div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="00-quickstart.html">快速开始 →</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleCheck(el) {
+            el.classList.toggle('done');
+            updateStatus();
+        }
+
+        function updateStatus() {
+            const allItems = document.querySelectorAll('.checklist li');
+            const doneItems = document.querySelectorAll('.checklist li.done');
+            const total = allItems.length;
+            const done = doneItems.length;
+            const percent = Math.round((done / total) * 100);
+
+            // 启用按钮
+            document.getElementById('btn-go').disabled = done < total;
+            document.getElementById('btn-caution').disabled = done < total * 0.7;
+            document.getElementById('btn-stop').disabled = false;
+
+            // 更新状态文字
+            if (done === total) {
+                document.getElementById('status-text').textContent = '✅ 所有检查通过，可以训练';
+                document.getElementById('light-green').classList.add('active');
+                document.getElementById('light-yellow').classList.remove('active');
+                document.getElementById('light-red').classList.remove('active');
+            } else if (done >= total * 0.7) {
+                document.getElementById('status-text').textContent = `⚠️ 完成 ${done}/${total} 项检查`;
+                document.getElementById('light-yellow').classList.add('active');
+                document.getElementById('light-green').classList.remove('active');
+                document.getElementById('light-red').classList.remove('active');
+            } else {
+                document.getElementById('status-text').textContent = `❌ 完成 ${done}/${total} 项检查`;
+                document.getElementById('light-red').classList.add('active');
+                document.getElementById('light-green').classList.remove('active');
+                document.getElementById('light-yellow').classList.remove('active');
+            }
+        }
+
+        function setStatus(status) {
+            const resultBox = document.getElementById('result-box');
+            const resultValue = document.getElementById('result-value');
+            const resultAdvice = document.getElementById('result-advice');
+
+            if (status === 'go') {
+                resultValue.textContent = '✅ 可以训练';
+                resultValue.style.color = 'var(--green)';
+                resultAdvice.textContent = '所有检查通过，可以按计划进行训练。记得做好热身！';
+            } else if (status === 'caution') {
+                resultValue.textContent = '⚠️ 减量训练';
+                resultValue.style.color = 'var(--yellow)';
+                resultAdvice.textContent = '部分检查未通过，建议减量50%或改为恢复训练。优先保证安全。';
+            } else {
+                resultValue.textContent = '🚫 停止训练';
+                resultValue.style.color = 'var(--accent)';
+                resultAdvice.textContent = '身体状态不适合训练，今天请休息。恢复比训练更重要。';
+            }
+
+            resultBox.classList.add('show');
+
+            // 保存到localStorage
+            const log = JSON.parse(localStorage.getItem('safety-check-log') || '[]');
+            log.push({
+                date: new Date().toISOString(),
+                status: status,
+                completed: document.querySelectorAll('.checklist li.done').length,
+                total: document.querySelectorAll('.checklist li').length
+            });
+            localStorage.setItem('safety-check-log', JSON.stringify(log));
+        }
+
+        updateStatus();
+    </script>
+</body>
+</html>

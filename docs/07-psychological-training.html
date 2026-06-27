@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心理训练 — 羽毛球系统训练</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">07</div>
+        <h1>心理训练</h1>
+        <div class="meta">Level 2+ · 注意力 → 压力适应 → 自我调节 → 决策信心 → 赛前流程</div>
+
+        <h2>为什么羽毛球需要心理训练</h2>
+        <p>羽毛球比赛中，运动员的决策时间不到0.3秒。在高压环境下，技术动作可能下降30%。心理训练不是"鸡汤"，是可量化、可训练的技能。</p>
+
+        <div class="callout">
+            <p><strong>关键数据：</strong>自我对话影响表现70%，压力适应可提高比赛稳定性50%，决策训练提高比赛掌控力40%。</p>
+        </div>
+
+        <h2>注意力训练</h2>
+        <p>注意力不是"好不好"的问题，是"哪一类注意力需要训练"的问题。</p>
+
+        <table>
+            <thead><tr><th>注意力类型</th><th>表现</th><th>自检方法</th><th>训练方法</th></tr></thead>
+            <tbody>
+                <tr><td><strong>持续注意</strong></td><td>长时间保持在一个任务上</td><td>能专注一个训练多久不分心？&lt;5分钟→需要训练</td><td>单点凝视训练</td></tr>
+                <tr><td><strong>选择性注意</strong></td><td>在干扰中保持专注</td><td>旁边有人说话时动作会不会变形？</td><td>干扰场景训练</td></tr>
+                <tr><td><strong>分配注意</strong></td><td>同时做两个任务</td><td>边做步法边看教练手势？做不到→需要训练</td><td>双重任务训练</td></tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">
+<span class="k">训练量设定</span>：
+起始时间 = 你能保持注意力稳定的时间 × <span class="v">80%</span>
+例：能专注3分钟 → 每次训练2.5分钟
+
+进阶量 = 当前时间 + <span class="v">30秒</span>
+进阶条件 = 连续3次训练没有出现注意力中断
+        </div>
+
+        <h3>注意力训练方法</h3>
+        <div class="exercise">
+            <div class="exercise-title">训练1：单点凝视</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>方法：</strong>盯住墙上一个点，保持注意力集中。从1分钟开始，逐渐增加。<br>
+                <strong>进阶：</strong>闭眼→睁眼→有人走过→有人说话
+            </p>
+        </div>
+        <div class="exercise">
+            <div class="exercise-title">训练2：干扰场景训练</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>方法：</strong>在训练时播放嘈杂音乐或有人在旁边说话。<br>
+                <strong>目标：</strong>在干扰中保持技术动作不变形。
+            </p>
+        </div>
+        <div class="exercise">
+            <div class="exercise-title">训练3：双重任务训练</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>方法：</strong>做步法的同时，回应教练的手势（不同手势=不同方向）。<br>
+                <strong>目标：</strong>培养同时处理多个信息的能力。
+            </p>
+        </div>
+
+        <h2>压力适应训练</h2>
+        <p>比赛压力下技术下降30%。必须训练压力适应。</p>
+
+        <table>
+            <thead><tr><th>压力级别</th><th>特征</th><th>心率变化</th><th>训练场景</th></tr></thead>
+            <tbody>
+                <tr><td><strong>L1 无压力</strong></td><td>一个人在熟悉的环境训练</td><td>静息+0-10%</td><td>日常训练</td></tr>
+                <tr><td><strong>L2 低压</strong></td><td>有人在看/录像</td><td>静息+10-20%</td><td>有人旁观的训练</td></tr>
+                <tr><td><strong>L3 中压</strong></td><td>有计时/计分</td><td>静息+20-30%</td><td>计时考核</td></tr>
+                <tr><td><strong>L4 高压</strong></td><td>有输赢/关键分</td><td>静息+30-50%</td><td>模拟比赛</td></tr>
+                <tr><td><strong>L5 极限</strong></td><td>高压+疲劳+干扰</td><td>静息+50%+</td><td>压力测试</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout warn">
+            <p><strong>核心逻辑：</strong>在Lx级别稳定后→进入Lx+1级别。在Lx+1出现动作变形或心率过高→退回Lx。在Lx再做1-2周→重新尝试Lx+1。<strong>不是"硬扛"，硬扛只会巩固紧张状态下的错误模式。</strong></p>
+        </div>
+
+        <h2>自我对话训练</h2>
+        <p>自我对话影响表现70%。消极自我对话会直接降低运动表现。</p>
+
+        <h3>认知重构</h3>
+        <div class="code-block">
+<span class="k">第一步</span>：识别消极想法
+  "我肯定接不到这个球" → 这是消极预测
+
+<span class="k">第二步</span>：转换为积极陈述
+  "我准备好了，专注在动作上" → 这是过程焦点
+
+<span class="k">第三步</span>：使用关键词
+  技术关键词：<span class="v">"转体"</span>、<span class="v">"蹬地"</span>、<span class="v">"放松"</span>
+  心理关键词：<span class="v">"专注"</span>、<span class="v">"呼吸"</span>、<span class="v">"一步一步"</span>
+        </div>
+
+        <h3>注意力焦点控制</h3>
+        <table>
+            <thead><tr><th>焦点类型</th><th>关注点</th><th>适用场景</th></tr></thead>
+            <tbody>
+                <tr><td><strong>过程焦点</strong></td><td>关注动作执行本身</td><td>技术练习、压力下保持稳定</td></tr>
+                <tr><td><strong>结果焦点</strong></td><td>关注击球效果</td><td>战术执行、比赛关键分</td></tr>
+                <tr><td><strong>对手焦点</strong></td><td>观察对手行为</td><td>预判、战术调整</td></tr>
+            </tbody>
+        </table>
+
+        <h2>赛前心理流程</h2>
+        <div class="code-block">
+<span class="k">比赛前24小时</span>：
+  ✓ 整理装备（减少焦虑源）
+  ✓ 回顾战术计划（建立信心）
+  ✓ 保证睡眠7-9小时
+
+<span class="k">比赛前2小时</span>：
+  ✓ 正常热身（建立身体记忆）
+  ✓ 想象比赛场景（心理预演）
+  ✓ 使用关键词激活状态
+
+<span class="k">比赛前10分钟</span>：
+  ✓ 深呼吸3次（激活副交感神经）
+  ✓ 重复技术关键词
+  ✓ 告诉自己"享受比赛"
+
+<span class="k">局间休息</span>：
+  ✓ 评估上一局表现（客观，不批判）
+  ✓ 调整战术（如有必要）
+  ✓ 重新聚焦（下一球最重要）
+        </div>
+
+        <h2>决策速度训练</h2>
+        <p>羽毛球决策时间&lt;0.3秒。必须训练快速决策。</p>
+
+        <div class="exercise">
+            <div class="exercise-title">训练1：模式识别</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>方法：</strong>观看比赛视频，在对手击球前暂停，预测击球方向和类型。<br>
+                <strong>进阶：</strong>从慢速视频到正常速度，从明显动作到细微动作。
+            </p>
+        </div>
+        <div class="exercise">
+            <div class="exercise-title">训练2：反应选择训练</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>方法：</strong>教练喊出不同颜色，对应不同步法移动。<br>
+                <strong>目标：</strong>建立"信号→反应"的自动化连接。
+            </p>
+        </div>
+
+        <div class="next">
+            <a href="06-four-week-plan.html">← 4周训练计划</a>
+            <a href="08-nutrition-recovery.html">营养与恢复 →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# 编译产物
+__pycache__/
+*.pyc
+*.pyo
+*.class
+
+# 系统
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 编辑器
+.vscode/
+.idea/
+*.iml
+
+# Python虚拟环境
+venv/
+.env/
+.venv/
+
+# 临时文件
+*.tmp
+*.temp
+.reasonix/

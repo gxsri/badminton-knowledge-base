@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饮食记录 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(34,197,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--green);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0}
+        .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
+        .stat-num{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700}
+        .stat-num.calories{color:var(--accent)}
+        .stat-num.protein{color:var(--blue)}
+        .stat-num.carbs{color:var(--green)}
+        .stat-num.fat{color:var(--purple)}
+        .stat-label{font-size:0.8rem;color:var(--text-2);margin-top:0.25rem}
+        .add-meal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+        .add-meal-title{font-weight:600;margin-bottom:1rem}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .form-field{display:flex;flex-direction:column;gap:0.3rem}
+        .form-field label{font-size:0.85rem;color:var(--text-2)}
+        .form-field input,.form-field select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;font-family:inherit;outline:none}
+        .form-field input:focus,.form-field select:focus{border-color:var(--accent)}
+        .btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.7rem 1.5rem;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .btn:hover{background:var(--accent-2)}
+        .meal-list{margin:1.5rem 0}
+        .meal-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin:0.5rem 0;display:flex;justify-content:space-between;align-items:center}
+        .meal-info{flex:1}
+        .meal-time{font-size:0.8rem;color:var(--text-2)}
+        .meal-name{font-weight:600;margin-bottom:0.25rem}
+        .meal-macros{display:flex;gap:1rem;font-size:0.85rem;color:var(--text-2)}
+        .meal-macros span{display:flex;align-items:center;gap:0.25rem}
+        .meal-delete{background:none;border:none;color:var(--text-2);cursor:pointer;font-size:1.2rem;padding:0.5rem}
+        .meal-delete:hover{color:var(--accent)}
+        .progress-bars{margin:1.5rem 0}
+        .progress-item{margin-bottom:1rem}
+        .progress-header{display:flex;justify-content:space-between;margin-bottom:0.5rem}
+        .progress-label{font-size:0.9rem}
+        .progress-value{font-family:'JetBrains Mono',monospace;font-size:0.9rem}
+        .progress-track{background:var(--surface);border-radius:4px;height:8px;overflow:hidden}
+        .progress-fill{height:100%;border-radius:4px;transition:width 0.3s}
+        .progress-fill.calories{background:var(--accent)}
+        .progress-fill.protein{background:var(--blue)}
+        .progress-fill.carbs{background:var(--green)}
+        .progress-fill.fat{background:var(--purple)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){
+            .form-row{grid-template-columns:1fr}
+            .stats-grid{grid-template-columns:repeat(2,1fr)}
+        }
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">P2工具</div>
+        <h1>饮食记录</h1>
+        <div class="meta">记录每日饮食 · 追踪营养摄入 · 优化训练效果</div>
+
+        <div class="callout info">
+            <p><strong>为什么记录饮食？</strong>营养是训练效果的重要保障。通过记录饮食，你可以了解自己的营养摄入是否达标，及时调整饮食结构。</p>
+        </div>
+
+        <h2>📊 今日营养摄入</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num calories" id="total-calories">0</div>
+                <div class="stat-label">热量 (kcal)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num protein" id="total-protein">0</div>
+                <div class="stat-label">蛋白质 (g)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num carbs" id="total-carbs">0</div>
+                <div class="stat-label">碳水 (g)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num fat" id="total-fat">0</div>
+                <div class="stat-label">脂肪 (g)</div>
+            </div>
+        </div>
+
+        <h2>📈 营养目标进度</h2>
+        <div class="progress-bars">
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-label">热量</div>
+                    <div class="progress-value"><span id="progress-calories">0</span> / 2500 kcal</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill calories" id="progress-calories-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-label">蛋白质</div>
+                    <div class="progress-value"><span id="progress-protein">0</span> / 140 g</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill protein" id="progress-protein-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-label">碳水</div>
+                    <div class="progress-value"><span id="progress-carbs">0</span> / 350 g</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill carbs" id="progress-carbs-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-label">脂肪</div>
+                    <div class="progress-value"><span id="progress-fat">0</span> / 70 g</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill fat" id="progress-fat-fill" style="width:0%"></div></div>
+            </div>
+        </div>
+
+        <h2>➕ 添加饮食记录</h2>
+        <div class="add-meal">
+            <div class="add-meal-title">记录饮食</div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label>日期</label>
+                    <input type="date" id="meal-date">
+                </div>
+                <div class="form-field">
+                    <label>餐次</label>
+                    <select id="meal-type">
+                        <option value="早餐">早餐</option>
+                        <option value="午餐">午餐</option>
+                        <option value="晚餐">晚餐</option>
+                        <option value="加餐">加餐</option>
+                        <option value="训练前">训练前</option>
+                        <option value="训练后">训练后</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label>食物名称</label>
+                    <input type="text" id="meal-name" placeholder="如：鸡胸肉+米饭">
+                </div>
+                <div class="form-field">
+                    <label>热量 (kcal)</label>
+                    <input type="number" id="meal-calories" placeholder="500">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label>蛋白质 (g)</label>
+                    <input type="number" id="meal-protein" placeholder="30">
+                </div>
+                <div class="form-field">
+                    <label>碳水 (g)</label>
+                    <input type="number" id="meal-carbs" placeholder="50">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label>脂肪 (g)</label>
+                    <input type="number" id="meal-fat" placeholder="15">
+                </div>
+                <div class="form-field">
+                    <label>备注</label>
+                    <input type="text" id="meal-notes" placeholder="可选">
+                </div>
+            </div>
+            <button class="btn" onclick="addMeal()">添加记录</button>
+        </div>
+
+        <h2>📋 今日饮食记录</h2>
+        <div class="meal-list" id="meal-list">
+            <!-- 饮食记录将在这里显示 -->
+        </div>
+
+        <div class="callout success">
+            <p><strong>快速参考：</strong>100g鸡胸肉≈31g蛋白，1碗米饭≈50g碳水，1个鸡蛋≈6g蛋白</p>
+        </div>
+
+        <div class="cta">
+            <a href="08-nutrition-recovery.html">查看营养指南</a>
+            <a href="37-body-status.html" class="secondary">查看身体状态</a>
+        </div>
+
+        <div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="08-nutrition-recovery.html">营养指南 →</a>
+        </div>
+    </div>
+
+    <script>
+        let meals = JSON.parse(localStorage.getItem('diet-records') || '[]');
+
+        // 初始化
+        function init() {
+            document.getElementById('meal-date').value = new Date().toISOString().split('T')[0];
+            renderMeals();
+            updateStats();
+        }
+
+        // 添加饮食记录
+        function addMeal() {
+            const date = document.getElementById('meal-date').value;
+            const type = document.getElementById('meal-type').value;
+            const name = document.getElementById('meal-name').value;
+            const calories = parseInt(document.getElementById('meal-calories').value) || 0;
+            const protein = parseInt(document.getElementById('meal-protein').value) || 0;
+            const carbs = parseInt(document.getElementById('meal-carbs').value) || 0;
+            const fat = parseInt(document.getElementById('meal-fat').value) || 0;
+            const notes = document.getElementById('meal-notes').value;
+            
+            if (!date || !name) {
+                alert('请填写日期和食物名称');
+                return;
+            }
+            
+            const meal = {
+                id: Date.now(),
+                date: date,
+                type: type,
+                name: name,
+                calories: calories,
+                protein: protein,
+                carbs: carbs,
+                fat: fat,
+                notes: notes,
+                createdAt: new Date().toISOString()
+            };
+            
+            meals.push(meal);
+            localStorage.setItem('diet-records', JSON.stringify(meals));
+            
+            // 清空表单
+            document.getElementById('meal-name').value = '';
+            document.getElementById('meal-calories').value = '';
+            document.getElementById('meal-protein').value = '';
+            document.getElementById('meal-carbs').value = '';
+            document.getElementById('meal-fat').value = '';
+            document.getElementById('meal-notes').value = '';
+            
+            renderMeals();
+            updateStats();
+        }
+
+        // 删除记录
+        function deleteMeal(id) {
+            if (confirm('确定删除这条记录？')) {
+                meals = meals.filter(m => m.id !== id);
+                localStorage.setItem('diet-records', JSON.stringify(meals));
+                renderMeals();
+                updateStats();
+            }
+        }
+
+        // 渲染饮食记录
+        function renderMeals() {
+            const today = new Date().toISOString().split('T')[0];
+            const todayMeals = meals.filter(m => m.date === today).sort((a, b) => {
+                const timeA = new Date(a.createdAt).getTime();
+                const timeB = new Date(b.createdAt).getTime();
+                return timeB - timeA;
+            });
+            
+            const listHtml = todayMeals.map(m => `
+                <div class="meal-item">
+                    <div class="meal-info">
+                        <div class="meal-time">${m.type} · ${new Date(m.createdAt).toLocaleTimeString('zh-CN', {hour: '2-digit', minute: '2-digit'})}</div>
+                        <div class="meal-name">${m.name}</div>
+                        <div class="meal-macros">
+                            <span>🔥 ${m.calories}kcal</span>
+                            <span>🥩 ${m.protein}g蛋白</span>
+                            <span>🍚 ${m.carbs}g碳水</span>
+                            <span>🥑 ${m.fat}g脂肪</span>
+                        </div>
+                    </div>
+                    <button class="meal-delete" onclick="deleteMeal(${m.id})">×</button>
+                </div>
+            `).join('');
+            
+            document.getElementById('meal-list').innerHTML = listHtml || '<p style="color:var(--text-2);text-align:center">今日暂无饮食记录</p>';
+        }
+
+        // 更新统计
+        function updateStats() {
+            const today = new Date().toISOString().split('T')[0];
+            const todayMeals = meals.filter(m => m.date === today);
+            
+            const totalCalories = todayMeals.reduce((sum, m) => sum + m.calories, 0);
+            const totalProtein = todayMeals.reduce((sum, m) => sum + m.protein, 0);
+            const totalCarbs = todayMeals.reduce((sum, m) => sum + m.carbs, 0);
+            const totalFat = todayMeals.reduce((sum, m) => sum + m.fat, 0);
+            
+            document.getElementById('total-calories').textContent = totalCalories;
+            document.getElementById('total-protein').textContent = totalProtein;
+            document.getElementById('total-carbs').textContent = totalCarbs;
+            document.getElementById('total-fat').textContent = totalFat;
+            
+            // 更新进度条
+            document.getElementById('progress-calories').textContent = totalCalories;
+            document.getElementById('progress-calories-fill').style.width = Math.min(100, (totalCalories / 2500) * 100) + '%';
+            
+            document.getElementById('progress-protein').textContent = totalProtein;
+            document.getElementById('progress-protein-fill').style.width = Math.min(100, (totalProtein / 140) * 100) + '%';
+            
+            document.getElementById('progress-carbs').textContent = totalCarbs;
+            document.getElementById('progress-carbs-fill').style.width = Math.min(100, (totalCarbs / 350) * 100) + '%';
+            
+            document.getElementById('progress-fat').textContent = totalFat;
+            document.getElementById('progress-fat-fill').style.width = Math.min(100, (totalFat / 70) * 100) + '%';
+        }
+
+        init();
+    </script>
+</body>
+</html>

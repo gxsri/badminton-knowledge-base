@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>训练哲学 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        .principle-grid{display:grid;gap:1.5rem;margin:2rem 0}
+        .principle-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;overflow:hidden}
+        .principle-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+        .principle-card.p1::before{background:var(--accent)}
+        .principle-card.p2::before{background:var(--blue)}
+        .principle-card.p3::before{background:var(--green)}
+        .principle-card.p4::before{background:var(--purple)}
+        .principle-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+        .principle-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+        .principle-card.p1 .principle-icon{background:rgba(244,63,94,0.15)}
+        .principle-card.p2 .principle-icon{background:rgba(59,130,246,0.15)}
+        .principle-card.p3 .principle-icon{background:rgba(34,197,94,0.15)}
+        .principle-card.p4 .principle-icon{background:rgba(168,85,247,0.15)}
+        .principle-title{font-size:1.2rem;font-weight:700}
+        .principle-content{margin-bottom:1rem}
+        .principle-content p{margin:0}
+        .principle-example{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem;font-size:0.9rem}
+        .principle-example-title{font-weight:600;margin-bottom:0.5rem;font-size:0.85rem;color:var(--accent-2)}
+        .principle-example p{margin:0}
+        .vs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+        .vs-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .vs-item.good{border-color:var(--green)}
+        .vs-item.bad{border-color:var(--accent)}
+        .vs-label{font-size:0.75rem;font-weight:600;margin-bottom:0.5rem;text-transform:uppercase}
+        .vs-item.good .vs-label{color:var(--green)}
+        .vs-item.bad .vs-label{color:var(--accent)}
+        .vs-item p{margin:0;font-size:0.9rem}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        .myth{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin:1rem 0}
+        .myth-title{font-weight:600;margin-bottom:0.5rem;color:var(--accent)}
+        .myth-content{display:grid;grid-template-columns:auto 1fr;gap:0.5rem 1rem;font-size:0.9rem}
+        .myth-label{color:var(--text-2)}
+        .myth-text{color:var(--text)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">01</div>
+        <h1>训练哲学</h1>
+        <div class="meta">四个不变的原则 · 这不是建议，是底线</div>
+
+        <div class="callout warn">
+            <p><strong>核心理念：</strong>任何训练安排必须同时满足以下四条才能执行。违反任何一条，都可能导致训练无效甚至受伤。</p>
+        </div>
+
+        <h2>四个核心原则</h2>
+
+        <div class="principle-grid">
+            <div class="principle-card p1">
+                <div class="principle-header">
+                    <div class="principle-icon">🎯</div>
+                    <div class="principle-title">原则一：动作质量 > 训练数量</div>
+                </div>
+                <div class="principle-content">
+                    <p>神经肌肉系统记住的是你重复最多的模式。练错的动作重复100次 = 巩固100次错误。</p>
+                </div>
+                <div class="principle-example">
+                    <div class="principle-example-title">科学依据</div>
+                    <p>神经可塑性原理：大脑会强化重复的神经通路。错误动作一旦形成自动化，需要4-6周才能纠正。</p>
+                </div>
+                <div class="vs">
+                    <div class="vs-item good">
+                        <div class="vs-label">✓ 正确做法</div>
+                        <p>做10次完美动作，比做100次变形动作更有效</p>
+                    </div>
+                    <div class="vs-item bad">
+                        <div class="vs-label">✗ 常见错误</div>
+                        <p>"今天练了500次挥拍" — 如果动作变形，练越多越糟糕</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principle-card p2">
+                <div class="principle-header">
+                    <div class="principle-icon">🧠</div>
+                    <div class="principle-title">原则二：神经肌肉控制 > 力量输出</div>
+                </div>
+                <div class="principle-content">
+                    <p>神经系统先学会控制肌肉，肌肉才能发力。顺序不能反。</p>
+                </div>
+                <div class="principle-example">
+                    <div class="principle-example-title">科学依据</div>
+                    <p>运动学习理论：动作技能发展经历认知阶段→关联阶段→自动化阶段。跳过认知阶段直接练力量，会形成代偿模式。</p>
+                </div>
+                <div class="vs">
+                    <div class="vs-item good">
+                        <div class="vs-label">✓ 正确顺序</div>
+                        <p>先学控制 → 再加力量 → 最后加速度</p>
+                    </div>
+                    <div class="vs-item bad">
+                        <div class="vs-label">✗ 常见错误</div>
+                        <p>动作还不稳定就加重量，导致代偿和受伤</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principle-card p3">
+                <div class="principle-header">
+                    <div class="principle-icon">🛡️</div>
+                    <div class="principle-title">原则三：预防损伤 > 追求表现</div>
+                </div>
+                <div class="principle-content">
+                    <p>一次受伤 = 倒退回起点。恢复时间往往是训练时间的3-10倍。</p>
+                </div>
+                <div class="principle-example">
+                    <div class="principle-example-title">科学依据</div>
+                    <p>损伤流行病学：羽毛球运动员肩袖损伤率27%，膝关节损伤率35%。预防性训练可降低60%损伤风险。</p>
+                </div>
+                <div class="vs">
+                    <div class="vs-item good">
+                        <div class="vs-label">✓ 正确做法</div>
+                        <p>每次训练前做5分钟预防性训练</p>
+                    </div>
+                    <div class="vs-item bad">
+                        <div class="vs-label">✗ 常见错误</div>
+                        <p>"没时间热身，直接开打" — 一次受伤倒退3个月</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principle-card p4">
+                <div class="principle-header">
+                    <div class="principle-icon">📈</div>
+                    <div class="principle-title">原则四：长期发展 > 短期进步</div>
+                </div>
+                <div class="principle-content">
+                    <p>神经系统适应需要4-6周，结缔组织初步适应约8-12周，完全结构适应需3-6个月。</p>
+                </div>
+                <div class="principle-example">
+                    <div class="principle-example-title">科学依据</div>
+                    <p>适应周期理论：身体适应遵循"刺激→疲劳→恢复→适应→超量恢复"的周期。每周都加量会导致过度训练。</p>
+                </div>
+                <div class="vs">
+                    <div class="vs-item good">
+                        <div class="vs-label">✓ 正确做法</div>
+                        <p>4周一个周期，每周只增加5-10%</p>
+                    </div>
+                    <div class="vs-item bad">
+                        <div class="vs-label">✗ 常见错误</div>
+                        <p>"这周进步了，下周加倍练" — 过度训练导致退步</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>常见误区</h2>
+
+        <div class="myth">
+            <div class="myth-title">误区1："练得越多越好"</div>
+            <div class="myth-content">
+                <div class="myth-label">错误观点：</div>
+                <div class="myth-text">每天练3小时比练1小时进步快3倍</div>
+                <div class="myth-label">正确做法：</div>
+                <div class="myth-text">质量 > 数量。每次训练60-90分钟，每周3-5次，确保充分恢复</div>
+            </div>
+        </div>
+
+        <div class="myth">
+            <div class="myth-title">误区2："力量越大越好"</div>
+            <div class="myth-content">
+                <div class="myth-label">错误观点：</div>
+                <div class="myth-text">举重越重，杀球越猛</div>
+                <div class="myth-label">正确做法：</div>
+                <div class="myth-text">先建立正确的发力模式，再增加力量。控制 > 力量 > 速度</div>
+            </div>
+        </div>
+
+        <div class="myth">
+            <div class="myth-title">误区3："受伤了休息就好"</div>
+            <div class="myth-content">
+                <div class="myth-label">错误观点：</div>
+                <div class="myth-text">受伤了就不练，等好了再说</div>
+                <div class="myth-label">正确做法：</div>
+                <div class="myth-text">急性期RICE处理，恢复期进行康复训练，预防再次受伤</div>
+            </div>
+        </div>
+
+        <div class="myth">
+            <div class="myth-title">误区4："高手都是练出来的"</div>
+            <div class="myth-content">
+                <div class="myth-label">错误观点：</div>
+                <div class="myth-text">只要练够时间，就能成为高手</div>
+                <div class="myth-label">正确做法：</div>
+                <div class="myth-text">科学训练 + 充分恢复 + 合理营养 + 心理调节 = 高效进步</div>
+            </div>
+        </div>
+
+        <h2>训练原则速查表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>原则</th>
+                    <th>核心要求</th>
+                    <th>检查点</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>动作质量</strong></td>
+                    <td>每次动作都要标准</td>
+                    <td>动作变形时立即停止</td>
+                </tr>
+                <tr>
+                    <td><strong>神经控制</strong></td>
+                    <td>先学控制再加负荷</td>
+                    <td>动作稳定后再增加难度</td>
+                </tr>
+                <tr>
+                    <td><strong>预防损伤</strong></td>
+                    <td>每次训练前做预防性训练</td>
+                    <td>5分钟激活+动态拉伸</td>
+                </tr>
+                <tr>
+                    <td><strong>长期发展</strong></td>
+                    <td>遵循周期化原则</td>
+                    <td>每周增量不超过10%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout success">
+            <p><strong>记住：</strong>这四个原则不是建议，是底线。任何训练安排必须同时满足四条才能执行。</p>
+        </div>
+
+        <div class="cta">
+            <a href="02-assessment.html">下一步：完成基线评估</a>
+            <a href="00-quickstart.html" class="secondary">返回快速开始</a>
+        </div>
+
+        <div class="next">
+            <a href="00-quickstart.html">← 快速开始</a>
+            <a href="02-assessment.html">基线评估 →</a>
+        </div>
+    </div>
+</body>
+</html>
