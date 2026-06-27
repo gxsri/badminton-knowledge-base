@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泡沫轴使用指南 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(99,102,241,0.15);border-radius:4px;font-size:0.8rem;color:var(--indigo);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .bodypart{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+        .bodypart-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+        .bodypart-icon{width:40px;height:40px;background:var(--surface-2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .bodypart-title{font-weight:600}
+        .bodypart-muscles{font-size:0.85rem;color:var(--text-2)}
+        .exercise{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin:0.75rem 0}
+        .exercise-name{font-weight:600;margin-bottom:0.25rem}
+        .exercise-desc{font-size:0.85rem;color:var(--text-2)}
+        .exercise-sets{font-size:0.8rem;color:var(--accent);margin-top:0.25rem}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        .tips{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+        .tip{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .tip-title{font-weight:600;margin-bottom:0.25rem;font-size:0.9rem}
+        .tip-desc{font-size:0.85rem;color:var(--text-2)}
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">恢复指南</div>
+        <h1>泡沫轴使用指南</h1>
+        <div class="meta">筋膜放松 · 恢复肌肉 · 提高柔韧性</div>
+
+        <div class="callout info">
+            <p><strong>什么是泡沫轴放松？</strong>泡沫轴放松（Foam Rolling）是一种自我筋膜放松技术，通过压力缓解肌肉紧张和粘连，提高肌肉弹性和关节活动度。</p>
+        </div>
+
+        <h2>💡 使用原则</h2>
+        <div class="tips">
+            <div class="tip">
+                <div class="tip-title">✅ 正确做法</div>
+                <div class="tip-desc">缓慢滚动，找到酸痛点停留20-30秒</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">❌ 错误做法</div>
+                <div class="tip-desc">快速来回滚动，在痛点上猛压</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">⏱️ 时间</div>
+                <div class="tip-desc">每个部位30-60秒，总共10-15分钟</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">📅 频率</div>
+                <div class="tip-desc">每天或训练后进行</div>
+            </div>
+        </div>
+
+        <h2>🦵 下肢放松</h2>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">🦵</div>
+                <div>
+                    <div class="bodypart-title">小腿后侧</div>
+                    <div class="bodypart-muscles">腓肠肌、比目鱼肌</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">坐姿，泡沫轴放在小腿下方，双手支撑身体，缓慢滚动</div>
+                <div class="exercise-sets">时间：每侧30-60秒</div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">进阶：交叉滚动</div>
+                <div class="exercise-desc">将一条腿放在另一条腿上，增加压力</div>
+                <div class="exercise-sets">时间：每侧30秒</div>
+            </div>
+        </div>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">🦵</div>
+                <div>
+                    <div class="bodypart-title">大腿前侧</div>
+                    <div class="bodypart-muscles">股四头肌</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">俯卧，泡沫轴放在大腿前方，用手肘支撑身体</div>
+                <div class="exercise-sets">时间：每侧30-60秒</div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">进阶：旋转滚动</div>
+                <div class="exercise-desc">滚动时轻微旋转身体，覆盖整个肌群</div>
+                <div class="exercise-sets">时间：每侧30秒</div>
+            </div>
+        </div>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">🦵</div>
+                <div>
+                    <div class="bodypart-title">大腿外侧</div>
+                    <div class="bodypart-muscles">髂胫束、股外侧肌</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">侧卧，泡沫轴放在大腿外侧，上方腿交叉踩地辅助</div>
+                <div class="exercise-sets">时间：每侧30-60秒</div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">注意</div>
+                <div class="exercise-desc">髂胫束较敏感，力度要适中</div>
+                <div class="exercise-sets">提示：感到"酸爽"即可，不要剧痛</div>
+            </div>
+        </div>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">🦵</div>
+                <div>
+                    <div class="bodypart-title">大腿内侧</div>
+                    <div class="bodypart-muscles">内收肌群</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">俯卧，一腿弯曲外展，泡沫轴放在大腿内侧</div>
+                <div class="exercise-sets">时间：每侧30-60秒</div>
+            </div>
+        </div>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">🦴</div>
+                <div>
+                    <div class="bodypart-title">臀部</div>
+                    <div class="bodypart-muscles">臀大肌、臀中肌、梨状肌</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">坐姿，泡沫轴放在臀部下方，一腿交叉放在另一腿上</div>
+                <div class="exercise-sets">时间：每侧30-60秒</div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">进阶：梨状肌放松</div>
+                <div class="exercise-desc">身体略微倾斜，针对梨状肌</div>
+                <div class="exercise-sets">时间：每侧30秒</div>
+            </div>
+        </div>
+
+        <h2>💪 上肢放松</h2>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">💪</div>
+                <div>
+                    <div class="bodypart-title">背部</div>
+                    <div class="bodypart-muscles">背阔肌、菱形肌、竖脊肌</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">仰卧，泡沫轴放在背部下方，双手抱头</div>
+                <div class="exercise-sets">时间：30-60秒</div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">进阶：胸椎灵活性</div>
+                <div class="exercise-desc">泡沫轴放在胸椎段，做胸椎伸展</div>
+                <div class="exercise-sets">次数：10次</div>
+            </div>
+        </div>
+
+        <div class="bodypart">
+            <div class="bodypart-header">
+                <div class="bodypart-icon">💪</div>
+                <div>
+                    <div class="bodypart-title">前臂</div>
+                    <div class="bodypart-muscles">前臂屈肌、伸肌</div>
+                </div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">放松方法</div>
+                <div class="exercise-desc">坐姿，前臂放在泡沫轴或筋膜球上滚动</div>
+                <div class="exercise-sets">时间：每侧30秒</div>
+            </div>
+            <div class="exercise">
+                <div class="exercise-name">提示</div>
+                <div class="exercise-desc">前臂较敏感，力度要轻</div>
+                <div class="exercise-sets">适合：经常打球的人</div>
+            </div>
+        </div>
+
+        <h2>🎯 羽毛球专项放松</h2>
+
+        <div class="callout success">
+            <p><strong>羽毛球运动员重点关注：</strong>小腿（步法）、大腿外侧（急停急转）、臀部（发力）、前臂（握拍）、背部（挥拍）</p>
+        </div>
+
+        <table>
+            <thead><tr><th>部位</th><th>为什么重要</th><th>频率</th></tr></thead>
+            <tbody>
+                <tr><td><strong>小腿</strong></td><td>羽毛球步法频繁使用</td><td>每天</td></tr>
+                <tr><td><strong>大腿外侧</strong></td><td>急停急转容易紧张</td><td>训练后</td></tr>
+                <tr><td><strong>臀部</strong></td><td>发力肌群，需要放松</td><td>每天</td></tr>
+                <tr><td><strong>前臂</strong></td><td>握拍导致前臂紧张</td><td>训练后</td></tr>
+                <tr><td><strong>背部</strong></td><td>挥拍导致背部紧张</td><td>训练后</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout warn">
+            <p><strong>注意事项：</strong><br>
+            • 急性损伤48小时内不要使用泡沫轴<br>
+            • 不要在骨头上滚动<br>
+            • 不要在疼痛部位过度用力<br>
+            • 如果感到剧痛，立即停止</p>
+        </div>
+
+        <div class="cta">
+            <a href="22-warmup-cooldown.html">查看热身整理指南</a>
+            <a href="26-sleep-optimization.html" class="secondary">查看睡眠优化</a>
+        </div>
+
+        <div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="22-warmup-cooldown.html">热身整理 →</a>
+        </div>
+    </div>
+</body>
+</html>
