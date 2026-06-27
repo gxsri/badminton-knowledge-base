@@ -1,501 +1,1634 @@
-1|<!DOCTYPE html>
-2|<html lang="zh-CN">
-3|<head>
-4|    <meta charset="UTF-8">
-5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-6|    <title>羽毛球系统训练 - NSCA CSCS认证体系</title>
-7|    <link rel="preconnect" href="https://fonts.googleapis.com">
-8|    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-9|    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-10|    <style>
-11|        :root {
-12|            --bg: #09090b;
-13|            --surface: #18181b;
-14|            --surface-2: #27272a;
-15|            --border: #3f3f46;
-16|            --text: #fafafa;
-17|            --text-2: #a1a1aa;
-18|            --accent: #f43f5e;
-19|            --accent-2: #fb7185;
-20|            --blue: #3b82f6;
-21|            --green: #22c55e;
-22|            --purple: #a855f7;
-23|            --orange: #f97316;
-24|        }
-25|
-26|        * { margin: 0; padding: 0; box-sizing: border-box; }
-27|        html { scroll-behavior: smooth; }
-28|
-29|        body {
-30|            font-family: 'Noto Sans SC', system-ui, sans-serif;
-31|            background: var(--bg);
-32|            color: var(--text);
-33|            line-height: 1.7;
-34|            -webkit-font-smoothing: antialiased;
-35|        }
-36|
-37|        code, .mono {
-38|            font-family: 'JetBrains Mono', monospace;
-39|        }
-40|
-41|        /* ===== NAV ===== */
-42|        nav {
-43|            position: fixed;
-44|            top: 0;
-45|            left: 0;
-46|            right: 0;
-47|            z-index: 100;
-48|            background: rgba(9, 9, 11, 0.85);
-49|            backdrop-filter: blur(12px);
-50|            border-bottom: 1px solid var(--border);
-51|        }
-52|
-53|        .nav-inner {
-54|            max-width: 1200px;
-55|            margin: 0 auto;
-56|            padding: 0 2rem;
-57|            height: 64px;
-58|            display: flex;
-59|            align-items: center;
-60|            justify-content: space-between;
-61|        }
-62|
-63|        .logo {
-64|            font-weight: 700;
-65|            font-size: 1.1rem;
-66|            display: flex;
-67|            align-items: center;
-68|            gap: 0.5rem;
-69|        }
-70|
-71|        .logo span { color: var(--accent); }
-72|
-73|        .nav-links {
-74|            display: flex;
-75|            gap: 2rem;
-76|            list-style: none;
-77|        }
-78|
-79|        .nav-links a {
-80|            color: var(--text-2);
-81|            text-decoration: none;
-82|            font-size: 0.9rem;
-83|            font-weight: 500;
-84|            transition: color 0.2s;
-85|        }
-86|
-87|        .nav-links a:hover { color: var(--text); }
-88|
-89|        /* ===== HERO ===== */
-90|        .hero {
-91|            min-height: 100vh;
-92|            display: flex;
-93|            align-items: center;
-94|            justify-content: center;
-95|            text-align: center;
-96|            padding: 6rem 2rem;
-97|            position: relative;
-98|            overflow: hidden;
-99|        }
-100|
-101|        .hero::before {
-102|            content: '';
-103|            position: absolute;
-104|            top: -50%;
-105|            left: -50%;
-106|            width: 200%;
-107|            height: 200%;
-108|            background: radial-gradient(ellipse at 30% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 50%),
-109|                        radial-gradient(ellipse at 70% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
-110|            animation: drift 20s ease-in-out infinite alternate;
-111|        }
-112|
-113|        @keyframes drift {
-114|            from { transform: translate(0, 0); }
-115|            to { transform: translate(-5%, 3%); }
-116|        }
-117|
-118|        .hero-content {
-119|            position: relative;
-120|            z-index: 1;
-121|            max-width: 800px;
-122|        }
-123|
-124|        .badge {
-125|            display: inline-block;
-126|            padding: 0.4rem 1rem;
-127|            background: var(--surface);
-128|            border: 1px solid var(--border);
-129|            border-radius: 9999px;
-130|            font-size: 0.8rem;
-131|            color: var(--text-2);
-132|            margin-bottom: 2rem;
-133|        }
-134|
-135|        .badge::before {
-136|            content: '';
-137|            display: inline-block;
-138|            width: 6px;
-139|            height: 6px;
-140|            background: var(--green);
-141|            border-radius: 50%;
-142|            margin-right: 0.5rem;
-143|            vertical-align: middle;
-144|        }
-145|
-146|        h1 {
-147|            font-size: clamp(2.5rem, 6vw, 4.5rem);
-148|            font-weight: 900;
-149|            line-height: 1.1;
-150|            margin-bottom: 1.5rem;
-151|            letter-spacing: -0.02em;
-152|        }
-153|
-154|        h1 em {
-155|            font-style: normal;
-156|            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
-157|            -webkit-background-clip: text;
-158|            -webkit-text-fill-color: transparent;
-159|        }
-160|
-161|        .hero-desc {
-162|            font-size: 1.15rem;
-163|            color: var(--text-2);
-164|            max-width: 560px;
-165|            margin: 0 auto 3rem;
-166|        }
-167|
-168|        .hero-actions {
-169|            display: flex;
-170|            gap: 1rem;
-171|            justify-content: center;
-172|            flex-wrap: wrap;
-173|        }
-174|
-175|        .btn {
-176|            padding: 0.75rem 2rem;
-177|            border-radius: 8px;
-178|            font-size: 0.95rem;
-179|            font-weight: 600;
-180|            text-decoration: none;
-181|            transition: all 0.2s;
-182|            cursor: pointer;
-183|            border: none;
-184|            font-family: inherit;
-185|        }
-186|
-187|        .btn-fill {
-188|            background: var(--accent);
-189|            color: white;
-190|        }
-191|
-192|        .btn-fill:hover {
-193|            background: var(--accent-2);
-194|            transform: translateY(-1px);
-195|        }
-196|
-197|        .btn-ghost {
-198|            background: transparent;
-199|            color: var(--text);
-200|            border: 1px solid var(--border);
-201|        }
-202|
-203|        .btn-ghost:hover {
-204|            background: var(--surface);
-205|        }
-206|
-207|        /* ===== SECTIONS ===== */
-208|        .section {
-209|            max-width: 1200px;
-210|            margin: 0 auto;
-211|            padding: 6rem 2rem;
-212|        }
-213|
-214|        .section-header {
-215|            text-align: center;
-216|            margin-bottom: 4rem;
-217|        }
-218|
-219|        .section-tag {
-220|            font-size: 0.8rem;
-221|            font-weight: 600;
-222|            color: var(--accent);
-223|            text-transform: uppercase;
-224|            letter-spacing: 0.1em;
-225|            margin-bottom: 0.75rem;
-226|        }
-227|
-228|        .section-title {
-229|            font-size: clamp(1.8rem, 4vw, 2.8rem);
-230|            font-weight: 800;
-231|            margin-bottom: 1rem;
-232|            letter-spacing: -0.01em;
-233|        }
-234|
-235|        .section-desc {
-236|            font-size: 1.05rem;
-237|            color: var(--text-2);
-238|            max-width: 560px;
-239|            margin: 0 auto;
-240|        }
-241|
-242|        /* ===== STATS BAR ===== */
-243|        .stats-bar {
-244|            display: grid;
-245|            grid-template-columns: repeat(4, 1fr);
-246|            gap: 1px;
-247|            background: var(--border);
-248|            border: 1px solid var(--border);
-249|            border-radius: 12px;
-250|            overflow: hidden;
-251|            margin: 0 2rem;
-252|        }
-253|
-254|        .stat {
-255|            background: var(--surface);
-256|            padding: 2rem;
-257|            text-align: center;
-258|        }
-259|
-260|        .stat-num {
-261|            font-size: 2.5rem;
-262|            font-weight: 800;
-263|            font-family: 'JetBrains Mono', monospace;
-264|            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
-265|            -webkit-background-clip: text;
-266|            -webkit-text-fill-color: transparent;
-267|        }
-268|
-269|        .stat-label {
-270|            font-size: 0.85rem;
-271|            color: var(--text-2);
-272|            margin-top: 0.25rem;
-273|        }
-274|
-275|        /* ===== LEVELS ===== */
-276|        .levels-grid {
-277|            display: grid;
-278|            grid-template-columns: repeat(4, 1fr);
-279|            gap: 1px;
-280|            background: var(--border);
-281|            border: 1px solid var(--border);
-282|            border-radius: 12px;
-283|            overflow: hidden;
-284|        }
-285|
-286|        .level-card {
-287|            background: var(--surface);
-288|            padding: 2rem;
-289|            transition: background 0.2s;
-290|            cursor: default;
-291|        }
-292|
-293|        .level-card:hover {
-294|            background: var(--surface-2);
-295|        }
-296|
-297|        .level-num {
-298|            font-family: 'JetBrains Mono', monospace;
-299|            font-size: 2rem;
-300|            font-weight: 700;
-301|            color: var(--accent);
-302|            margin-bottom: 0.75rem;
-303|        }
-304|
-305|        .level-name {
-306|            font-weight: 600;
-307|            margin-bottom: 0.25rem;
-308|        }
-309|
-310|        .level-time {
-311|            font-size: 0.8rem;
-312|            color: var(--accent-2);
-313|            margin-bottom: 0.75rem;
-314|            font-family: 'JetBrains Mono', monospace;
-315|        }
-316|
-317|        .level-desc {
-318|            font-size: 0.85rem;
-319|            color: var(--text-2);
-320|            line-height: 1.6;
-321|        }
-322|
-323|        /* ===== MODULES ===== */
-324|        .modules-grid {
-325|            display: grid;
-326|            grid-template-columns: repeat(2, 1fr);
-327|            gap: 1.5rem;
-328|        }
-329|
-330|        .module-card {
-331|            background: var(--surface);
-332|            border: 1px solid var(--border);
-333|            border-radius: 12px;
-334|            padding: 2rem;
-335|        }
-336|
-337|        .module-icon {
-338|            width: 48px;
-339|            height: 48px;
-340|            border-radius: 10px;
-341|            display: flex;
-342|            align-items: center;
-343|            justify-content: center;
-344|            font-size: 1.25rem;
-345|            margin-bottom: 1.25rem;
-346|        }
-347|
-348|        .mi-1 { background: rgba(244, 63, 94, 0.15); }
-349|        .mi-2 { background: rgba(168, 85, 247, 0.15); }
-350|        .mi-3 { background: rgba(59, 130, 246, 0.15); }
-351|        .mi-4 { background: rgba(34, 197, 94, 0.15); }
-352|
-353|        .module-title {
-354|            font-size: 1.15rem;
-355|            font-weight: 600;
-356|            margin-bottom: 1rem;
-357|        }
-358|
-359|        .module-items {
-360|            list-style: none;
-361|        }
-362|
-363|        .module-items li {
-364|            padding: 0.5rem 0;
-365|            border-bottom: 1px solid var(--border);
-366|            color: var(--text-2);
-367|            font-size: 0.9rem;
-368|        }
-369|
-370|        .module-items li:last-child { border: none; }
-371|
-372|        .module-items li::before {
-373|            content: '→';
-374|            color: var(--accent);
-375|            margin-right: 0.5rem;
-376|        }
-377|
-378|        /* ===== FORMULA BOX ===== */
-379|        .formula-box {
-380|            background: var(--surface);
-381|            border: 1px solid var(--border);
-382|            border-radius: 12px;
-383|            padding: 2rem;
-384|            margin: 2rem 0;
-385|        }
-386|
-387|        .formula-box h3 {
-388|            font-size: 1rem;
-389|            font-weight: 600;
-390|            margin-bottom: 1rem;
-391|            display: flex;
-392|            align-items: center;
-393|            gap: 0.5rem;
-394|        }
-395|
-396|        .formula {
-397|            font-family: 'JetBrains Mono', monospace;
-398|            background: var(--bg);
-399|            border: 1px solid var(--border);
-400|            border-radius: 8px;
-401|            padding: 1.25rem;
-402|            font-size: 0.85rem;
-403|            line-height: 1.8;
-404|            overflow-x: auto;
-405|        }
-406|
-407|        .formula .comment { color: var(--text-2); }
-408|        .formula .keyword { color: var(--accent); }
-409|        .formula .value { color: var(--green); }
-410|
-411|        /* ===== TABLE ===== */
-412|        .table-wrap {
-413|            overflow-x: auto;
-414|            margin: 1.5rem 0;
-415|            border: 1px solid var(--border);
-416|            border-radius: 12px;
-417|        }
-418|
-419|        table {
-420|            width: 100%;
-421|            border-collapse: collapse;
-422|            font-size: 0.9rem;
-423|        }
-424|
-425|        th {
-426|            background: var(--surface);
-427|            padding: 0.75rem 1rem;
-428|            text-align: left;
-429|            font-weight: 600;
-430|            border-bottom: 1px solid var(--border);
-431|        }
-432|
-433|        td {
-434|            padding: 0.75rem 1rem;
-435|            border-bottom: 1px solid var(--border);
-436|            color: var(--text-2);
-437|        }
-438|
-439|        tr:last-child td { border: none; }
-440|
-441|        /* ===== DOCUMENTS ===== */
-442|        .doc-grid {
-443|            display: grid;
-444|            grid-template-columns: repeat(3, 1fr);
-445|            gap: 1rem;
-446|            align-items: stretch;
-447|        }
-448|
-449|        .doc-card {
-450|            background: var(--surface);
-451|            border: 1px solid var(--border);
-452|            border-radius: 10px;
-453|            padding: 1.25rem;
-454|            text-decoration: none;
-455|            color: var(--text);
-456|            transition: all 0.2s;
-457|            display: flex;
-458|            flex-direction: column;
-459|            min-height: 140px;
-460|        }
-461|
-462|        .doc-card > div {
-463|            flex: 1;
-464|        }
-465|
-466|        .doc-card:hover {
-467|            border-color: var(--accent);
-468|            transform: translateY(-2px);
-469|        }
-470|
-471|        .doc-num {
-472|            font-family: 'JetBrains Mono', monospace;
-473|            font-size: 0.75rem;
-474|            color: var(--accent);
-475|            margin-bottom: 0.5rem;
-476|        }
-477|
-478|        .doc-title {
-479|            font-weight: 600;
-480|            font-size: 0.95rem;
-481|            margin-bottom: 0.25rem;
-482|        }
-483|
-484|        .doc-desc {
-485|            font-size: 0.8rem;
-486|            color: var(--text-2);
-487|            word-wrap: break-word;
-488|            overflow-wrap: break-word;
-489|        }
-490|
-491|        .doc-tag {
-492|            display: inline-block;
-493|            margin-top: 0.5rem;
-494|            padding: 0.15rem 0.5rem;
-495|            background: rgba(244, 63, 94, 0.1);
-496|            border-radius: 4px;
-497|            font-size: 0.7rem;
-498|            color: var(--accent-2);
-499|        }
-500|
-501|
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>羽毛球系统训练 - NSCA CSCS认证体系</title>
+    <style>
+        :root {
+            --bg: #09090b;
+            --surface: #18181b;
+            --surface-2: #27272a;
+            --border: #3f3f46;
+            --text: #fafafa;
+            --text-2: #a1a1aa;
+            --accent: #f43f5e;
+            --accent-2: #fb7185;
+            --blue: #3b82f6;
+            --green: #22c55e;
+            --purple: #a855f7;
+            --orange: #f97316;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        code, .mono {
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes drift {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-5%, 3%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            color: var(--text-2);
+            margin-bottom: 2rem;
+        }
+
+        .badge::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-2);
+            max-width: 560px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-fill {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-fill:hover {
+            background: var(--accent-2);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            background: var(--surface);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-2);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 2rem;
+        }
+
+        .stat {
+            background: var(--surface);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            margin-top: 0.25rem;
+        }
+
+        /* ===== LEVELS ===== */
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .level-card {
+            background: var(--surface);
+            padding: 2rem;
+            transition: background 0.2s;
+            cursor: default;
+        }
+
+        .level-card:hover {
+            background: var(--surface-2);
+        }
+
+        .level-num {
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .level-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .level-time {
+            font-size: 0.8rem;
+            color: var(--accent-2);
+            margin-bottom: 0.75rem;
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+        }
+
+        .level-desc {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        /* ===== MODULES ===== */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .module-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .mi-1 { background: rgba(244, 63, 94, 0.15); }
+        .mi-2 { background: rgba(168, 85, 247, 0.15); }
+        .mi-3 { background: rgba(59, 130, 246, 0.15); }
+        .mi-4 { background: rgba(34, 197, 94, 0.15); }
+
+        .module-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .module-items {
+            list-style: none;
+        }
+
+        .module-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-2);
+            font-size: 0.9rem;
+        }
+
+        .module-items li:last-child { border: none; }
+
+        .module-items li::before {
+            content: '→';
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        /* ===== FORMULA BOX ===== */
+        .formula-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .formula-box h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .formula {
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .formula .comment { color: var(--text-2); }
+        .formula .keyword { color: var(--accent); }
+        .formula .value { color: var(--green); }
+
+        /* ===== TABLE ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--surface);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-2);
+        }
+
+        tr:last-child td { border: none; }
+
+        /* ===== DOCUMENTS ===== */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .doc-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px;
+        }
+
+        .doc-card > div {
+            flex: 1;
+        }
+
+        .doc-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .doc-num {
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .doc-desc {
+            font-size: 0.8rem;
+            color: var(--text-2);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .doc-tag {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.15rem 0.5rem;
+            background: rgba(244, 63, 94, 0.1);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--accent-2);
+        }
+
+        /* ===== EXERCISE ===== */
+        .exercise {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .exercise-name {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .exercise-name::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .exercise-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .exercise-meta-item {
+            font-size: 0.85rem;
+        }
+
+        .exercise-meta-item span {
+            color: var(--text-2);
+        }
+
+        /* ===== ASSESSMENT ===== */
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .assessment-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .assessment-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .assessment-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+
+        .assessment-item:last-child { border: none; }
+
+        .assessment-item .label { color: var(--text-2); }
+        .assessment-item .value { 
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            color: var(--green);
+        }
+
+        /* ===== TRAINING PLAN ===== */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .plan-card {
+            background: var(--surface);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .plan-week {
+            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-desc {
+            font-size: 0.8rem;
+            color: var(--text-2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-2);
+            font-size: 0.85rem;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .levels-grid { grid-template-columns: repeat(2, 1fr); }
+            .doc-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .levels-grid { grid-template-columns: 1fr; }
+            .modules-grid { grid-template-columns: 1fr; }
+            .plan-grid { grid-template-columns: repeat(2, 1fr); }
+            .doc-grid { grid-template-columns: 1fr; }
+            .assessment-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <div class="logo"><span>🏸</span> Badminton NSCA</div>
+            <ul class="nav-links">
+                <li><a href="#philosophy">训练哲学</a></li>
+                <li><a href="#levels">训练等级</a></li>
+                <li><a href="#modules">训练模块</a></li>
+                <li><a href="#formula">计算公式</a></li>
+                <li><a href="#assessment">评估体系</a></li>
+                <li><a href="#docs">教学文档</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">NSCA CSCS认证体系</div>
+            <h1>从零到一<br><em>羽毛球系统训练</em></h1>
+            <p class="hero-desc">基于NSCA CSCS最新运动科学，融合世界顶级羽毛球教练实战经验。训练方案不是固定菜单，是公式+原则。</p>
+            <div class="hero-actions">
+                <a href="#philosophy" class="btn btn-fill">开始学习</a>
+                <a href="#docs" class="btn btn-ghost">浏览文档</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="section" style="padding-top: 0;">
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">25+</div>
+                <div class="stat-label">专业教学文档</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">8</div>
+                <div class="stat-label">渐进式等级</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">4</div>
+                <div class="stat-label">核心训练模块</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3yr</div>
+                <div class="stat-label">完整发展周期</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <section class="section" id="philosophy">
+        <div class="section-header">
+            <div class="section-tag">Foundation</div>
+            <h2 class="section-title">训练哲学 — 四个不变的原则</h2>
+            <p class="section-desc">不管你是15岁还是50岁，零基础还是复训，以下四个原则不变。</p>
+        </div>
+
+        <div class="formula-box">
+            <h3>⚡ 核心原则</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>原则</th>
+                            <th>为什么</th>
+                            <th>什么不能做</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>动作质量 > 训练数量</strong></td>
+                            <td>神经肌肉系统记住的是你重复最多的模式，练错的动作重复100次=巩固100次错误</td>
+                            <td>不能用"做了多少次"衡量训练效果</td>
+                        </tr>
+                        <tr>
+                            <td><strong>神经肌肉控制 > 力量输出</strong></td>
+                            <td>神经系统先学会控制肌肉，肌肉才能发力。顺序不能反</td>
+                            <td>不能在动作模式不稳定时加重量</td>
+                        </tr>
+                        <tr>
+                            <td><strong>预防损伤 > 追求表现</strong></td>
+                            <td>一次受伤=倒退回起点，恢复时间往往是训练时间的3-10倍</td>
+                            <td>不能在疲劳状态下冲击极限</td>
+                        </tr>
+                        <tr>
+                            <td><strong>长期发展 > 短期进步</strong></td>
+                            <td>神经系统适应需要4-6周，结缔组织初步适应约8-12周</td>
+                            <td>不能每周都加量</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-2); font-size: 0.9rem;">
+                <strong style="color: var(--accent);">这四个原则不是建议，是底线。</strong>任何训练安排必须同时满足四条才能执行。
+            </p>
+        </div>
+    </section>
+
+    <!-- LEVELS -->
+    <section class="section" id="levels">
+        <div class="section-header">
+            <div class="section-tag">Progression</div>
+            <h2 class="section-title">8级渐进式训练体系</h2>
+            <p class="section-desc">从零基础到一级运动员，每一步都有科学指导。</p>
+        </div>
+
+        <div class="levels-grid">
+            <div class="level-card">
+                <div class="level-num">00</div>
+                <div class="level-name">零基础启蒙</div>
+                <div class="level-time">0-1个月</div>
+                <p class="level-desc">建立正确的神经肌肉控制模式，培养本体感觉和基础运动能力。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">01</div>
+                <div class="level-name">基础建立</div>
+                <div class="level-time">1-3个月</div>
+                <p class="level-desc">固化基础动作模式，建立关节稳定性和基础力量。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">02</div>
+                <div class="level-name">技术入门</div>
+                <div class="level-time">3-6个月</div>
+                <p class="level-desc">掌握基础击球技术，建立步法连贯性和基本战术意识。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">03</div>
+                <div class="level-name">技术熟练</div>
+                <div class="level-time">6-12个月</div>
+                <p class="level-desc">实现技术自动化，掌握技术变化和简单战术应用。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">04</div>
+                <div class="level-name">技术精进</div>
+                <div class="level-time">1-1.5年</div>
+                <p class="level-desc">技术精细化打磨，掌握高级技术和战术应用。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">05</div>
+                <div class="level-name">战术应用</div>
+                <div class="level-time">1.5-2年</div>
+                <p class="level-desc">建立完整战术体系，提升比赛阅读能力和战术执行。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">06</div>
+                <div class="level-name">准专业</div>
+                <div class="level-time">2-2.5年</div>
+                <p class="level-desc">全面发展各项能力，适应专业训练强度和比赛准备。</p>
+            </div>
+            <div class="level-card">
+                <div class="level-num">07</div>
+                <div class="level-name">一级运动员</div>
+                <div class="level-time">2.5-3年+</div>
+                <p class="level-desc">达到专业水平，掌握比赛掌控和心理抗压能力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULES -->
+    <section class="section" id="modules">
+        <div class="section-header">
+            <div class="section-tag">System</div>
+            <h2 class="section-title">四大核心训练模块</h2>
+            <p class="section-desc">科学系统的训练体系，全方位提升运动表现。</p>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-icon mi-1">🧠</div>
+                <h3 class="module-title">神经肌肉控制</h3>
+                <ul class="module-items">
+                    <li>本体感觉建立 — 单足站立、闭眼平衡</li>
+                    <li>核心稳定性训练 — 死虫式、鸟狗式</li>
+                    <li>运动模式优化 — 分腿蹲、侧向移动</li>
+                    <li>上肢动力链建立 — 药球投掷、弹力带模拟</li>
+                </ul>
+            </div>
+            <div class="module-card">
+                <div class="module-icon mi-2">💪</div>
+                <h3 class="module-title">结构性力量</h3>
+                <ul class="module-items">
+                    <li>肩关节动态稳定 — 肩袖激活、肩胛控制</li>
+                    <li>膝关节预防性训练 — 臀中肌激活、离心控制</li>
+                    <li>基础力量耐力 — 高次数低重量、时间张力</li>
+                    <li>代谢适应训练 — 磷酸原/糖酵解/有氧系统</li>
+                </ul>
+            </div>
+            <div class="module-card">
+                <div class="module-icon mi-3">🎯</div>
+                <h3 class="module-title">神经心理训练</h3>
+                <ul class="module-items">
+                    <li>视觉注意力训练 — 多目标追踪、选择性注意</li>
+                    <li>决策速度训练 — 模式识别、反应选择</li>
+                    <li>压力适应训练 — 渐进压力暴露</li>
+                    <li>自我对话训练 — 认知重构、关键词使用</li>
+                </ul>
+            </div>
+            <div class="module-card">
+                <div class="module-icon mi-4">🥗</div>
+                <h3 class="module-title">科学营养恢复</h3>
+                <ul class="module-items">
+                    <li>TDEE计算 — 基础代谢×活动系数</li>
+                    <li>三大营养素分配 — 蛋白/脂肪/碳水公式</li>
+                    <li>训练后恢复时间轴 — 24小时恢复指南</li>
+                    <li>睡眠优化 — 深度睡眠、生长激素</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULA -->
+    <section class="section" id="formula">
+        <div class="section-header">
+            <div class="section-tag">Formula</div>
+            <h2 class="section-title">训练计算公式</h2>
+            <p class="section-desc">训练方案不是固定菜单，是公式+原则。每个人起点不同，但通往终点的路径是一样的。</p>
+        </div>
+
+        <!-- 起始训练量计算器 -->
+        <div class="formula-box">
+            <h3>🧮 起始训练量计算器</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">基线测试次数</label>
+                    <input type="number" id="base-reps" value="15" min="1" max="100" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">起始强度比例</label>
+                    <select id="base-pct" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="0.6">60%（保守）</option>
+                        <option value="0.65">65%</option>
+                        <option value="0.7" selected>70%（推荐）</option>
+                        <option value="0.75">75%</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="calcBase()" style="background:var(--accent);color:white;border:none;border-radius:6px;padding:0.6rem 1.2rem;font-size:0.85rem;font-weight:600;cursor:pointer">计算</button>
+            <div id="base-result" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem">
+                <div style="font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem">你的起始训练量</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)"><span id="base-start">0</span> 次</div>
+                <div style="font-size:0.8rem;color:var(--text-2);margin-top:0.5rem">进阶条件：连续2次训练完成且不变形 → 增加到 <span id="base-next" style="color:var(--green)">0</span> 次</div>
+            </div>
+        </div>
+
+        <!-- 热身时间计算器 -->
+        <div class="formula-box">
+            <h3>🔥 热身时间计算器</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">年龄（岁）</label>
+                    <input type="number" id="warmup-age" value="25" min="10" max="80" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">训练强度</label>
+                    <select id="warmup-intensity" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="0.7">轻度</option>
+                        <option value="1" selected>中等</option>
+                        <option value="1.3">高强度/比赛</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="calcWarmupMain()" style="background:var(--accent);color:white;border:none;border-radius:6px;padding:0.6rem 1.2rem;font-size:0.85rem;font-weight:600;cursor:pointer">计算</button>
+            <div id="warmup-result" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem">
+                <div style="display:flex;gap:2rem">
+                    <div>
+                        <div style="font-size:0.8rem;color:var(--text-2)">热身</div>
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)"><span id="warmup-time">0</span> 分钟</div>
+                    </div>
+                    <div>
+                        <div style="font-size:0.8rem;color:var(--text-2)">整理</div>
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--green)"><span id="cooldown-time">0</span> 分钟</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 每周训练频率计算器 -->
+        <div class="formula-box">
+            <h3>⚖️ 每周训练频率计算器</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">年龄（岁）</label>
+                    <input type="number" id="freq-age" value="25" min="10" max="80" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">训练类型</label>
+                    <select id="freq-type" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="3">力量训练</option>
+                        <option value="6">技术训练</option>
+                        <option value="2">间歇/比赛</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="calcFreqMain()" style="background:var(--accent);color:white;border:none;border-radius:6px;padding:0.6rem 1.2rem;font-size:0.85rem;font-weight:600;cursor:pointer">计算</button>
+            <div id="freq-result" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem">
+                <div style="font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem">建议训练频率</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)"><span id="freq-value">0</span> 次/周</div>
+                <div style="font-size:0.8rem;color:var(--text-2);margin-top:0.5rem" id="freq-advice"></div>
+            </div>
+        </div>
+
+        <!-- TDEE计算器 -->
+        <div class="formula-box">
+            <h3>🔥 TDEE计算器（每日总能耗）</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">性别</label>
+                    <select id="tdee-gender" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">年龄（岁）</label>
+                    <input type="number" id="tdee-age" value="25" min="10" max="80" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">体重（kg）</label>
+                    <input type="number" id="tdee-weight" value="70" min="30" max="200" step="0.1" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">身高（cm）</label>
+                    <input type="number" id="tdee-height" value="175" min="100" max="220" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">活动水平</label>
+                    <select id="tdee-activity" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="1.2">久坐</option>
+                        <option value="1.375">轻度（每周1-3次）</option>
+                        <option value="1.55" selected>中度（每周3-5次）</option>
+                        <option value="1.725">高度（每周6-7次）</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">目标</label>
+                    <select id="tdee-goal" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                        <option value="0">保持体重</option>
+                        <option value="-300">减脂（-300kcal）</option>
+                        <option value="-500">快速减脂（-500kcal）</option>
+                        <option value="200">增肌（+200kcal）</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="calcTDEEMain()" style="background:var(--accent);color:white;border:none;border-radius:6px;padding:0.6rem 1.2rem;font-size:0.85rem;font-weight:600;cursor:pointer">计算</button>
+            <div id="tdee-result" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem">
+                <div style="font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem">你的每日总能耗</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)"><span id="tdee-value">0</span> <span style="font-size:0.9rem;color:var(--text-2)">kcal/天</span></div>
+                <div style="font-size:0.8rem;color:var(--text-2);margin-top:0.5rem">BMR: <span id="tdee-bmr">0</span> kcal</div>
+            </div>
+        </div>
+
+        <!-- 水合计算器 -->
+        <div class="formula-box">
+            <h3>💧 水合计算器</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem">
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">体重（kg）</label>
+                    <input type="number" id="water-weight" value="70" min="30" max="200" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">训练（分钟）</label>
+                    <input type="number" id="water-duration" value="60" min="0" max="300" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+                <div class="calc-field">
+                    <label style="font-size:0.85rem;color:var(--text-2)">温度（°C）</label>
+                    <input type="number" id="water-temp" value="25" min="-10" max="50" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem">
+                </div>
+            </div>
+            <button onclick="calcWaterMain()" style="background:var(--accent);color:white;border:none;border-radius:6px;padding:0.6rem 1.2rem;font-size:0.85rem;font-weight:600;cursor:pointer">计算</button>
+            <div id="water-result" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem">
+                <div style="font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem">每日水合需求</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)"><span id="water-total">0</span> <span style="font-size:0.9rem;color:var(--text-2)">ml</span></div>
+                <div style="font-size:0.8rem;color:var(--text-2);margin-top:0.5rem">≈ <span id="water-cups">0</span> 杯（250ml/杯）</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSESSMENT -->
+    <section class="section" id="assessment">
+        <div class="section-header">
+            <div class="section-tag">Assessment</div>
+            <h2 class="section-title">评估体系</h2>
+            <p class="section-desc">评估不是打分，是决策工具。</p>
+        </div>
+
+        <div class="assessment-grid">
+            <div class="assessment-card">
+                <div class="assessment-title">📊 动态稳定性评估</div>
+                <div class="assessment-item">
+                    <span class="label">膝盖轨迹</span>
+                    <span class="value">下蹲时对准第二脚趾</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">骨盆稳定</span>
+                    <span class="value">下蹲时骨盆水平</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">躯干倾斜</span>
+                    <span class="value">前倾≤45度</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">重心位置</span>
+                    <span class="value">在支撑脚中心</span>
+                </div>
+            </div>
+            <div class="assessment-card">
+                <div class="assessment-title">⚡ 动力学评估</div>
+                <div class="assessment-item">
+                    <span class="label">发力顺序</span>
+                    <span class="value">脚→髋→肩→手</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">动作连续性</span>
+                    <span class="value">流畅无停顿</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">力的方向</span>
+                    <span class="value">与目标方向一致</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">偏差角度</span>
+                    <span class="value">≤30度</span>
+                </div>
+            </div>
+            <div class="assessment-card">
+                <div class="assessment-title">🔴 每周状态自检</div>
+                <div class="assessment-item">
+                    <span class="label">绿码：可正常训练</span>
+                    <span class="value" style="color: var(--green);">24-48h恢复，精力≥7/10</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">黄码：减量50%</span>
+                    <span class="value" style="color: var(--orange);">48h仍酸痛，精力4-6/10</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">红码：休息</span>
+                    <span class="value" style="color: var(--accent);">精力<4/10，有刺痛，睡眠<5h</span>
+                </div>
+            </div>
+            <div class="assessment-card">
+                <div class="assessment-title">🔍 训练问题诊断</div>
+                <div class="assessment-item">
+                    <span class="label">动作标准但没进步</span>
+                    <span class="value">→ 检查训练量/恢复/变式</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">动作越练越差</span>
+                    <span class="value">→ 疲劳累积/加量太快</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">训练中某个部位痛</span>
+                    <span class="value">→ 刺痛=停，酸胀=正常</span>
+                </div>
+                <div class="assessment-item">
+                    <span class="label">能完成但"使不上劲"</span>
+                    <span class="value">→ 检查动力链顺序</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING PLAN -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-tag">Planning</div>
+            <h2 class="section-title">4周训练计划框架</h2>
+            <p class="section-desc">四个阶段是原则，不是日历。你需要做的是：把当前的训练量做到稳定，再做下一个。</p>
+        </div>
+
+        <div class="plan-grid">
+            <div class="plan-card">
+                <div class="plan-week">W1</div>
+                <div class="plan-title">神经适应周</div>
+                <p class="plan-desc">建立正确的神经肌肉模式，低强度高重复</p>
+            </div>
+            <div class="plan-card">
+                <div class="plan-week">W2</div>
+                <div class="plan-title">结构适应周</div>
+                <p class="plan-desc">建立关节稳定性和基础力量，渐进负荷</p>
+            </div>
+            <div class="plan-card">
+                <div class="plan-week">W3</div>
+                <div class="plan-title">整合应用周</div>
+                <p class="plan-desc">整合神经控制和力量输出，模拟比赛需求</p>
+            </div>
+            <div class="plan-card">
+                <div class="plan-week">W4</div>
+                <div class="plan-title">巩固提升周</div>
+                <p class="plan-desc">巩固学习成果，个性化调整准备进阶</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="section" id="docs">
+        <div class="section-header">
+            <div class="section-tag">Library</div>
+            <h2 class="section-title">25个专业教学模块</h2>
+            <p class="section-desc">覆盖基础技术→高级战术→体能训练→运动康复全流程。</p>
+        </div>
+
+        <div class="doc-grid">
+            <a href="docs/00-quickstart.html" class="doc-card">
+                <div>
+                    <div class="doc-num">00</div>
+                    <div class="doc-title">快速开始</div>
+                    <div class="doc-desc">5分钟了解全貌，完成基线测试</div>
+                    <div class="doc-tag">必读入口</div>
+                </div>
+            </a>
+            <a href="docs/01-philosophy.html" class="doc-card">
+                <div>
+                    <div class="doc-num">01</div>
+                    <div class="doc-title">训练哲学</div>
+                    <div class="doc-desc">四个核心原则，训练的底线</div>
+                    <div class="doc-tag">必读</div>
+                </div>
+            </a>
+            <a href="docs/02-assessment.html" class="doc-card">
+                <div>
+                    <div class="doc-num">02</div>
+                    <div class="doc-title">基线评估</div>
+                    <div class="doc-desc">5个测试，了解你的起点</div>
+                </div>
+            </a>
+            <a href="docs/03-level-0.html" class="doc-card">
+                <div>
+                    <div class="doc-num">03</div>
+                    <div class="doc-title">Level 0：零基础启蒙</div>
+                    <div class="doc-desc">0-3个月，建立神经肌肉控制</div>
+                </div>
+            </a>
+            <a href="docs/04-level-1.html" class="doc-card">
+                <div>
+                    <div class="doc-num">04</div>
+                    <div class="doc-title">Level 1：基础建立</div>
+                    <div class="doc-desc">3-6个月，固化动作模式</div>
+                </div>
+            </a>
+            <a href="docs/05-level-2.html" class="doc-card">
+                <div>
+                    <div class="doc-num">05</div>
+                    <div class="doc-title">Level 2：技术入门</div>
+                    <div class="doc-desc">6-12个月，掌握基础技术</div>
+                </div>
+            </a>
+            <a href="docs/06-level-3.html" class="doc-card">
+                <div>
+                    <div class="doc-num">06</div>
+                    <div class="doc-title">Level 3：技术熟练</div>
+                    <div class="doc-desc">1-2年，技术自动化</div>
+                </div>
+            </a>
+            <a href="docs/07-level-4.html" class="doc-card">
+                <div>
+                    <div class="doc-num">07</div>
+                    <div class="doc-title">Level 4：技术精进</div>
+                    <div class="doc-desc">2-3年，技术精细化</div>
+                </div>
+            </a>
+            <a href="docs/08-level-5.html" class="doc-card">
+                <div>
+                    <div class="doc-num">08</div>
+                    <div class="doc-title">Level 5：战术应用</div>
+                    <div class="doc-desc">3-4年，建立战术体系</div>
+                </div>
+            </a>
+            <a href="docs/09-level-6.html" class="doc-card">
+                <div>
+                    <div class="doc-num">09</div>
+                    <div class="doc-title">Level 6：准专业</div>
+                    <div class="doc-desc">4-5年，全面发展能力</div>
+                </div>
+            </a>
+            <a href="docs/10-level-7.html" class="doc-card">
+                <div>
+                    <div class="doc-num">10</div>
+                    <div class="doc-title">Level 7：职业水平</div>
+                    <div class="doc-desc">5年+，达到职业水平</div>
+                </div>
+            </a>
+            <a href="docs/20-error-correction.html" class="doc-card">
+                <div>
+                    <div class="doc-num">20</div>
+                    <div class="doc-title">纠错指南</div>
+                    <div class="doc-desc">常见错误诊断与纠正</div>
+                    <div class="doc-tag">实用工具</div>
+                </div>
+            </a>
+        </div>
+                <div>
+                    <div class="doc-num">01</div>
+                    <div class="doc-title">核心内容</div>
+                    <div class="doc-desc">训练理念、8级体系、4大模块详解、评估体系</div>
+                    <div class="doc-tag">必读</div>
+                </div>
+            </a>
+            <a href="docs/05-clear-shot.html" class="doc-card">
+                <div>
+                    <div class="doc-num">05</div>
+                    <div class="doc-title">正手高远球技术</div>
+                    <div class="doc-desc">7步分解→10错误→5训练→力量→柔韧→协调</div>
+                </div>
+            </a>
+            <a href="docs/06-four-week-plan.html" class="doc-card">
+                <div>
+                    <div class="doc-num">06</div>
+                    <div class="doc-title">4周训练计划</div>
+                    <div class="doc-desc">自适应框架+训练计划模板</div>
+                </div>
+            </a>
+            <a href="docs/07-psychological-training.html" class="doc-card">
+                <div>
+                    <div class="doc-num">07</div>
+                    <div class="doc-title">心理训练</div>
+                    <div class="doc-desc">注意力→压力适应→自我调节→决策信心</div>
+                </div>
+            </a>
+            <a href="docs/08-nutrition-recovery.html" class="doc-card">
+                <div>
+                    <div class="doc-num">08</div>
+                    <div class="doc-title">营养与恢复指南</div>
+                    <div class="doc-desc">TDEE计算→营养素→训练后时间轴→恢复评估</div>
+                    <div class="doc-tag">必读</div>
+                </div>
+            </a>
+            <a href="docs/09-strength-conditioning.html" class="doc-card">
+                <div>
+                    <div class="doc-num">09</div>
+                    <div class="doc-title">力量体能</div>
+                    <div class="doc-desc">关节稳定→代谢适应→间歇训练→周期安排</div>
+                </div>
+            </a>
+            <a href="docs/11-footwork.html" class="doc-card">
+                <div>
+                    <div class="doc-num">11</div>
+                    <div class="doc-title">步伐训练</div>
+                    <div class="doc-desc">步数法则·启动步·完整节奏循环·快回慢踩</div>
+                </div>
+            </a>
+            <a href="docs/15-technique-analysis.html" class="doc-card">
+                <div>
+                    <div class="doc-num">12</div>
+                    <div class="doc-title">球路训练</div>
+                    <div class="doc-desc">39个战术组合库（5大类）</div>
+                </div>
+            </a>
+            <a href="docs/15-technique-analysis.html" class="doc-card">
+                <div>
+                    <div class="doc-num">14</div>
+                    <div class="doc-title">比赛策略</div>
+                    <div class="doc-desc">对手分析、战术选择、节奏控制、体能分配</div>
+                </div>
+            </a>
+            <a href="docs/15-technique-analysis.html" class="doc-card">
+                <div>
+                    <div class="doc-num">15</div>
+                    <div class="doc-title">技术全解析</div>
+                    <div class="doc-desc">发力原理+握拍+网前技术完整教学</div>
+                </div>
+            </a>
+            <a href="docs/17-anatomy-rehabilitation.html" class="doc-card">
+                <div>
+                    <div class="doc-num">17</div>
+                    <div class="doc-title">运动解剖与康复</div>
+                    <div class="doc-desc">神经→肌肉→筋膜、16块肌肉起止点、激痛点</div>
+                </div>
+            </a>
+            <a href="docs/15-technique-analysis.html" class="doc-card">
+                <div>
+                    <div class="doc-num">18</div>
+                    <div class="doc-title">精英打法分析</div>
+                    <div class="doc-desc">男单/女单/男双/混双/女双精英特征分析</div>
+                </div>
+            </a>
+            <a href="docs/09-strength-conditioning.html" class="doc-card">
+                <div>
+                    <div class="doc-num">19</div>
+                    <div class="doc-title">各国训练体系</div>
+                    <div class="doc-desc">中/日/韩/法国家队训练方法论+晋升通道</div>
+                </div>
+            </a>
+            <a href="docs/09-strength-conditioning.html" class="doc-card">
+                <div>
+                    <div class="doc-num">21</div>
+                    <div class="doc-title">女性训练专项</div>
+                    <div class="doc-desc">生理期四阶段训练方案、ACL预防</div>
+                </div>
+            </a>
+            <a href="docs/22-warmup-cooldown.html" class="doc-card">
+                <div>
+                    <div class="doc-num">22</div>
+                    <div class="doc-title">热身与整理</div>
+                    <div class="doc-desc">赛前热身工作流（15/25分钟方案）</div>
+                </div>
+            </a>
+            <a href="docs/24-safety-guide.html" class="doc-card">
+                <div>
+                    <div class="doc-num">23</div>
+                    <div class="doc-title">诊断索引</div>
+                    <div class="doc-desc">60+症状→原因→解决方案</div>
+                </div>
+            </a>
+            <a href="docs/24-safety-guide.html" class="doc-card">
+                <div>
+                    <div class="doc-num">24</div>
+                    <div class="doc-title">训练安全边界</div>
+                    <div class="doc-desc">RICE损伤处理、重返运动五级标准</div>
+                </div>
+            </a>
+            <a href="docs/25-safety-checklist.html" class="doc-card">
+                <div>
+                    <div class="doc-num">25</div>
+                    <div class="doc-title">训练前安全检查</div>
+                    <div class="doc-desc">每次训练前必做，预防损伤</div>
+                    <div class="doc-tag">安全第一</div>
+                </div>
+            </a>
+            <a href="docs/26-sleep-optimization.html" class="doc-card">
+                <div>
+                    <div class="doc-num">26</div>
+                    <div class="doc-title">睡眠优化指南</div>
+                    <div class="doc-desc">最重要的恢复手段，不可替代</div>
+                </div>
+            </a>
+            <a href="docs/27-competition-prep.html" class="doc-card">
+                <div>
+                    <div class="doc-num">27</div>
+                    <div class="doc-title">比赛准备流程</div>
+                    <div class="doc-desc">赛前→赛中→赛后完整流程</div>
+                </div>
+            </a>
+            <a href="docs/03-bsfs-screening.html" class="doc-card">
+                <div>
+                    <div class="doc-num">28</div>
+                    <div class="doc-title">羽毛球专项功能筛查</div>
+                    <div class="doc-desc">6个测试，识别身体薄弱环节</div>
+                    <div class="doc-tag">评估工具</div>
+                </div>
+            </a>
+            <a href="docs/29-level-locator.html" class="doc-card">
+                <div>
+                    <div class="doc-num">29</div>
+                    <div class="doc-title">级别定位器</div>
+                    <div class="doc-desc">回答问题，找到你的起始级别</div>
+                    <div class="doc-tag">P1工具</div>
+                </div>
+            </a>
+            <a href="docs/30-achievements.html" class="doc-card">
+                <div>
+                    <div class="doc-num">30</div>
+                    <div class="doc-title">成就系统</div>
+                    <div class="doc-desc">记录进步，解锁成就，保持动力</div>
+                    <div class="doc-tag">P1工具</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- NUTRITION QUICK REFERENCE -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-tag">Nutrition</div>
+            <h2 class="section-title">营养计算速查</h2>
+        </div>
+
+        <div class="formula-box">
+            <h3>🔥 TDEE计算</h3>
+            <div class="formula">
+<span class="keyword">男性 BMR</span> = 10×体重(kg) + 6.25×身高(cm) - 5×年龄 + 5
+<span class="keyword">女性 BMR</span> = 10×体重(kg) + 6.25×身高(cm) - 5×年龄 - 161
+
+<span class="keyword">TDEE</span> = BMR × 活动系数
+  久坐 = <span class="value">1.2</span>
+  轻度 = <span class="value">1.375</span>（每周1-3次低强度）
+  中度 = <span class="value">1.55</span>（每周3-5次中强度）
+  高度 = <span class="value">1.725</span>（每周6-7次高强度）
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <h3>🥩 三大营养素公式</h3>
+            <div class="formula">
+<span class="keyword">蛋白质</span>：
+  维持 = <span class="value">1.2-1.6 g/kg</span>
+  增肌 = <span class="value">1.6-2.0 g/kg</span>
+  减脂 = <span class="value">2.0-2.4 g/kg</span>
+
+<span class="keyword">脂肪</span>：
+  一般 = <span class="value">0.8-1.0 g/kg</span>（占热量20-25%）
+
+<span class="keyword">碳水</span>：
+  休息日 = <span class="value">2-3 g/kg</span>
+  训练日 = <span class="value">3-5 g/kg</span>
+  高强度 = <span class="value">5-7 g/kg</span>
+
+<span class="comment">分配原则：每餐20-40g蛋白质，训练后30分钟内补充20-30g快速吸收蛋白</span>
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <h3>💧 水合公式</h3>
+            <div class="formula">
+<span class="keyword">日常需要</span> = 体重(kg) × <span class="value">33ml</span>
+<span class="keyword">训练增加</span> = 训练时长(min) × <span class="value">12ml</span>
+<span class="keyword">高温增加</span> = 温度>30°C时 +<span class="value">20%</span>
+
+<span class="comment">判断水合：尿液淡柠檬色=良好，深黄色=缺水</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECOVERY -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-tag">Recovery</div>
+            <h2 class="section-title">恢复时间轴</h2>
+            <p class="section-desc">训练刺激身体，恢复让身体变强。没有恢复就没有进步。</p>
+        </div>
+
+        <div class="formula-box">
+            <h3>⏰ 训练后24小时恢复指南</h3>
+            <div class="formula">
+<span class="keyword">0-30分钟</span>：营养窗口 + 整理拉伸
+  → 快速碳水 1-1.2g/kg + 快速蛋白 0.3-0.4g/kg
+
+<span class="keyword">30分钟-2小时</span>：正餐 + 补水
+  → 碳水+蛋白+蔬菜，分次补水
+
+<span class="keyword">2小时-睡前</span>：轻度活动 + 筋膜放松
+  → 泡沫轴全身10-15分钟，热水澡
+
+<span class="keyword">睡觉（7-9小时）</span>：生长激素分泌 + 组织修复
+  → 不可替代，最重要的恢复手段
+
+<span class="keyword">第二天早上</span>：评估恢复状态 → 决定今天训练强度
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <h3>🔄 不同训练类型的恢复时间</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>训练类型</th>
+                            <th>恢复时间</th>
+                            <th>建议频率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>纯技术训练</td>
+                            <td>4-8小时</td>
+                            <td>每天都可以练</td>
+                        </tr>
+                        <tr>
+                            <td>步伐训练</td>
+                            <td>24-36小时</td>
+                            <td>隔天练</td>
+                        </tr>
+                        <tr>
+                            <td>力量训练</td>
+                            <td>48-72小时</td>
+                            <td>每周2-3次</td>
+                        </tr>
+                        <tr>
+                            <td>高强度间歇</td>
+                            <td>48-72小时</td>
+                            <td>每周2次</td>
+                        </tr>
+                        <tr>
+                            <td>对抗/比赛</td>
+                            <td>48-72小时</td>
+                            <td>每周1-2次</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 羽毛球系统训练 — NSCA CSCS认证体系 · 科学训练，成就卓越</p>
+    </footer>
+
+    <script>
+        // 起始训练量计算
+        function calcBase() {
+            const reps = +document.getElementById('base-reps').value;
+            const pct = +document.getElementById('base-pct').value;
+            const start = Math.round(reps * pct);
+            const next = Math.round(start * 1.1);
+            document.getElementById('base-start').textContent = start;
+            document.getElementById('base-next').textContent = next;
+            document.getElementById('base-result').style.display = 'block';
+        }
+
+        // 热身时间计算
+        function calcWarmupMain() {
+            const age = +document.getElementById('warmup-age').value;
+            const intensity = +document.getElementById('warmup-intensity').value;
+            const warmup = Math.round((Math.floor(age / 10) + 2) * intensity);
+            const cooldown = Math.round((Math.floor(age / 15) + 5) * intensity);
+            document.getElementById('warmup-time').textContent = warmup;
+            document.getElementById('cooldown-time').textContent = cooldown;
+            document.getElementById('warmup-result').style.display = 'block';
+        }
+
+        // 每周训练频率计算
+        function calcFreqMain() {
+            const age = +document.getElementById('freq-age').value;
+            const baseFreq = +document.getElementById('freq-type').value;
+            const coeff = age < 25 ? 1.2 : age <= 40 ? 1.0 : 0.8;
+            const freq = Math.round(baseFreq * coeff * 10) / 10;
+            let advice = '';
+            if (baseFreq === 3) advice = '力量训练需48-72小时恢复，同一肌群不连续训练。';
+            else if (baseFreq === 6) advice = '技术训练以神经疲劳为主，每天可练但注意不要过度。';
+            else advice = '间歇/比赛需48-72小时恢复。';
+            document.getElementById('freq-value').textContent = freq;
+            document.getElementById('freq-advice').textContent = advice;
+            document.getElementById('freq-result').style.display = 'block';
+        }
+
+        // TDEE计算
+        function calcTDEEMain() {
+            const gender = document.getElementById('tdee-gender').value;
+            const age = +document.getElementById('tdee-age').value;
+            const weight = +document.getElementById('tdee-weight').value;
+            const height = +document.getElementById('tdee-height').value;
+            const activity = +document.getElementById('tdee-activity').value;
+            const goal = +document.getElementById('tdee-goal').value;
+            
+            let bmr = gender === 'male' 
+                ? 10 * weight + 6.25 * height - 5 * age + 5
+                : 10 * weight + 6.25 * height - 5 * age - 161;
+            
+            const tdee = Math.round(bmr * activity + goal);
+            document.getElementById('tdee-bmr').textContent = Math.round(bmr);
+            document.getElementById('tdee-value').textContent = tdee;
+            document.getElementById('tdee-result').style.display = 'block';
+        }
+
+        // 水合计算
+        function calcWaterMain() {
+            const weight = +document.getElementById('water-weight').value;
+            const duration = +document.getElementById('water-duration').value;
+            const temp = +document.getElementById('water-temp').value;
+            
+            let base = weight * 33;
+            let train = duration * 12;
+            let heat = temp > 30 ? (base + train) * 0.2 : 0;
+            const total = Math.round(base + train + heat);
+            const cups = Math.round(total / 250);
+            
+            document.getElementById('water-total').textContent = total;
+            document.getElementById('water-cups').textContent = cups;
+            document.getElementById('water-result').style.display = 'block';
+        }
+
+        // 滚动显示动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.level-card, .module-card, .doc-card, .formula-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
