@@ -1,206 +1,501 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>羽毛球系统教学与训练体系</title>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.7; }
-  
-  /* ===== Home Page ===== */
-  #home { display: block; }
-  #home.hidden { display: none; }
-  
-  .hero { background: linear-gradient(135deg, #1a3a5c 0%, #2d5a8e 100%); color: #fff; padding: 60px 20px; text-align: center; }
-  .hero h1 { font-size: 2em; margin-bottom: 10px; }
-  .hero p { opacity: 0.9; font-size: 1.1em; max-width: 600px; margin: 0 auto; }
-  .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
-  .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 30px 0; }
-  .nav-card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-decoration: none; color: inherit; transition: all 0.2s; border-left: 4px solid #2d5a8e; cursor: pointer; }
-  .nav-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
-  .nav-card .tag { display: inline-block; font-size: 0.75em; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; background: #e8edf2; color: #2d5a8e; }
-  .nav-card h3 { font-size: 1em; margin-bottom: 4px; }
-  .nav-card p { font-size: 0.85em; color: #666; }
-  .section-title { font-size: 1.3em; font-weight: 700; margin: 40px 0 16px; color: #1a3a5c; border-bottom: 2px solid #e0e5ec; padding-bottom: 8px; }
-  .lang-switch { text-align: right; margin: 10px 20px; }
-  .lang-switch a { display: inline-block; padding: 6px 16px; border-radius: 20px; background: #e8edf2; color: #2d5a8e; text-decoration: none; font-size: 0.9em; }
-  .lang-switch a:hover { background: #2d5a8e; color: #fff; }
-  footer { text-align: center; padding: 40px 20px; color: #888; font-size: 0.85em; }
-  @media (max-width: 600px) { .nav-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 1.5em; } }
-
-  /* ===== Content Viewer ===== */
-  #viewer { display: none; }
-  #viewer.visible { display: block; }
-  
-  #viewer .toolbar { background: #1a3a5c; color: #fff; padding: 10px 20px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; }
-  #viewer .toolbar .back-btn { background: rgba(255,255,255,0.15); border: none; color: #fff; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.9em; }
-  #viewer .toolbar .back-btn:hover { background: rgba(255,255,255,0.25); }
-  #viewer .toolbar .doc-title { font-size: 0.95em; opacity: 0.9; }
-  #viewer .content { max-width: 900px; margin: 0 auto; padding: 30px 24px; }
-  
-  /* Rendered Markdown Styles */
-  .content h1 { font-size: 1.6em; color: #1a3a5c; margin: 24px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e0e5ec; }
-  .content h2 { font-size: 1.25em; color: #2d5a8e; margin: 20px 0 10px; }
-  .content h3 { font-size: 1.1em; color: #333; margin: 16px 0 8px; }
-  .content p { margin: 8px 0; }
-  .content ul, .content ol { margin: 6px 0; padding-left: 24px; }
-  .content li { margin: 4px 0; }
-  .content table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
-  .content th { background: #e8edf2; font-weight: 600; padding: 6px 8px; border: 1px solid #ccc; text-align: center; }
-  .content td { padding: 5px 8px; border: 1px solid #ddd; }
-  .content pre { background: #f0f2f5; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px 16px; overflow-x: auto; margin: 12px 0; font-size: 0.9em; line-height: 1.5; }
-  .content code { background: #f0f2f5; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
-  .content pre code { background: none; padding: 0; }
-  .content blockquote { border-left: 4px solid #2d5a8e; padding: 8px 16px; margin: 12px 0; background: #f8f9fb; color: #555; }
-  .content img { max-width: 100%; height: auto; margin: 12px 0; }
-  .content a { color: #2d5a8e; }
-</style>
-</head>
-<body>
-
-<!-- ===== HOME PAGE ===== -->
-<div id="home">
-<div class="lang-switch">
-  <a href="#" onclick="loadDoc('en/00-quickstart-manual.md')">🇬🇧 English</a>
-</div>
-<div class="hero">
-  <h1>🏸 羽毛球系统教学与训练体系</h1>
-  <p>NSCA CSCS认证专家 × 世界顶级羽毛球教练联合设计<br>
-  覆盖基础技术→高级战术→体能训练→运动康复全流程</p>
-</div>
-<div class="container">
-  <div class="section-title">🔥 从这里开始</div>
-  <div class="nav-grid">
-    <div class="nav-card" style="border-left-color:#e74c3c;" onclick="loadDoc('zh/00-quickstart-manual.md')">
-      <span class="tag" style="background:#fde8e8;color:#e74c3c;">入口</span>
-      <h3>📖 操作手册</h3>
-      <p>快速上手 + 核心原则 + 工作流 + 工具索引 — 5分钟读懂整个体系</p>
-    </div>
-    <div class="nav-card" style="border-left-color:#e67e22;" onclick="loadDoc('zh/23-diagnosis-index.md')">
-      <span class="tag" style="background:#fef3e2;color:#e67e22;">速查</span>
-      <h3>🔍 诊断索引</h3>
-      <p>"打不远"、"膝盖痛"、"杀球没力" — 按症状找原因和解决方案</p>
-    </div>
-    <div class="nav-card" style="border-left-color:#27ae60;" onclick="window.open('templates/print/A-日常.html','_blank')">
-      <span class="tag" style="background:#e8f5e9;color:#27ae60;">打印</span>
-      <h3>📋 训练表格</h3>
-      <p>16张可打印训练表格 + A4印刷版 — 带到球场直接用</p>
-    </div>
-    <div class="nav-card" style="border-left-color:#8e44ad;" onclick="window.open('badminton-learning/index.html','_blank')">
-      <span class="tag" style="background:#f3e5f5;color:#8e44ad;">应用</span>
-      <h3>🏸 训练系统（网页版）</h3>
-      <p>完整的交互式训练网站 —— 8级进阶 + 技术专题 + 训练日志 + 日历工具</p>
-    </div>
-  </div>
-
-  <div class="section-title">📚 中文文档</div>
-  <div class="nav-grid" id="zh-list"></div>
-
-  <div class="section-title">🇬🇧 English Documents</div>
-  <div class="nav-grid" id="en-list"></div>
-
-  <div class="section-title">📋 训练表格（可打印）</div>
-  <div class="nav-grid" id="tpl-list"></div>
-</div>
-<footer>
-  <p>羽毛球系统教学与训练体系 · CC BY-NC-ND 4.0</p>
-  <p style="margin-top:4px;">zh/ 25篇 + en/ 25篇 + templates/ 26个文件 ≈ 1MB</p>
-</footer>
-</div>
-
-<!-- ===== CONTENT VIEWER ===== -->
-<div id="viewer">
-  <div class="toolbar">
-    <button class="back-btn" onclick="goHome()">← 返回</button>
-    <span class="doc-title" id="doc-title">文档</span>
-  </div>
-  <div class="content" id="content-area"></div>
-</div>
-
-<script>
-// Document data
-const ZH_DOCS = [
-  { tag:'基础', file:'zh/01-core-content.md', title:'01 核心内容', desc:'训练理念、基线测试、起始量公式' },
-  { tag:'技术', file:'zh/05-level1-technique.md', title:'05 正手高远球', desc:'原理+自检+自练' },
-  { tag:'计划', file:'zh/06-four-week-plan.md', title:'06 四周训练计划', desc:'自适应框架+模板' },
-  { tag:'心理', file:'zh/07-psychological-training.md', title:'07 心理训练', desc:'注意力+压力+决策' },
-  { tag:'营养', file:'zh/08-nutrition-recovery.md', title:'08 营养与恢复', desc:'营养计算+训练后恢复' },
-  { tag:'体能', file:'zh/09-strength-conditioning.md', title:'09 力量体能', desc:'肩/膝/代谢/间歇' },
-  { tag:'步伐', file:'zh/11-footwork-training.md', title:'11 步伐训练', desc:'启动+路线+回位' },
-  { tag:'战术', file:'zh/12-shot-patterns.md', title:'12 球路训练', desc:'39个战术组合' },
-  { tag:'技术', file:'zh/15-technical-training.md', title:'15 技术全解析', desc:'发力+握拍+网前' },
-  { tag:'战术', file:'zh/16-match-reading.md', title:'16 阅读比赛', desc:'拍面→引拍→习惯' },
-  { tag:'康复', file:'zh/17-sports-anatomy-rehab.md', title:'17 解剖与康复', desc:'肌肉+激痛点+损伤' },
-  { tag:'进阶', file:'zh/18-elite-player-analysis.md', title:'18 精英打法分析', desc:'各项目晋级路线' },
-  { tag:'体系', file:'zh/19-national-team-systems.md', title:'19 各国训练体系', desc:'中日韩法方法论' },
-  { tag:'装备', file:'zh/20-equipment-guide.md', title:'20 装备选择', desc:'拍/线/鞋/手胶' },
-  { tag:'女性', file:'zh/21-women-training.md', title:'21 女性训练', desc:'生理期+ACL预防' },
-  { tag:'热身', file:'zh/22-warmup-cooldown.md', title:'22 热身与整理', desc:'15/25/10分钟方案' },
-  { tag:'安全', file:'zh/24-safety-guide.md', title:'24 安全边界', desc:'RICE+重返运动标准' }
-];
-
-const EN_DOCS = [
-  { tag:'Entry', file:'en/00-quickstart-manual.md', title:'00 Quickstart Manual', desc:'Start here' },
-  { tag:'Core', file:'en/01-core-content.md', title:'01 Core Content', desc:'Principles & baseline tests' },
-  { tag:'Tech', file:'en/05-level1-technique.md', title:'05 Forehand Clear', desc:'Full guide' },
-  { tag:'Plan', file:'en/06-four-week-plan.md', title:'06 Training Plan', desc:'4-week framework' },
-  { tag:'Gear', file:'en/20-equipment-guide.md', title:'20 Equipment Guide', desc:'Racquets, strings, shoes' },
-  { tag:'Women', file:'en/21-women-training.md', title:'21 Women\'s Training', desc:'Menstrual cycle + ACL' },
-  { tag:'Solve', file:'en/23-diagnosis-index.md', title:'23 Diagnosis Index', desc:'Find solutions fast' },
-  { tag:'Safety', file:'en/24-safety-guide.md', title:'24 Safety Guide', desc:'RICE + return to play' }
-];
-
-const TPL_DOCS = [
-  { tag:'A-日常', file:'templates/A-日常/A1-单次流程卡.md', title:'A1 单次流程卡', desc:'每次训练带一张' },
-  { tag:'A-日常', file:'templates/A-日常/A2-技术纠错卡.md', title:'A2 技术纠错卡', desc:'6项技术合1' },
-  { tag:'B-比赛', file:'templates/B-比赛/B1-赛前准备卡.md', title:'B 比赛三件套', desc:'赛前/赛中/赛后' },
-  { tag:'C-教练', file:'templates/C-教练/C1-学员档案.md', title:'C 教练四件套', desc:'档案/观察/排课/报告' },
-  { tag:'D-专项', file:'templates/D-专项/D1-生理期调整卡.md', title:'D 专项四件套', desc:'生理期/伤病/步数/装备' }
-];
-
-function renderCards(data, containerId) {
-  const container = document.getElementById(containerId);
-  data.forEach(d => {
-    const card = document.createElement('div');
-    card.className = 'nav-card';
-    card.innerHTML = '<span class="tag">'+d.tag+'</span><h3>'+d.title+'</h3><p>'+d.desc+'</p>';
-    card.onclick = function() { loadDoc(d.file); };
-    container.appendChild(card);
-  });
-}
-
-renderCards(ZH_DOCS, 'zh-list');
-renderCards(EN_DOCS, 'en-list');
-renderCards(TPL_DOCS, 'tpl-list');
-
-// Load and render a markdown file
-function loadDoc(path) {
-  document.getElementById('home').className = 'hidden';
-  document.getElementById('viewer').className = 'visible';
-  document.getElementById('doc-title').textContent = path;
-  document.getElementById('content-area').innerHTML = '<p style="color:#888;">加载中...</p>';
-  
-  fetch(path)
-    .then(function(res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.text();
-    })
-    .then(function(text) {
-      var html = marked.parse(text);
-      document.getElementById('content-area').innerHTML = html;
-      window.scrollTo({ top: 0 });
-    })
-    .catch(function(err) {
-      document.getElementById('content-area').innerHTML = '<p style="color:#c00;">加载失败: ' + err.message + '</p>';
-    });
-}
-
-function goHome() {
-  document.getElementById('viewer').className = '';
-  document.getElementById('home').className = '';
-}
-</script>
-</body>
-</html>
+1|<!DOCTYPE html>
+2|<html lang="zh-CN">
+3|<head>
+4|    <meta charset="UTF-8">
+5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6|    <title>羽毛球系统训练 - NSCA CSCS认证体系</title>
+7|    <link rel="preconnect" href="https://fonts.googleapis.com">
+8|    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+9|    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+10|    <style>
+11|        :root {
+12|            --bg: #09090b;
+13|            --surface: #18181b;
+14|            --surface-2: #27272a;
+15|            --border: #3f3f46;
+16|            --text: #fafafa;
+17|            --text-2: #a1a1aa;
+18|            --accent: #f43f5e;
+19|            --accent-2: #fb7185;
+20|            --blue: #3b82f6;
+21|            --green: #22c55e;
+22|            --purple: #a855f7;
+23|            --orange: #f97316;
+24|        }
+25|
+26|        * { margin: 0; padding: 0; box-sizing: border-box; }
+27|        html { scroll-behavior: smooth; }
+28|
+29|        body {
+30|            font-family: 'Noto Sans SC', system-ui, sans-serif;
+31|            background: var(--bg);
+32|            color: var(--text);
+33|            line-height: 1.7;
+34|            -webkit-font-smoothing: antialiased;
+35|        }
+36|
+37|        code, .mono {
+38|            font-family: 'JetBrains Mono', monospace;
+39|        }
+40|
+41|        /* ===== NAV ===== */
+42|        nav {
+43|            position: fixed;
+44|            top: 0;
+45|            left: 0;
+46|            right: 0;
+47|            z-index: 100;
+48|            background: rgba(9, 9, 11, 0.85);
+49|            backdrop-filter: blur(12px);
+50|            border-bottom: 1px solid var(--border);
+51|        }
+52|
+53|        .nav-inner {
+54|            max-width: 1200px;
+55|            margin: 0 auto;
+56|            padding: 0 2rem;
+57|            height: 64px;
+58|            display: flex;
+59|            align-items: center;
+60|            justify-content: space-between;
+61|        }
+62|
+63|        .logo {
+64|            font-weight: 700;
+65|            font-size: 1.1rem;
+66|            display: flex;
+67|            align-items: center;
+68|            gap: 0.5rem;
+69|        }
+70|
+71|        .logo span { color: var(--accent); }
+72|
+73|        .nav-links {
+74|            display: flex;
+75|            gap: 2rem;
+76|            list-style: none;
+77|        }
+78|
+79|        .nav-links a {
+80|            color: var(--text-2);
+81|            text-decoration: none;
+82|            font-size: 0.9rem;
+83|            font-weight: 500;
+84|            transition: color 0.2s;
+85|        }
+86|
+87|        .nav-links a:hover { color: var(--text); }
+88|
+89|        /* ===== HERO ===== */
+90|        .hero {
+91|            min-height: 100vh;
+92|            display: flex;
+93|            align-items: center;
+94|            justify-content: center;
+95|            text-align: center;
+96|            padding: 6rem 2rem;
+97|            position: relative;
+98|            overflow: hidden;
+99|        }
+100|
+101|        .hero::before {
+102|            content: '';
+103|            position: absolute;
+104|            top: -50%;
+105|            left: -50%;
+106|            width: 200%;
+107|            height: 200%;
+108|            background: radial-gradient(ellipse at 30% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 50%),
+109|                        radial-gradient(ellipse at 70% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+110|            animation: drift 20s ease-in-out infinite alternate;
+111|        }
+112|
+113|        @keyframes drift {
+114|            from { transform: translate(0, 0); }
+115|            to { transform: translate(-5%, 3%); }
+116|        }
+117|
+118|        .hero-content {
+119|            position: relative;
+120|            z-index: 1;
+121|            max-width: 800px;
+122|        }
+123|
+124|        .badge {
+125|            display: inline-block;
+126|            padding: 0.4rem 1rem;
+127|            background: var(--surface);
+128|            border: 1px solid var(--border);
+129|            border-radius: 9999px;
+130|            font-size: 0.8rem;
+131|            color: var(--text-2);
+132|            margin-bottom: 2rem;
+133|        }
+134|
+135|        .badge::before {
+136|            content: '';
+137|            display: inline-block;
+138|            width: 6px;
+139|            height: 6px;
+140|            background: var(--green);
+141|            border-radius: 50%;
+142|            margin-right: 0.5rem;
+143|            vertical-align: middle;
+144|        }
+145|
+146|        h1 {
+147|            font-size: clamp(2.5rem, 6vw, 4.5rem);
+148|            font-weight: 900;
+149|            line-height: 1.1;
+150|            margin-bottom: 1.5rem;
+151|            letter-spacing: -0.02em;
+152|        }
+153|
+154|        h1 em {
+155|            font-style: normal;
+156|            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+157|            -webkit-background-clip: text;
+158|            -webkit-text-fill-color: transparent;
+159|        }
+160|
+161|        .hero-desc {
+162|            font-size: 1.15rem;
+163|            color: var(--text-2);
+164|            max-width: 560px;
+165|            margin: 0 auto 3rem;
+166|        }
+167|
+168|        .hero-actions {
+169|            display: flex;
+170|            gap: 1rem;
+171|            justify-content: center;
+172|            flex-wrap: wrap;
+173|        }
+174|
+175|        .btn {
+176|            padding: 0.75rem 2rem;
+177|            border-radius: 8px;
+178|            font-size: 0.95rem;
+179|            font-weight: 600;
+180|            text-decoration: none;
+181|            transition: all 0.2s;
+182|            cursor: pointer;
+183|            border: none;
+184|            font-family: inherit;
+185|        }
+186|
+187|        .btn-fill {
+188|            background: var(--accent);
+189|            color: white;
+190|        }
+191|
+192|        .btn-fill:hover {
+193|            background: var(--accent-2);
+194|            transform: translateY(-1px);
+195|        }
+196|
+197|        .btn-ghost {
+198|            background: transparent;
+199|            color: var(--text);
+200|            border: 1px solid var(--border);
+201|        }
+202|
+203|        .btn-ghost:hover {
+204|            background: var(--surface);
+205|        }
+206|
+207|        /* ===== SECTIONS ===== */
+208|        .section {
+209|            max-width: 1200px;
+210|            margin: 0 auto;
+211|            padding: 6rem 2rem;
+212|        }
+213|
+214|        .section-header {
+215|            text-align: center;
+216|            margin-bottom: 4rem;
+217|        }
+218|
+219|        .section-tag {
+220|            font-size: 0.8rem;
+221|            font-weight: 600;
+222|            color: var(--accent);
+223|            text-transform: uppercase;
+224|            letter-spacing: 0.1em;
+225|            margin-bottom: 0.75rem;
+226|        }
+227|
+228|        .section-title {
+229|            font-size: clamp(1.8rem, 4vw, 2.8rem);
+230|            font-weight: 800;
+231|            margin-bottom: 1rem;
+232|            letter-spacing: -0.01em;
+233|        }
+234|
+235|        .section-desc {
+236|            font-size: 1.05rem;
+237|            color: var(--text-2);
+238|            max-width: 560px;
+239|            margin: 0 auto;
+240|        }
+241|
+242|        /* ===== STATS BAR ===== */
+243|        .stats-bar {
+244|            display: grid;
+245|            grid-template-columns: repeat(4, 1fr);
+246|            gap: 1px;
+247|            background: var(--border);
+248|            border: 1px solid var(--border);
+249|            border-radius: 12px;
+250|            overflow: hidden;
+251|            margin: 0 2rem;
+252|        }
+253|
+254|        .stat {
+255|            background: var(--surface);
+256|            padding: 2rem;
+257|            text-align: center;
+258|        }
+259|
+260|        .stat-num {
+261|            font-size: 2.5rem;
+262|            font-weight: 800;
+263|            font-family: 'JetBrains Mono', monospace;
+264|            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+265|            -webkit-background-clip: text;
+266|            -webkit-text-fill-color: transparent;
+267|        }
+268|
+269|        .stat-label {
+270|            font-size: 0.85rem;
+271|            color: var(--text-2);
+272|            margin-top: 0.25rem;
+273|        }
+274|
+275|        /* ===== LEVELS ===== */
+276|        .levels-grid {
+277|            display: grid;
+278|            grid-template-columns: repeat(4, 1fr);
+279|            gap: 1px;
+280|            background: var(--border);
+281|            border: 1px solid var(--border);
+282|            border-radius: 12px;
+283|            overflow: hidden;
+284|        }
+285|
+286|        .level-card {
+287|            background: var(--surface);
+288|            padding: 2rem;
+289|            transition: background 0.2s;
+290|            cursor: default;
+291|        }
+292|
+293|        .level-card:hover {
+294|            background: var(--surface-2);
+295|        }
+296|
+297|        .level-num {
+298|            font-family: 'JetBrains Mono', monospace;
+299|            font-size: 2rem;
+300|            font-weight: 700;
+301|            color: var(--accent);
+302|            margin-bottom: 0.75rem;
+303|        }
+304|
+305|        .level-name {
+306|            font-weight: 600;
+307|            margin-bottom: 0.25rem;
+308|        }
+309|
+310|        .level-time {
+311|            font-size: 0.8rem;
+312|            color: var(--accent-2);
+313|            margin-bottom: 0.75rem;
+314|            font-family: 'JetBrains Mono', monospace;
+315|        }
+316|
+317|        .level-desc {
+318|            font-size: 0.85rem;
+319|            color: var(--text-2);
+320|            line-height: 1.6;
+321|        }
+322|
+323|        /* ===== MODULES ===== */
+324|        .modules-grid {
+325|            display: grid;
+326|            grid-template-columns: repeat(2, 1fr);
+327|            gap: 1.5rem;
+328|        }
+329|
+330|        .module-card {
+331|            background: var(--surface);
+332|            border: 1px solid var(--border);
+333|            border-radius: 12px;
+334|            padding: 2rem;
+335|        }
+336|
+337|        .module-icon {
+338|            width: 48px;
+339|            height: 48px;
+340|            border-radius: 10px;
+341|            display: flex;
+342|            align-items: center;
+343|            justify-content: center;
+344|            font-size: 1.25rem;
+345|            margin-bottom: 1.25rem;
+346|        }
+347|
+348|        .mi-1 { background: rgba(244, 63, 94, 0.15); }
+349|        .mi-2 { background: rgba(168, 85, 247, 0.15); }
+350|        .mi-3 { background: rgba(59, 130, 246, 0.15); }
+351|        .mi-4 { background: rgba(34, 197, 94, 0.15); }
+352|
+353|        .module-title {
+354|            font-size: 1.15rem;
+355|            font-weight: 600;
+356|            margin-bottom: 1rem;
+357|        }
+358|
+359|        .module-items {
+360|            list-style: none;
+361|        }
+362|
+363|        .module-items li {
+364|            padding: 0.5rem 0;
+365|            border-bottom: 1px solid var(--border);
+366|            color: var(--text-2);
+367|            font-size: 0.9rem;
+368|        }
+369|
+370|        .module-items li:last-child { border: none; }
+371|
+372|        .module-items li::before {
+373|            content: '→';
+374|            color: var(--accent);
+375|            margin-right: 0.5rem;
+376|        }
+377|
+378|        /* ===== FORMULA BOX ===== */
+379|        .formula-box {
+380|            background: var(--surface);
+381|            border: 1px solid var(--border);
+382|            border-radius: 12px;
+383|            padding: 2rem;
+384|            margin: 2rem 0;
+385|        }
+386|
+387|        .formula-box h3 {
+388|            font-size: 1rem;
+389|            font-weight: 600;
+390|            margin-bottom: 1rem;
+391|            display: flex;
+392|            align-items: center;
+393|            gap: 0.5rem;
+394|        }
+395|
+396|        .formula {
+397|            font-family: 'JetBrains Mono', monospace;
+398|            background: var(--bg);
+399|            border: 1px solid var(--border);
+400|            border-radius: 8px;
+401|            padding: 1.25rem;
+402|            font-size: 0.85rem;
+403|            line-height: 1.8;
+404|            overflow-x: auto;
+405|        }
+406|
+407|        .formula .comment { color: var(--text-2); }
+408|        .formula .keyword { color: var(--accent); }
+409|        .formula .value { color: var(--green); }
+410|
+411|        /* ===== TABLE ===== */
+412|        .table-wrap {
+413|            overflow-x: auto;
+414|            margin: 1.5rem 0;
+415|            border: 1px solid var(--border);
+416|            border-radius: 12px;
+417|        }
+418|
+419|        table {
+420|            width: 100%;
+421|            border-collapse: collapse;
+422|            font-size: 0.9rem;
+423|        }
+424|
+425|        th {
+426|            background: var(--surface);
+427|            padding: 0.75rem 1rem;
+428|            text-align: left;
+429|            font-weight: 600;
+430|            border-bottom: 1px solid var(--border);
+431|        }
+432|
+433|        td {
+434|            padding: 0.75rem 1rem;
+435|            border-bottom: 1px solid var(--border);
+436|            color: var(--text-2);
+437|        }
+438|
+439|        tr:last-child td { border: none; }
+440|
+441|        /* ===== DOCUMENTS ===== */
+442|        .doc-grid {
+443|            display: grid;
+444|            grid-template-columns: repeat(3, 1fr);
+445|            gap: 1rem;
+446|            align-items: stretch;
+447|        }
+448|
+449|        .doc-card {
+450|            background: var(--surface);
+451|            border: 1px solid var(--border);
+452|            border-radius: 10px;
+453|            padding: 1.25rem;
+454|            text-decoration: none;
+455|            color: var(--text);
+456|            transition: all 0.2s;
+457|            display: flex;
+458|            flex-direction: column;
+459|            min-height: 140px;
+460|        }
+461|
+462|        .doc-card > div {
+463|            flex: 1;
+464|        }
+465|
+466|        .doc-card:hover {
+467|            border-color: var(--accent);
+468|            transform: translateY(-2px);
+469|        }
+470|
+471|        .doc-num {
+472|            font-family: 'JetBrains Mono', monospace;
+473|            font-size: 0.75rem;
+474|            color: var(--accent);
+475|            margin-bottom: 0.5rem;
+476|        }
+477|
+478|        .doc-title {
+479|            font-weight: 600;
+480|            font-size: 0.95rem;
+481|            margin-bottom: 0.25rem;
+482|        }
+483|
+484|        .doc-desc {
+485|            font-size: 0.8rem;
+486|            color: var(--text-2);
+487|            word-wrap: break-word;
+488|            overflow-wrap: break-word;
+489|        }
+490|
+491|        .doc-tag {
+492|            display: inline-block;
+493|            margin-top: 0.5rem;
+494|            padding: 0.15rem 0.5rem;
+495|            background: rgba(244, 63, 94, 0.1);
+496|            border-radius: 4px;
+497|            font-size: 0.7rem;
+498|            color: var(--accent-2);
+499|        }
+500|
+501|
