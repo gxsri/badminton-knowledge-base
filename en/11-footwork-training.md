@@ -363,8 +363,8 @@ Arrival Quality = Position + Center of Gravity + Timing
 
 Good arrival:
 - Position: Can comfortably reach the ball with racket extended
-- Center of Gravity: Low, stable, weight distributed on both feet
-- Timing: The ball is already descending; hit the moment your foot lands
+- Center of gravity: Low, stable, weight distributed on both feet
+- Timing: The ball is already DESCENDING when you arrive — foot lands, then hit. If the ball is still rising when you arrive, you arrived too early.
 ```
 
 ### 5.2 Center of Gravity Control During the Hitting Phase
@@ -380,7 +380,8 @@ When you arrive:
 Key timeline:
   Last step lands → Hit → Racket recovery → Weight resets
   These three actions are one continuous flow, not separate steps.
-  If you pause after landing before hitting → you arrived too late.
+  If you pause after landing before hitting → you arrived too early — the shuttle hasn't dropped to the hitting zone yet, so you wait.
+  The correct rhythm is "foot-lands-then-hit": the moment your foot lands, the shuttle reaches the hitting zone.
 ```
 
 ### 5.3 Hitting Drills
@@ -395,14 +396,15 @@ Drill 1: Three-Step Arrival
 3. All "Yes" → route is OK
    Any "No" → adjust route or speed
 
-Drill 2: Arrive and Hit (simulate match pace)
+Drill 2: Arrive and hit — foot lands, then hit (match simulation)
 1. Partner feeds the shuttle
-2. You run to the position
-3. Hit the instant you arrive (no pause)
+2. You move to the shuttle
+3. Hit the moment your foot lands — not "hit as soon as you arrive", but "foot lands, shuttle arrives"
 4. Recover immediately after hitting
 
-If you find "I arrive but need to pause before hitting" →
-  This means you arrived too early. Adjust your timing: hit the moment your foot lands.
+If you find "I arrived but I need to pause and wait for the shuttle" →
+  You arrived too early. Start half a step later or slow your last step down,
+  so your foot lands exactly when the shuttle reaches the hitting zone — "foot-lands-then-hit"
 ```
 
 ### 5.4 Common Arrival Problem Diagnosis
@@ -609,5 +611,6 @@ not to teach names of movements.
 
 ---
 
-*Version: v2.0 (Rhythm Framework + Fast Recovery/Controlled Landing Edition)*
-*Key changes: Rewrote initiation/split step explanation (weight pre-movement concept), added step count rule (1=proactive / 2-3=normal / >3=passive), added complete rhythm cycle (initiation→route→hitting→recovery), added "fast recovery, controlled landing" technique and drills*
+*Version: v2.2 (latest)*
+*Core changes: Rewrote Split Step explanation (neutral weight concept), added Step Count Rule (1 step=proactive / 2-3=normal / >3=passive), added full rhythm cycle (split→route→hit→recovery), added "Fast Recovery, Controlled Landing" technique*
+*This revision: Fixed arrival timing (pause = arrived too early, not too late), clarified "foot-lands-then-hit" principle, added Asia vs Europe footwork comparison, elite vs amateur research data*
