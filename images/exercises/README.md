@@ -10,7 +10,7 @@
 - 原图版权方：[© Gym visual — https://gymvisual.com/](https://gymvisual.com/)
 - 按数据集 `NOTICE.md` 要求：**任何使用须保留署名「© Gym visual — https://gymvisual.com/」并遵守其条款**。
   本目录动图未做任何放大/修改，仅作为动作学习缩略示范。
-- 下载日期：2026-02（动图直接取自上述仓库 `videos/`，文件名为 `<数据集id>-<media_id>.gif`，可回溯）。
+- 下载日期：2026-09（动图直接取自上述仓库 `videos/`，文件名为 `<数据集id>-<media_id>.gif`，可回溯）。
 
 ## 逐文件对照（数据集登记字段）
 
