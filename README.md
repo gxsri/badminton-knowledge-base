@@ -8,13 +8,27 @@
 
 ## 🌐 在线访问
 
-项目已部署 GitHub Pages，可直接在浏览器中阅读：
+项目已部署 GitHub Pages，可直接在浏览器中访问：
 
 ```
-https://你的用户名.github.io/badminton-training-system/
+https://gxsri.github.io/badminton-knowledge-base/
 ```
 
-点击任意文档卡片 → 使用 `marked.js` 客户端渲染，无需等待构建即可流畅阅读。
+主页即**训练系统网页版**（51 篇交互文档，登记表驱动渲染）。知识库 markdown 文档位于 `zh/`（中文 25 篇）与 `en/`（英文 26 篇），可在 GitHub 中直接阅读。
+
+---
+
+## 🏸 训练系统网页版（`docs/`，51 篇）
+
+仓库根目录现在同时承载知识库与可交互的训练系统网页版，两者同源互补：
+
+- **主页** `index.html`：文档库由 `docs-data.js` 登记表渲染（编号 00-03 核心框架 / L0-L7 八级路线 / 12-32 专项模块 / 33-50 实用工具），并内置基线评估、热量/水合等计算器
+- **入口**：`docs/00-quickstart.html` 快速开始（5 分钟完成基线测试）；`docs/40-search.html` 全文搜索（登记表驱动）
+- **健身与体能**：`docs/17-fitness-plan.html` 含动作示范动图（`images/exercises/`，© Gym visual 180×180，来源与许可见该目录 `README.md`）
+- **工程质量**：`tests/regression.mjs` 静态回归（56 项检查：登记表完整性/结构/链接/脚本/素材署名），修改后运行 `node tests/regression.mjs`；页面制作规范见 `scripts/PAGE-SPEC.md`
+- **维护脚本**：`scripts/`（编号迁移、品牌/head 统一、前后篇导航、动图嵌入、素材引用修复等，均幂等可复跑）
+
+> 说明：为适配国内网络（GFW），主页已移除 Google Fonts 外链，使用系统字体栈；文档页保留字体链接，被墙时自动回退，不影响阅读。
 
 ---
 
@@ -115,14 +129,20 @@ https://你的用户名.github.io/badminton-training-system/
 ## 📁 目录结构
 
 ```
-├── index.html              ← GitHub Pages 首页（客户端渲染，点击卡片直接阅读）
-├── mkdocs.yml              ← MkDocs 网站配置（可生成静态站）
+├── index.html              ← GitHub Pages 主页（训练系统：文档库登记表渲染 + 计算器）
+├── docs-data.js            ← 文档登记表（唯一数据源：主页/搜索/测试共用，51 篇）
+├── docs/                   ← 训练系统网页版 51 篇（00-03 框架 / L0-L7 路线 / 12-32 专项 / 33-50 工具）
+├── assets/                 ← 共享样式与脚本（app.js 等）
+├── tests/                  ← 静态回归测试（node tests/regression.mjs）
+├── scripts/                ← 维护脚本与页面制作规范（PAGE-SPEC.md / template.html）
+├── images/exercises/       ← 动作示范动图（13 个 GIF，© Gym visual，含来源 README）
+├── mkdocs.yml              ← MkDocs 网站配置（知识库可选构建）
 ├── README.md               ← 项目说明（本文档）
 ├── LICENSE.md              ← 许可证（CC BY-NC-ND 4.0）
 ├── CHANGELOG.md            ← 更新日志
 ├── TERMINOLOGY.md          ← 中英术语对照表（9大类60+术语）
 ├── .nojekyll               ← GitHub Pages 配置
-├── .github/workflows/      ← GitHub Actions 自动部署工作流
+├── .github/workflows/      ← GitHub Actions 自动部署（push main → gh-pages）
 │
 ├── zh/                     ← 25篇中文教学文档（00操作手册 + 01-24）
 ├── en/                     ← 26篇英文教学文档（00操作手册 + 01-25）
@@ -157,7 +177,9 @@ https://你的用户名.github.io/badminton-training-system/
 | ✅ 英文文档 26篇 | 00操作手册 + 01-25 |
 | ✅ 配套图册 | 16张解剖示意图 |
 | ✅ 可打印表格 | 16张表格 + 4份A4印刷版HTML |
-| ✅ GitHub Pages | `index.html` + 客户端渲染 + Actions 部署 |
+| ✅ 训练系统网页版 | 51篇交互文档（docs/）+ 登记表驱动主页 + 回归测试 |
+| ✅ 动作示范动图 | 13个 GIF（images/exercises/，© Gym visual，保留署名） |
+| ✅ GitHub Pages | 根目录自动部署（push main → Actions → gh-pages） |
 | ✅ 诊断索引 | 60+症状 → 原因 → 解决方案 |
 | ✅ 训练安全边界 | RICE处理 + 重返运动标准 |
 | ✅ 营养与恢复合并 | 08已合并25全部内容 |
