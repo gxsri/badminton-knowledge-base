@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="球拍/球鞋/磅数/场地与装备预算决策树">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>装备指南 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:var(--orange)}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0;white-space:pre}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">28</div>
+        <h1>装备指南</h1>
+        <div class="meta">所有水平 · 装备不是越贵越好，是越适合你越好（价格以 2025-2026 中国市场实际成交价为准）</div>
+
+        <h2>买装备前的三个误区</h2>
+        <div class="callout warn">
+            <p>
+            <strong>误区① 新手第一把拍就买高端旗舰：</strong>3U 头重杆硬的进攻拍（如天斧99）新手根本挥不动。打不动 → 动作变形 → 发力错误 → 受伤，最后怪"拍子不好打"——其实是自己的问题。<br>
+            <strong>误区② 买鞋只看颜值不看脚型：</strong>羽毛球鞋分窄楦/标准/宽楦。买错楦型，脚在鞋里滑动，起步磨出水泡，严重了崴脚。<br>
+            <strong>误区③ 跟明星代言：</strong>林丹的天斧99 是按职业级发力设计的，不是按你的水平设计的。明星选"最适合他打法"的拍，不是"最适合你"的拍。
+            </p>
+        </div>
+        <p><strong>市场现实：</strong>2025-2026 年装备价格持续上涨——尤尼克斯高端拍官方 1800-2200 元、实际成交 1400-1800 元；<strong>500-900 元中端拍性价比最高</strong>，中端与高端的性能差距，业余爱好者打不出 20%。穿线费一线城市 30-60 元、二线城市 20-40 元——好穿线师比好拍子更稀缺。</p>
+
+        <h2>球拍参数：重量、平衡点、中杆</h2>
+        <p>选拍只看三个参数，参数比代言重要。</p>
+        <table>
+            <thead><tr><th>参数</th><th>档位</th><th>特点</th><th>适合打法</th></tr></thead>
+            <tbody>
+                <tr><td><strong>重量（U）</strong><br>数字越大越轻</td><td>3U（85-89g）</td><td>重，出球力量足</td><td>力量型、后场强攻</td></tr>
+                <tr><td></td><td>4U（80-84g）</td><td>标准平衡</td><td>大多数人的选择</td></tr>
+                <tr><td></td><td>5U（75-79g）</td><td>轻，挥速快</td><td>新手、女生、力量小的选手</td></tr>
+                <tr><td><strong>平衡点</strong></td><td>头重</td><td>杀球重但挥得慢</td><td>进攻型打法</td></tr>
+                <tr><td></td><td>均衡</td><td>好上手，无明显短板</td><td>新手首选</td></tr>
+                <tr><td></td><td>头轻</td><td>挥得快但杀球轻</td><td>平抽快挡、双打前场</td></tr>
+                <tr><td><strong>中杆硬度</strong></td><td>硬</td><td>发力直接但难驱动</td><td>发力好的高级选手</td></tr>
+                <tr><td></td><td>适中偏软</td><td>好打但控球略差</td><td>新手、力量不足</td></tr>
+            </tbody>
+        </table>
+        <div class="callout info">
+            <p><strong>新手组合：</strong>4U-5U 重量 + 均衡平衡点 + 中杆适中偏软。不要选头重或头轻的极端拍。</p>
+        </div>
+
+        <h2>按预算选球拍</h2>
+        <table>
+            <thead><tr><th>预算段</th><th>定位</th><th>代表型号（参考价）</th><th>参数与评价</th></tr></thead>
+            <tbody>
+                <tr><td>500元以下</td><td>入门级</td><td>李宁HC1100/风刃001（300-400元）；胜利小铁锤/大铁锤（350-450元）；尤尼克斯NR-D8、李宁WS系列（400-500元）</td><td>4U-5U、均衡偏头轻、中杆偏软，容错率高；女生与力量小的男生首选 NR-D8/WS 系</td></tr>
+                <tr><td>500-900元</td><td>中端<br>性价比最高</td><td>胜利神速LYC（700-900元）；李宁风刃500/雷霆50（700-900元）；尤尼克斯天斧77/弓箭8DX（800-900元）</td><td>4U、均衡、中杆适中；与 2000 元级拍性能差距不到 15%，价格便宜一半以上</td></tr>
+                <tr><td>900-1500元</td><td>次高端</td><td>尤尼克斯天斧88S/88D PRO（1200-1500元）；李宁雷霆80（1200-1500元）；胜利黑金隼（1100-1400元）</td><td>4U；88S 头轻适前场、88D 头重适后场（双打神器）；雷霆80 为控制型首选；黑金隼上手门槛不高</td></tr>
+                <tr><td>1500元以上</td><td>高端旗舰</td><td>尤尼克斯天斧99 PRO（1600-1900元）；疾光800/1000Z（1600-2000元）；李宁雷霆100（1500-1800元）</td><td>99 PRO 头重杆偏硬，进攻天花板但要有发力基础；疾光 4U-5U 头轻，挥速最快的平抽挡神器；雷霆100 为国产进攻天花板</td></tr>
+            </tbody>
+        </table>
+        <div class="code-block">
+<span class="k">新手（不足1年）</span>：500-800元 · 4U-5U · 均衡拍
+<span class="k">中级（1-3年）</span>：800-1500元 · 4U · 按打法选
+<span class="k">高级（3年以上）</span>：1500元以上 · 3U-4U · 按风格选
+
+<span class="c">超过80%的业余爱好者用 4U 均衡拍就够了，别被"重杀""进攻"带偏。</span>
+        </div>
+        <div class="callout">
+            <p><strong>选拍金句：</strong>"一把2000块的拍，你打不动它，它就是废铁；一把500块的拍，你挥得顺手，它就是神器。"</p>
+        </div>
+
+        <h2>球线：线径决定手感</h2>
+        <p>线径越细：弹性越好、控球越好、越不耐打；线径越粗：越耐用、弹性越差、击球声越脆。</p>
+        <table>
+            <thead><tr><th>线径级</th><th>代表型号（市场价）</th><th>特点</th><th>适合</th></tr></thead>
+            <tbody>
+                <tr><td>0.65mm 细线（高弹）</td><td>YY BG-66 Ultimax（35-45元）</td><td>弹性与手感最好，容易断（技术一般 1-2 周断一次）</td><td>追求手感、不心疼断线</td></tr>
+                <tr><td>0.67mm 标准线</td><td>YY BG-80（30-40元）；李宁 N68（25-35元）</td><td>综合性能最好、击球声清脆，比粗线易走线</td><td>大多数人，最推荐；N68 是 BG-80 平价替代</td></tr>
+                <tr><td>0.68-0.70mm 耐久线</td><td>YY BG-65（25-30元）；BG-65Ti（30-40元）</td><td>经典耐用，弹性一般；Ti 版击球声最响</td><td>每周打 3 次以上、不想频繁穿线</td></tr>
+            </tbody>
+        </table>
+
+        <h2>穿线磅数：不是越高越好</h2>
+        <p>新手张口就要 28 磅，负责的穿线师会犹豫。磅数必须匹配发力水平，按阶段进阶。</p>
+        <table>
+            <thead><tr><th>阶段</th><th>磅数</th><th>手感信号</th></tr></thead>
+            <tbody>
+                <tr><td>第一次穿线</td><td>22-24 磅</td><td>"弹弓感"，不用力也能打到底线</td></tr>
+                <tr><td>打了半年</td><td>24-25 磅</td><td>反馈变清晰，球在拍面上"停留"时间缩短</td></tr>
+                <tr><td>打了一年</td><td>25-26 磅</td><td>控球精度明显提升，指向性好——往哪打基本往哪走</td></tr>
+                <tr><td>三年以上</td><td>26-28 磅</td><td>拍面变硬，发力要更集中；打不准会震手</td></tr>
+            </tbody>
+        </table>
+        <div class="code-block">
+<span class="k">升磅时机</span>（满足任一升 1-2 磅）：
+<span class="v">☐</span> 球在线床上"停留"太久、出球速度慢
+<span class="v">☐</span> 感觉控球不够精准
+
+<span class="k">降磅时机</span>（满足任一立即降 1-2 磅）：
+<span class="v">☐</span> 打球时手感觉震（不是手腕酸，是震）
+<span class="v">☐</span> 打完球肘关节外侧疼
+<span class="c">→ 肘外侧疼是网球肘前兆，先降磅再看伤。</span>
+        </div>
+        <div class="callout info">
+            <p><strong>和穿线师沟通的正确方式：</strong>"我打球大概一年了，用的是 4U 均衡拍，之前穿 25 磅 BG-80，控球还行但打不远，你看是不是要降磅，或者换个线？"——报水平、报拍型、报现状。<br>
+            穿线师的判断：打不远 → 降 1-2 磅；控不住 → 升 1-2 磅或换细线；震手疼 → 降磅或换粗线。</p>
+        </div>
+        <h3>一根线能用多久</h3>
+        <div class="code-block">
+<span class="k">新手</span>：3-6 个月（常打框、发力不集中——不是线耐用，是出球没力量）
+<span class="k">中级</span>：细线 2-4 周 / 标准线 4-6 周 / 粗线 6-10 周
+<span class="k">高级</span>：细线 1-2 周 / 标准线 2-4 周 / 粗线 4-6 周
+<span class="k">职业选手</span>：每场换一根线
+        </div>
+
+        <h2>球鞋：唯一不能省的装备</h2>
+        <div class="callout">
+            <p><strong>"很多新手花 1500 买拍、花 200 买鞋，完全搞反了。拍子不好最多打不爽，鞋子不好会受伤。"</strong>预算分配：鞋优先于拍。</p>
+        </div>
+        <div class="code-block">
+<span class="k">球鞋四大核心功能</span>（按重要性排列）：
+<span class="v">①</span> 包裹性——脚在鞋里不能滑动
+<span class="v">②</span> 抗扭性——侧向移动时鞋不扭曲
+<span class="v">③</span> 缓震性——落地时吸收冲击
+<span class="v">④</span> 启动性——前掌要薄，才能快速启动
+        </div>
+        <h3>按脚型选楦</h3>
+        <table>
+            <thead><tr><th>脚型</th><th>楦型</th><th>代表型号</th></tr></thead>
+            <tbody>
+                <tr><td>窄脚（脚瘦、脚背低）</td><td>偏窄楦</td><td>尤尼克斯多数型号：65Z3、88 Dial、Aerus Z</td></tr>
+                <tr><td>正常脚</td><td>标准楦</td><td>李宁、胜利多数型号；尤尼克斯需试穿</td></tr>
+                <tr><td>宽脚（脚宽、脚背高）</td><td>宽楦</td><td>李宁贴地飞行/变色龙；胜利 P9200 宽楦版；尤尼克斯型号名带 Wide 的版本</td></tr>
+            </tbody>
+        </table>
+        <h3>按预算选鞋</h3>
+        <table>
+            <thead><tr><th>预算段</th><th>代表型号（参考价）</th><th>评价</th></tr></thead>
+            <tbody>
+                <tr><td>300-500元 入门</td><td>李宁变色龙/贴地飞行入门版（300-450元）；尤尼克斯 65X2 老款（350-500元）；胜利 P8510（350-450元）</td><td>缓震与抗扭够用</td></tr>
+                <tr><td>500-800元 中端</td><td>李宁贴地飞行 SE（550-700元）；尤尼克斯 65Z3 普通配色（600-800元）；胜利 P9200TD（550-750元）</td><td>性价比最高的区间</td></tr>
+                <tr><td>800-1200元 高端</td><td>65Z3 限量色（800-1000元）；贴地飞行旗舰版（800-1100元）；P9200 旗舰版（800-1000元）</td><td>性能差异不大了，差别主要在颜值和配色</td></tr>
+            </tbody>
+        </table>
+        <h3>鞋的寿命与更换信号</h3>
+        <div class="code-block">
+<span class="k">寿命</span>：每周3次 6-8 个月 / 每周2次 8-12 个月 / 每周1次 12-18 个月
+
+<span class="k">换鞋信号</span>（满足其一就该换）：
+<span class="v">☐</span> 鞋底花纹磨平（内侧前掌最先磨平）
+<span class="v">☐</span> 鞋底变硬，缓震感消失
+<span class="v">☐</span> 鞋帮变软，脚踝包裹感下降
+<span class="c">缓震材料会老化——同一双鞋不要连续穿超过一年，没破也要换。</span>
+        </div>
+
+        <h2>手胶与配件</h2>
+        <table>
+            <thead><tr><th>类型</th><th>厚度</th><th>代表型号（市场价）</th><th>适合</th></tr></thead>
+            <tbody>
+                <tr><td>薄PU</td><td>0.5-0.6mm</td><td>YY AC102EX（15-25元/3条）；胜利 GR233（10-15元）</td><td>手感最直接、出汗不多</td></tr>
+                <tr><td>标准PU</td><td>0.7-0.8mm</td><td>YY AC148（15-20元）；李宁 GP1000（10-15元）</td><td>大多数人</td></tr>
+                <tr><td>厚PU</td><td>1.0mm 以上</td><td>各品牌厚款（10-15元）</td><td>手汗大、喜欢粗握把</td></tr>
+                <tr><td>毛巾胶</td><td>最厚</td><td>凯胜 KTO（15-20元）</td><td>手汗极大、每场都换</td></tr>
+            </tbody>
+        </table>
+        <p><strong>换胶频率：</strong>手汗大的每次打之前换；手汗中等的每周换；手汗小的每两周换。<strong>手胶是消耗品，不是装饰品。</strong></p>
+        <div class="code-block">
+<span class="k">护腕</span>（15-30元）：擦汗为主——不要迷信"加压护腕"，对预防手腕伤几乎没用
+<span class="k">护膝</span>（50-200元）：已痛 → 保而防/迈克达威 150-200元；仅预防 → 普通加压 50-80元
+<span class="c">不痛别整天戴护膝，会让肌肉产生依赖。</span>
+<span class="k">毛巾</span>（20-50元）：选速干，不要纯棉——纯棉吸汗后变重、缠手不舒服
+<span class="k">运动饮料</span>：对抗超过 1 小时才需要；不到 1 小时喝水就够
+        </div>
+
+        <h2>假货重灾区与对策</h2>
+        <div class="callout warn">
+            <p>
+            <strong>① 尤尼克斯高端拍（天斧99、疾光800）：</strong>外观几乎无法分辨，打起来手感差异明显。看钢号、底盖、防伪码；只在授权经销商/官方旗舰店买。<br>
+            <strong>② 尤尼克斯 BG 系列球线：</strong>假线掉磅快、弹性差。在熟悉的穿线师处买，不要贪便宜。<br>
+            <strong>③ 尤尼克斯 AC 系列手胶：</strong>假胶粘手、掉色、吸汗差——真 AC102EX 打一场没问题，假货打 10 分钟就滑。<br>
+            <strong>④ 羽毛球（AS-05/AS-20）：</strong>假球飞行不稳定、不耐打。不买比市场价便宜超过 20% 的球。
+            </p>
+        </div>
+        <p><strong>流程：</strong>买之前上中羽在线交易区查卖家口碑（价格明显低于市场价的 90% 有问题）；收货后立即验证防伪码；发现问题立即退款——假拍打起来会受伤，不要"算了先用着"。</p>
+
+        <h2>按场景的采购清单</h2>
+        <div class="code-block">
+<span class="k">新手入门 · 总预算约 2000 元（够打一年）</span>
+球拍 李宁HC1100 / 胜利小铁锤            350元
+球线 BG-65（不易断）+ 穿线费             80元
+球鞋 李宁变色龙入门版                   350元
+手胶 AC102EX 3条装                       20元
+单拍包 + 护腕 + 速干毛巾                100元
+训练球一桶 + 首次场地费（约4次）       300元
+速干T恤 + 短裤                          300元
+
+<span class="k">中级进阶 · 升级投入约 1500-2000 元</span>
+球拍 神速LYC / 风刃500 / 天斧77        800-900元
+球线 BG-80（从入门线升级）               35元起 + 穿线费
+球鞋 65Z3 / 贴地飞行SE                 600-800元
+手胶 GP1000 3条装                        15元
+
+<span class="k">女性入门 · 总预算约 1500-1800 元</span>
+球拍 尤尼克斯NR-D8 / 李宁WS500         350-450元
+球线 BG-66 Ultimax（弹性好、省力）       35元起 + 穿线费
+球鞋 65Z3 / 贴地飞行SE 女款            500-700元
+手胶 AC102EX 薄款（适合手小）            20元
+运动内衣 高强度支撑型                 200-300元
+拍包及其他配件                          200元
+        </div>
+        <div class="callout warn">
+            <p><strong>运动内衣不是可选项：</strong>羽毛球有大量跳跃和急停，普通内衣支撑不够，长时间会损伤胸部韧带。</p>
+        </div>
+        <p><strong>一年后再升级：</strong>新手装备够打一年，一年后你清楚自己喜欢什么打法了，再按打法升级。</p>
+        <p>关联内容：女性装备细节见《女性训练专项》；损伤预防与装备选择见《运动解剖与康复》。价格参考 2025-2026 年中国市场实际成交价，实际随地区、活动与渠道浮动；数据参考深圳教练 Badminton vav 的穿线指南与装备评测、中羽在线社区评测。</p>
+
+                <div class="next">
+            <a href="27-national-team-systems.html">← 各国训练体系</a>
+            <a href="29-women-training.html">女性训练专项 →</a>
+        </div>
+    </div>
+</body>
+</html>

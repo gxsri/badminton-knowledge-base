@@ -2,8 +2,11 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>羽毛球系统训练 - NSCA CSCS认证体系</title>
+    <meta name="description" content="羽毛球职业训练系统 — 基于NSCA CSCS体系的8级渐进式羽毛球训练系统：技术、体能、健身、战术、心理、营养与康复，42篇文档全流程覆盖。">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>羽毛球职业训练系统 — NSCA CSCS认证体系</title>
+
     <style>
         :root {
             --bg: #09090b;
@@ -24,7 +27,7 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', system-ui, sans-serif;
+            font-family: 'Noto Sans SC', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
@@ -32,7 +35,7 @@
         }
 
         code, .mono {
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         /* ===== NAV ===== */
@@ -257,7 +260,7 @@
         .stat-num {
             font-size: 2.5rem;
             font-weight: 800;
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
             background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -284,7 +287,10 @@
             background: var(--surface);
             padding: 2rem;
             transition: background 0.2s;
-            cursor: default;
+            cursor: pointer;
+            display: block;
+            color: inherit;
+            text-decoration: none;
         }
 
         .level-card:hover {
@@ -292,7 +298,7 @@
         }
 
         .level-num {
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 2rem;
             font-weight: 700;
             color: var(--accent);
@@ -308,7 +314,7 @@
             font-size: 0.8rem;
             color: var(--accent-2);
             margin-bottom: 0.75rem;
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .level-desc {
@@ -391,7 +397,7 @@
         }
 
         .formula {
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -466,7 +472,7 @@
         }
 
         .doc-num {
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             color: var(--accent);
             margin-bottom: 0.5rem;
@@ -566,7 +572,7 @@
 
         .assessment-item .label { color: var(--text-2); }
         .assessment-item .value { 
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
             color: var(--green);
         }
 
@@ -588,7 +594,7 @@
         }
 
         .plan-week {
-            font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
@@ -615,6 +621,23 @@
             font-size: 0.85rem;
         }
 
+        /* ===== LIBRARY GROUPS ===== */
+        .lib-group { margin: 2.5rem 0 1rem; }
+
+        .lib-head {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .lib-head h3 { font-size: 1.25rem; font-weight: 800; }
+        .lib-head span { font-size: 0.85rem; color: var(--text-2); }
+
+        .fitness-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .fitness-actions .btn { padding: 0.7rem 1.6rem; }
+
         /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
@@ -636,6 +659,13 @@
             .doc-grid { grid-template-columns: 1fr; }
             .assessment-grid { grid-template-columns: 1fr; }
         }
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
     </style>
 </head>
 <body>
@@ -646,6 +676,7 @@
                 <li><a href="#philosophy">训练哲学</a></li>
                 <li><a href="#levels">训练等级</a></li>
                 <li><a href="#modules">训练模块</a></li>
+                <li><a href="#fitness">健身与体能</a></li>
                 <li><a href="#formula">计算公式</a></li>
                 <li><a href="#assessment">评估体系</a></li>
                 <li><a href="#docs">教学文档</a></li>
@@ -657,7 +688,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="badge">NSCA CSCS认证体系</div>
-            <h1>从零到一<br><em>羽毛球系统训练</em></h1>
+            <h1>从零到一<br><em>羽毛球职业训练系统</em></h1>
             <p class="hero-desc">基于NSCA CSCS最新运动科学，融合世界顶级羽毛球教练实战经验。训练方案不是固定菜单，是公式+原则。</p>
             <div class="hero-actions">
                 <a href="#philosophy" class="btn btn-fill">开始学习</a>
@@ -670,7 +701,7 @@
     <div class="section" style="padding-top: 0;">
         <div class="stats-bar">
             <div class="stat">
-                <div class="stat-num">25+</div>
+                <div class="stat-num" id="stat-docs">51</div>
                 <div class="stat-label">专业教学文档</div>
             </div>
             <div class="stat">
@@ -742,58 +773,58 @@
         <div class="section-header">
             <div class="section-tag">Progression</div>
             <h2 class="section-title">8级渐进式训练体系</h2>
-            <p class="section-desc">从零基础到一级运动员，每一步都有科学指导。</p>
+            <p class="section-desc">从零基础到职业水平，每一步都有科学指导。点卡片查看对应训练页。</p>
         </div>
 
         <div class="levels-grid">
-            <div class="level-card">
-                <div class="level-num">00</div>
-                <div class="level-name">零基础启蒙</div>
-                <div class="level-time">0-1个月</div>
+            <a href="docs/04-level-0.html" class="level-card">
+                <div class="level-num">L0</div>
+                <div class="level-name">Level 0 · 零基础启蒙</div>
+                <div class="level-time">0-3个月</div>
                 <p class="level-desc">建立正确的神经肌肉控制模式，培养本体感觉和基础运动能力。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">01</div>
-                <div class="level-name">基础建立</div>
-                <div class="level-time">1-3个月</div>
-                <p class="level-desc">固化基础动作模式，建立关节稳定性和基础力量。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">02</div>
-                <div class="level-name">技术入门</div>
+            </a>
+            <a href="docs/05-level-1.html" class="level-card">
+                <div class="level-num">L1</div>
+                <div class="level-name">Level 1 · 基础建立</div>
                 <div class="level-time">3-6个月</div>
-                <p class="level-desc">掌握基础击球技术，建立步法连贯性和基本战术意识。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">03</div>
-                <div class="level-name">技术熟练</div>
+                <p class="level-desc">固化基础动作模式，建立关节稳定性和基础力量。</p>
+            </a>
+            <a href="docs/06-level-2.html" class="level-card">
+                <div class="level-num">L2</div>
+                <div class="level-name">Level 2 · 技术入门</div>
                 <div class="level-time">6-12个月</div>
+                <p class="level-desc">掌握基础击球技术，建立步法连贯性和基本战术意识。</p>
+            </a>
+            <a href="docs/07-level-3.html" class="level-card">
+                <div class="level-num">L3</div>
+                <div class="level-name">Level 3 · 技术熟练</div>
+                <div class="level-time">1-2年</div>
                 <p class="level-desc">实现技术自动化，掌握技术变化和简单战术应用。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">04</div>
-                <div class="level-name">技术精进</div>
-                <div class="level-time">1-1.5年</div>
+            </a>
+            <a href="docs/08-level-4.html" class="level-card">
+                <div class="level-num">L4</div>
+                <div class="level-name">Level 4 · 技术精进</div>
+                <div class="level-time">2-3年</div>
                 <p class="level-desc">技术精细化打磨，掌握高级技术和战术应用。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">05</div>
-                <div class="level-name">战术应用</div>
-                <div class="level-time">1.5-2年</div>
+            </a>
+            <a href="docs/09-level-5.html" class="level-card">
+                <div class="level-num">L5</div>
+                <div class="level-name">Level 5 · 战术应用</div>
+                <div class="level-time">3-4年</div>
                 <p class="level-desc">建立完整战术体系，提升比赛阅读能力和战术执行。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">06</div>
-                <div class="level-name">准专业</div>
-                <div class="level-time">2-2.5年</div>
+            </a>
+            <a href="docs/10-level-6.html" class="level-card">
+                <div class="level-num">L6</div>
+                <div class="level-name">Level 6 · 准专业</div>
+                <div class="level-time">4-5年</div>
                 <p class="level-desc">全面发展各项能力，适应专业训练强度和比赛准备。</p>
-            </div>
-            <div class="level-card">
-                <div class="level-num">07</div>
-                <div class="level-name">一级运动员</div>
-                <div class="level-time">2.5-3年+</div>
-                <p class="level-desc">达到专业水平，掌握比赛掌控和心理抗压能力。</p>
-            </div>
+            </a>
+            <a href="docs/11-level-7.html" class="level-card">
+                <div class="level-num">L7</div>
+                <div class="level-name">Level 7 · 职业水平</div>
+                <div class="level-time">5年+</div>
+                <p class="level-desc">达到职业水平，掌握比赛掌控和心理抗压能力。</p>
+            </a>
         </div>
     </section>
 
@@ -847,9 +878,24 @@
                 </ul>
             </div>
         </div>
-    </section>
 
-    <!-- FORMULA -->
+        <!-- FITNESS STRIP -->
+        <div class="formula-box" id="fitness">
+            <h3>🏋️ 健身与体能 — 场外训练模块</h3>
+            <p>羽毛球是"用脚步打的运动"，但场上练不出一切：力量、心肺、关节稳定和身材管理需要在场外解决。<strong>健身与体能</strong>把居家/健身房训练变成可执行的计划，与你的 Level 训练互相增强。</p>
+            <ul class="module-items">
+                <li>分化训练方案 — 上肢推拉 / 下肢 / 核心，按周安排</li>
+                <li>动作库 — 哑铃、杠铃、弹力带、徒手四类动作清单</li>
+                <li>有氧与体能 — 减脂心率区间、间歇与恢复安排</li>
+                <li>营养配合 — 增肌/减脂热量差与蛋白质分配（配合 15 营养与恢复）</li>
+                <li>与羽毛球结合 — 力量日与球场日怎么排，赛前怎么减量</li>
+            </ul>
+            <div class="fitness-actions">
+                <a class="btn btn-fill" href="docs/17-fitness-plan.html">→ 打开《健身与体能》</a>
+                <a class="btn btn-ghost" href="docs/16-strength-conditioning.html">先看：力量体能</a>
+            </div>
+        </div>
+    </section>
     <section class="section" id="formula">
         <div class="section-header">
             <div class="section-tag">Formula</div>
@@ -1140,266 +1186,19 @@
     <section class="section" id="docs">
         <div class="section-header">
             <div class="section-tag">Library</div>
-            <h2 class="section-title">25个专业教学模块</h2>
-            <p class="section-desc">覆盖基础技术→高级战术→体能训练→运动康复全流程。</p>
+            <h2 class="section-title">51个专业教学文档</h2>
+            <p class="section-desc">核心框架 → 8级路线 → 专项模块（技术/体能/健身/战术/康复）→ 实用工具，覆盖从零基础到职业水平全流程。</p>
         </div>
 
-        <div class="doc-grid">
-            <a href="docs/00-quickstart.html" class="doc-card">
-                <div>
-                    <div class="doc-num">00</div>
-                    <div class="doc-title">快速开始</div>
-                    <div class="doc-desc">5分钟了解全貌，完成基线测试</div>
-                    <div class="doc-tag">必读入口</div>
-                </div>
-            </a>
-            <a href="docs/01-philosophy.html" class="doc-card">
-                <div>
-                    <div class="doc-num">01</div>
-                    <div class="doc-title">训练哲学</div>
-                    <div class="doc-desc">四个核心原则，训练的底线</div>
-                    <div class="doc-tag">必读</div>
-                </div>
-            </a>
-            <a href="docs/02-assessment.html" class="doc-card">
-                <div>
-                    <div class="doc-num">02</div>
-                    <div class="doc-title">基线评估</div>
-                    <div class="doc-desc">5个测试，了解你的起点</div>
-                </div>
-            </a>
-            <a href="docs/03-level-0.html" class="doc-card">
-                <div>
-                    <div class="doc-num">03</div>
-                    <div class="doc-title">Level 0：零基础启蒙</div>
-                    <div class="doc-desc">0-3个月，建立神经肌肉控制</div>
-                </div>
-            </a>
-            <a href="docs/04-level-1.html" class="doc-card">
-                <div>
-                    <div class="doc-num">04</div>
-                    <div class="doc-title">Level 1：基础建立</div>
-                    <div class="doc-desc">3-6个月，固化动作模式</div>
-                </div>
-            </a>
-            <a href="docs/05-level-2.html" class="doc-card">
-                <div>
-                    <div class="doc-num">05</div>
-                    <div class="doc-title">Level 2：技术入门</div>
-                    <div class="doc-desc">6-12个月，掌握基础技术</div>
-                </div>
-            </a>
-            <a href="docs/06-level-3.html" class="doc-card">
-                <div>
-                    <div class="doc-num">06</div>
-                    <div class="doc-title">Level 3：技术熟练</div>
-                    <div class="doc-desc">1-2年，技术自动化</div>
-                </div>
-            </a>
-            <a href="docs/07-level-4.html" class="doc-card">
-                <div>
-                    <div class="doc-num">07</div>
-                    <div class="doc-title">Level 4：技术精进</div>
-                    <div class="doc-desc">2-3年，技术精细化</div>
-                </div>
-            </a>
-            <a href="docs/08-level-5.html" class="doc-card">
-                <div>
-                    <div class="doc-num">08</div>
-                    <div class="doc-title">Level 5：战术应用</div>
-                    <div class="doc-desc">3-4年，建立战术体系</div>
-                </div>
-            </a>
-            <a href="docs/09-level-6.html" class="doc-card">
-                <div>
-                    <div class="doc-num">09</div>
-                    <div class="doc-title">Level 6：准专业</div>
-                    <div class="doc-desc">4-5年，全面发展能力</div>
-                </div>
-            </a>
-            <a href="docs/10-level-7.html" class="doc-card">
-                <div>
-                    <div class="doc-num">10</div>
-                    <div class="doc-title">Level 7：职业水平</div>
-                    <div class="doc-desc">5年+，达到职业水平</div>
-                </div>
-            </a>
-            <a href="docs/20-error-correction.html" class="doc-card">
-                <div>
-                    <div class="doc-num">20</div>
-                    <div class="doc-title">纠错指南</div>
-                    <div class="doc-desc">常见错误诊断与纠正</div>
-                    <div class="doc-tag">实用工具</div>
-                </div>
-            </a>
-        </div>
-                <div>
-                    <div class="doc-num">01</div>
-                    <div class="doc-title">核心内容</div>
-                    <div class="doc-desc">训练理念、8级体系、4大模块详解、评估体系</div>
-                    <div class="doc-tag">必读</div>
-                </div>
-            </a>
-            <a href="docs/05-clear-shot.html" class="doc-card">
-                <div>
-                    <div class="doc-num">05</div>
-                    <div class="doc-title">正手高远球技术</div>
-                    <div class="doc-desc">7步分解→10错误→5训练→力量→柔韧→协调</div>
-                </div>
-            </a>
-            <a href="docs/06-four-week-plan.html" class="doc-card">
-                <div>
-                    <div class="doc-num">06</div>
-                    <div class="doc-title">4周训练计划</div>
-                    <div class="doc-desc">自适应框架+训练计划模板</div>
-                </div>
-            </a>
-            <a href="docs/07-psychological-training.html" class="doc-card">
-                <div>
-                    <div class="doc-num">07</div>
-                    <div class="doc-title">心理训练</div>
-                    <div class="doc-desc">注意力→压力适应→自我调节→决策信心</div>
-                </div>
-            </a>
-            <a href="docs/08-nutrition-recovery.html" class="doc-card">
-                <div>
-                    <div class="doc-num">08</div>
-                    <div class="doc-title">营养与恢复指南</div>
-                    <div class="doc-desc">TDEE计算→营养素→训练后时间轴→恢复评估</div>
-                    <div class="doc-tag">必读</div>
-                </div>
-            </a>
-            <a href="docs/09-strength-conditioning.html" class="doc-card">
-                <div>
-                    <div class="doc-num">09</div>
-                    <div class="doc-title">力量体能</div>
-                    <div class="doc-desc">关节稳定→代谢适应→间歇训练→周期安排</div>
-                </div>
-            </a>
-            <a href="docs/11-footwork.html" class="doc-card">
-                <div>
-                    <div class="doc-num">11</div>
-                    <div class="doc-title">步伐训练</div>
-                    <div class="doc-desc">步数法则·启动步·完整节奏循环·快回慢踩</div>
-                </div>
-            </a>
-            <a href="docs/15-technique-analysis.html" class="doc-card">
-                <div>
-                    <div class="doc-num">12</div>
-                    <div class="doc-title">球路训练</div>
-                    <div class="doc-desc">39个战术组合库（5大类）</div>
-                </div>
-            </a>
-            <a href="docs/15-technique-analysis.html" class="doc-card">
-                <div>
-                    <div class="doc-num">14</div>
-                    <div class="doc-title">比赛策略</div>
-                    <div class="doc-desc">对手分析、战术选择、节奏控制、体能分配</div>
-                </div>
-            </a>
-            <a href="docs/15-technique-analysis.html" class="doc-card">
-                <div>
-                    <div class="doc-num">15</div>
-                    <div class="doc-title">技术全解析</div>
-                    <div class="doc-desc">发力原理+握拍+网前技术完整教学</div>
-                </div>
-            </a>
-            <a href="docs/17-anatomy-rehabilitation.html" class="doc-card">
-                <div>
-                    <div class="doc-num">17</div>
-                    <div class="doc-title">运动解剖与康复</div>
-                    <div class="doc-desc">神经→肌肉→筋膜、16块肌肉起止点、激痛点</div>
-                </div>
-            </a>
-            <a href="docs/15-technique-analysis.html" class="doc-card">
-                <div>
-                    <div class="doc-num">18</div>
-                    <div class="doc-title">精英打法分析</div>
-                    <div class="doc-desc">男单/女单/男双/混双/女双精英特征分析</div>
-                </div>
-            </a>
-            <a href="docs/09-strength-conditioning.html" class="doc-card">
-                <div>
-                    <div class="doc-num">19</div>
-                    <div class="doc-title">各国训练体系</div>
-                    <div class="doc-desc">中/日/韩/法国家队训练方法论+晋升通道</div>
-                </div>
-            </a>
-            <a href="docs/09-strength-conditioning.html" class="doc-card">
-                <div>
-                    <div class="doc-num">21</div>
-                    <div class="doc-title">女性训练专项</div>
-                    <div class="doc-desc">生理期四阶段训练方案、ACL预防</div>
-                </div>
-            </a>
-            <a href="docs/22-warmup-cooldown.html" class="doc-card">
-                <div>
-                    <div class="doc-num">22</div>
-                    <div class="doc-title">热身与整理</div>
-                    <div class="doc-desc">赛前热身工作流（15/25分钟方案）</div>
-                </div>
-            </a>
-            <a href="docs/24-safety-guide.html" class="doc-card">
-                <div>
-                    <div class="doc-num">23</div>
-                    <div class="doc-title">诊断索引</div>
-                    <div class="doc-desc">60+症状→原因→解决方案</div>
-                </div>
-            </a>
-            <a href="docs/24-safety-guide.html" class="doc-card">
-                <div>
-                    <div class="doc-num">24</div>
-                    <div class="doc-title">训练安全边界</div>
-                    <div class="doc-desc">RICE损伤处理、重返运动五级标准</div>
-                </div>
-            </a>
-            <a href="docs/25-safety-checklist.html" class="doc-card">
-                <div>
-                    <div class="doc-num">25</div>
-                    <div class="doc-title">训练前安全检查</div>
-                    <div class="doc-desc">每次训练前必做，预防损伤</div>
-                    <div class="doc-tag">安全第一</div>
-                </div>
-            </a>
-            <a href="docs/26-sleep-optimization.html" class="doc-card">
-                <div>
-                    <div class="doc-num">26</div>
-                    <div class="doc-title">睡眠优化指南</div>
-                    <div class="doc-desc">最重要的恢复手段，不可替代</div>
-                </div>
-            </a>
-            <a href="docs/27-competition-prep.html" class="doc-card">
-                <div>
-                    <div class="doc-num">27</div>
-                    <div class="doc-title">比赛准备流程</div>
-                    <div class="doc-desc">赛前→赛中→赛后完整流程</div>
-                </div>
-            </a>
-            <a href="docs/03-bsfs-screening.html" class="doc-card">
-                <div>
-                    <div class="doc-num">28</div>
-                    <div class="doc-title">羽毛球专项功能筛查</div>
-                    <div class="doc-desc">6个测试，识别身体薄弱环节</div>
-                    <div class="doc-tag">评估工具</div>
-                </div>
-            </a>
-            <a href="docs/29-level-locator.html" class="doc-card">
-                <div>
-                    <div class="doc-num">29</div>
-                    <div class="doc-title">级别定位器</div>
-                    <div class="doc-desc">回答问题，找到你的起始级别</div>
-                    <div class="doc-tag">P1工具</div>
-                </div>
-            </a>
-            <a href="docs/30-achievements.html" class="doc-card">
-                <div>
-                    <div class="doc-num">30</div>
-                    <div class="doc-title">成就系统</div>
-                    <div class="doc-desc">记录进步，解锁成就，保持动力</div>
-                    <div class="doc-tag">P1工具</div>
-                </div>
-            </a>
-        </div>
+                <div id="library-root"></div>
+        <!-- LIBRARY ROOT (rendered from docs-data.js) -->
+<noscript>
+            <p style="color:var(--text-2);font-size:0.9rem">文档库列表由 JavaScript 渲染。未启用 JS 时可从下方入口进入：</p>
+            <ul class="module-items">
+                <li><a href="docs/00-quickstart.html" style="color:var(--accent)">00 快速开始</a> · <a href="docs/01-philosophy.html" style="color:var(--accent)">01 训练哲学</a> · <a href="docs/02-assessment.html" style="color:var(--accent)">02 基线评估</a> · <a href="docs/03-core-content.html" style="color:var(--accent)">03 核心内容</a></li>
+                <li><a href="docs/40-search.html" style="color:var(--accent)">全文搜索</a> · <a href="docs/38-level-locator.html" style="color:var(--accent)">级别定位器</a> · <a href="docs/39-achievements.html" style="color:var(--accent)">成就系统</a></li>
+            </ul>
+        </noscript>
     </section>
 
     <!-- NUTRITION QUICK REFERENCE -->
@@ -1500,7 +1299,7 @@
                             <td>每天都可以练</td>
                         </tr>
                         <tr>
-                            <td>步伐训练</td>
+                            <td>步法训练</td>
                             <td>24-36小时</td>
                             <td>隔天练</td>
                         </tr>
@@ -1527,7 +1326,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 羽毛球系统训练 — NSCA CSCS认证体系 · 科学训练，成就卓越</p>
+        <p>© 2026 羽毛球职业训练系统 — NSCA CSCS认证体系 · 科学训练，成就卓越</p>
     </footer>
 
     <script>
@@ -1629,6 +1428,48 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
+    </script>
+
+    <script src="docs-data.js"></script>
+    <script>
+        // 文档库渲染（数据源：docs-data.js，唯一登记表）
+        (function () {
+            function renderLibrary() {
+                if (typeof window.DOCS_DATA === 'undefined' || !window.DOCS_DATA) return false;
+                const root = document.getElementById('library-root');
+                if (!root) return true;
+                const data = window.DOCS_DATA;
+                const parts = [];
+                for (const g of data.groups) {
+                    if (g.key === 'route') continue; // 8级路线已在 levels 区展示
+                    const list = data.docs.filter(d => d.group === g.key);
+                    if (!list.length) continue;
+                    parts.push('<div class="lib-group">');
+                    parts.push('<div class="lib-head"><h3>' + g.name + '</h3><span>' + g.desc + '</span></div>');
+                    parts.push('<div class="doc-grid">');
+                    for (const d of list) {
+                        parts.push('<a class="doc-card" href="docs/' + d.file + '"><div>');
+                        parts.push('<div class="doc-num">' + d.num + '</div>');
+                        parts.push('<div class="doc-title">' + d.title + '</div>');
+                        parts.push('<div class="doc-desc">' + d.desc + '</div>');
+                        parts.push('</div></a>');
+                    }
+                    parts.push('</div></div>');
+                }
+                root.innerHTML = parts.join('');
+                const stat = document.getElementById('stat-docs');
+                if (stat) stat.textContent = data.docs.length;
+                // 入场动画（与下方 IntersectionObserver 一致）
+                root.querySelectorAll('.doc-card').forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'all 0.6s ease-out';
+                    observer.observe(el);
+                });
+                return true;
+            }
+            if (!renderLibrary()) window.addEventListener('load', renderLibrary);
+        })();
     </script>
 </body>
 </html>

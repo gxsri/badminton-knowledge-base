@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="每日记录、周评估、代码速查与进步追踪模板">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>训练日志 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:var(--orange)}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0;white-space:pre}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">18</div>
+        <h1>训练日志</h1>
+        <div class="meta">Level 0-7 通用 · 每日记录/每周评估</div>
+
+        <p>训练日志是整个训练体系的"仪表盘"：每日记录训练内容，每周评估进步，按月按年追踪长期发展。没有记录的训练，等于没有发生过。</p>
+
+        <div class="callout info">
+            <p><strong>相关文档：</strong>训练计划框架见「4周训练计划」；评估标准与基线见「核心内容」；心理训练的记录方法见「心理训练」；全部可打印模板见「模板库」。</p>
+        </div>
+
+        <h2>每日训练日志</h2>
+        <p>每次训练结束后填写，控制在 <strong>5 分钟内</strong>。训练内容用下方速查代码简写，例如 <strong>FP 3×10</strong> = 步法模式 3 组 × 10 次。</p>
+
+        <h3>每日训练模板</h3>
+        <div class="exercise">
+            <div class="exercise-title">基础信息（训练前填写）</div>
+            <p><strong>训练编号：</strong>#________　<strong>日期：</strong>____年__月__日　<strong>星期：</strong>____</p>
+            <p><strong>训练级别：</strong>□ Level 0　□ Level 1　□ Level 2　□ 其他 ________</p>
+            <p><strong>训练时段：</strong>□ 早晨　□ 下午　□ 傍晚　　<strong>训练地点：</strong>□ 球馆　□ 家中　□ 户外</p>
+            <p><strong>训练前状态（1-10）：</strong>________　<strong>（1=疲惫，10=精力充沛）</strong></p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练内容（按速查代码填写）</div>
+            <table>
+                <thead><tr><th>序号</th><th>训练项目</th><th>组数×次数</th><th>完成质量(1-5)</th><th>备注</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>5</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>6</td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">训练后反馈</div>
+            <p><strong>训练后疲劳感（1-10）：</strong>________　<strong>（1=轻松，10=精疲力竭）</strong>　<strong>训练满意度（1-10）：</strong>________</p>
+            <p><strong>今天做得好的地方：</strong>________________________________</p>
+            <p><strong>需要改进的地方：</strong>________________________________　<strong>身体反馈（有无不适/疼痛）：</strong>________________________________</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">明日计划</div>
+            <p><strong>明天训练重点：</strong>________________________________　<strong>明天要改进：</strong>________________________________</p>
+        </div>
+
+        <h3>训练内容速查代码</h3>
+        <table>
+            <thead><tr><th>代码</th><th>中文名称</th><th>中文说明</th><th>对照模块（代表动作）</th></tr></thead>
+            <tbody>
+                <tr><td><strong>NS</strong></td><td>神经感觉</td><td>本体感觉与平衡能力</td><td>单足站立、足底激活</td></tr>
+                <tr><td><strong>CS</strong></td><td>核心稳定</td><td>躯干抗伸展、抗旋转</td><td>死虫式、鸟狗式、平板支撑</td></tr>
+                <tr><td><strong>FP</strong></td><td>步法模式</td><td>移动姿态与基础步法</td><td>分腿蹲、侧向滑步、运动姿态</td></tr>
+                <tr><td><strong>UP</strong></td><td>上肢动力链</td><td>下肢到上肢的力量传导</td><td>药球投掷、弹力带模拟、肩胛俯卧撑</td></tr>
+                <tr><td><strong>SS</strong></td><td>肩关节稳定</td><td>肩袖与肩胛控制</td><td>弹力带外旋/内旋、YTWL</td></tr>
+                <tr><td><strong>KS</strong></td><td>膝关节预防</td><td>膝周肌力与髋膝对位</td><td>单腿下蹲离心、侧卧抬腿、蚌式</td></tr>
+                <tr><td><strong>ME</strong></td><td>肌肉耐力</td><td>基础动作的耐力储备</td><td>深蹲、俯卧撑、划船、臀桥</td></tr>
+                <tr><td><strong>IC</strong></td><td>间歇训练</td><td>高强度与恢复交替</td><td>间歇跑、步法间歇、循环训练</td></tr>
+                <tr><td><strong>AT</strong></td><td>注意力训练</td><td>视觉注意与多目标分配</td><td>多目标追踪、选择性注意、视觉扫描</td></tr>
+                <tr><td><strong>DT</strong></td><td>决策训练</td><td>情境识别与快速反应</td><td>模式识别、反应选择、随机信号</td></tr>
+                <tr><td><strong>MT</strong></td><td>心理韧性</td><td>压力适应与自我调节</td><td>压力适应、自我对话、关键词训练</td></tr>
+                <tr><td><strong>NR</strong></td><td>营养恢复</td><td>主动恢复与再生</td><td>筋膜放松、拉伸、睡眠记录</td></tr>
+            </tbody>
+        </table>
+
+        <h2>每周评估</h2>
+        <p>每周日填写一次，回顾一周训练，约 <strong>10 分钟</strong>。评估不看单项好坏，看训练量与模块配比是否合理。</p>
+
+        <div class="exercise">
+            <div class="exercise-title">每周训练统计</div>
+            <p><strong>周次：</strong>#________　<strong>日期范围：</strong>____月__日 ~ ____月__日</p>
+            <p><strong>本周训练天数：</strong>________ 天　<strong>总训练时长：</strong>________ 分钟　<strong>平均每次：</strong>________ 分钟　<strong>完成计划比例：</strong>________ %</p>
+            <table>
+                <thead><tr><th>模块</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th><th>周日</th><th>总计</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>神经控制</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><strong>结构性力量</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><strong>神经心理</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><strong>营养恢复</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">本周复盘与下周计划调整</div>
+            <p><strong>最佳训练日：</strong>________（日期）　<strong>理由：</strong>________________________________</p>
+            <p><strong>最大进步：</strong>________________________________　<strong>遇到的最大困难：</strong>________________________________</p>
+            <p><strong>如何克服（或计划如何克服）：</strong>________________________________</p>
+            <p><strong>保持的内容：</strong>________________________________　<strong>增加的内容：</strong>________________________________　<strong>减少的内容：</strong>________________________________</p>
+        </div>
+
+        <h2>Level 0 阶段评估</h2>
+        <p>开始 Level 0 训练前完成入学基线测试，训练中每周记录进度，4 周后按毕业标准评估。其他级别可沿用这套流程：每个阶段开始与结束时各测一次。</p>
+
+        <h3>入学基线测试</h3>
+        <table>
+            <thead><tr><th>测试项目</th><th>方法</th><th>基线数据</th><th>Level 0 目标</th><th>达标?</th></tr></thead>
+            <tbody>
+                <tr><td><strong>单足站立（睁眼/秒）</strong></td><td>每侧 2 次取最佳</td><td>________ 秒</td><td>60 秒</td><td>□</td></tr>
+                <tr><td><strong>单足站立（闭眼/秒）</strong></td><td>每侧 2 次取最佳</td><td>________ 秒</td><td>20 秒</td><td>□</td></tr>
+                <tr><td><strong>死虫式（正确次数）</strong></td><td>不设上限，至力竭</td><td>________ 次</td><td>20 次</td><td>□</td></tr>
+                <tr><td><strong>鸟狗式（正确次数）</strong></td><td>不设上限，至力竭</td><td>________ 次</td><td>16 次</td><td>□</td></tr>
+                <tr><td><strong>平板支撑（秒）</strong></td><td>至力竭</td><td>________ 秒</td><td>60 秒</td><td>□</td></tr>
+                <tr><td><strong>单腿下蹲（每侧次数）</strong></td><td>控制动作至力竭</td><td>________ 次</td><td>8 次</td><td>□</td></tr>
+                <tr><td><strong>深蹲（次数）</strong></td><td>自重至力竭</td><td>________ 次</td><td>30 次</td><td>□</td></tr>
+                <tr><td><strong>跪姿俯卧撑（次数）</strong></td><td>至力竭</td><td>________ 次</td><td>20 次</td><td>□</td></tr>
+            </tbody>
+        </table>
+
+        <h3>每周进度记录</h3>
+        <table>
+            <thead><tr><th>评估项目</th><th>第1周</th><th>第2周</th><th>第3周</th><th>第4周</th><th>变化(+/-)</th></tr></thead>
+            <tbody>
+                <tr><td><strong>单足站立（闭眼/秒）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><strong>死虫式（次数）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><strong>平板支撑（秒）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><strong>单腿下蹲（每侧次数）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><strong>深蹲（次数）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><strong>训练后疲劳感（1-10）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><strong>训练满意度（1-10）</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h3>Level 0 毕业评估</h3>
+        <p>完成 4 周训练后，对照以下标准逐项自评：</p>
+        <table>
+            <thead><tr><th>评估维度</th><th>评估方法</th><th>达标标准</th><th>结果</th></tr></thead>
+            <tbody>
+                <tr><td><strong>神经肌肉控制</strong></td><td>单腿下蹲稳定性</td><td>膝盖不内扣，骨盆稳定</td><td>□ 达标　□ 未达标</td></tr>
+                <tr><td><strong>动力链效率</strong></td><td>药球投掷（2kg）</td><td>全身协调发力流畅</td><td>□ 达标　□ 未达标</td></tr>
+                <tr><td><strong>基础力量</strong></td><td>自重深蹲</td><td>30 次以上，动作标准</td><td>□ 达标　□ 未达标</td></tr>
+                <tr><td><strong>核心耐力</strong></td><td>平板支撑</td><td>60 秒以上</td><td>□ 达标　□ 未达标</td></tr>
+                <tr><td><strong>心理准备</strong></td><td>自我评估</td><td>注意力自评 ≥6/10</td><td>□ 达标　□ 未达标</td></tr>
+                <tr><td><strong>出勤率</strong></td><td>4 周训练记录</td><td>至少完成 12 次训练</td><td>□ 达标　□ 未达标</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <p><strong>总评判定：</strong><br>
+            □ <strong>全部达标</strong> → 可进入 Level 1 训练<br>
+            □ <strong>大部分达标（4-5 项）</strong> → 可进入 Level 1，但需继续强化薄弱项<br>
+            □ <strong>未达标（≤3 项）</strong> → 建议重复 Level 0，重点训练未达标项目</p>
+        </div>
+
+        <h2>长期进步追踪</h2>
+        <p>全部级别通用。以月度总结追踪进步节奏，以年度路线图把握方向，两条线都不需要额外工具，直接在下方模板里填写即可。</p>
+
+        <h3>月度总结模板</h3>
+        <div class="code-block">
+月份：____年__月
+<span class="k">【训练统计】</span>
+本月训练天数：____ 天　总训练时长：____ 小时　出勤率：____ %
+完成 Level：□ Level 0　□ Level 1　□ Level 2　□ 其他 ____
+<span class="k">【里程碑】</span>（本月达成的重要里程碑）
+1. ____________________
+2. ____________________
+3. ____________________
+<span class="k">【薄弱环节】</span>（需要加强的训练领域）
+1. ____________________
+2. ____________________
+3. ____________________
+<span class="k">【身体状态】</span>
+体重：____ kg　体感：□ 良好　□ 一般　□ 差
+伤病：□ 无　□ 有（部位：____　情况：____）
+睡眠质量（月均 1-10）：____　饮食规律（月均 1-10）：____
+<span class="k">【下月目标】</span>
+1. ____________________
+2. ____________________
+3. ____________________
+        </div>
+
+        <h3>年度发展路线图</h3>
+        <table>
+            <thead><tr><th>时间</th><th>目标级别</th><th>训练重点</th><th>评估标准</th><th>完成情况</th></tr></thead>
+            <tbody>
+                <tr><td>第1-2月</td><td>Level 0→1</td><td>神经肌肉控制 + 基础技术</td><td>Level 0 毕业评估达标</td><td>□</td></tr>
+                <tr><td>第3-4月</td><td>Level 1</td><td>正手高远球固化</td><td>高远球稳定到底线</td><td>□</td></tr>
+                <tr><td>第5-6月</td><td>Level 2</td><td>技术入门（网前 + 步法）</td><td>基础技术连贯</td><td>□</td></tr>
+                <tr><td>第7-9月</td><td>Level 3</td><td>技术熟练</td><td>技术自动化</td><td>□</td></tr>
+                <tr><td>第10-12月</td><td>Level 4</td><td>技术精进</td><td>技术精细控制</td><td>□</td></tr>
+            </tbody>
+        </table>
+
+        <h2>身体状态自评问卷</h2>
+        <p>每周一次，与周评估同步完成。共 7 题，每题按 1-10 打分，把身体与精神状态变成可追踪的数字。</p>
+        <table>
+            <thead><tr><th>问题</th><th>评分(1-10)</th><th>备注</th></tr></thead>
+            <tbody>
+                <tr><td><strong>睡眠质量如何？</strong></td><td>____/10</td><td></td></tr>
+                <tr><td><strong>训练后的疲劳恢复情况？</strong></td><td>____/10</td><td></td></tr>
+                <tr><td><strong>肌肉酸痛程度？</strong></td><td>____/10</td><td>1=无痛，10=无法活动</td></tr>
+                <tr><td><strong>有无关节不适？</strong></td><td>____/10</td><td>1=无，10=严重</td></tr>
+                <tr><td><strong>精神状态如何？</strong></td><td>____/10</td><td></td></tr>
+                <tr><td><strong>训练动力如何？</strong></td><td>____/10</td><td></td></tr>
+                <tr><td><strong>饮食规律性？</strong></td><td>____/10</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">
+<span class="v">总分 &gt; 50/70</span>：状态良好，可正常训练
+<span class="k">总分 35-50/70</span>：注意恢复，适当减量
+<span class="c">总分 &lt; 35/70</span>：建议休息或就医
+        </div>
+
+        <h2>使用说明</h2>
+        <ol>
+            <li><strong>每日训练日志</strong> — 每次训练后填写，不超过 5 分钟</li>
+            <li><strong>每周评估</strong> — 每周日填写，回顾一周训练（约 10 分钟）</li>
+            <li><strong>Level 阶段评估</strong> — 每个 Level 开始和结束时填写</li>
+            <li><strong>月度总结</strong> — 每月底填写（约 15 分钟）</li>
+            <li><strong>身体状态自评</strong> — 每周一次，在周评估中同步完成</li>
+        </ol>
+
+        <div class="callout info">
+            <p><strong>提示：</strong>这些日志模板可以直接打印出来使用，也可以复制到笔记软件中。坚持记录，是进步最快的方式。</p>
+        </div>
+
+                <div class="next">
+            <a href="17-fitness-plan.html">← 健身与体能</a>
+            <a href="19-footwork.html">步法训练 →</a>
+        </div>
+    </div>
+</body>
+</html>
