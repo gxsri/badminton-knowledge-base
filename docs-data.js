@@ -1,0 +1,130 @@
+/*
+ * 羽毛球职业训练系统 — 文档登记表（唯一数据源）
+ * 首页文档库、全文搜索、回归测试、README 均以此为准。
+ * 编号规则：
+ *   00-03 核心框架 / L0-L7 八级训练路线（文件前缀 04-11）
+ *   12-32 专项模块（编号即文件名前缀）
+ *   33-41 实用工具
+ * 修改任何文档的标题/文件/编号前，先改这里，再运行 node tests/regression.mjs。
+ */
+(function (global) {
+    global.DOCS_DATA = {
+        groups: [
+            { key: 'framework', name: '核心框架', desc: '先读这四篇，建立全局认知与起点档案' },
+            { key: 'route',     name: '8级训练路线', desc: '从零基础到职业水平，逐级进阶（每级末尾有晋级评估）' },
+            { key: 'topic',     name: '专项模块', desc: '技术 · 体能 · 健身 · 战术 · 康复，按需查阅' },
+            { key: 'tool',      name: '实用工具', desc: '自查、记录与激励工具' }
+        ],
+        docs: [
+            /* ===== 核心框架 00-03 ===== */
+            { num: '00', file: '00-quickstart.html',        group: 'framework',
+              title: '快速开始', desc: '5分钟了解全貌，完成基线测试，找到你的起点', tags: ['快速', '入门', '基线', '测试', '导航'] },
+            { num: '01', file: '01-philosophy.html',        group: 'framework',
+              title: '训练哲学', desc: '四个核心原则：动作质量、神经控制、预防损伤、长期发展', tags: ['哲学', '原则', '理念', '底线', '安全'] },
+            { num: '02', file: '02-assessment.html',        group: 'framework',
+              title: '基线评估', desc: '5项测试：本体感觉、核心稳定、下肢控制、上肢力量、关节灵活', tags: ['评估', '测试', '起点', '档案', '历史记录'] },
+            { num: '03', file: '03-core-content.html',      group: 'framework',
+              title: '核心内容', desc: '体系总览：8级体系、四大模块、评估与年龄适配', tags: ['总览', '体系', '模块', '架构', '年龄'] },
+
+            /* ===== 8级训练路线 L0-L7（文件前缀 04-11） ===== */
+            { num: 'L0', file: '04-level-0.html',           group: 'route',
+              title: 'Level 0：零基础启蒙', desc: '0-3个月 · 神经肌肉控制、本体感觉与基础动作模式', tags: ['零基础', '启蒙', '神经控制', '本体感觉'] },
+            { num: 'L1', file: '05-level-1.html',           group: 'route',
+              title: 'Level 1：基础建立', desc: '3-6个月 · 固化动作模式、关节稳定与基础力量', tags: ['基础', '力量', '稳定', '动作模式'] },
+            { num: 'L2', file: '06-level-2.html',           group: 'route',
+              title: 'Level 2：技术入门', desc: '6-12个月 · 高远球、网前与步法的连贯技术', tags: ['技术', '高远球', '入门', '连贯'] },
+            { num: 'L3', file: '07-level-3.html',           group: 'route',
+              title: 'Level 3：技术熟练', desc: '1-2年 · 技术自动化与简单战术应用', tags: ['熟练', '自动化', '战术', '中级'] },
+            { num: 'L4', file: '08-level-4.html',           group: 'route',
+              title: 'Level 4：技术精进', desc: '2-3年 · 假动作与高质量技术变化', tags: ['精进', '高级', '假动作', '变化'] },
+            { num: 'L5', file: '09-level-5.html',           group: 'route',
+              title: 'Level 5：战术应用', desc: '3-4年 · 完整战术体系与比赛阅读', tags: ['战术', '比赛', '阅读', '中级'] },
+            { num: 'L6', file: '10-level-6.html',           group: 'route',
+              title: 'Level 6：准专业', desc: '4-5年 · 能力全面发展，适应专业强度', tags: ['专业', '全面', '强度', '体能'] },
+            { num: 'L7', file: '11-level-7.html',           group: 'route',
+              title: 'Level 7：职业水平', desc: '5年+ · 比赛掌控与心理抗压', tags: ['职业', '顶级', '比赛', '掌控'] },
+
+            /* ===== 专项模块 12-32 ===== */
+            { num: '12', file: '12-clear-shot.html',        group: 'topic',
+              title: '正手高远球技术', desc: '7步分解 → 10个错误 → 5个训练', tags: ['高远球', '正手', '击球', '发力', '纠错'] },
+            { num: '13', file: '13-four-week-plan.html',    group: 'topic',
+              title: '4周训练计划', desc: '自适应框架 + 可复制的四周模板', tags: ['计划', '四周', '周期', '框架', '模板'] },
+            { num: '14', file: '14-psychological-training.html', group: 'topic',
+              title: '心理训练', desc: '注意力 → 压力适应 → 自我调节 → 决策信心', tags: ['心理', '注意力', '压力', '决策', '信心'] },
+            { num: '15', file: '15-nutrition-recovery.html', group: 'topic',
+              title: '营养与恢复', desc: 'TDEE计算 → 营养素分配 → 训练后时间轴 → 恢复评估', tags: ['营养', '恢复', 'TDEE', '蛋白质', '碳水', '水分'] },
+            { num: '16', file: '16-strength-conditioning.html', group: 'topic',
+              title: '力量体能', desc: '关节稳定 → 代谢适应 → 间歇训练 → 周期安排', tags: ['力量', '体能', '深蹲', '代谢', '周期'] },
+            { num: '17', file: '17-fitness-plan.html',      group: 'topic',
+              title: '健身与体能', desc: '场外健身系统：居家/健身房分化计划、动作库、有氧与周安排', tags: ['健身', '健身房', '居家', '徒手', '分化', '增肌', '减脂'] },
+            { num: '18', file: '18-training-log.html',      group: 'topic',
+              title: '训练日志', desc: '每日记录、周评估、代码速查与进步追踪模板', tags: ['日志', '记录', '追踪', '打卡', '评估'] },
+            { num: '19', file: '19-footwork.html',          group: 'topic',
+              title: '步法训练', desc: '步数法则 · 启动步 · 完整节奏循环 · 快回慢踩', tags: ['步法', '步伐', '启动', '移动', '回位'] },
+            { num: '20', file: '20-shot-patterns.html',     group: 'topic',
+              title: '球路训练', desc: '39个战术组合库：让对手按你的预期跑动', tags: ['球路', '战术', '组合', '套路', '预判'] },
+            { num: '21', file: '21-match-training.html',    group: 'topic',
+              title: '对抗与多球训练', desc: '实战转换：多球 → 半场对抗 → 全场实战的桥接方法', tags: ['对抗', '多球', '实战', '训练课', '转换'] },
+            { num: '22', file: '22-match-strategy.html',    group: 'topic',
+              title: '比赛策略', desc: '对手分析、战术选择、节奏控制、体能分配', tags: ['比赛', '策略', '对手', '节奏', '战术'] },
+            { num: '23', file: '23-technique-analysis.html', group: 'topic',
+              title: '技术全解析', desc: '发力原理 + 握拍 + 网前技术完整教学', tags: ['技术', '发力', '握拍', '网前', '解析'] },
+            { num: '24', file: '24-match-reading.html',     group: 'topic',
+              title: '比赛阅读', desc: '站位预判、意图识别与场上决策训练', tags: ['阅读', '预判', '决策', '观察', '比赛'] },
+            { num: '25', file: '25-anatomy-rehabilitation.html', group: 'topic',
+              title: '运动解剖与康复', desc: '神经 → 肌肉 → 筋膜、关键肌群起止点与激痛点', tags: ['解剖', '康复', '肌肉', '损伤', '肩膀', '膝盖'] },
+            { num: '26', file: '26-elite-player-analysis.html', group: 'topic',
+              title: '精英打法分析', desc: '男单/女单/男双/混双/女双精英特征与可借鉴要点', tags: ['精英', '单打', '双打', '打法', '分析'] },
+            { num: '27', file: '27-national-team-systems.html', group: 'topic',
+              title: '各国训练体系', desc: '中/日/韩/法国家队训练方法论与晋升通道', tags: ['国家队', '体系', '中国', '日本', '韩国', '法国'] },
+            { num: '28', file: '28-equipment-guide.html',   group: 'topic',
+              title: '装备指南', desc: '球拍/球鞋/磅数/场地与装备预算决策树', tags: ['装备', '球拍', '球鞋', '磅数', '选购'] },
+            { num: '29', file: '29-women-training.html',    group: 'topic',
+              title: '女性训练专项', desc: '生理期四阶段训练方案与 ACL 损伤预防', tags: ['女性', '生理期', 'ACL', '膝盖', '专项'] },
+            { num: '30', file: '30-warmup-cooldown.html',   group: 'topic',
+              title: '热身与整理', desc: '赛前热身工作流（15/25分钟方案）与训练后整理', tags: ['热身', '整理', '拉伸', '放松', '赛前'] },
+            { num: '31', file: '31-diagnosis-index.html',   group: 'topic',
+              title: '症状诊断索引', desc: '60+ 症状 → 原因 → 解决方案速查', tags: ['诊断', '症状', '索引', '疼痛', '速查'] },
+            { num: '32', file: '32-safety-guide.html',      group: 'topic',
+              title: '训练安全边界', desc: 'RICE损伤处理、重返运动五级标准', tags: ['安全', 'RICE', '伤病', '重返', '边界'] },
+
+            /* ===== 实用工具 33-41 ===== */
+            { num: '33', file: '33-error-correction.html',  group: 'tool',
+              title: '纠错指南', desc: '常见错误诊断与纠正，训练遇到瓶颈先查这里', tags: ['错误', '纠正', '诊断', '瓶颈', '问题'] },
+            { num: '34', file: '34-safety-checklist.html',  group: 'tool',
+              title: '训练前安全检查', desc: '每次训练前必做：身体状态、装备、环境自检', tags: ['安全', '检查', '清单', '预防', '自检'] },
+            { num: '35', file: '35-sleep-optimization.html', group: 'tool',
+              title: '睡眠优化指南', desc: '最重要的恢复手段，不可替代', tags: ['睡眠', '恢复', '休息', '优化'] },
+            { num: '36', file: '36-competition-prep.html',  group: 'tool',
+              title: '比赛准备流程', desc: '赛前 → 赛中 → 赛后完整流程与检查清单', tags: ['比赛', '准备', '赛前', '赛中', '赛后'] },
+            { num: '37', file: '37-bsfs-screening.html',    group: 'tool',
+              title: '羽毛球专项功能筛查', desc: '6个测试，识别身体薄弱环节与损伤风险', tags: ['筛查', '评估', '测试', '风险', 'BSFS'] },
+            { num: '38', file: '38-level-locator.html',     group: 'tool',
+              title: '级别定位器', desc: '回答问题，找到你的起始级别', tags: ['定位', '级别', '起点', '推荐'] },
+            { num: '39', file: '39-achievements.html',      group: 'tool',
+              title: '成就系统', desc: '记录进步，解锁成就，保持动力', tags: ['成就', '进度', '徽章', '激励', '记录'] },
+            { num: '40', file: '40-search.html',            group: 'tool',
+              title: '全文搜索', desc: '在全部文档中搜索训练内容', tags: ['搜索', '查找', '关键词', '索引'] },
+            { num: '41', file: '41-glossary.html',          group: 'tool',
+              title: '术语表', desc: '训练术语速查：缩写、概念与对应文档', tags: ['术语', '缩写', '词汇', '速查', '定义'] },
+            /* ===== 远端整合工具页 42-50 ===== */
+            { num: '42', file: '42-strength-exercises.html', group: 'tool',
+              title: '力量训练动作指导', desc: '力量动作示范与要领：深蹲/硬拉/推拉核心动作、常见错误与参数', tags: ['力量', '动作', '示范', '要领', '深蹲'] },
+            { num: '43', file: '43-warmup-detailed.html', group: 'tool',
+              title: '详细热身指南', desc: '热身全流程详解：动态热身、激活练习与专项热身编排', tags: ['热身', '激活', '动态拉伸', '流程'] },
+            { num: '44', file: '44-foam-rolling.html', group: 'tool',
+              title: '泡沫轴使用指南', desc: '泡沫轴放松指南：各部位手法、滚动时机与频率', tags: ['泡沫轴', '放松', '筋膜', '恢复'] },
+            { num: '45', file: '45-training-calendar.html', group: 'tool',
+              title: '训练日历', desc: '可视化训练日历：周计划排期、执行与打卡记录', tags: ['日历', '计划', '排期', '打卡'] },
+            { num: '46', file: '46-match-records.html', group: 'tool',
+              title: '比赛记录', desc: '比赛记录与复盘：比分数据、表现评分与赛后小结', tags: ['比赛', '记录', '复盘', '数据'] },
+            { num: '47', file: '47-body-status.html', group: 'tool',
+              title: '身体状态仪表盘', desc: '身体状态自评仪表盘：疲劳、酸痛、睡眠与训练准备度', tags: ['状态', '自评', '疲劳', '恢复', '睡眠'] },
+            { num: '48', file: '48-diet-tracking.html', group: 'tool',
+              title: '饮食记录', desc: '饮食记录工具：三餐与热量摄入追踪、营养搭配提醒', tags: ['饮食', '记录', '热量', '营养', '三餐'] },
+            { num: '49', file: '49-skill-radar.html', group: 'tool',
+              title: '技术雷达图', desc: '技术雷达图：多维技术自评与可视化对比', tags: ['雷达图', '评估', '技术', '可视化'] },
+            { num: '50', file: '50-learning-path.html', group: 'tool',
+              title: '学习路径', desc: '学习路径规划：按目标与水平生成个性化学习路线', tags: ['路径', '规划', '目标', '进阶'] }        ]
+    };
+})(typeof window !== 'undefined' ? window : globalThis);

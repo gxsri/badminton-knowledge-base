@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="场外健身系统：居家/健身房分化计划、动作库、有氧与周安排">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健身与体能 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0;white-space:pre}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+            /* 动作示范画廊（素材 © Gym visual — gymvisual.com，180×180） */
+        .demo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+        .demo-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+        .demo-media{background:#000;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+        .demo-media img{max-width:100%;max-height:100%;display:block}
+        .demo-name{padding:.65rem .9rem;font-size:.9rem;font-weight:600;line-height:1.4}
+        .demo-name small{display:block;color:var(--text-2);font-weight:400;font-size:.72rem;margin-top:.1rem}
+        .demo-credit{font-size:.8rem;color:var(--text-2);margin-top:.5rem}
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">17</div>
+        <h1>健身与体能</h1>
+        <div class="meta">全Level通用 · 场外健身系统：居家/健身房分化计划、动作库、有氧与周安排</div>
+
+        <div class="callout">
+            <p><strong>先搞清楚区别：</strong>这篇是"去健身房/在家怎么练"，解决<strong>力量、体型、心肺与关节稳定</strong>；力量体能（16）解决的是"这些能力怎么转化为羽毛球专项表现"。两篇配合使用：<strong>本篇定计划，16篇定专项比例</strong>。</p>
+        </div>
+
+        <h2>为什么羽毛球选手需要健身</h2>
+        <p>羽毛球是高频变向、急停起跳的运动。球场上练不到的东西，恰好是伤病的源头和表现的瓶颈：</p>
+        <table>
+            <thead><tr><th>球场练不到</th><th>不练的后果</th><th>健身补什么</th></tr></thead>
+            <tbody>
+                <tr><td>大重量下肢力量</td><td>急停时膝盖"刹不住"，半月板/髌腱压力大</td><td>深蹲、硬拉、分腿蹲——把膝盖"刹车"练强</td></tr>
+                <tr><td>躯干抗旋转力</td><td>杀球转体全靠腰"拧"，下背痛</td><td>抗旋转核心（帕洛夫推、砍柴）</td></tr>
+                <tr><td>肩后侧与肩袖</td><td>长期挥拍肌力失衡，肩撞击、肩袖炎</td><td>划船、面拉、弹力带外旋</td></tr>
+                <tr><td>有氧基础</td><td>第二局就喘，决策质量断崖下跌</td><td>低强度有氧（心率2区）</td></tr>
+                <tr><td>体成分</td><td>每多1kg体重，跳跃落地膝关节多承受约3-4倍负荷</td><td>热量差管理（配合15营养与恢复）</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout warn">
+            <p><strong>红线：</strong>有伤病（肩/膝/腰正在痛）先去 31 症状诊断索引与 32 训练安全边界排查，不要直接上大重量；深蹲、硬拉类动作第一周用空杆或自重拍视频自查动作。</p>
+        </div>
+
+        <h2>先选你的路线</h2>
+        <p>健身计划取决于你的主目标。三个方向，参数不同，但动作库共用。</p>
+        <table>
+            <thead><tr><th>目标</th><th>适合谁</th><th>热量</th><th>蛋白质</th><th>训练特征</th></tr></thead>
+            <tbody>
+                <tr><td><strong>力量/爆发</strong></td><td>想提升杀球、蹬跨能力的球员</td><td>维持或+200kcal</td><td>1.6-2.0 g/kg</td><td>大重量低次：3-5次×4-5组，组间2-3分钟</td></tr>
+                <tr><td><strong>增肌塑形</strong></td><td>想改善体型的球员</td><td>+200~300kcal</td><td>1.6-2.2 g/kg</td><td>中等重量：8-12次×3-4组，组间60-90秒</td></tr>
+                <tr><td><strong>减脂/轻盈</strong></td><td>想减重降负荷、移动更快</td><td>-300~500kcal</td><td>2.0-2.4 g/kg</td><td>力量照练（保肌肉）+ 热量缺口 + 有氧</td></tr>
+            </tbody>
+        </table>
+        <p>热量与营养素计算方法见营养与恢复（15）。<strong>减脂期力量训练不能停</strong>——热量缺口里不练力量，掉的肌肉比脂肪多。</p>
+
+        <h2>器材分级：从零开始怎么选</h2>
+        <table>
+            <thead><tr><th>档位</th><th>器材</th><th>预算（约）</th><th>适合</th></tr></thead>
+            <tbody>
+                <tr><td><strong>居家基础</strong></td><td>瑜伽垫 + 弹力带（轻/中/重3条）+ 可调节哑铃或一对壶铃</td><td>300-800元</td><td>想先养成习惯，徒手为主</td></tr>
+                <tr><td><strong>居家进阶</strong></td><td>基础档 + 可调哑铃凳（可调角度）+ 引体杆</td><td>1500-3000元</td><td>每周稳定练3次以上</td></tr>
+                <tr><td><strong>健身房</strong></td><td>年卡 + 教练评估课（建议至少买1-2节学深蹲/硬拉）</td><td>按城市</td><td>想要杠铃与器械，进步最快</td></tr>
+            </tbody>
+        </table>
+        <div class="callout info">
+            <p><strong>购买原则：</strong>先买垫子和弹力带开始练，坚持8周后再补大件；球拍可以贵，健身器材不必一步到位。</p>
+        </div>
+
+        <h2>动作库：按部位与器材</h2>
+        <p>每个动作先练会，再加负荷。动作质量标准：全程可控、无代偿、呼吸不憋。</p>
+
+        <h3>下肢（每周必练）</h3>
+        <table>
+            <thead><tr><th>动作</th><th>器材</th><th>练什么</th><th>组×次参考</th></tr></thead>
+            <tbody>
+                <tr><td><strong>高脚杯深蹲</strong></td><td>哑铃/壶铃</td><td>基础蹲模式、股四头</td><td>3-4×8-12</td></tr>
+                <tr><td><strong>背杠深蹲</strong></td><td>健身房杠铃</td><td>全身力量之王</td><td>4-5×3-5（力量路线）</td></tr>
+                <tr><td><strong>罗马尼亚硬拉</strong></td><td>哑铃/杠铃</td><td>腘绳肌、髋铰链——保护膝盖与下背</td><td>3-4×6-10</td></tr>
+                <tr><td><strong>保加利亚分腿蹲</strong></td><td>哑铃/自重</td><td>单腿力量≈羽毛球弓步</td><td>3×8-10/腿</td></tr>
+                <tr><td><strong>提踵</strong></td><td>自重/哑铃</td><td>小腿蹬伸</td><td>3×15-20</td></tr>
+            </tbody>
+        </table>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0043-qXTaZnJ.gif" alt="杠铃深蹲动图示范（barbell full squat）"></div>
+                <div class="demo-name">杠铃深蹲<small>barbell full squat · 杠铃</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0336-RRWFUcw.gif" alt="哑铃弓步动图示范（dumbbell lunge）"></div>
+                <div class="demo-name">哑铃弓步<small>dumbbell lunge · 哑铃</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/1460-IZVHb27.gif" alt="行走弓步（徒手）动图示范（walking lunge）"></div>
+                <div class="demo-name">行走弓步（徒手）<small>walking lunge · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/1459-rR0LJzx.gif" alt="哑铃罗马尼亚硬拉动图示范（dumbbell romanian deadlift）"></div>
+                <div class="demo-name">哑铃罗马尼亚硬拉<small>dumbbell romanian deadlift · 哑铃</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0549-UHJlbu3.gif" alt="壶铃摆荡动图示范（kettlebell swing）"></div>
+                <div class="demo-name">壶铃摆荡<small>kettlebell swing · 壶铃</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/3013-u0cNiij.gif" alt="地面臀桥动图示范（low glute bridge on floor）"></div>
+                <div class="demo-name">地面臀桥<small>low glute bridge on floor · 徒手</small></div>
+            </div>
+        </div>
+
+        <h3>上肢推拉与肩（平衡挥拍肌）</h3>
+        <table>
+            <thead><tr><th>动作</th><th>器材</th><th>练什么</th><th>注意</th></tr></thead>
+            <tbody>
+                <tr><td><strong>俯卧撑/卧推</strong></td><td>自重/杠铃</td><td>胸、肱三头</td><td>推类1个动作就够</td></tr>
+                <tr><td><strong>划船（俯身/坐姿）</strong></td><td>哑铃/弹力带/器械</td><td>背、肩后束——挥拍肌平衡</td><td><strong>拉的量应≥推的量</strong></td></tr>
+                <tr><td><strong>面拉</strong></td><td>弹力带/绳索</td><td>肩袖后侧、菱形肌</td><td>每周2-3次，每次3组</td></tr>
+                <tr><td><strong>弹力带外旋</strong></td><td>弹力带</td><td>肩袖外旋肌</td><td>轻负荷高次数15-20次，肘贴身</td></tr>
+                <tr><td><strong>过顶推举</strong></td><td>哑铃</td><td>肩前中束</td><td>有肩伤史慎做，先做面拉8周</td></tr>
+            </tbody>
+        </table>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0025-EIeI8Vf.gif" alt="杠铃卧推动图示范（barbell bench press）"></div>
+                <div class="demo-name">杠铃卧推<small>barbell bench press · 杠铃</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0662-I4hDWkc.gif" alt="俯卧撑动图示范（push-up）"></div>
+                <div class="demo-name">俯卧撑<small>push-up · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0027-eZyBC3j.gif" alt="杠铃俯身划船动图示范（barbell bent over row）"></div>
+                <div class="demo-name">杠铃俯身划船<small>barbell bent over row · 杠铃</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0652-lBDjFxJ.gif" alt="引体向上动图示范（pull-up）"></div>
+                <div class="demo-name">引体向上<small>pull-up · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0235-FWdVhcW.gif" alt="绳索肩外旋动图示范（cable standing shoulder external rotation）"></div>
+                <div class="demo-name">绳索肩外旋<small>cable standing shoulder external rotation · 绳索</small></div>
+            </div>
+        </div>
+
+        <h3>核心（不是仰卧起坐）</h3>
+        <table>
+            <thead><tr><th>动作</th><th>练什么</th><th>组×次/秒</th></tr></thead>
+            <tbody>
+                <tr><td><strong>死虫式</strong></td><td>抗伸展、腹肌离心控制</td><td>3×8-12/侧</td></tr>
+                <tr><td><strong>鸟狗式</strong></td><td>抗旋转、臀背协同</td><td>3×8-10/侧</td></tr>
+                <tr><td><strong>侧桥</strong></td><td>侧链、腰椎稳定</td><td>3×30-45秒/侧</td></tr>
+                <tr><td><strong>帕洛夫推（Pallof Press）</strong></td><td>抗旋转——杀球转体不"泄力"</td><td>3×10-12/侧</td></tr>
+                <tr><td><strong>砍柴/举重式</strong></td><td>旋转发力链（有基础后再练）</td><td>3×8-10/侧</td></tr>
+            </tbody>
+        </table>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0276-iny3m5y.gif" alt="死虫式动图示范（dead bug）"></div>
+                <div class="demo-name">死虫式<small>dead bug · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0979-9pa4H5m.gif" alt="弹力带帕洛夫推动图示范（band horizontal pallof press）"></div>
+                <div class="demo-name">弹力带帕洛夫推<small>band horizontal pallof press · 弹力带</small></div>
+            </div>
+        </div>
+
+        <h2>周安排：健身×羽毛球怎么排</h2>
+        <div class="callout">
+            <p><strong>原则一：下肢大重量与球场日隔开≥24小时。</strong>练腿第二天去打球，膝盖刹车力不够、反应变慢，受伤风险最高。原则二：<strong>同一天先做更重要的事</strong>——比赛前做技巧/战术，休赛期可先力量。原则三：连续高强度不超过3天。</p>
+        </div>
+
+        <h3>方案A：每周2次健身（保底，业余推荐）</h3>
+        <div class="code-block"><span class="k">周一</span> 球场日（技术为主）
+<span class="k">周二</span> 健身：全身A —— 深蹲/分腿蹲 + 划船 + 推举 + 核心20分钟
+<span class="k">周三</span> 休息或轻有氧30分钟
+<span class="k">周四</span> 球场日（多球/对抗）
+<span class="k">周五</span> 健身：全身B —— 硬拉 + 卧推/俯卧撑 + 面拉 + 侧桥
+<span class="k">周六</span> 球场日（比赛/对抗）或轻有氧
+<span class="k">周日</span> 完全休息</div>
+
+        <h3>方案B：每周3次健身（想增肌/提升力量的球员）</h3>
+        <div class="code-block"><span class="k">周一</span> 健身：下肢日（深蹲为主）      <span class="k">周二</span> 球场日（技术）
+<span class="k">周三</span> 健身：上肢推+拉（水平面）    <span class="k">周四</span> 球场日（战术+多球）
+<span class="k">周五</span> 休息或轻有氧
+<span class="k">周六</span> 健身：下肢+肩袖（硬拉为主）  <span class="k">周日</span> 球场日（对抗）或完全休息</div>
+
+        <div class="callout warn">
+            <p><strong>赛前安排：</strong>正式比赛前3-4天停止下肢大重量与力竭组；赛前48小时只做轻激活（弹力带、空杆热身）；比赛周把健身压缩到1次全身轻量即可。比赛优先于健身。</p>
+        </div>
+
+        <h2>渐进与记录</h2>
+        <ul>
+            <li><strong>加量顺序：</strong>先加次数（每组目标次数的上限）→ 再加组数 → 最后加重量（每2周不超过5%）。三个变量每周只动一个。</li>
+            <li><strong>留余力（RIR）：</strong>新手每组留2-3次余力，进阶留1次；不练到"力竭"——力竭恢复慢，影响次日球场表现。</li>
+            <li><strong>记录：</strong>用训练日志（18）的代码速查（ME/SS/KS…）登记健身内容，每周日复盘一次：动作是否变形、恢复是否够。</li>
+            <li><strong>组间休息：</strong>大重量2-3分钟、增肌60-90秒、核心与肩袖45-60秒。别刷手机，设倒计时。</li>
+        </ul>
+
+        <h2>有氧：别把羽毛球场当有氧</h2>
+        <p>打球的强度是间歇冲刺，练不到线粒体耐力。想"第三局还有腿"，每周要2次低强度有氧：</p>
+        <table>
+            <thead><tr><th>类型</th><th>安排</th><th>强度</th><th>时长</th></tr></thead>
+            <tbody>
+                <tr><td><strong>低强度有氧（2区）</strong></td><td>球场日之外的休息日或上午</td><td>能说话但唱不了歌（约心率储备50-60%）</td><td>30-45分钟</td></tr>
+                <tr><td><strong>功率车/游泳</strong></td><td>下肢酸胀日的好选择</td><td>同上</td><td>30-40分钟</td></tr>
+                <tr><td><strong>HIIT（可选）</strong></td><td>有经验者，非赛季</td><td>冲刺30秒×6-8组</td><td>总时长≤20分钟</td></tr>
+            </tbody>
+        </table>
+        <div class="callout info">
+            <p><strong>减脂的真相：</strong>有氧是配角，热量缺口是主角（-300~-500kcal/天，蛋白质2.0-2.4g/kg）。只跑步不减力量，体重会掉、代谢也会掉。</p>
+        </div>
+
+                <h2>🧘 灵活性与热身动图（5 分钟激活流程配套）</h2>
+        <p>训练前用这套动作打开髋、踝与胸椎，动作幅度以"有牵拉感但不痛"为准。</p>
+        <div class="demo-grid" data-bl-gallery="mob-demo">
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/1604-DFGXwZr.gif" alt="世界最伟大拉伸动图示范（world greatest stretch）"></div>
+                <div class="demo-name">世界最伟大拉伸<small>world greatest stretch · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/1471-ZgsNQ6d.gif" alt="毛毛虫爬行动图示范（inchworm）"></div>
+                <div class="demo-name">毛毛虫爬行<small>inchworm · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/1368-uL9CsKm.gif" alt="踝关节绕环动图示范（ankle circles）"></div>
+                <div class="demo-name">踝关节绕环<small>ankle circles · 徒手</small></div>
+            </div>
+        </div>
+        <p class="demo-credit">动图素材 © Gym visual — gymvisual.com（180×180，经 hasaneyldrm/exercises-dataset 再分发，保留署名）；来源与逐文件对照见 <span class="mono">images/exercises/README.md</span>。</p>
+
+
+<h2>热身与关节养护</h2>
+        <div class="exercise">
+            <div class="exercise-title">健身前5分钟激活流程</div>
+            <p style="margin:0;color:var(--text-2);font-size:0.9rem">
+                <strong>1. 髋：</strong>自重深蹲10次 + 髋外展弹力带行走各10步<br>
+                <strong>2. 肩：</strong>弹力带外旋2×15 + 猫驼式8次<br>
+                <strong>3. 核心：</strong>死虫式10次/侧，激活腹压<br>
+                <strong>4. 特定动作：</strong>今天练什么就先做2组轻重量热身组
+            </p>
+        </div>
+        <p>完整的热身与整理流程见热身与整理（30）；肩袖保养动作与频率见力量体能（16）；睡眠是健身与打球共同的"补剂"，优先级最高，见睡眠优化（35）。</p>
+
+                <h2>🦶 弹跳与反应动图（有氧日的弹性补充）</h2>
+        <p>每个动作 3 组 × 6–10 次，落地要"轻"，膝踝保持弹性；疲劳时不做。</p>
+        <div class="demo-grid" data-bl-gallery="plyo-demo">
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/3361-zfNHMN9.gif" alt="滑冰跳（侧向弹跳）动图示范（skater hops）"></div>
+                <div class="demo-name">滑冰跳（侧向弹跳）<small>skater hops · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0514-LIlE5Tn.gif" alt="跳跃深蹲动图示范（jump squat）"></div>
+                <div class="demo-name">跳跃深蹲<small>jump squat · 徒手</small></div>
+            </div>
+        </div>
+
+
+<h2>五个最常见的坑</h2>
+        <table>
+            <thead><tr><th>坑</th><th>后果</th><th>正确做法</th></tr></thead>
+            <tbody>
+                <tr><td>只练胸和手臂（"镜子肌"）</td><td>挥拍肌更失衡，肩更痛</td><td>拉≥推，肩袖每周2-3次</td></tr>
+                <tr><td>练完腿第二天照常打比赛</td><td>膝盖/踝失控，表现暴跌</td><td>下肢大重量与高强度球场日隔24小时</td></tr>
+                <tr><td>每组都练到力竭</td><td>次日训练质量下降、易伤</td><td>留1-3次余力（RIR）</td></tr>
+                <tr><td>节食减脂但不练力量</td><td>掉肌肉、代谢下降、反弹</td><td>减脂期照常力量训练</td></tr>
+                <tr><td>组间刷手机15分钟</td><td>训练密度≈0，心率凉透</td><td>倒计时，休息到点就练</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout success">
+            <p><strong>起步承诺：</strong>每周2次×40分钟全身训练 + 2次有氧 + 每晚7小时睡眠，坚持8周——再回来评估（02 基线评估重测），你会看到下肢控制、肩部轻松度和体重的真实变化。</p>
+        </div>
+
+                        <div class="callout info">
+            <p><strong>动图说明：</strong>示范动图素材 © Gym visual — gymvisual.com（180×180，经 hasaneyldrm/exercises-dataset 数据集再分发，按数据集 NOTICE 要求保留署名）。动图用于快速看懂动作轨迹，<strong>细节标准以本页文字要点与动作库说明为准</strong>；来源与逐文件对照见 <span class="mono">images/exercises/README.md</span>。</p>
+        </div>
+
+        <div class="next">
+            <a href="16-strength-conditioning.html">← 力量体能</a>
+            <a href="18-training-log.html">训练日志 →</a>
+        </div>
+    </div>
+</body>
+</html>

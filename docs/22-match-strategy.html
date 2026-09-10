@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="对手分析、战术选择、节奏控制、体能分配">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比赛策略 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:var(--orange)}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0;white-space:pre}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">22</div>
+        <h1>比赛策略</h1>
+        <div class="meta">Level 2+ · 前置：已完成 Level 1 技术训练 · 对手分析、战术选择、节奏控制与体能分配的系统方法</div>
+
+        <div class="callout">
+            <p><strong>写给谁：</strong>有比赛经验，却常"打完了不知道输在哪""领先被翻盘""体能分配不合理"的选手。<br>
+            <strong>核心理念：</strong>比赛不是"上去打"，是执行一套提前准备好的策略系统——前 5 分试探收集信息，全程按预算分配体能，锁定对手弱点打组合球路，每 5 分检查一次策略是否有效。</p>
+        </div>
+
+        <h2>体能分配：不是省力，是算力</h2>
+        <p>大多数人靠感觉分配体力：还有力就冲，累了就收。正确做法是<strong>赛前就算好体能预算</strong>，把三局比赛约 60-80 分钟的高强度负荷算清楚再上场。</p>
+
+        <div class="code-block">
+<span class="k">预算怎么测：</span>找一天全力打一局完整的 21 分比赛
+记录从第一分到明显疲劳的时间点
+<span class="c">例：第 12 分开始明显累 → 高强度体能约支撑 12-15 分 → 按这个量分配三个局</span>
+        </div>
+
+        <div class="code-block">
+<span class="k">第一局 40%</span>：建立节奏、收集信息，不是全力打——控制球路为主，不追每一个死球
+<span class="k">第二局 35%</span>：第一局赢了保持节奏、不放松；输了先判断原因——体力问题就收着打保第三局，技术/战术问题就当场调整
+<span class="k">第三局 25% + 意志力</span>：每个人都没力了，胜负取决于谁在没力时能多做对一件事
+        </div>
+
+        <h3>分与分之间的恢复（不是站着等）</h3>
+        <table>
+            <thead><tr><th>情况</th><th>怎么做</th><th>心率恢复</th></tr></thead>
+            <tbody>
+                <tr><td>多拍后（&gt;10 拍）</td><td>深呼吸 2 次 + 慢走回位</td><td>降 10-15bpm</td></tr>
+                <tr><td>少拍得分（&lt;3 拍）</td><td>正常呼吸，保持注意力</td><td>降 5bpm</td></tr>
+                <tr><td>少拍失分（&lt;3 拍）</td><td>深呼吸 1 次 + 自我对话"下一分"</td><td>降 5-10bpm</td></tr>
+                <tr><td>局间休息（60 秒）</td><td>喝水 + 擦汗 + 坐下 30 秒 + 策略回顾 20 秒</td><td>降 20-30bpm</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout info">
+            <p><strong>恢复公式：</strong>一分结束后到下一个发球前，心率应恢复到静息心率 + 30bpm 以内。能达到 = 体能分配合理；达不到 = 这一分消耗太大，你打太拼了或球路效率低。</p>
+        </div>
+
+        <h3>体能分配的常见错误</h3>
+        <table>
+            <thead><tr><th>错误</th><th>表现</th><th>修正</th></tr></thead>
+            <tbody>
+                <tr><td>开局冲太猛</td><td>第一局前半段全速跑，后半段断崖式下降</td><td>第一局前 5 分只用到 70% 速度</td></tr>
+                <tr><td>输了第一局就放弃</td><td>第二局明显收力，战术也不执行</td><td>第一局只是试探，真正的比赛从第二局开始</td></tr>
+                <tr><td>关键分突然发力</td><td>前面积累的疲劳在关键分集中爆发</td><td>关键分不要突然改变节奏，用你最稳定的打法</td></tr>
+                <tr><td>打完不喝水</td><td>第三局脱水导致抽筋、头晕</td><td>局间必须喝水，即使不渴</td></tr>
+            </tbody>
+        </table>
+
+        <h2>试探性球路：前 5 分不是用来得分的</h2>
+        <p>前 5 分别想"怎么赢这一分"，要想"这一分让我了解到对手的什么信息"。按顺序依次测五项：</p>
+
+        <div class="code-block">
+<span class="v">✓</span> 第 1 分 测正手底线：打高质量正手高远球到底线，看回球质量、回球后的位置、正手稳定性
+<span class="v">✓</span> 第 2 分 测反手底线：看他是过渡还是能进攻，反手回球后是否容易丢位置
+<span class="v">✓</span> 第 3 分 测网前：放一个网前球，看上网速度、网前手感，放网后回位还是封网
+<span class="v">✓</span> 第 4 分 测被动处理：打一个让他被动跑的球，看被动时球路总是同一个方向还是随机
+<span class="v">✓</span> 第 5 分 测杀球防守：找一个机会杀球，看接杀能力、接杀后回球的质量和位置
+        </div>
+
+        <p>5 分打完你应该知道：他的正手和反手哪个弱、移动能力如何、网前和后场哪个更好、被动时最容易打哪个方向、体能大概在什么水平。然后按下表换策略：</p>
+
+        <table>
+            <thead><tr><th>你发现</th><th>对应的比赛策略</th></tr></thead>
+            <tbody>
+                <tr><td>反手回球质量差</td><td>70% 的球打到反手底线</td></tr>
+                <tr><td>网前手感差</td><td>多放网，逼他起球</td></tr>
+                <tr><td>体能不好</td><td>多拍拉吊，不追求一拍打死</td></tr>
+                <tr><td>被动时总打直线</td><td>打完让他被动的球后，稍微往直线偏</td></tr>
+                <tr><td>杀球防守差</td><td>有机会就杀</td></tr>
+                <tr><td>接杀能防起来但回球不到位</td><td>杀完立即上网封网</td></tr>
+            </tbody>
+        </table>
+
+        <h2>弱点分析：系统化地找，不是靠感觉</h2>
+        <p>不是所有弱点都一样，不同类型需要不同的应对方式：</p>
+
+        <table>
+            <thead><tr><th>弱点类型</th><th>表现</th><th>应对方式</th></tr></thead>
+            <tbody>
+                <tr><td><strong>技术弱点</strong></td><td>某技术动作不稳定：反手回球不到位、杀球经常出界</td><td>反复打这个技术点，直到他失误</td></tr>
+                <tr><td><strong>移动弱点</strong></td><td>某方向移动慢：后退慢、上网慢、左右不均衡</td><td>多打这个方向，让他频繁移动</td></tr>
+                <tr><td><strong>决策弱点</strong></td><td>特定情况选错：被动总打同一方向、关键分犹豫</td><td>主动设置这个场景，等他犯错</td></tr>
+                <tr><td><strong>心理弱点</strong></td><td>特定压力下表现下降：关键分失误率上升、被追分就着急</td><td>制造这个压力场景，不给他喘息</td></tr>
+            </tbody>
+        </table>
+
+        <h3>弱点发现系统（不需要教练，自己就能用）</h3>
+        <div class="code-block">
+<span class="k">每打完一局，花 2 分钟填写：</span>
+
+<span class="v">技术弱点</span>：________（具体到哪个技术） 证据：反手回球 __ 次，有 __ 次不到位
+<span class="v">移动弱点</span>：________（具体到哪个方向） 证据：打他 __ 方向，他 __ 次没到位
+<span class="v">决策弱点</span>：________（具体到哪种场景） 证据：他被动 __ 次，有 __ 次打了同一个方向
+<span class="v">心理弱点</span>：________（具体到哪种压力） 证据：关键分他失误 __ 次，正常分只失误 __ 次
+        </div>
+
+        <h3>针对弱点的球路组合</h3>
+        <div class="code-block">
+<span class="c">错误做法：每球都打反手底线 → 对手适应后站位偏反手，正手空档打开</span>
+
+<span class="k">正确做法（例：对手反手弱）：</span>
+第 1 拍：反手底线 → 他回球质量差
+第 2 拍：正手底线 → 他刚从反手跑过来，正手也被动
+第 3 拍：再反手底线 → 他再跑回去，这一拍大概率失误
+        </div>
+
+        <div class="callout">
+            <p><strong>原理：</strong>不是"反复打他的弱点"，而是让他为防守弱点消耗更多体力，然后在疲劳状态下再次面对他的弱点。</p>
+        </div>
+
+        <h2>针对性训练：把比赛问题带回训练</h2>
+        <p>闭环：比赛 → 发现问题 → 设计针对训练 → 训练解决 → 下一场比赛验证。最容易被跳过的是"设计针对训练"——发现问题后，训练内容要从比赛问题反推：</p>
+
+        <table>
+            <thead><tr><th>比赛中的问题</th><th>不是练什么</th><th>是练什么</th></tr></thead>
+            <tbody>
+                <tr><td>反手总是不到位</td><td>反手技术</td><td>先练到反手位的步法路线，再看是步法问题还是技术问题</td></tr>
+                <tr><td>第三局跑不动</td><td>体能</td><td>先查第一局是不是打太拼（分配问题），再查训练里有没有模拟过第三局的强度</td></tr>
+                <tr><td>关键分总失误</td><td>技术</td><td>先查关键分你打的是什么球路——是不是选了自己不稳定的球路</td></tr>
+                <tr><td>被同一个人赢了两次</td><td>技术</td><td>先分析两次输的原因是否一样——一样就说明你的针对训练没做对</td></tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">
+<span class="k">针对性训练 = 你的问题 × 比赛模拟度</span>
+问题权重：每场都出现的问题占训练 40% ｜ 偶尔出现占 20% ｜ 不影响胜负占 10%
+模拟度分级：L1 无压力重复（技术纠正）→ L2 计分无后果（技术验证）
+          → L3 计分+有后果（压力训练）→ L4 模拟比赛全部条件
+<span class="c">例：第三局体能下降 → 先间歇跑到疲劳，再在疲劳状态下练技术与计分，
+    直到疲劳时的失误率接近正常状态 → 问题解决</span>
+        </div>
+
+        <h3>录像复盘（用录像替代教练）</h3>
+        <div class="code-block">
+<span class="k">顺序：不是从头看到尾</span>
+第一步：只看你的发球和接发（5 分钟）——有没有固定习惯？对手是否在读你？
+第二步：只看失分球（10 分钟）——技术失误还是对手打得好？动作问题还是决策问题？站位问题还是真接不到？
+第三步：只看多拍（10 分钟）——超 5 拍的回合：谁先失误？失误前 3 拍发生了什么？你的球路是否有规律？
+第四步：总结（5 分钟）——3 个做得好的：___；3 个要改进的：___；下场比赛的调整：___
+        </div>
+
+        <h3>赛前一周方案（以已知对手为例）</h3>
+        <div class="code-block">
+<span class="k">周一</span>：回顾上次交手记录——他最强的技术、最弱的技术、上次我输在哪
+<span class="k">周二</span>：针对性技术训练（40%）——针对他的弱点设计球路组合，如反手弱 → 练"正手底线 → 反手底线"
+<span class="k">周三</span>：体能 + 模拟训练（30%）——在疲劳状态下练你的比赛策略
+<span class="k">周四</span>：休息
+<span class="k">周五</span>：战术演练（30%）——找风格类似的陪练，模拟比赛场景
+<span class="k">周六</span>：赛前调整——轻量训练 + 确认装备 + 确认策略
+<span class="k">周日</span>：比赛——执行策略 → 收集信息 → 赛后记录
+        </div>
+
+        <h2>赛中实时调整：不是按计划走到底</h2>
+        <p>比赛开始前定了策略，但比赛中要<strong>每隔 5 分检查一次</strong>策略是否有效：</p>
+
+        <div class="code-block">
+<span class="k">连续失分 3 分以上</span>：问自己——是我没执行好（→ 回到基础，打最简单的球），还是策略本身错了（→ 换策略）
+<span class="k">对手调整了</span>：他换了打法，你也必须换。例：你一直打他反手，他站位偏反手了 → 现在改打正手
+<span class="k">你已经领先 5 分以上</span>：不要换策略——领先时换策略是最常见的被翻盘原因
+        </div>
+
+        <div class="code-block">
+<span class="k">连续失 3 分决策树</span>
+第一问：我的体能还能支持当前打法吗？
+  不能 → 降低节奏，多打高远球为自己争取恢复时间
+  能 → 第二问
+第二问：我的执行有没有问题？
+  有（失误多了）→ 降低风险，打你有把握的球
+  没有（球到位了但他都接了）→ 第三问
+第三问：他是否已经适应了我的打法？
+  是 → 换一个他还没适应过的球路或节奏
+  否 → 继续当前策略，增加耐心
+第四问：我在关键场景下的决策正确吗？
+  不正确 → 明确告诉自己"下次遇到这个场景我打哪"
+  正确 → 继续，相信自己
+        </div>
+
+        <h3>领先与落后分别怎么打</h3>
+        <table>
+            <thead><tr><th>场景</th><th>心理</th><th>打法</th><th>禁忌</th></tr></thead>
+            <tbody>
+                <tr><td><strong>领先 5 分以上</strong></td><td>保持专注，不要放松</td><td>继续执行让你领先的策略</td><td>突然换打法、开始试新球路</td></tr>
+                <tr><td><strong>领先 3-5 分</strong></td><td>控制节奏，不追死球</td><td>打控制球，减少强行进攻</td><td>急于结束比赛、打冒险球</td></tr>
+                <tr><td><strong>平局</strong></td><td>主动变化，打破平衡</td><td>打一个你还没用过的球路</td><td>陷入对手的节奏</td></tr>
+                <tr><td><strong>落后 3-5 分</strong></td><td>调整，不要崩</td><td>换节奏（快 → 慢或慢 → 快）</td><td>继续打同样的球路（对手已经适应）</td></tr>
+                <tr><td><strong>落后 5 分以上</strong></td><td>冒险一搏</td><td>打所有"不稳定但能得分"的球</td><td>放弃——比赛没结束前都没结束</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout warn">
+            <p><strong>关键分提醒：</strong>关键分不要突然改变节奏或突然发力——用你全场最稳定的打法；落后 5 分以上才允许打"不稳定但能得分"的球。</p>
+        </div>
+
+        <h2>建立你的比赛策略库</h2>
+        <p>针对不同风格对手的策略模板：</p>
+
+        <div class="code-block">
+<span class="k">对手 A（防守型，体能好）</span>：多打网前 + 不追求一拍打死     ｜ 禁忌：和他拼多拍
+<span class="k">对手 B（进攻型，失误多）</span>：多给他球打，等他失误           ｜ 禁忌：和他对攻
+<span class="k">对手 C（技术型，网前好）</span>：多打后场，不给他网前           ｜ 禁忌：和他斗网前
+<span class="k">对手 D（体能型，跑得快）</span>：打战术变化球，不拼体能         ｜ 禁忌：和他拉吊
+        </div>
+
+        <p>每打完一个新对手，把特点和应对策略记下来。下次再遇到他，不需要再花 5 分去试探。</p>
+
+        <div class="code-block">
+<span class="k">比赛笔记本（每次比赛后填写）：</span>
+比赛日期：____  对手：____  对手风格：进攻 / 防守 / 技术 / 体能  比分：__:__
+赛前策略：________
+执行情况：完全执行 / 部分执行 / 完全没执行
+赛中调整：第几次、调整了什么：________
+赛后总结：对手的弱点：____  我的问题：____  下次要改进：____
+        </div>
+
+        <div class="callout info">
+            <p><strong>延伸阅读：</strong>阅读比赛、球路训练、心理训练、对抗与多球训练——把策略、阅读与实战转换连成一条线。</p>
+        </div>
+
+                <div class="next">
+            <a href="21-match-training.html">← 对抗与多球训练</a>
+            <a href="23-technique-analysis.html">技术全解析 →</a>
+        </div>
+    </div>
+</body>
+</html>

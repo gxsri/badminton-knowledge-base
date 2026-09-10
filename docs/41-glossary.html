@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="训练术语速查：缩写、概念与对应文档">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>术语表 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:var(--orange)}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0;white-space:pre}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">41</div>
+        <h1>术语表</h1>
+        <div class="meta">Level 0+ · 遇到看不懂的缩写先查这里；全站术语口径以本表为准</div>
+
+        <div class="callout info">
+            <p><strong>怎么用：</strong>读任何一页遇到不懂的缩写或专业词，先来这里查。<strong>第一列</strong>是术语与缩写，<strong>第二列</strong>是全称/中文对照，<strong>第三列</strong>用一句话解释，<strong>第四列</strong>标出该概念讲得最细的文档（读中文名即可，无需链接）。条目按类别分组，本表与全站文档同步维护。</p>
+        </div>
+
+        <h2>训练理念与分级体系</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><strong>基线测试</strong></td><td>Baseline Test · 起点摸底</td><td>训练前用统一协议测出体能与技术基线，先测再练、不靠感觉定起点。</td><td>基线评估</td></tr>
+                <tr><td><strong>三维分级</strong></td><td>3D Grading</td><td>用年龄＋训练年限＋当前基线水平三个维度，定位你该从哪一档开始。</td><td>核心内容</td></tr>
+                <tr><td><strong>动作质量优先</strong></td><td>Quality over Quantity</td><td>做对一次胜过做错一百次：动作质量永远排在训练数量前面。</td><td>训练哲学</td></tr>
+                <tr><td><strong>神经肌肉控制</strong></td><td>Neuromuscular Control</td><td>神经系统对肌肉的支配能力——先学会控制，肌肉才谈得上发力。</td><td>训练哲学</td></tr>
+                <tr><td><strong>自适应框架</strong></td><td>Adaptive Framework</td><td>基线→公式→进阶→自诊的闭环：练多少由身体反馈决定，不照抄固定菜单。</td><td>核心内容</td></tr>
+                <tr><td><strong>8级训练路线</strong></td><td>8-Level System · <code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">L0</code> 到 <code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">L7</code></td><td>从零基础启蒙到职业水平的八级进阶路线，每级末尾有晋级评估把关。</td><td>核心内容</td></tr>
+            </tbody>
+        </table>
+
+        <h2>技术动作与发力</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><strong>正手高远球</strong></td><td>Forehand Clear</td><td>正手将球击至对方后场底线的高球，一切上手击球的基本功。</td><td>正手高远球技术</td></tr>
+                <tr><td><strong>引拍</strong></td><td>Backswing</td><td>击球前把球拍后引、关节蓄力的准备阶段。</td><td>正手高远球技术</td></tr>
+                <tr><td><strong>随挥</strong></td><td>Follow-Through</td><td>击球后球拍沿出球方向自然挥动的延续，用于卸力与保持平衡。</td><td>正手高远球技术</td></tr>
+                <tr><td><strong>前臂旋内</strong></td><td>Forearm Pronation · 手腕内旋</td><td>击球瞬间前臂快速内旋带出拍头速度，所谓"闪腕"的本质。</td><td>正手高远球技术</td></tr>
+                <tr><td><strong>发力链</strong></td><td>Power Chain / Kinetic Chain · 动力链</td><td>脚→膝→髋→躯干→肩→肘→腕逐级传递的力量链条，一环断裂整体打折。</td><td>技术全解析</td></tr>
+                <tr><td><strong>鞭打发力</strong></td><td>Whipping Action</td><td>靠关节依次制动、末端速度叠加的发力方式，是杀球力量的来源。</td><td>技术全解析</td></tr>
+                <tr><td><strong>搓球</strong></td><td>Net Spin / Hairpin · 网前搓球</td><td>网前用手指发力切削球托，让球旋转、贴网滚过。</td><td>技术全解析</td></tr>
+                <tr><td><strong>推球</strong></td><td>Drive · 网前推球</td><td>拍面稍后仰向前推送，把网前球平快压到对方后场两角。</td><td>技术全解析</td></tr>
+                <tr><td><strong>勾对角</strong></td><td>Cross-Court Net Shot</td><td>网前拍面斜切改变球路，把球勾向对角网前。</td><td>技术全解析</td></tr>
+                <tr><td><strong>杀球</strong></td><td>Smash</td><td>高点全力下压的最强得分手段，靠全身协调发力而非手臂。</td><td>技术全解析</td></tr>
+                <tr><td><strong>吊球</strong></td><td>Drop Shot</td><td>准备动作与高远球一致、击球瞬间减速切削，让球刚过网即下落。</td><td>技术全解析</td></tr>
+                <tr><td><strong>假动作</strong></td><td>Deception</td><td>准备动作与真实动作一致、触球瞬间才变向，骗开对手重心。</td><td>Level 4：技术精进</td></tr>
+            </tbody>
+        </table>
+
+        <h2>球路、战术与训练方法</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><strong>球路</strong></td><td>Shot Pattern</td><td>有目的组合的击球路线设计，让对手按你的预期跑动。</td><td>球路训练</td></tr>
+                <tr><td><strong>拉吊</strong></td><td>Clear-and-Drop · 拉吊结合</td><td>后场高球结合网前吊球，前后调动对手、消耗其重心。</td><td>球路训练</td></tr>
+                <tr><td><strong>杀吊结合</strong></td><td>Smash-and-Drop</td><td>杀球与吊球的节奏变化组合，让对手无法预判来球深浅。</td><td>球路训练</td></tr>
+                <tr><td><strong>平抽挡</strong></td><td>Drive Exchange / Flat Exchange</td><td>中场的连续平快球对抽，比速度、比拍面稳定。</td><td>球路训练</td></tr>
+                <tr><td><strong>压反手</strong></td><td>Pressure Backhand</td><td>反复攻击对方反手位制造质量下降，再转攻正手空当。</td><td>比赛策略</td></tr>
+                <tr><td><strong>节奏控制</strong></td><td>Tempo Control</td><td>用快慢、轻重变化打乱对手，不让对方进入舒适节奏。</td><td>比赛策略</td></tr>
+                <tr><td><strong>轮转</strong></td><td>Rotation</td><td>双打攻防转换时的位置交换与补位配合。</td><td>对抗与多球训练</td></tr>
+                <tr><td><strong>多球训练</strong></td><td>Multi-Shuttle Drills</td><td>连续喂球、定点定量的重复练习，快速固化技术动作与稳定性。</td><td>对抗与多球训练</td></tr>
+                <tr><td><strong>战术周期</strong></td><td>Tactical Periodization</td><td>根据对手与赛程倒排的战术训练安排，比赛期前集中强化。</td><td>比赛策略</td></tr>
+            </tbody>
+        </table>
+
+        <h2>步法与移动</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><strong>启动步</strong></td><td>Split Step</td><td>对手击球瞬间的小跳步，为向任何方向蹬出蓄力，是步法的灵魂。</td><td>步法训练</td></tr>
+                <tr><td><strong>并步</strong></td><td>Side Step</td><td>双脚依次跟随的横向小步移动，重心平稳、不上下起伏。</td><td>步法训练</td></tr>
+                <tr><td><strong>交叉步</strong></td><td>Cross Step</td><td>后退时后脚从前脚后方交叉越过的移动方式。</td><td>步法训练</td></tr>
+                <tr><td><strong>垫步</strong></td><td>Hop Step</td><td>单脚小跳、小步快频地调整位置与重心。</td><td>步法训练</td></tr>
+                <tr><td><strong>蹬跨步</strong></td><td>Lunge Step · 跨步</td><td>到位前的最后一大步蹬跨，落地时前膝对准脚尖。</td><td>步法训练</td></tr>
+                <tr><td><strong>回位</strong></td><td>Recovery / Center Return · 回中</td><td>击球后主动回到场区中心，准备接下一拍。</td><td>步法训练</td></tr>
+                <tr><td><strong>步数法则</strong></td><td>Step Count Rule</td><td>判断主动与被动的标尺：1步=主动，2-3步=正常，超过3步=被动。</td><td>步法训练</td></tr>
+                <tr><td><strong>快回慢踩</strong></td><td>Fast Return, Slow Plant</td><td>回位要快，出手前最后一步要踩稳，先站稳再击球。</td><td>步法训练</td></tr>
+                <tr><td><strong>二次启动</strong></td><td>Double Start</td><td>第一次启动方向错误后的二次调整——耗费时间，应当尽量避免。</td><td>步法训练</td></tr>
+                <tr><td><strong>完整节奏循环</strong></td><td>Full Rhythm Cycle</td><td>启动→移动→击球→回位构成一个完整的移动节奏闭环。</td><td>步法训练</td></tr>
+            </tbody>
+        </table>
+
+        <h2>体能训练与强度缩写</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">RM</code></td><td>Repetition Maximum · 最大重复次数</td><td>某重量下最多能标准完成的次数：8-12RM练增肌，1-5RM练力量，15RM以上练耐力。</td><td>力量体能</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">1RM</code></td><td>One Repetition Maximum · 单次最大重量</td><td>只能标准完成1次的最大负荷，是换算各种百分比强度（如80% 1RM）的基准。</td><td>力量体能</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">RPE</code></td><td>Rate of Perceived Exertion · 主观疲劳评分</td><td>练完一组自己给当前费力程度打分，配合心率一起调控强度，不靠蛮干。</td><td>力量体能</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">HRmax</code></td><td>Maximal Heart Rate · 最大心率</td><td>用 220-年龄 估算的最大心率，各训练强度区间都按它的百分比划分。</td><td>力量体能</td></tr>
+                <tr><td><strong>间歇训练</strong></td><td>Interval Training</td><td>高强度与恢复交替进行，最贴近羽毛球"攻一拍缓一拍"的比赛供能节奏。</td><td>力量体能</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">HIIT</code></td><td>High-Intensity Interval Training · 高强度间歇训练</td><td>短时间全力冲刺加不完全恢复的间歇训练，效率高、神经消耗大，安排要克制。</td><td>力量体能</td></tr>
+                <tr><td><strong>代谢适应</strong></td><td>Metabolic Adaptation</td><td>三大能量系统对训练负荷产生的适应，是间歇性高强度项目的体能核心。</td><td>力量体能</td></tr>
+                <tr><td><strong>核心控制</strong></td><td>Core Control</td><td>核心肌群对躯干稳定性的控制，是发力传导与防伤的枢纽。</td><td>力量体能</td></tr>
+                <tr><td><strong>关节动态稳定</strong></td><td>Dynamic Joint Stability</td><td>在跑动、落地、击球中让关节保持稳定不乱晃的控制能力。</td><td>力量体能</td></tr>
+                <tr><td><strong>本体感觉</strong></td><td>Proprioception</td><td>身体在空间中位置与姿态的感知能力，单足站立是经典的自测动作。</td><td>基线评估</td></tr>
+                <tr><td><strong>死虫式</strong></td><td>Dead Bug</td><td>仰卧、对侧手脚交替伸出的核心训练动作，也是核心稳定测试项。</td><td>基线评估</td></tr>
+                <tr><td><strong>平板支撑</strong></td><td>Plank</td><td>前臂支撑、身体成直线的等长核心耐力动作，基准线参考45秒。</td><td>核心内容</td></tr>
+                <tr><td><strong>Y/T/W训练</strong></td><td>Y-T-W Exercises</td><td>手臂沿 Y、T、W 三个字母轨迹完成的肩胛骨稳定性训练动作。</td><td>运动解剖与康复</td></tr>
+            </tbody>
+        </table>
+
+        <h2>营养与恢复</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">TDEE</code></td><td>Total Daily Energy Expenditure · 每日总能耗</td><td>基础代谢乘以活动系数（久坐1.2到高强度1.725），是保持体重和规划增减的热量基准。</td><td>营养与恢复</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">BMR</code></td><td>Basal Metabolic Rate · 基础代谢率</td><td>静息状态下维持生命所需热量：男 10×体重kg＋6.25×身高cm-5×年龄＋5，女性末尾减161（kcal/天）。</td><td>营养与恢复</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">GI</code></td><td>Glycemic Index · 血糖生成指数</td><td>食物让血糖升得快慢：运动后选高GI快速补糖，平时与睡前选低GI更稳定。</td><td>营养与恢复</td></tr>
+                <tr><td><strong>肌糖原</strong></td><td>Muscle Glycogen</td><td>肌肉里储备的糖，是羽毛球的主要燃料；睡眠不足会明显降低它的合成效率。</td><td>营养与恢复</td></tr>
+                <tr><td><strong>糖原填充</strong></td><td>Glycogen Loading</td><td>赛前提高碳水比例、把肌糖原储备加到最大的策略。</td><td>营养与恢复</td></tr>
+                <tr><td><strong>超量恢复</strong></td><td>Supercompensation</td><td>训练-恢复后机能超过原有水平的窗口期，是安排下一次训练时机的依据。</td><td>训练哲学</td></tr>
+                <tr><td><strong>神经营养</strong></td><td>Neuro-Nutrition</td><td>支持神经系统功能的营养策略，重点是B族维生素与Omega-3等。</td><td>营养与恢复</td></tr>
+                <tr><td><strong>筋膜放松</strong></td><td>Fascial Recovery · 筋膜恢复</td><td>用筋膜球、泡沫轴等工具放松筋膜促进恢复，训练后与睡前都可以做。</td><td>营养与恢复</td></tr>
+                <tr><td><strong>睡眠优化</strong></td><td>Sleep Optimization</td><td>把睡眠当成第一恢复手段去管理的系统性策略，不可被任何补剂替代。</td><td>睡眠优化指南</td></tr>
+            </tbody>
+        </table>
+
+        <h2>运动解剖与康复</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><strong>激痛点</strong></td><td>Trigger Point · 扳机点</td><td>肌纤维内无法放松的条索状紧张带，按压酸痛，还可能引发牵涉痛。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>牵涉痛</strong></td><td>Referred Pain</td><td>痛觉信号在脊髓"串线"：刺激点明明在这，痛感却出现在别处。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>筋膜经线</strong></td><td>Fascial Meridians / Lines</td><td>筋膜在全身连成的力线网络，解释"肩痛为什么先查脚"这类远隔关联。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>后表线</strong></td><td>Superficial Back Line</td><td>足底→脊柱→帽状腱膜的背侧筋膜链。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>前表线</strong></td><td>Superficial Front Line</td><td>足背→腹肌→胸锁乳突肌的腹侧筋膜链。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>侧线</strong></td><td>Lateral Line</td><td>身体两侧起稳定作用的筋膜链。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>螺旋线</strong></td><td>Spiral Line</td><td>围绕身体呈螺旋走向的筋膜链，参与转体与发力。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>臂线</strong></td><td>Arm Line</td><td>连接躯干与上肢的筋膜链，过顶击球时反复受力。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>上交叉综合征</strong></td><td>Upper Crossed Syndrome</td><td>圆肩加头前引的肌肉失衡模式，是肩颈劳损的常见根源。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>下交叉综合征</strong></td><td>Lower Crossed Syndrome</td><td>骨盆前倾、腰腹与臀肌失衡的模式，常与腰痛、发力不畅相伴。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>肩袖</strong></td><td>Rotator Cuff</td><td>冈上肌、冈下肌、小圆肌、肩胛下肌四肌合称，负责稳定肩关节，过顶击球劳损高发。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>能量危机恶性循环</strong></td><td>Energy Crisis Cycle</td><td>激痛点形成的生理机制：能量供应不足→肌肉持续收缩→供血更差。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>运动控制链条</strong></td><td>Motor Control Chain</td><td>大脑→神经→肌肉→筋膜→骨骼→反馈构成的运动控制闭环。</td><td>运动解剖与康复</td></tr>
+                <tr><td><strong>重返运动标准</strong></td><td>Return-to-Play Criteria</td><td>伤后恢复训练的安全判定标准：逐级通过测试再上场，不凭"感觉不疼了"。</td><td>运动解剖与康复</td></tr>
+            </tbody>
+        </table>
+
+        <h2>损伤处理与筛查缩写</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">RICE</code></td><td>Rest · Ice · Compression · Elevation（休息、冰敷、加压、抬高）</td><td>急性损伤后48小时内的标准处理四原则，先处理再谈别的。</td><td>训练安全边界</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">DOMS</code></td><td>Delayed Onset Muscle Soreness · 延迟性肌肉酸痛</td><td>训练后24-72小时出现的正常酸痛；持续锐痛则是损伤信号，两者要分清。</td><td>训练安全边界</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">ACL</code></td><td>Anterior Cruciate Ligament · 前交叉韧带</td><td>膝关节的核心稳定结构之一，变向急停与落地训练要重点防护。</td><td>女性训练专项</td></tr>
+                <tr><td><code style="font-family:'JetBrains Mono',monospace;color:var(--accent)">BSFS</code></td><td>羽毛球专项功能筛查</td><td>6个功能测试组成的筛查，识别身体薄弱环节与损伤风险，定期重测对比。</td><td>羽毛球专项功能筛查</td></tr>
+            </tbody>
+        </table>
+
+        <h2>心理训练与比赛评估</h2>
+        <table>
+            <thead><tr><th>术语</th><th>全称 / 中文</th><th>一句话解释</th><th>所在文档</th></tr></thead>
+            <tbody>
+                <tr><td><strong>选择性注意力</strong></td><td>Selective Attention</td><td>在干扰中只聚焦关键信息、忽略噪音的能力，靠干扰场景训练提升。</td><td>心理训练</td></tr>
+                <tr><td><strong>心理韧性</strong></td><td>Mental Toughness</td><td>压力下保持专注与执行力的能力，不硬扛，靠逐级加压适应。</td><td>心理训练</td></tr>
+                <tr><td><strong>赛前流程化</strong></td><td>Pre-Performance Routine</td><td>把赛前准备固定成可重复的流程，用仪式感稳住状态。</td><td>心理训练</td></tr>
+                <tr><td><strong>自我对话</strong></td><td>Self-Talk</td><td>用关键词和积极语言有意识引导自己的注意力与心态，影响表现可高达70%。</td><td>心理训练</td></tr>
+                <tr><td><strong>注意力控制训练</strong></td><td>Attention Control Training</td><td>把注意力拆成持续、选择、分配三类分别诊断、分别训练。</td><td>心理训练</td></tr>
+                <tr><td><strong>压力分级</strong></td><td>L1-L5 Pressure Levels</td><td>把比赛压力从无压（L1）到极限（L5）拆成五级，逐级适应再上强度。</td><td>心理训练</td></tr>
+                <tr><td><strong>阅读比赛</strong></td><td>Match Reading</td><td>按拍面→引拍→手腕→习惯→比分的顺序逐层读取对手意图。</td><td>比赛阅读</td></tr>
+                <tr><td><strong>表现分析</strong></td><td>Performance Analysis</td><td>用数据复盘比赛表现，让下一步训练有依据而不是凭印象。</td><td>训练日志</td></tr>
+                <tr><td><strong>训练负荷</strong></td><td>Training Load</td><td>训练量×训练强度的综合度量，训练日志里长期追踪的核心指标。</td><td>训练日志</td></tr>
+            </tbody>
+        </table>
+
+        <div class="next">
+            <a href="40-search.html">← 全文搜索</a>
+            <a href="../index.html">返回首页 →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 900" width="650" height="900">
+  <rect width="650" height="900" fill="#0f172a" rx="8"/>
+  <text x="325" y="25" fill="#e2e8f0" font-family="sans-serif" font-size="14" text-anchor="middle" font-weight="bold">激痛点分布(正面)</text>
+
+    <!-- Head -->
+    <ellipse cx="250" cy="110" rx="40" ry="50" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <circle cx="250" cy="95" r="3" fill="#475569"/>
+    <path d="M 233 105 Q 240 112 248 108" fill="none" stroke="#475569" stroke-width="1"/>
+    <path d="M 267 105 Q 260 112 252 108" fill="none" stroke="#475569" stroke-width="1"/>
+    <!-- Neck -->
+    <rect x="230" y="155" width="40" height="30" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <!-- Torso -->
+    <path d="M 180 185 L 180 480 Q 180 500 200 500 L 300 500 Q 320 500 320 480 L 320 185" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <!-- Arms -->
+    <path d="M 180 200 L 100 320 L 85 450" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <path d="M 320 200 L 400 320 L 415 450" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <!-- Hands -->
+    <ellipse cx="82" cy="460" rx="15" ry="10" fill="none" stroke="#475569" stroke-width="1"/>
+    <ellipse cx="418" cy="460" rx="15" ry="10" fill="none" stroke="#475569" stroke-width="1"/>
+    <!-- Legs -->
+    <path d="M 210 500 L 190 700 L 175 830" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <path d="M 290 500 L 310 700 L 325 830" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <!-- Feet -->
+    <path d="M 155 830 L 175 830 L 190 840" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <path d="M 345 830 L 325 830 L 310 840" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <!-- Waist line -->
+    <line x1="180" y1="380" x2="320" y2="380" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <!-- Center line -->
+    <line x1="250" y1="185" x2="250" y2="830" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+    <circle cx="220" cy="245" r="8" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5"/><rect x="205" y="230" width="30" height="30" rx="3" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5"/><text x="220" y="242" fill="#ef4444" font-family="sans-serif" font-size="7" text-anchor="middle">胸大肌
+→肩前+臂内</text><circle cx="242" cy="292" r="8" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5"/><rect x="230" y="280" width="25" height="25" rx="3" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5"/><text x="242" y="292" fill="#ef4444" font-family="sans-serif" font-size="7" text-anchor="middle">腹直肌
+→腰部</text><circle cx="235" cy="382" r="8" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5"/><rect x="220" y="370" width="30" height="25" rx="3" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5"/><text x="235" y="382" fill="#ef4444" font-family="sans-serif" font-size="7" text-anchor="middle">髂腰肌
+→腹股沟+下背</text><circle cx="237" cy="462" r="8" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5"/><rect x="225" y="450" width="25" height="25" rx="3" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5"/><text x="237" y="462" fill="#ef4444" font-family="sans-serif" font-size="7" text-anchor="middle">股四头肌
+→膝前</text><circle cx="212" cy="630" r="8" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5"/><rect x="200" y="620" width="25" height="20" rx="3" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5"/><text x="212" y="632" fill="#ef4444" font-family="sans-serif" font-size="7" text-anchor="middle">胫骨前肌
+→足背</text><circle cx="132" cy="242" r="8" fill="#f59e0b" fill-opacity="0.4" stroke="#f59e0b" stroke-width="1.5"/><rect x="120" y="230" width="25" height="25" rx="3" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="0.5"/><text x="132" y="242" fill="#f59e0b" font-family="sans-serif" font-size="7" text-anchor="middle">肩胛下肌
+→肩后到腕</text><circle cx="167" cy="207" r="8" fill="#22c55e" fill-opacity="0.4" stroke="#22c55e" stroke-width="1.5"/><rect x="155" y="195" width="25" height="25" rx="3" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-width="0.5"/><text x="167" y="207" fill="#22c55e" font-family="sans-serif" font-size="7" text-anchor="middle">冈上肌
+→肩外侧</text><circle cx="172" cy="387" r="8" fill="#a78bfa" fill-opacity="0.4" stroke="#a78bfa" stroke-width="1.5"/><rect x="160" y="375" width="25" height="25" rx="3" fill="#a78bfa" fill-opacity="0.08" stroke="#a78bfa" stroke-width="0.5"/><text x="172" y="387" fill="#a78bfa" font-family="sans-serif" font-size="7" text-anchor="middle">臀中肌
+→臀外侧到髋</text><text x="370" y="200" fill="#ef4444" font-family="sans-serif" font-size="9" text-anchor="start">● 红框=常见激痛点</text><text x="370" y="215" fill="#94a3b8" font-family="sans-serif" font-size="9" text-anchor="start">→ 箭头=牵涉痛方向</text><path d="M 220 245 Q 240 230 250 220" fill="none" stroke="#ef4444" stroke-width="1" marker-end="url(#a)"/><path d="M 237 395 L 210 420" fill="none" stroke="#ef4444" stroke-width="1" marker-end="url(#a)"/><defs><marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ef4444"/></marker></defs></svg>

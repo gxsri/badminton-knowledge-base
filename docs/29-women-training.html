@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="生理期四阶段训练方案与 ACL 损伤预防">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女性训练专项 — 羽毛球职业训练系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:var(--orange)}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0;white-space:pre}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .exercise{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+        .exercise-title{font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .exercise-title::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">29</div>
+        <h1>女性训练专项</h1>
+        <div class="meta">女性羽毛球训练者 · 带女学员的教练参考 · 按生理周期调训 + 专项防伤，不是"缩小版男性"的减量版</div>
+
+        <h2>训练前提：女性不是"缩小版的男性"</h2>
+        <div class="callout">
+            <p><strong>核心理念：</strong>女性不是"缩小版的男性"。训练方法要在理解女性生理特点的基础上适配，而不是把男性计划简单"减量"。依据：ACSM 女性运动指南、NSCA 女性运动员训练专章、月经周期与运动表现研究。</p>
+        </div>
+        <p>先看男女在运动中的本质差异（以男性为基准）：</p>
+        <table>
+            <thead><tr><th>对比项</th><th>男性</th><th>女性</th></tr></thead>
+            <tbody>
+                <tr><td><strong>肌肉量占比</strong></td><td>35-45%</td><td>25-35%</td></tr>
+                <tr><td><strong>体脂率正常范围</strong></td><td>10-20%</td><td>20-30%</td></tr>
+                <tr><td><strong>最大力量</strong></td><td>基准</td><td>约 60-75%</td></tr>
+                <tr><td><strong>下肢力量</strong></td><td>基准</td><td>约 70-80%</td></tr>
+                <tr><td><strong>上肢力量</strong></td><td>基准</td><td>约 50-60%</td></tr>
+                <tr><td><strong>有氧耐力</strong></td><td>基准</td><td>约 85-95%</td></tr>
+            </tbody>
+        </table>
+        <p>由此得到三条训练结论：</p>
+        <ul>
+            <li><strong>① 上肢差距最大（50-60%）：</strong>需要专门、系统的上肢训练——不是减量，是把缺的补上</li>
+            <li><strong>② 下肢差距较小（70-80%）：</strong>步法与技术训练可以参照同等标准要求</li>
+            <li><strong>③ 有氧耐力差距最小（85-95%）：</strong>体能训练不必减量，可以按同等强度安排</li>
+        </ul>
+
+        <h2>月经周期：会调，不是不能练</h2>
+        <p>月经周期不是训练的阻碍，是可以利用的"生理节律"。以 28 天为例，周期分四个阶段，每个阶段的身体状态不同：</p>
+        <table>
+            <thead><tr><th>阶段（天数）</th><th>身体状态</th><th>训练导向</th></tr></thead>
+            <tbody>
+                <tr><td><strong>月经期（第1-5天）</strong></td><td>雌激素、孕激素双低：能量最低、恢复最慢</td><td>降低强度：不做大力量与高强度间歇</td></tr>
+                <tr><td><strong>卵泡期（第6-14天）</strong></td><td>雌激素上升：力量与爆发力达峰值、恢复最快</td><td>黄金窗口：安排最大强度与最大量</td></tr>
+                <tr><td><strong>排卵期（第15-17天）</strong></td><td>雌激素峰值：韧带松弛度增加，ACL 损伤风险最高</td><td>强度可高，但落地与变向要格外控制</td></tr>
+                <tr><td><strong>黄体期（第18-28天）</strong></td><td>孕激素上升：体温升高、耐力下降、恢复变慢</td><td>降量增恢复，延长热身时间</td></tr>
+            </tbody>
+        </table>
+        <p>什么时候切换阶段？不是日历说了算，是身体说了算：</p>
+        <div class="code-block">
+<span class="k">阶段切换信号（身体优先于日历）：</span>
+
+月经 → 卵泡：出血量明显减少，精力恢复到能正常训练
+卵泡 → 排卵：力量感觉在峰值（关注第 14 天前后）
+排卵 → 黄体：体温升高，同样的训练更累，恢复变慢
+黄体 → 月经：胀痛/腹胀、情绪波动、训练动力下降
+<span class="c">信号出现即切换；黄体 → 月经信号出现 = 进入减量模式</span>
+        </div>
+
+        <h2>四阶段训练方案（28 天工作流）</h2>
+
+        <h3>阶段① 月经期（第1-5天）：低强度恢复</h3>
+        <p><strong>身体状态：</strong>能量最低、疲劳最强、恢复最差；出血量大的日子可能有轻微贫血。</p>
+        <p><strong>原则：</strong>"练可以，但不要冲。"强度降到平时的 60-70%，不做最大力量、高强度间歇与长时间剧烈跑动。</p>
+        <table>
+            <thead><tr><th>环节</th><th>内容与参数</th><th>时长</th></tr></thead>
+            <tbody>
+                <tr><td><strong>热身</strong></td><td>慢跑 + 动态拉伸，降低强度，以身体感觉为准</td><td>15 分钟</td></tr>
+                <tr><td><strong>技术</strong></td><td>定点多球，不跑动只练手上：15 个/组 × 3 组，组间休息 90 秒</td><td>20 分钟</td></tr>
+                <tr><td><strong>恢复</strong></td><td>静态拉伸 + 呼吸训练</td><td>10-15 分钟</td></tr>
+            </tbody>
+        </table>
+        <p><strong>选项 B：完全休息。</strong>出血量大或明显不适时直接休息——休息也是训练的一部分，不必有负罪感；可以做轻度散步或瑜伽。</p>
+
+        <h3>阶段② 卵泡期（第6-14天）：训练黄金窗口</h3>
+        <p><strong>身体状态：</strong>雌激素上升，力量与爆发力提升、恢复速度最快、体能水平上升。</p>
+        <p><strong>原则：</strong>这是一个月中训练效率最高的 10 天，不要浪费。总时长 90-120 分钟，构成如下：</p>
+        <table>
+            <thead><tr><th>环节</th><th>内容与参数</th><th>时长</th></tr></thead>
+            <tbody>
+                <tr><td><strong>热身</strong></td><td>动态拉伸 + 步法激活 + 少量冲刺</td><td>15 分钟</td></tr>
+                <tr><td><strong>力量（最大力量窗口）</strong></td><td>深蹲 3 组 × 8 次（重量 80-85% 1RM）；弓步 3 组 × 8 次/侧；核心 3 组 × 15 次</td><td>30 分钟</td></tr>
+                <tr><td><strong>技术（爆发力优先）</strong></td><td>杀球、杀上网、跳杀：20 个/组 × 4 组，组间休息 60 秒</td><td>30-45 分钟</td></tr>
+                <tr><td><strong>体能</strong></td><td>间歇跑：15 秒工作 + 15 秒休息 × 12 轮</td><td>15 分钟</td></tr>
+            </tbody>
+        </table>
+
+        <h3>阶段③ 排卵期（第15-17天）：高强度 + 防伤</h3>
+        <div class="callout warn">
+            <p><strong>最重要警示（ACSM 数据）：</strong>女性在排卵期前后 ACL 损伤的发生率约为黄体期的 3-4 倍——雌激素水平升高会使韧带松弛度增加。</p>
+        </div>
+        <p><strong>身体状态：</strong>力量与爆发力仍在高位，但前交叉韧带损伤风险达到周期峰值。</p>
+        <p><strong>原则：</strong>强度可以高，但变向与落地要格外控制。总时长 90 分钟：</p>
+        <table>
+            <thead><tr><th>环节</th><th>内容与参数</th><th>时长</th></tr></thead>
+            <tbody>
+                <tr><td><strong>热身（比平时多 5 分钟）</strong></td><td>落地控制：原地跳 → 落地保持 3 秒 × 10 次；侧向跳 × 10 次/侧；单腿落地、膝盖对准第二脚趾 × 10 次/侧</td><td>20 分钟</td></tr>
+                <tr><td><strong>主体</strong></td><td>高强度技术照练，但避免：极限变向、疲劳状态下的急停/变向、跳杀落地不稳后继续跑</td><td>50 分钟</td></tr>
+                <tr><td><strong>体能</strong></td><td>可做高强度间歇，但注意疲劳时的落地质量；落地姿势一变差立即停止</td><td>20 分钟</td></tr>
+            </tbody>
+        </table>
+
+        <h3>阶段④ 黄体期（第18-28天）：量降质不降</h3>
+        <p><strong>身体状态：</strong>孕激素上升，体温升高约 0.3-0.5℃，同等强度心率比平时高 5-10 bpm，恢复变慢；体重可能增加 1-2 kg，那是水分潴留，不是脂肪。</p>
+        <p><strong>原则：</strong>不要和身体对抗。识别信号、适当减量，重点从"量"转向"技术质量"。总时长 60-75 分钟（比黄金窗口减少 25-30%）：</p>
+        <table>
+            <thead><tr><th>环节</th><th>内容与参数</th><th>时长</th></tr></thead>
+            <tbody>
+                <tr><td><strong>热身（延长）</strong></td><td>慢跑 5 分钟让身体慢慢进入状态，动态拉伸比平时多 1 组（体温调节需要更久）</td><td>15 分钟</td></tr>
+                <tr><td><strong>主体（技术质量优先）</strong></td><td>不做：大重量力量（最大力量下降约 5-10%）、长时间高强度间歇、极限体能对抗。做：技术细节训练、战术训练、中低强度有氧（心率 60-70% HRmax）</td><td>40-50 分钟</td></tr>
+                <tr><td><strong>整理</strong></td><td>静态拉伸 + 筋膜放松——黄体期肌肉更容易紧张</td><td>15 分钟</td></tr>
+            </tbody>
+        </table>
+
+        <h2>ACL 损伤预防专项</h2>
+        <p>前交叉韧带（ACL）损伤是女性最高发的羽毛球损伤，可以预防，必须预防。</p>
+        <div class="callout warn">
+            <p><strong>数据：</strong>女性 ACL 损伤率约为男性的 4-6 倍（NSCA）；约 70% 的损伤发生在非接触情况下（落地/变向）；排卵期前后的发生率最高。</p>
+        </div>
+        <h3>为什么女性更容易伤</h3>
+        <ul>
+            <li><strong>解剖差异：</strong>骨盆更宽 → 股骨 Q 角更大 → 膝盖更容易内扣</li>
+            <li><strong>激素影响：</strong>雌激素使韧带松弛</li>
+            <li><strong>肌力激活模式：</strong>更依赖股四头肌发力，腘绳肌激活不足</li>
+            <li><strong>落地模式：</strong>落地时膝盖更直、更内扣</li>
+        </ul>
+        <h3>预防专项训练（每周 2-3 次，每次约 10 分钟）</h3>
+        <p>全年执行，排卵期前后是重点窗口。按固定顺序做：</p>
+        <div class="code-block">
+<span class="k">① 臀中肌激活（2 分钟）</span>
+蚌式开合：15 次/侧 × 2 组
+
+<span class="k">② 落地控制（3 分钟）</span>
+原地跳 → 落地保持 3 秒：10 次
+侧向跳 → 落地保持 3 秒：10 次/侧
+
+<span class="k">③ 腘绳肌强化（3 分钟）</span>
+单腿腘绳肌桥：12 次/侧 × 2 组
+北欧腘绳肌降阶版：8 次 × 2 组
+
+<span class="k">④ 变向控制（2 分钟）</span>
+慢速变向 → 渐快 → 正常速度
+<span class="c">全程规则：任何落地与变向，膝盖都不内扣、对准第二脚趾</span>
+        </div>
+
+        <h2>常见误区澄清</h2>
+        <table>
+            <thead><tr><th>误区</th><th>事实</th></tr></thead>
+            <tbody>
+                <tr><td><strong>"生理期不能运动"</strong></td><td>大多数人在生理期可以轻度训练（强度 60-70%）；完全不运动反而可能加重痛经</td></tr>
+                <tr><td><strong>"女生训练量应是男生的 70%"</strong></td><td>下肢与技术训练不必减量，可参照同等标准；有氧耐力差距很小（85-95%），可按同等强度。需要专门调整的是上肢训练内容，不是整体减量</td></tr>
+                <tr><td><strong>"女生练力量会变壮"</strong></td><td>女性睾酮水平约为男性的 1/10-1/20，增肌速度远低于男性。力量训练不会让女性"变壮"，而是更强、更不容易受伤</td></tr>
+                <tr><td><strong>"月经不规律没关系"</strong></td><td>连续 3 个月以上不规律 + 训练表现下降，应就医排查——警惕女运动员三联征（能量摄入不足 + 月经紊乱 + 骨密度下降）信号</td></tr>
+            </tbody>
+        </table>
+        <div class="callout info">
+            <p><strong>给教练：问，不要猜。</strong>"今天感觉怎么样？要不要调整？"同时观察异常信号——同样的训练突然变慢/变累、技术动作突然变形、注意力明显下降，出现就主动降量，不硬顶。</p>
+        </div>
+
+                        <h2>🛡️ 髋部激活与落地控制动图</h2>
+        <p>臀中肌控制与落地缓冲是 ACL 预防的核心，建议训练前做 2 组、每组 10–15 次。</p>
+        <div class="demo-grid" data-bl-gallery="acl-demo">
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0628-O95afRA.gif" alt="弹力带侧向行走动图示范（monster walk）"></div>
+                <div class="demo-name">弹力带侧向行走<small>monster walk · 弹力带</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0710-7WaDzyL.gif" alt="侧卧髋外展动图示范（side hip abduction）"></div>
+                <div class="demo-name">侧卧髋外展<small>side hip abduction · 徒手</small></div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-media"><img loading="lazy" src="../images/exercises/0514-LIlE5Tn.gif" alt="跳跃深蹲动图示范（jump squat）"></div>
+                <div class="demo-name">跳跃深蹲<small>jump squat · 徒手</small></div>
+            </div>
+        </div>
+        <p class="demo-credit">动图素材 © Gym visual — gymvisual.com（180×180，经 hasaneyldrm/exercises-dataset 再分发，保留署名）；来源与逐文件对照见 <span class="mono">images/exercises/README.md</span>。</p>
+
+
+<div class="next">
+            <a href="28-equipment-guide.html">← 装备指南</a>
+            <a href="30-warmup-cooldown.html">热身与整理 →</a>
+        </div>
+    </div>
+</body>
+</html>
