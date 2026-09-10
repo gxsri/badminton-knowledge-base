@@ -75,7 +75,7 @@ const ALLOWED_TAGS = new Set(['div','section','table','tbody','thead','tr','td',
 const VOID_TAGS = new Set(['br','hr','img','input','meta','link','source','wbr','area','base','col','embed','track','param']);
 const LS_ALLOWED = new Set(['badminton-baseline','badminton-history','badminton-stats','badminton-level-locator','safety-check-log','bsfs-history',
     'level0-progress','level1-progress','level2-progress','level3-progress','level4-progress','level5-progress','level6-progress','level7-progress',
-    'training-calendar','match-records','body-status','diet-records','skill-radar']);
+    'training-calendar','match-records','body-status','diet-records','skill-radar','bl-theme']);
 
 function stripBlocks(text) {
     return text
@@ -239,6 +239,17 @@ for (const rel of htmlFiles) {
         catch { bad(tag, `图片引用缺失: ${raw}`); }
     }
     for (const m of cleanHtml.matchAll(/<img\b(?![^>]*\salt=)[^>]*>/g)) bad(tag, '存在缺少 alt 的 <img>');
+
+    // 共享视觉增强层（主题切换/进度条/目录）必须注入且资源可达
+    if (!/assets\/site-ui\.css/.test(text)) bad(tag, '缺少 site-ui.css 引用');
+    if (!/assets\/site-ui\.js/.test(text)) bad(tag, '缺少 site-ui.js 引用');
+    for (const m of cleanHtml.matchAll(/<link\s[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)) {
+        const raw = m[1];
+        if (!raw || raw.startsWith('http') || raw.startsWith('//')) continue;
+        const target = resolve(ROOT, base + decodeURIComponent(raw));
+        try { if (!statSync(target).isFile()) bad(tag, `样式表引用缺失: ${raw}`); }
+        catch { bad(tag, `样式表引用缺失: ${raw}`); }
+    }
 
     // 本页零问题则记一次通过（让"全绿"直观可见）
     if (failures === 0 && warnings === 0) ok(tag, '全部结构/脚本/链接检查通过');

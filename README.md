@@ -26,7 +26,11 @@ https://gxsri.github.io/badminton-knowledge-base/
 - **入口**：`docs/00-quickstart.html` 快速开始（5 分钟完成基线测试）；`docs/40-search.html` 全文搜索（登记表驱动）
 - **健身与体能**：`docs/17-fitness-plan.html` 含动作示范动图（`images/exercises/`，© Gym visual 180×180，来源与许可见该目录 `README.md`）
 - **工程质量**：`tests/regression.mjs` 静态回归（56 项检查：登记表完整性/结构/链接/脚本/素材署名），修改后运行 `node tests/regression.mjs`；页面制作规范见 `scripts/PAGE-SPEC.md`
-- **维护脚本**：`scripts/`（编号迁移、品牌/head 统一、前后篇导航、动图嵌入、素材引用修复等，均幂等可复跑）
+- **视觉与交互**（`assets/site-ui.css` + `assets/site-ui.js`，全站 52 页共享）：
+  - ☀️/🌙 **深色/浅色主题切换**（记忆偏好、防首屏闪烁、打印自动白底）
+  - 顶部**阅读进度条**、宽屏**本页目录**（滚动高亮）、**回到顶部**按钮、标题锚点
+  - 排版细化：中文系统字体回退栈、表格斑马纹与悬停、移动端表格横向滚动、卡片层次阴影、焦点可见性、`prefers-reduced-motion`
+- **维护脚本**：`scripts/`（编号迁移、品牌/head 统一、视觉增强注入、前后篇导航、动图嵌入、素材引用修复等，均幂等可复跑）
 
 > 说明：为适配国内网络（GFW），主页已移除 Google Fonts 外链，使用系统字体栈；文档页保留字体链接，被墙时自动回退，不影响阅读。
 

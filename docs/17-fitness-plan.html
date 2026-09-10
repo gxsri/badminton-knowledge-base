@@ -57,6 +57,10 @@
         .demo-name small{display:block;color:var(--text-2);font-weight:400;font-size:.72rem;margin-top:.1rem}
         .demo-credit{font-size:.8rem;color:var(--text-2);margin-top:.5rem}
     </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
 </head>
 <body>
     <div class="back"><a href="../index.html">← 返回首页</a></div>

@@ -501,6 +501,19 @@
             color: var(--accent-2);
         }
 
+        .doc-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.5rem; }
+        .doc-tags .doc-tag { margin-top: 0; background: var(--surface-2); color: var(--text-2); }
+
+        .lib-count {
+            margin-left: auto;
+            font-size: 0.78rem !important;
+            color: var(--text-2);
+            padding: 0.1rem 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            white-space: nowrap;
+        }
+
         /* ===== EXERCISE ===== */
         .exercise {
             background: var(--surface);
@@ -667,6 +680,10 @@
             a { color: inherit; text-decoration: none; }
         }
     </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="assets/site-ui.css">
+    <script src="assets/site-ui.js" defer></script>
 </head>
 <body>
     <nav>
@@ -693,6 +710,7 @@
             <div class="hero-actions">
                 <a href="#philosophy" class="btn btn-fill">开始学习</a>
                 <a href="#docs" class="btn btn-ghost">浏览文档</a>
+                <a href="docs/40-search.html" class="btn btn-ghost">🔍 搜索文档</a>
             </div>
         </div>
     </section>
@@ -1439,19 +1457,22 @@
                 const root = document.getElementById('library-root');
                 if (!root) return true;
                 const data = window.DOCS_DATA;
+                const ICONS = { framework: '🎯', route: '📈', topic: '📚', tool: '🧰' };
                 const parts = [];
                 for (const g of data.groups) {
                     if (g.key === 'route') continue; // 8级路线已在 levels 区展示
                     const list = data.docs.filter(d => d.group === g.key);
                     if (!list.length) continue;
                     parts.push('<div class="lib-group">');
-                    parts.push('<div class="lib-head"><h3>' + g.name + '</h3><span>' + g.desc + '</span></div>');
+                    parts.push('<div class="lib-head"><h3>' + (ICONS[g.key] || '📄') + ' ' + g.name + '</h3><span>' + g.desc + '</span><span class="lib-count">' + list.length + ' 篇</span></div>');
                     parts.push('<div class="doc-grid">');
                     for (const d of list) {
+                        const chips = (d.tags || []).slice(0, 2).map(t => '<span class="doc-tag">' + t + '</span>').join('');
                         parts.push('<a class="doc-card" href="docs/' + d.file + '"><div>');
                         parts.push('<div class="doc-num">' + d.num + '</div>');
                         parts.push('<div class="doc-title">' + d.title + '</div>');
                         parts.push('<div class="doc-desc">' + d.desc + '</div>');
+                        parts.push(chips ? '<div class="doc-tags">' + chips + '</div>' : '');
                         parts.push('</div></a>');
                     }
                     parts.push('</div></div>');

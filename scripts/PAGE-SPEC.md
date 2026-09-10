@@ -13,7 +13,9 @@
    - `<title>{页面名} — 羽毛球职业训练系统</title>`（品牌后缀固定，不得省略）
    - Google Fonts 加载链接（Noto Sans SC + JetBrains Mono），与现有页面完全一致
    - `<style>` 末尾保留 `@media print` 打印配色块
-   （head 三项统一项可运行 `node scripts/unify-head.mjs` 自动补齐/修复）
+   - 共享视觉增强层（**必须保留，勿删除**）：主题引导内联脚本 + `assets/site-ui.css` + `assets/site-ui.js`，
+     由 `node scripts/apply-site-ui.mjs` 幂等注入（提供深浅主题切换、阅读进度条、本页目录、回到顶部、标题锚点、移动端表格横向滚动）
+   （head 其余统一项可运行 `node scripts/unify-head.mjs` 自动补齐/修复）
 2. `<body>` 顶部固定：`<div class="back"><a href="../index.html">← 返回首页</a></div>`
 3. 主体容器：`<div class="content">`（max-width 800px 居中，由 CSS 控制）
 4. 页面头：`<div class="doc-badge">NN</div>`（NN = 本页编号，见下表）→ `<h1>` → `<div class="meta">…</div>`
