@@ -255,7 +255,18 @@ h2:hover .bl-anchor, h3:hover .bl-anchor, .bl-anchor:focus { opacity: 0.75; }
     text-overflow: ellipsis;
     max-width: 48vw;
 }
-@media (max-width: 640px) { .bl-crumb { display: none; } }
+@media (max-width: 900px) { .bl-crumb { display: none; } }
+
+/* 导航内的切换器按钮（主页）：宽度自适应，不做圆形 */
+.nav-links #bl-docs,
+.nav-links #bl-docs:hover {
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    background: none;
+    transform: none;
+}
+.nav-links #bl-docs:hover { background: var(--surface); }
 
 #bl-docs {
     width: 34px; height: 34px;

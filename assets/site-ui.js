@@ -239,9 +239,19 @@
         btn.setAttribute('aria-label', '打开文档快速切换');
         btn.title = '文档快速切换（按 / 键）';
         btn.textContent = '📚';
+        var navList = doc.querySelector('.nav-links');
         if (bar) {
             bar.appendChild(el('span', null, 'bl-bar-spacer'));
             bar.appendChild(btn);
+        } else if (navList) {
+            /* 主页：作为导航项，避免右下角悬浮按钮堆叠 */
+            btn.classList.add('nav-link-btn');
+            btn.textContent = '📚 快速跳转';
+            var li = el('li', null, 'nav-docs-item');
+            li.appendChild(btn);
+            var cta = navList.querySelector('.nav-cta');
+            if (cta && cta.parentElement) navList.insertBefore(li, cta.parentElement);
+            else navList.appendChild(li);
         } else {
             doc.body.appendChild(btn);
         }
