@@ -161,6 +161,168 @@
         });
     }
 
+    /* ---------- 代码块一键复制 ---------- */
+    function legacyCopy(text, done) {
+        try {
+            var ta = doc.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', 'readonly');
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            doc.body.appendChild(ta);
+            ta.select();
+            doc.execCommand('copy');
+            doc.body.removeChild(ta);
+            done();
+        } catch (e) { /* 忽略：可手动选择复制 */ }
+    }
+    function addCopyButtons() {
+        var blocks = Array.prototype.slice.call(doc.querySelectorAll('.code-block, pre'));
+        blocks.forEach(function (block) {
+            if (block.getAttribute('data-bl-copy')) return;
+            block.setAttribute('data-bl-copy', '1');
+            var text = block.textContent;
+            var btn = el('button', null, 'bl-copy');
+            btn.type = 'button';
+            btn.textContent = '复制';
+            btn.setAttribute('aria-label', '复制本段内容');
+            btn.title = '复制本段内容';
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                var done = function () {
+                    btn.textContent = '✓ 已复制';
+                    btn.classList.add('ok');
+                    setTimeout(function () { btn.textContent = '复制'; btn.classList.remove('ok'); }, 1600);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, function () { legacyCopy(text, done); });
+                } else legacyCopy(text, done);
+            });
+            block.classList.add('bl-copyable');
+            block.appendChild(btn);
+        });
+    }
+
+    /* ---------- 文档快速切换器 + 面包屑（读取 docs-data.js 登记表） ---------- */
+    function registryUrl() {
+        var tags = doc.querySelectorAll('script[src]');
+        for (var i = 0; i < tags.length; i++) {
+            var src = tags[i].getAttribute('src') || '';
+            if (src.indexOf('site-ui.js') > -1) return src.replace('assets/site-ui.js', 'docs-data.js');
+        }
+        return null;
+    }
+    function currentFile() {
+        var parts = location.pathname.split('/');
+        var last = parts[parts.length - 1];
+        return (!last || last === '') ? 'index.html' : last;
+    }
+    function buildSwitcher(data) {
+        if (!data || !data.docs || !data.docs.length) return;
+        var docs = data.docs, groups = data.groups || [];
+        var nameOf = {};
+        groups.forEach(function (g) { nameOf[g.key] = g.name; });
+        var me = currentFile(), mine = null;
+        docs.forEach(function (d) { if (d.file === me) mine = d; });
+
+        var bar = doc.querySelector('.back');
+        var prefix = bar ? '' : 'docs/'; /* 主页位于仓库根，文档在 docs/ 下 */
+        if (bar && mine && !bar.querySelector('.bl-crumb')) {
+            var crumb = el('span', null, 'bl-crumb');
+            crumb.textContent = '/ ' + (nameOf[mine.group] || '文档') + ' / ' + mine.title;
+            bar.appendChild(crumb);
+        }
+
+        var btn = el('button', 'bl-docs');
+        btn.type = 'button';
+        btn.setAttribute('aria-haspopup', 'dialog');
+        btn.setAttribute('aria-label', '打开文档快速切换');
+        btn.title = '文档快速切换（按 / 键）';
+        btn.textContent = '📚';
+        if (bar) {
+            bar.appendChild(el('span', null, 'bl-bar-spacer'));
+            bar.appendChild(btn);
+        } else {
+            doc.body.appendChild(btn);
+        }
+
+        var panel = el('div', 'bl-docs-panel');
+        panel.setAttribute('role', 'dialog');
+        panel.setAttribute('aria-modal', 'true');
+        panel.setAttribute('aria-label', '文档快速切换');
+        var wrapper = el('div', null, 'bl-docs-box');
+        var head = el('div', null, 'bl-docs-head');
+        var input = doc.createElement('input');
+        input.type = 'search';
+        input.className = 'bl-docs-input';
+        input.placeholder = '筛选文档（标题 / 关键词 / 编号）…';
+        input.setAttribute('aria-label', '筛选文档');
+        var close = el('button', null, 'bl-docs-close');
+        close.type = 'button';
+        close.textContent = '✕';
+        close.setAttribute('aria-label', '关闭');
+        head.appendChild(input);
+        head.appendChild(close);
+        var list = el('div', null, 'bl-docs-list');
+        wrapper.appendChild(head);
+        wrapper.appendChild(list);
+        panel.appendChild(wrapper);
+        doc.body.appendChild(panel);
+
+        function render(q) {
+            q = (q || '').trim().toLowerCase();
+            var html = [];
+            groups.forEach(function (g) {
+                var items = docs.filter(function (d) { return d.group === g.key; });
+                if (q) {
+                    items = items.filter(function (d) {
+                        return (d.num + ' ' + d.title + ' ' + d.desc + ' ' + (d.tags || []).join(' ')).toLowerCase().indexOf(q) > -1;
+                    });
+                }
+                if (!items.length) return;
+                html.push('<div class="bl-docs-group">' + g.name + ' · ' + items.length + '</div>');
+                items.forEach(function (d) {
+                    html.push('<a class="bl-docs-item' + (d.file === me ? ' is-current' : '') + '" href="' + prefix + d.file + '">' +
+                        '<span class="n">' + d.num + '</span>' +
+                        '<span class="t">' + d.title + '</span>' +
+                        '<span class="d">' + d.desc + '</span></a>');
+                });
+            });
+            list.innerHTML = html.join('') || '<div class="bl-docs-empty">没有匹配的文档</div>';
+        }
+        render('');
+
+        var open = false;
+        function show() {
+            if (open) return;
+            open = true;
+            panel.classList.add('show');
+            render('');
+            input.value = '';
+            setTimeout(function () { input.focus(); }, 30);
+        }
+        function hide() { open = false; panel.classList.remove('show'); }
+        btn.addEventListener('click', function () { if (open) hide(); else show(); });
+        close.addEventListener('click', hide);
+        panel.addEventListener('click', function (e) { if (e.target === panel) hide(); });
+        input.addEventListener('input', function () { render(input.value); });
+        doc.addEventListener('keydown', function (e) {
+            var typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '');
+            if (e.key === 'Escape' && open) hide();
+            if (e.key === '/' && !open && !typing) { e.preventDefault(); show(); }
+        });
+    }
+    function initSwitcher() {
+        if (window.DOCS_DATA) { buildSwitcher(window.DOCS_DATA); return; }
+        var url = registryUrl();
+        if (!url) return;
+        var s = doc.createElement('script');
+        s.src = url;
+        s.async = true;
+        s.onload = function () { buildSwitcher(window.DOCS_DATA); };
+        doc.head.appendChild(s);
+    }
+
     /* ---------- 挂载 ---------- */
     function mount() {
         updateThemeBtn();
@@ -171,7 +333,9 @@
         var toc = buildToc();
         if (toc) doc.body.appendChild(toc);
         wrapTables();
+        try { addCopyButtons(); } catch (e) { /* 复制按钮失败不影响阅读 */ }
         animateStats();
+        try { initSwitcher(); } catch (e) { /* 切换器失败不影响阅读 */ }
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onScroll, { passive: true });
         onScroll();
