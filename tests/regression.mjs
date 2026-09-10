@@ -14,6 +14,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
+import { GIFS } from '../scripts/exercise-gifs.data.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -297,18 +298,20 @@ if (DATA) {
     });
     ok('前后篇导航对称性', `脊柱 ${spine.length} 页（03 + 专项 12-32）首尾相接`);
 
-    // 动作示范素材（images/exercises）
+    // 动作示范素材（images/exercises）：磁盘 ↔ 台账 ↔ README 三方一致
     const exDir = resolve(ROOT, 'images/exercises');
     try {
-        const gifs = readdirSync(exDir).filter(f => f.endsWith('.gif'));
+        const gifs = readdirSync(exDir).filter(f => f.endsWith('.gif')).sort();
         if (gifs.length < 5) bad('images/exercises', `GIF 数量异常: ${gifs.length}`);
         const exReadme = readFileSync(resolve(exDir, 'README.md'), 'utf8');
         if (!exReadme.includes('Gym visual') || !exReadme.includes('gymvisual.com')) bad('images/exercises/README.md', '缺少 Gym visual 署名与来源');
-        for (const f of ['docs/17-fitness-plan.html', 'docs/16-strength-conditioning.html']) {
-            const c = html(f);
-            if (!c.includes('../images/exercises/')) bad(f, '未引用动作示范素材');
+        for (const g of GIFS) {
+            if (!gifs.includes(g.file)) bad('素材台账', `台账有、磁盘缺: ${g.file}`);
+            if (!g.zh || !g.en || !g.eq) bad('素材台账', `${g.file} 缺少中文名/英文名/器材`);
+            if (!exReadme.includes(g.file)) bad('images/exercises/README.md', `README 未登记: ${g.file}`);
         }
-        ok('动作示范素材', `${gifs.length} 个 GIF + 来源/署名 README 齐全`);
+        for (const f of gifs) if (!GIFS.some(g => g.file === f)) bad('素材台账', `磁盘有、台账缺: ${f}`);
+        ok('动作示范素材', `${gifs.length} 个 GIF · 台账/README/磁盘三方一致 · 署名齐全`);
     } catch (e) {
         bad('images/exercises', `素材目录异常: ${e.message}`);
     }
