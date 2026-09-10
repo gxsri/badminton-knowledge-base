@@ -58,9 +58,9 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 
 h2, h3, h4 { scroll-margin-top: 76px; }
 
-/* 顶栏在浅色主题下的表现 */
+/* 顶栏在浅色主题下的表现（仅顶部导航，页脚 <nav> 不受影响） */
 :root[data-theme="light"] .back,
-:root[data-theme="light"] nav {
+:root[data-theme="light"] .topnav {
     background: var(--bl-panel) !important;
     border-bottom-color: var(--border);
 }

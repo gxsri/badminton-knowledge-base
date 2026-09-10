@@ -38,8 +38,10 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* ===== NAV ===== */
-        nav {
+        /* ===== NAV =====
+           注意：只对顶部导航（.topnav）应用固定定位。
+           页脚也含 <nav>，若用裸标签选择器会把它一并钉在页面顶部。 */
+        .topnav {
             position: fixed;
             top: 0;
             left: 0;
@@ -49,6 +51,7 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
+        :root[data-theme="light"] .topnav { background: rgba(255, 255, 255, 0.9); }
 
         .nav-inner {
             max-width: 1200px;
@@ -145,7 +148,7 @@
                 box-shadow: var(--shadow-2);
                 z-index: 130;
             }
-            nav.open .nav-links { display: flex; }
+            .topnav.open .nav-links { display: flex; }
             .nav-links a, .nav-link-btn { width: 100%; justify-content: flex-start; padding: 0.7rem 0.8rem; font-size: 0.95rem; }
             .nav-drop-menu {
                 position: static;
@@ -811,7 +814,7 @@
     <script src="assets/site-ui.js" defer></script>
 </head>
 <body>
-    <nav>
+    <nav class="topnav">
         <div class="nav-inner">
             <a class="logo" href="#"><span>🏸</span> Badminton NSCA</a>
             <button class="nav-toggle" id="navToggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navLinks">☰</button>
@@ -1661,7 +1664,7 @@
     <script>
         // 移动端导航 + 下拉菜单（触屏/键盘）+ 滚动高亮
         (function () {
-            var navEl = document.querySelector('nav');
+            var navEl = document.querySelector('.topnav');
             var toggle = document.getElementById('navToggle');
             if (!navEl || !toggle) return;
 

@@ -251,6 +251,12 @@ for (const rel of htmlFiles) {
         catch { bad(tag, `样式表引用缺失: ${raw}`); }
     }
 
+    // 防回归：多个 <nav> 时不得存在"裸 nav 选择器"（曾导致页脚导航被固定到页面顶部）
+    const navCount = (cleanHtml.match(/<nav[\s>]/g) || []).length;
+    const styleText = (text.match(/<style[\s\S]*?<\/style>/gi) || []).join('\n');
+    if (navCount > 1 && /(^|\})\s*nav\s*\{/m.test(styleText))
+        bad(tag, `存在 ${navCount} 个 <nav> 且样式含裸 nav 选择器（会把页脚导航也固定到顶部）`);
+
     // 本页零问题则记一次通过（让"全绿"直观可见）
     if (failures === 0 && warnings === 0) ok(tag, '全部结构/脚本/链接检查通过');
 }
