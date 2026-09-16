@@ -352,12 +352,131 @@
         doc.head.appendChild(s);
     }
 
+    /* ---------- 本地数据导出 / 导入（换设备、清缓存前的保险） ---------- */
+    function userKeys() {
+        var out = [];
+        try {
+            for (var i = 0; i < localStorage.length; i++) {
+                var k = localStorage.key(i);
+                if (k && k.indexOf('bl-') !== 0) out.push(k);   /* bl-* 是界面偏好，不参与备份 */
+            }
+        } catch (e) { /* 隐私模式忽略 */ }
+        return out;
+    }
+    function buildDataPanel() {
+        if (doc.getElementById('bl-data')) return;
+        var btn = el('button', 'bl-data');
+        btn.type = 'button';
+        btn.textContent = '💾';
+        btn.title = '导出 / 导入我的训练数据';
+        btn.setAttribute('aria-label', '导出或导入我的训练数据');
+        btn.setAttribute('aria-haspopup', 'dialog');
+        doc.body.appendChild(btn);
+
+        var panel = el('div', 'bl-data-panel');
+        panel.setAttribute('role', 'dialog');
+        panel.setAttribute('aria-modal', 'true');
+        panel.setAttribute('aria-label', '训练数据管理');
+        var box = el('div', null, 'bl-docs-box');
+        var head = el('div', null, 'bl-docs-head');
+        head.innerHTML = '<strong style="flex:1">💾 我的训练数据</strong>';
+        var close = el('button', null, 'bl-docs-close');
+        close.type = 'button';
+        close.textContent = '✕';
+        close.setAttribute('aria-label', '关闭');
+        head.appendChild(close);
+
+        var actions = el('div', null, 'bl-data-actions');
+        var exp = el('button', null, 'bl-data-btn');
+        exp.type = 'button';
+        exp.textContent = '⬇️ 导出为 JSON';
+        var imp = el('button', null, 'bl-data-btn');
+        imp.type = 'button';
+        imp.textContent = '⬆️ 从 JSON 导入';
+        var clr = el('button', null, 'bl-data-btn danger');
+        clr.type = 'button';
+        clr.textContent = '🗑️ 清空本机数据';
+        actions.appendChild(exp);
+        actions.appendChild(imp);
+        actions.appendChild(clr);
+
+        var note = el('p', null, 'bl-data-note');
+        function refreshNote() {
+            var keys = userKeys();
+            note.innerHTML = '当前本机保存了 <strong>' + keys.length + '</strong> 项训练数据（' +
+                (keys.length ? keys.slice(0, 6).join('、') + (keys.length > 6 ? ' …' : '') : '还没有记录') +
+                '）。<br>数据只存在你的浏览器里：换设备、换浏览器或清理缓存前，请先导出；在新设备导入即可恢复。站点不收集任何数据。';
+        }
+        refreshNote();
+
+        var file = doc.createElement('input');
+        file.type = 'file';
+        file.accept = 'application/json,.json';
+        file.style.display = 'none';
+
+        exp.addEventListener('click', function () {
+            var payload = { version: 1, exportedAt: new Date().toISOString(), source: 'badminton-training-system', data: {} };
+            userKeys().forEach(function (k) { payload.data[k] = localStorage.getItem(k); });
+            var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            var a = doc.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'badminton-data-' + new Date().toISOString().slice(0, 10) + '.json';
+            doc.body.appendChild(a);
+            a.click();
+            setTimeout(function () { URL.revokeObjectURL(a.href); doc.body.removeChild(a); }, 500);
+        });
+        imp.addEventListener('click', function () { file.click(); });
+        file.addEventListener('change', function () {
+            var f = file.files && file.files[0];
+            if (!f) return;
+            var reader = new FileReader();
+            reader.onload = function () {
+                try {
+                    var obj = JSON.parse(String(reader.result));
+                    var data = obj && obj.data ? obj.data : obj;
+                    var count = 0;
+                    Object.keys(data || {}).forEach(function (k) {
+                        if (k.indexOf('bl-') === 0) return;
+                        localStorage.setItem(k, String(data[k]));
+                        count++;
+                    });
+                    refreshNote();
+                    window.alert('已导入 ' + count + ' 项数据，页面将刷新以生效。');
+                    location.reload();
+                } catch (e) { window.alert('导入失败：文件不是有效的导出 JSON。'); }
+            };
+            reader.readAsText(f);
+        });
+        clr.addEventListener('click', function () {
+            if (!window.confirm('确定清空本机全部训练数据？此操作不可撤销（建议先导出）。')) return;
+            userKeys().forEach(function (k) { localStorage.removeItem(k); });
+            refreshNote();
+            location.reload();
+        });
+
+        box.appendChild(head);
+        box.appendChild(actions);
+        box.appendChild(note);
+        box.appendChild(file);
+        panel.appendChild(box);
+        doc.body.appendChild(panel);
+
+        var open = false;
+        function show() { open = true; refreshNote(); panel.classList.add('show'); }
+        function hide() { open = false; panel.classList.remove('show'); try { btn.focus(); } catch (e) { } }
+        btn.addEventListener('click', function () { open ? hide() : show(); });
+        close.addEventListener('click', hide);
+        panel.addEventListener('click', function (e) { if (e.target === panel) hide(); });
+        doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) hide(); });
+    }
+
     /* ---------- 挂载 ---------- */
     function mount() {
         updateThemeBtn();
         applyTheme(currentTheme());
         doc.body.appendChild(bar);
         addSkipLink();
+        buildDataPanel();
         doc.body.appendChild(themeBtn);
         doc.body.appendChild(topBtn);
         var toc = buildToc();

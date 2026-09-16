@@ -78,6 +78,9 @@ const LS_ALLOWED = new Set(['badminton-baseline','badminton-history','badminton-
     'level0-progress','level1-progress','level2-progress','level3-progress','level4-progress','level5-progress','level6-progress','level7-progress',
     'training-calendar','match-records','body-status','diet-records','skill-radar','bl-theme','bl-mode']);
 
+/* 文风红线：无依据的绝对化表述（破坏专业可信度） */
+const FORBIDDEN_PHRASES = [/研究表明/, /史上最强/, /包治/, /保证提升/, /100%有效/, /绝对有效/];
+
 function stripBlocks(text) {
     return text
         .replace(/<script[\s\S]*?<\/script>/gi, '')
@@ -89,7 +92,9 @@ function collectIds(text) {
     return m.map(s => s.slice(4, -1));
 }
 function scriptsOf(text) {
-    return [...text.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi)].map(m => m[1]).join('\n');
+    return [...text.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)]
+        .filter(m => !/application\/ld\+json/i.test(m[1]))   /* JSON-LD 不是 JS */
+        .map(m => m[2]).join('\n');
 }
 function definedFunctions(script) {
     const names = new Set();
@@ -174,9 +179,13 @@ for (const rel of htmlFiles) {
     const st = (text.match(/<style[\s>]/gi) || []).length, stE = (text.match(/<\/style>/gi) || []).length;
     if (st !== stE) bad(tag, `<style> ${st} 处 vs </style> ${stE} 处`);
 
-    // 内联脚本语法编译检查（不执行）
-    for (const m of text.matchAll(/<script(?![^>]*src=)[^>]*>([\s\S]*?)<\/script>/gi)) {
-        try { new vm.Script(m[1], { filename: rel }); }
+    // 内联脚本语法编译检查（不执行；跳过 JSON-LD 等非 JS 类型）
+    for (const m of text.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)) {
+        const attrs = m[1];
+        if (/\ssrc=/.test(attrs)) continue;
+        const type = (attrs.match(/\stype="([^"]+)"/) || [])[1];
+        if (type && !/^(?:text\/javascript|module|application\/javascript)$/i.test(type)) continue;
+        try { new vm.Script(m[2], { filename: rel }); }
         catch (e) { bad(tag, `内联脚本语法错误: ${e.message}`); }
     }
 
@@ -290,6 +299,29 @@ for (const rel of htmlFiles) {
         }
     }
 
+    /* ---------- 隐性需求守则：可信度 / 性能 / 可发现性 / 数据可携带 ---------- */
+    // 1) 文风红线：禁用无依据的绝对化表述
+    for (const re of FORBIDDEN_PHRASES) if (re.test(text)) bad(tag, `禁用表述: ${re}`);
+    const bang = (text.match(/！/g) || []).length;
+    if (bang > 3) warn(tag, `感叹号偏多（${bang} 个），建议改为陈述句`);
+
+    // 2) 性能预算：单页动图 ≤16 张，且必须懒加载
+    const gifImgs = [...cleanHtml.matchAll(/<img[^>]*src="[^"]*images\/exercises\/[^"]*"[^>]*>/g)].map(m => m[0]);
+    if (gifImgs.length > 16) bad(tag, `单页动图过多（${gifImgs.length} > 16），请拆分或减少`);
+    for (const img of gifImgs) if (!/\sloading="lazy"/.test(img)) bad(tag, '动图未设置 loading="lazy"');
+
+    // 3) 可信度：每页必须有「最后更新 + 反馈入口」
+    if (rel.startsWith('docs/')) {
+        const stamps = (text.match(/data-bl-stamp/g) || []).length;
+        if (stamps !== 1) bad(tag, `页面脚注缺失或重复（data-bl-stamp × ${stamps}）`);
+        if (!/property="og:url"/.test(text)) bad(tag, '缺少 og:url');
+        if (!/<!-- seo:jsonld -->/.test(text)) bad(tag, '缺少结构化数据（JSON-LD）');
+        else {
+            const raw = (text.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1];
+            try { JSON.parse(raw); } catch (e) { bad(tag, `JSON-LD 不是合法 JSON: ${e.message}`); }
+        }
+    }
+
     // 本页零问题则记一次通过（让"全绿"直观可见）
     if (failures === 0 && warnings === 0) ok(tag, '全部结构/脚本/链接检查通过');
 }
@@ -361,6 +393,43 @@ if (DATA) {
         ok('新手通道', `${simpleLinks} 个入口（自动进入小白模式）`);
     } catch (e) {
         bad('docs-simple.js', `解析失败: ${e.message}`);
+    }
+
+    /* ---------- 内容质量 v2（CONTENT-STANDARD）与站点级资产 ---------- */
+    const Q_BLOCKS = [
+        { re: /<h2[^>]*>[^<]*分层处方/, name: '分层处方' },
+        { re: /基础版/, name: '基础版档位' },
+        { re: /进阶版/, name: '进阶版档位' },
+        { re: /精英版/, name: '精英版档位' },
+        { re: /<h2[^>]*>[^<]*自测/, name: '自测与进阶标准' },
+        { re: /<h2[^>]*>[^<]*精英细节/, name: '精英细节' },
+        { re: /(禁忌|安全边界|何时就医|找教练)/, name: '安全边界' },
+        { re: /(依据|NSCA|训练学)/, name: '依据说明' }
+    ];
+    const qualityPages = [];
+    for (const rel of htmlFiles) {
+        const c = rel.startsWith('docs/') ? readFileSync(resolve(ROOT, rel), 'utf8') : html(rel);
+        if (!c.includes('<!-- quality:v2 -->')) continue;
+        qualityPages.push(rel);
+        for (const b of Q_BLOCKS) if (!b.re.test(c)) bad(rel.replace('docs/', ''), `内容质量 v2 缺少区块: ${b.name}`);
+        const params = (c.match(/\d+\s*(?:组|次|%|RM|RPE|RIR|分钟|秒|小时|小时|天|周|米|kg|磅|心率\s*[2-5]\s*区)/g) || []).length;
+        if (params < 8) bad(rel.replace('docs/', ''), `量化参数不足（${params} < 8）`);
+    }
+    if (qualityPages.length === 0) warn('内容质量 v2', '尚无页面标记 quality:v2（升级完成后需设置下限）');
+    else ok('内容质量 v2', `${qualityPages.length} 页通过必备区块与参数密度检查`);
+
+    // 站点级资产：sitemap / robots / 数据面板能力
+    try {
+        const sm = readFileSync(resolve(ROOT, 'sitemap.xml'), 'utf8');
+        const missing = DATA.docs.filter(d => !sm.includes('docs/' + d.file)).map(d => d.file);
+        if (missing.length) bad('sitemap.xml', `缺少 ${missing.length} 篇文档（如 ${missing[0]}）`);
+        const rb = readFileSync(resolve(ROOT, 'robots.txt'), 'utf8');
+        if (!/Sitemap:/.test(rb)) bad('robots.txt', '未声明 Sitemap');
+        const ui = readFileSync(resolve(ROOT, 'assets/site-ui.js'), 'utf8');
+        if (!/bl-data/.test(ui) || !/Blob/.test(ui)) bad('assets/site-ui.js', '缺少本地数据导出/导入能力');
+        ok('站点级资产', `sitemap ${DATA.docs.length + 1} 条 · robots ✓ · 数据导出面板 ✓`);
+    } catch (e) {
+        bad('站点级资产', e.message);
     }
 
     // 线性脊柱前后篇导航对称性（03 core + 专项 12-32）
