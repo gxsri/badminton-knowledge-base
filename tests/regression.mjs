@@ -432,6 +432,18 @@ if (DATA) {
         bad('站点级资产', e.message);
     }
 
+    // 质量门禁：CI 必须跑回归，且部署依赖它（规范不自动执行 = 没有规范）
+    try {
+        const deploy = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8');
+        const quality = readFileSync(resolve(ROOT, '.github/workflows/quality.yml'), 'utf8');
+        if (!/node tests\/regression\.mjs/.test(deploy)) bad('deploy.yml', '部署前未运行回归测试');
+        if (!/needs:\s*quality/.test(deploy)) bad('deploy.yml', 'deploy 未依赖 quality 门禁');
+        if (!/node tests\/regression\.mjs/.test(quality)) bad('quality.yml', '门禁未运行回归测试');
+        ok('CI 质量门禁', 'push/PR 跑回归 · 部署依赖门禁');
+    } catch (e) {
+        bad('CI 质量门禁', e.message);
+    }
+
     // 线性脊柱前后篇导航对称性（03 core + 专项 12-32）
     const spine = DATA.docs.filter(d => d.num === '03' || (d.group === 'topic' && /^\d+$/.test(d.num)))
         .sort((a, b) => (+a.num) - (+b.num));

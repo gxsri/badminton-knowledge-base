@@ -25,7 +25,9 @@
    node scripts/gen-seo.mjs               # sitemap / robots / JSON-LD
    node tests/regression.mjs              # 必须 0 失败 0 警告
    ```
-5. **提交**：`git push` 到 `main` 后，GitHub Actions 会跑质量门禁并部署到 Pages。
+5. **提交**：`git push` 到 `main` 后：
+   - **Quality Gate**（`.github/workflows/quality.yml`）自动跑静态回归，红灯即内容不合规
+   - **部署**（`.github/workflows/deploy.yml`）依赖该门禁 —— **回归不通过就不会发布到 Pages**
 
 ## 二、页面结构规范
 
