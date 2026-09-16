@@ -33,5 +33,5 @@ jobs:
       - name: Static regression (structure / links / content standard / assets ledger)
         run: node tests/regression.mjs
 
-      - name: Content review (per-tier semantics: 动作/强度/频率/恢复/时长上限/进阶触发)
+      - name: "Content review (per-tier semantics: 动作/强度/频率/恢复/时长上限/进阶触发)"
         run: node scripts/review-content.mjs
