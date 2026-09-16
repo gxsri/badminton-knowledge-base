@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="3-4年 · 完整战术体系与比赛阅读">
     <meta property="og:title" content="Level 5：战术应用 — 羽毛球职业训练系统">
@@ -78,6 +79,9 @@
         .progress-track{background:var(--bg);border-radius:4px;height:8px;overflow:hidden}
         .progress-fill{background:var(--blue);height:100%;transition:width 0.3s}
         .progress-text{font-size:0.85rem;color:var(--text-2);margin-top:0.5rem;text-align:right}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{color:var(--text);font-weight:600;background:var(--surface)}
             @media print {
             :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
             .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
@@ -105,6 +109,10 @@
         <h1>战术应用</h1>
         <div class="meta">3-4年 · 建立完整战术体系，提升比赛阅读能力</div>
 
+        <div class="callout">
+            <p><strong>一句话结论：</strong>Level 5 的胜负不取决于你会几套战术，而取决于<strong>局间 60 秒能不能改对一件事</strong>。先用前 5 分试探对手，再用"3 次原则"读他的习惯，最后用一局的球路主题打到底。</p>
+        </div>
+
         <div class="progress-bar">
             <div class="progress-title">学习进度</div>
             <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
@@ -117,6 +125,50 @@
         <div class="callout info">
             <p><strong>核心理念：</strong>这个阶段是"从技术到战术"的转型期。技术是基础，战术是灵魂。</p>
         </div>
+
+        <h2>📐 分层处方：三档战术执行参数</h2>
+        <p>三档走同一套比赛流程（试探 → 读习惯 → 定主题 → 设检查点），差别在对抗密度、计分压力和每周场次。先看你每周能打几场真比赛。</p>
+        <p><strong>术语先说清：</strong>RPE 是主观强度分（1-10 分）；"球路主题"是一局里坚持打的主线，例如"70% 的球压他反手"；"3 次原则"指同一场景出现 3 次、他 3 次做了同样的选择，这就算一个习惯。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周 2 场</span></h3>
+                <ul>
+                    <li><strong>战术项：</strong>前 5 分试探清单：正手底线 / 反手底线 / 网前 / 被动球 / 接杀，每分测一项</li>
+                    <li><strong>回合数：</strong>练习赛 2 局 × 21 分，每局至少留 5 分的试探记录</li>
+                    <li><strong>强度：</strong>RPE 6；第一局只用 70% 速度</li>
+                    <li><strong>频率：</strong>每周 2 场练习赛 + 2 次 30 分钟球路演练</li>
+                    <li><strong>恢复：</strong>练习赛之间间隔 ≥48 小时；局间休息 60 秒</li>
+                    <li><strong>单次上限：</strong>战术课 ≤60 分钟，练习赛 ≤3 局</li>
+                    <li><strong>进阶触发：</strong>每场能写出对手 2 个弱点，每个都带次数证据，连续 3 场达成</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周 3-4 次</span></h3>
+                <ul>
+                    <li><strong>战术项：</strong>3+1 诱饵球路 + 推挑结合 + 每局一个球路主题</li>
+                    <li><strong>回合数：</strong>套路 4 组 × 8-10 回合；每局成功引导对手 ≥2 次</li>
+                    <li><strong>强度：</strong>RPE 7；11 分制计分并带失误惩罚</li>
+                    <li><strong>频率：</strong>每周 3-4 次（含 2 次计分对抗）</li>
+                    <li><strong>恢复：</strong>高强度对抗间隔 ≥48 小时；局间 60 秒，赛后 24 小时只做轻量练习</li>
+                    <li><strong>单次上限：</strong>≤90 分钟（战术 60 分钟 + 体能 30 分钟）</li>
+                    <li><strong>进阶触发：</strong>战术执行率 ≥80%，且每局发现对手习惯 ≥2 个，连续 3 周</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>战术项：</strong>读 → 应 → 设循环 + 比分脚本三套（领先 &gt;3 分 / 胶着 / 落后 &gt;3 分）</li>
+                    <li><strong>回合数：</strong>3 局 × 21 分，每 5 分一个检查点（一局 4 次）</li>
+                    <li><strong>强度：</strong>RPE 8-9；先 6 × 30 秒 全场步法（心率 4 区），再打 11 分模拟第三局</li>
+                    <li><strong>频率：</strong>每周 5 次（2 次比赛模拟 + 2 次专项 + 1 次 45 分钟录像分析）</li>
+                    <li><strong>恢复：</strong>比赛模拟课间隔 ≥48 小时；赛前 72 小时训练量降到平时的 40%</li>
+                    <li><strong>单次上限：</strong>≤120 分钟，其中战术盘 ≤60 分钟</li>
+                    <li><strong>进阶触发：</strong>18 平后的关键分决策正确率 ≥70%，且疲劳状态下执行率下降 ≤10 个百分点</li>
+                </ul>
+            </div>
+        </div>
+        <p><strong>选档规则：</strong>如果你打完一局就"想不起来对手习惯是什么"，先退回基础版把试探清单打满 3 场；别用更高档的球路掩盖观察不足。</p>
 
         <h2>📋 通关条件</h2>
 
@@ -142,6 +194,52 @@
             </div>
         </div>
 
+        <h2>🧪 自测与进阶标准</h2>
+        <p>测法固定：打 2 局 21 分练习赛，一局一个主题；赛后 5 分钟在场边写数字，不写感受。同一项连续 3 场达成，才算进入下一档。</p>
+
+        <table>
+            <thead>
+                <tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>试探清单执行（前 5 分）</td>
+                    <td>前 5 分完成 5 项试探；赛后能写出 ≥3 条带次数的证据</td>
+                    <td>清单缩到 3 项（反手、网前、被动球），写在手胶上，每分只测一项</td>
+                </tr>
+                <tr>
+                    <td>3 次原则命中率</td>
+                    <td>同一场景出现 3 次后，你预判方向的正确率 ≥70%（10 次里 ≥7 次）</td>
+                    <td>只读拍面朝向、判断方向即可，先不管深度；每局做 5 次出声判断</td>
+                </tr>
+                <tr>
+                    <td>球路主题坚持度</td>
+                    <td>一局内不换主题（连失 3 分以上才触发检查点）；赛后能说出该主题的得分与失分比</td>
+                    <td>改打 11 分制，用 1 个主题打完整局，先把"想得起来用"做到 80%</td>
+                </tr>
+                <tr>
+                    <td>战术执行率</td>
+                    <td>计划球路在一局里执行 ≥80%（计划 20 次，跑偏 ≤4 次）</td>
+                    <td>计划从 5 个球路减到 2 个，只统计"想得起、打得出"的次数</td>
+                </tr>
+                <tr>
+                    <td>落后调整（连失 3 分）</td>
+                    <td>90 秒内完成一次有效调整（换节奏或换落点），下一分按新方案执行</td>
+                    <td>暂停只做一件事：深呼吸 2 次 + 说出下一分打哪；先做到能执行 1 条</td>
+                </tr>
+                <tr>
+                    <td>体能分配</td>
+                    <td>第一局结束后 60 秒内心率回到静息 +30 bpm 以内，第三局仍然能执行主题</td>
+                    <td>第一局只用 70% 速度，多打高远球给自己争取恢复时间；每分回合数控制在 8 拍内</td>
+                </tr>
+                <tr>
+                    <td>关键分决策</td>
+                    <td>18 平后的 5 分里，按赛前脚本打 ≥3 分，不临时换球路</td>
+                    <td>关键分脚本缩到 1 条："打我最稳的球路，球不到位就出手"</td>
+                </tr>
+            </tbody>
+        </table>
+
         <h2>🧠 战术体系</h2>
 
         <div class="exercise">
@@ -150,6 +248,7 @@
                 <span><strong>组数：</strong>2组</span>
                 <span><strong>时间：</strong>15分钟/组</span>
                 <span><strong>频率：</strong>每周2次</span>
+                <span><strong>强度：</strong>RPE 3（低强度、专注分析）</span>
             </div>
             <ol class="exercise-steps">
                 <li>观察对手的技术特点</li>
@@ -166,6 +265,7 @@
                 <span><strong>组数：</strong>3组</span>
                 <span><strong>时间：</strong>10分钟/组</span>
                 <span><strong>频率：</strong>每周3次</span>
+                <span><strong>强度：</strong>RPE 7（11分制计分）</span>
             </div>
             <ol class="exercise-steps">
                 <li>进攻套路：杀球+吊球+网前</li>
@@ -181,6 +281,7 @@
                 <span><strong>组数：</strong>2组</span>
                 <span><strong>时间：</strong>20分钟/组</span>
                 <span><strong>频率：</strong>每周2次</span>
+                <span><strong>强度：</strong>RPE 6（出声判断）</span>
             </div>
             <ol class="exercise-steps">
                 <li>观察对手的站位习惯</li>
@@ -190,6 +291,47 @@
             </ol>
             <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>关键：</strong>比赛中的决策速度<0.3秒。</p>
         </div>
+
+        <h2>🔧 错误 → 原因 → 纠正</h2>
+        <p>战术错误看录像更清楚：只看你失分后的第一拍选择和你的站位，这两样都改得动。</p>
+
+        <table>
+            <thead>
+                <tr><th>错误（比赛里能观察到）</th><th>原因</th><th>纠正（下一场就改）</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>领先 5 分后被翻盘</td>
+                    <td>领先时换了打法，开始试新球路</td>
+                    <td>领先 &gt;3 分只执行让你领先的那套球路；新球路留到下一局或下一场再试</td>
+                </tr>
+                <tr>
+                    <td>前 5 分只顾得分，什么信息都没收集到</td>
+                    <td>把试探当成"浪费分"，不敢在开局丢分</td>
+                    <td>前 5 分每分只测一项，把"对手被动时打哪"写在手胶上，每分结束记 1 笔</td>
+                </tr>
+                <tr>
+                    <td>一直打对手反手，反而让他站好了位置</td>
+                    <td>只盯弱点，不调动重心，对手适应后正手空档也没打开</td>
+                    <td>用"反手底线 → 正手底线 → 反手底线"三拍组合，让他在跑动疲劳后再面对弱点</td>
+                </tr>
+                <tr>
+                    <td>连失 3 分还在打同一个球路</td>
+                    <td>没有设检查点，靠情绪继续打</td>
+                    <td>每 5 分一个检查点；连失 3 分按顺序问：体能还够吗 → 是我失误还是他接住了 → 他适应了吗</td>
+                </tr>
+                <tr>
+                    <td>局间 60 秒全用来喝水擦汗</td>
+                    <td>局间没有策略回顾的固定动作</td>
+                    <td>60 秒切三段：喝水 20 秒 + 坐下 20 秒 + 策略 20 秒，只允许改一件事</td>
+                </tr>
+                <tr>
+                    <td>第三局技术变形、球路全乱</td>
+                    <td>训练里从未在疲劳状态下执行过战术</td>
+                    <td>每周 1 次"第三局课"：先 6 × 30 秒 全场步法（心率 4 区），再打 11 分并坚持一个球路主题</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2>📅 4周训练计划</h2>
 
@@ -265,6 +407,19 @@
             </div>
         </div>
 
+        <h2>🧩 精英细节：同样战术，高手多做这 8 件事</h2>
+        <p>战术套路人人会背，差别在这些边际项：什么时候做、做多快、什么时候不做。</p>
+        <ol>
+            <li><strong>时机：</strong>试探放在前 5 分，不放在关键分。18 平后只用一条最稳的球路脚本，关键分不做实验。</li>
+            <li><strong>节奏：</strong>同一战术准备快慢两版（推压 vs 挑高）。对手连续 2 拍跟上你的快节奏，就主动降一拍速度，用节奏差换他的判断延迟。</li>
+            <li><strong>预判：</strong>读的是拍面和引拍，不是猜球：拍面朝向给方向，引拍高度给深度。每局目标发现对手 2-3 个习惯，赛后写下来，下次遇到他不用再花 5 分试探。</li>
+            <li><strong>个体化：</strong>如果你体能偏弱，把"多拍拉吊"换成"发接发抢攻 + 前三拍结束"，落点要求不变，把每分回合数压到 5 拍内。</li>
+            <li><strong>比赛期处理：</strong>赛前 72 小时训练量降到平时的 40%，只做战术演练（4 组 × 6 回合，RPE 5）；赛后 48 小时内不练高强度，只做 45 分钟录像复盘。</li>
+            <li><strong>比分脚本：</strong>领先 &gt;3 分继续用让你领先的球路；胶着 &lt;3 分打最有把握的那一条；落后 &gt;3 分先判断他是冒险型还是保守型，再决定你跟还是等。</li>
+            <li><strong>一局一个主题：</strong>主题在局间定，不在比赛中换。丢 2 分不动，连丢 3 分才进检查点；主题必须用满一局，你才有资格判断它是否有效。</li>
+            <li><strong>用阅读余量管训练：</strong>如果你全场都在追球（余量接近零），先练技术自动化，不要练阅读；能提前移动了，再练习惯和比分阅读。</li>
+        </ol>
+
         <h2>✅ 学习清单</h2>
         <ul class="checklist" id="checklist">
             <li onclick="toggleCheck(this)">学会对手分析方法</li>
@@ -278,6 +433,14 @@
             <li onclick="toggleCheck(this)">局间能有效调整</li>
             <li onclick="toggleCheck(this)">通过Level 5评估</li>
         </ul>
+
+        <div class="callout warn">
+            <p><strong>安全边界与禁忌：</strong>有心血管疾病史，或运动中胸痛、胸闷、异常心悸，当天不做比赛模拟与高强度间歇。感冒发热、睡眠不足 5 小时时同样降级为技术练习。踝、膝急性损伤未愈时不做全场步法与急停变向。<br>出现以下信号请先找教练或就医：单侧关节肿胀、疼痛 48 小时不缓解、头晕或视野异常、连续 2 次训练后晨脉比平时高 8 次/分以上。业余读者每周比赛模拟不超过 2 次，连续 3 天高强度之后安排 1 天完全休息。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本篇参数按 NSCA CSCS 训练学框架给出——强度用 RPE 标定、恢复与减量按小时和百分比安排、进阶用可测阈值判定；机制部分属于运动生理常识（间歇恢复、心率分区、疲劳对决策的影响）。<br>战术与阅读部分沿用本站知识库的项目惯例（参见 zh/14 比赛策略、zh/16 阅读比赛、zh/12 球路训练）。这些是训练学与项目经验参数，不是医学诊断，也不引用虚构文献；请用上面的自测表按自己的比赛数据校准。</p>
+        </div>
 
         <div class="cta">
             <a href="10-level-6.html">通过评估？进入Level 6</a>

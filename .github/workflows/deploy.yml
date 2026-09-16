@@ -23,6 +23,9 @@ jobs:
       - name: Static regression (blocks deploy on failure)
         run: node tests/regression.mjs
 
+      - name: Content review (blocks deploy on failure)
+        run: node scripts/review-content.mjs
+
   deploy:
     needs: quality
     runs-on: ubuntu-latest

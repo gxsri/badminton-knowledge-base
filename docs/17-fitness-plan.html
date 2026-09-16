@@ -9,6 +9,8 @@
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/17-fitness-plan.html">
 
+    <!-- quality:v2 -->
+
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="color-scheme" content="dark light">
@@ -52,6 +54,9 @@
         .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
         .next a:hover{text-decoration:underline}
         @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+        /* 分层处方卡片（与 site-ui.css 同源，仅补本页页脚/列表细节） */
+        .rx .rx-note{font-size:0.82rem;color:var(--text-2);margin:0.5rem 0 0;padding-top:0.5rem;border-top:1px dashed var(--border)}
+        .rx li strong{color:var(--text)}
             @media print {
             :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
             .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
@@ -79,6 +84,10 @@
         <div class="doc-badge">17</div>
         <h1>健身与体能</h1>
         <div class="meta">全Level通用 · 场外健身系统：居家/健身房分化计划、动作库、有氧与周安排</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>每周 2 次全身力量（每组留 2 次余力，RIR 2）+ 2 次 30-45 分钟低强度有氧（心率 2 区，约 60-70% 最大心率），并把<strong>下肢大重量训练与高强度球场日隔开 ≥24 小时</strong>——这四件事做到 8 周，你的急停控制、肩部轻松度和第二局质量都会变。</p>
+        </div>
 
         <div class="callout">
             <p><strong>先搞清楚区别：</strong>这篇是"去健身房/在家怎么练"，解决<strong>力量、体型、心肺与关节稳定</strong>；力量体能（16）解决的是"这些能力怎么转化为羽毛球专项表现"。两篇配合使用：<strong>本篇定计划，16篇定专项比例</strong>。</p>
@@ -317,6 +326,151 @@
 
         <div class="callout success">
             <p><strong>起步承诺：</strong>每周2次×40分钟全身训练 + 2次有氧 + 每晚7小时睡眠，坚持8周——再回来评估（02 基线评估重测），你会看到下肢控制、肩部轻松度和体重的真实变化。</p>
+        </div>
+
+        <h2>每周力量/有氧次数：按档位排周表</h2>
+        <p>先定"每周几次"，再定"每次练什么"。下面三档选一档，不要跨档硬上。<strong>分层处方</strong>里的参数与本表一一对应。</p>
+        <table>
+            <thead><tr><th>档位</th><th>力量 / 周</th><th>有氧 / 周</th><th>球场 / 周</th><th>与球场日的间隔</th></tr></thead>
+            <tbody>
+                <tr><td><strong>基础版</strong></td><td>2 次（全身）</td><td>2 次（每次 30 分钟）</td><td>≤2 次</td><td>大重量下肢 → 高强度球场训练 <strong>≥24 小时</strong>；实在撞上就先球场后负重</td></tr>
+                <tr><td><strong>进阶版</strong></td><td>3 次（下肢/上肢/全身）</td><td>2-3 次（30-45 分钟）</td><td>3-4 次</td><td><strong>≥24 小时</strong>，硬拉与深蹲日排到球场休整日</td></tr>
+                <tr><td><strong>精英版</strong></td><td>4-5 次（分化 + 爆发）</td><td>2 次基础 + 1 次间歇</td><td>≥5 次</td><td><strong>≥24 小时</strong>；赛季把大重量下肢固定在固定周几，赛前 3-4 天撤掉</td></tr>
+            </tbody>
+        </table>
+
+        <h2>分层处方：力量 / 有氧 / 间歇三张方子</h2>
+        <p>三档用同一套动作库，区别只在次数、强度、组间休息和恢复间隔。先读白话：<strong>1RM</strong> 是你只能举起 1 次的最大重量；<strong>RPE</strong> 是主观用力感（1 最轻松、10 是极限）；<strong>RIR</strong> 是"每组还能再做几次"；<strong>心率 2 区</strong>是能说话但唱不了歌的强度。更多术语见 <a href="41-glossary.html">术语词典（41）</a>。</p>
+
+        <h3>处方一：力量训练</h3>
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">打球 &lt;1 年 · 每周 ≤2 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>高脚杯深蹲、地面臀桥、哑铃罗马尼亚硬拉（轻）、弹力带划船、面拉、死虫式</li>
+                    <li><strong>频率：</strong>每周 2 次全身，两次之间隔 ≥48 小时</li>
+                    <li><strong>组次：</strong>每个动作 2-3 组 × 8-12 次；核心 3 组 × 30 秒</li>
+                    <li><strong>强度：</strong>RPE 5-6，RIR 3（每组留 3 次余力），不测 1RM</li>
+                    <li><strong>组间休息：</strong>60-90 秒</li>
+                    <li><strong>恢复：</strong>同一肌群间隔 ≥48 小时，力量课与球场日之间 ≥24 小时；每周至少 1 天完全不练，休息日可做 20 分钟拉伸或散步。两次力量课之间不安排下肢大负荷内容。</li>
+                    <li><strong>单次时长上限：</strong>40 分钟（不含热身）</li>
+                    <li><strong>进阶触发：</strong>连续 2 周每个动作都能完成目标次数上限、动作不变形、次日无关节痛 → 每次加 1-2 次或加 1-2 kg</li>
+                </ul>
+                <p class="rx-note">不确定重量就用"还能再做 3 次"来标定，不用算百分比。</p>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">打球 1-3 年 · 每周 3-4 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>背杠深蹲、罗马尼亚硬拉、保加利亚分腿蹲、俯身划船、引体向上、面拉、帕洛夫推</li>
+                    <li><strong>频率：</strong>每周 3 次（下肢 / 上肢 / 全身各 1 次）</li>
+                    <li><strong>组次与强度：</strong>大重量 3-6 次 × 3-5 组（70-85% 1RM）或 RPE 7-8、RIR 2；增肌段 8-12 次 × 3-4 组（60-75% 1RM）；肩袖 15-20 次 × 3 组</li>
+                    <li><strong>组间休息：</strong>大重量 2-3 分钟；增肌 60-90 秒；肩袖与核心 45-60 秒</li>
+                    <li><strong>与球场日间隔：</strong>下肢大重量与高强度球场训练 <strong>≥24 小时</strong>；训练后 48 小时内不安排高强度对抗</li>
+                    <li><strong>单次时长上限：</strong>60 分钟</li>
+                    <li><strong>进阶触发：</strong>同一重量连续 2 周完成目标次数上限 → 加 2.5-5%（每 2 周不超过 5%）</li>
+                </ul>
+                <p class="rx-note">每周只动一个变量：先加次数，再加组数，最后加重。</p>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">半专业以上 · 每周 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>深蹲/硬拉（力量）+ 跳箱、壶铃摆荡、药球砸地（爆发）+ 单腿离心、面拉、YTWL（保护）</li>
+                    <li><strong>频率：</strong>每周 4-5 次分化：力量 2 次、爆发 1-2 次、上肢与肩袖 2 次</li>
+                    <li><strong>组次与强度：</strong>大重量 2-4 次 × 3-5 组（85-92% 1RM，RPE 8-9）；爆发 3-5 次 × 4-6 组（30-60% 1RM，追求最快速度）；肩袖 3 组 × 15-20 次</li>
+                    <li><strong>组间休息：</strong>大重量 3-5 分钟（保证下一次速度不下降）；爆发 2-3 分钟</li>
+                    <li><strong>与球场日间隔：</strong>大重量下肢与高强度球场日 <strong>≥24 小时</strong>；赛前 3-4 天停止下肢大重量与力竭组，赛前 48 小时只做轻激活</li>
+                    <li><strong>单次时长上限：</strong>75 分钟（爆发日 45 分钟）</li>
+                    <li><strong>进阶触发：</strong>同重量下速度（或跳跃高度）连续 2 周不下降 → 加重 2.5%；速度下降 &gt;5% 就当场减重</li>
+                </ul>
+                <p class="rx-note">赛季里"保住力量"比"继续涨力量"更重要：维持 2 组 × 2-3 次即够。</p>
+            </div>
+        </div>
+
+        <h3>处方二：有氧（心跳底子）</h3>
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周 ≤2 次球场</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>快走 + 慢跑交替、功率车、椭圆机（挑不磨膝盖的）</li>
+                    <li><strong>频率与时长：</strong>每周 2 次 × 30 分钟，能连续不停</li>
+                    <li><strong>强度：</strong>心率 2 区 60-70% 最大心率，RPE 4-5（能说整句、唱不了歌）</li>
+                    <li><strong>恢复：</strong>两次有氧之间间隔 ≥48 小时，有氧日与球场日之间 ≥24 小时；每周至少 1 天完全休息。</li>
+                    <li><strong>单次时长上限：</strong>45 分钟</li>
+                    <li><strong>进阶触发：</strong>30 分钟中间不停、结束后 10 分钟内心率回到静息 +10 次以内 → 加到 35-40 分钟</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周 3-4 次球场</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>慢跑/功率车 40 分钟，或 1:2 间歇（跑 1 分钟 / 走 2 分钟 × 8 轮）</li>
+                    <li><strong>频率与时长：</strong>每周 2-3 次 × 40-45 分钟（间歇日总时长 ≤30 分钟）</li>
+                    <li><strong>强度：</strong>心率 2 区 65-75% 最大心率，RPE 5-6</li>
+                    <li><strong>组间休息：</strong>间歇按 1:2 工作休息比；心率降到 65% 最大心率以下再开始下一轮</li>
+                    <li><strong>单次时长上限：</strong>50 分钟</li>
+                    <li><strong>进阶触发：</strong>同样配速下心率比 4 周前低 5 次/分钟 → 配速提高 5%</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次 · 有教练</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>比赛节奏间歇：30 秒快 + 30 秒慢 × 10-12 轮（1:1）；功率车冲刺 20 秒 × 6 组</li>
+                    <li><strong>频率与时长：</strong>每周 2 次间歇 + 1 次 45-60 分钟基础有氧；间歇日总时长 ≤35 分钟</li>
+                    <li><strong>强度：</strong>间歇段 85-95% 最大心率（RPE 8-9），恢复段降到 60-65% 最大心率</li>
+                    <li><strong>与球场日间隔：</strong>高强度间歇与比赛/高强度对抗 <strong>≥24 小时</strong>，赛前 48 小时只做基础有氧</li>
+                    <li><strong>单次时长上限：</strong>60 分钟</li>
+                    <li><strong>进阶触发：</strong>12 轮里最后一轮的速度保持在前 3 轮的 95% 以上 → 加 1-2 轮</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>自测与进阶标准</h2>
+        <p>每 4 周测 1 次，全部记进训练日志（18）。任一测试不达标，先做退阶项，不要靠加量硬推。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td>自重深蹲（到动作变形为止）</td><td>≥20 次，膝盖对准第二脚趾，脚跟不离地</td><td>箱式深蹲 3 组 × 8 次，坐到髋低于膝的凳面，练 2 周再重测</td></tr>
+                <tr><td>标准俯卧撑（女可跪姿）</td><td>≥15 次，躯干成一条线，胸口离地 ≤5 cm</td><td>手撑高台阶 3 组 × 8 次，每周降 1 档高度</td></tr>
+                <tr><td>侧桥</td><td>每侧 ≥45 秒，髋不下沉</td><td>膝跪侧桥 3 组 × 20 秒，两侧都过关再抬膝</td></tr>
+                <tr><td>单腿闭眼站立</td><td>每侧 ≥20 秒不移动支撑脚</td><td>睁眼单腿站 3 组 × 30 秒，或扶墙减半负重</td></tr>
+                <tr><td>静息心率 / 晨起状态</td><td>晨脉比平时高 ≤5 次/分钟，睡眠 ≥7 小时</td><td>当天改成 20 分钟散步 + 拉伸，力量训练推迟 1 天</td></tr>
+                <tr><td>训练后 24 小时反应</td><td>目标肌群酸痛 ≤4 分（0-10）、关节不痛、能正常打球</td><td>训练量减半 1 周，去掉离心段和力竭组</td></tr>
+                <tr><td>每周有氧次数</td><td>基础版 2 次 × 30 分钟；进阶版 2-3 次 × 40 分钟；精英版 3 次（含 2 次间歇）</td><td>先砍时长再砍次数，优先保住力量训练的 2 次</td></tr>
+                <tr><td>力量标准（进阶门槛）</td><td>深蹲 ≥1.0-1.25 倍体重；硬拉 ≥1.25-1.5 倍体重；平板支撑 ≥90 秒</td><td>按 60-70% 1RM 做 3 组 × 8 次，连续 6 周；不达标不加重量</td></tr>
+            </tbody>
+        </table>
+
+        <h2>错误 → 原因 → 纠正（录像自查版）</h2>
+        <p>每条都能自己在手机录像里看到。先找出你中的 1-2 条，只改它们。</p>
+        <table>
+            <thead><tr><th>录像里的错误</th><th>原因</th><th>纠正（可直接执行）</th></tr></thead>
+            <tbody>
+                <tr><td>深蹲时膝盖向内夹、脚跟离地</td><td>臀中肌与踝背屈不足，用膝盖"找稳定"</td><td>先做蚌式开合 3 组 × 15 次与踝背屈拉伸 30 秒 × 3；深蹲降到箱式 3 组 × 8 次，膝盖顶住第二脚趾方向</td></tr>
+                <tr><td>硬拉时腰先起来、变成"弓背拉"</td><td>腘绳肌紧 + 髋铰链模式没建立，重量太大</td><td>减到 50% 1RM 做 3 组 × 8 次髋铰链（背贴墙推髋），再练罗马尼亚硬拉 3 组 × 8 次</td></tr>
+                <tr><td>划船时耸肩、脖子前探</td><td>中下斜方肌没参与，用上斜方肌代偿</td><td>降重量 20%，先做肩胛后缩下沉 2 组 × 10 次，再划船 3 组 × 10 次，全程下巴微收</td></tr>
+                <tr><td>练腿次日打比赛，急停"刹不住"</td><td>下肢大重量与高强度球场日间隔不足 24 小时</td><td>把下肢日移到球场休整日，间隔 ≥24 小时；本周改成上肢+核心，赛前 3-4 天不练大重量下肢</td></tr>
+                <tr><td>有氧每次都跑成冲刺，第二天没力气练力量</td><td>强度挤占恢复，把有氧做成了无氧课</td><td>心率压回 60-70% 最大心率，RPE 4-5，时长 30 分钟；间歇单独排一天，总时长 ≤30 分钟</td></tr>
+                <tr><td>组间刷手机 5-10 分钟，心率凉透</td><td>训练密度接近 0，只是把动作做完了</td><td>设倒计时：大重量 2-3 分钟、增肌 60-90 秒、肩袖 45-60 秒；到点就下一组</td></tr>
+            </tbody>
+        </table>
+
+        <h2>精英细节：同样动作，高手多做什么</h2>
+        <ol>
+            <li><strong>先排球场课表，再塞健身。</strong>把每周固定的球场日与比赛日写进日历，力量课只填剩下的格子；下肢大重量永远与高强度球场训练隔 ≥24 小时，这条不让步。</li>
+            <li><strong>组间休息用倒计时，不刷手机。</strong>大重量 3-5 分钟是为了让下一次速度不掉，增肌 60-90 秒是为了保住训练密度；心率掉到 65% 最大心率以下才开下一组。</li>
+            <li><strong>用速度而不是感觉判断该不该加重。</strong>爆发日同样重量下速度下降 &gt;5% 就当场减重 10%；连续 2 周速度不降才加 2.5%。</li>
+            <li><strong>离心段单独当训练内容。</strong>落地、变向、减速靠的是"刹车"能力：保加利亚分腿蹲与罗马尼亚硬拉都用 3-4 秒慢放，比多做 10 次更贴球场。</li>
+            <li><strong>肩袖与踝永远排在主项后面。</strong>每周 2-3 次、每次 3 组 × 15-20 次的低负荷肩袖 + 单腿落地控制，是"能一直练下去"的保险，不占主课时间。</li>
+            <li><strong>赛季里改成"维持剂量"。</strong>比赛周力量压缩到 1 次全身、2 组 × 2-3 次、80% 1RM 以内，强度维持、容量砍掉；赛前 48 小时只做弹力带激活与空杆热身。</li>
+            <li><strong>全程留 2 次余力（RIR 2）。</strong>业余球员不需要力竭：力竭让恢复拖到 48-72 小时，直接吃掉下一次球场课的质量；只有非赛季、次日不训练时才允许最后一组接近力竭。</li>
+            <li><strong>每 4 周做一次"减量周"。</strong>把组数砍 40-50%（重量不变），让关节与肌腱追上肌肉的进步速度，再回去加量时会发现重量更好推。</li>
+        </ol>
+
+        <div class="callout warn">
+            <p><strong>安全边界与禁忌情形：</strong>出现下列任一情况先停练并就医：关节肿胀或发热、刺痛/锐痛（不是酸胀）、夜间痛醒、手臂或腿有麻木与放射痛、胸痛气短头晕、疼痛持续超过 48 小时不缓解。有高血压、心脏疾病、糖尿病、妊娠期、术后 3 个月内，先找医生确认能承受的强度，再谈 1RM。第一周上深蹲/硬拉前用空杆拍视频自查；动作总是变形、自己看录像 2-3 轮都改不过来、或者你想测 1RM，这几种情况找专业教练当面看一次，比看十篇文章有用。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本篇参数来自三类来源：NSCA CSCS 训练学框架（组次、%1RM 区间、RPE/RIR、组间休息的取值）、运动生理常识（恢复与适应所需时间、心率区间与能量系统供能特点）、以及羽毛球项目训练惯例（周安排与球场日的配合方式）。%1RM 与心率区间的取值是常用区间，不是精确处方：个体差异真实存在，请用 4 周的训练日志校准你自己的重量与心率。与你的教练计划冲突时以教练为准。本篇不引用具体文献，也不给无出处的百分比结论。</p>
         </div>
 
                         <div class="callout info">

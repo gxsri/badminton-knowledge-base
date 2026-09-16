@@ -9,6 +9,8 @@
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/25-anatomy-rehabilitation.html">
 
+    <!-- quality:v2 -->
+
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="color-scheme" content="dark light">
@@ -55,6 +57,10 @@
         .injury-title{font-weight:600;margin-bottom:0.5rem;color:var(--accent-2)}
         .injury-meta{display:flex;gap:1rem;font-size:0.8rem;color:var(--text-2);margin-bottom:0.75rem}
         .injury-tag{padding:0.15rem 0.5rem;background:var(--surface-2);border-radius:4px}
+            @media(max-width:768px){.content{padding:5.5rem 1.25rem 3rem}}
+        /* 分层处方卡片（与 site-ui.css 同源，仅补本页页脚与疼痛阈值标记） */
+        .rx .rx-note{font-size:0.82rem;color:var(--text-2);margin:0.5rem 0 0;padding-top:0.5rem;border-top:1px dashed var(--border)}
+        .rx li strong{color:var(--text)}
             @media print {
             :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
             .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
@@ -81,6 +87,10 @@
         <div class="doc-badge">25</div>
         <h1>运动解剖与康复</h1>
         <div class="meta">Level 3+ · 神经 → 肌肉 → 筋膜 · 16块肌肉 · 8种损伤 · 诊断测试</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>康复期只做一件事——在<strong>疼痛 ≤3/10</strong> 的范围内练到"患侧力量达到健侧 90%"。每块关键肌群每周 2-3 次激活（每次 3 组 × 12-15 次），疼痛升到 4/10 就退回上一档；测试阳性或疼痛超过 2 周，先看医生再谈训练。</p>
+        </div>
 
         <h2>羽毛球常见损伤</h2>
         <p>预防优于治疗。了解损伤机制，才能有效预防。</p>
@@ -177,15 +187,20 @@
   逐渐恢复训练
         </div>
 
+        <div class="callout info">
+            <p><strong>急性期之后的优先级：</strong>受伤当天冰敷为主（每次 15-20 分钟、每 2 小时一次）。48 小时后，重心从"消肿"转到"恢复活动度与力量"：先做无痛范围内的等长收缩（保持 10 秒 × 10-15 次），再加活动度，再加离心训练。</p>
+        </div>
+
         <h2>重返运动标准</h2>
+        <p>每一级都先过"疼痛 ≤3/10 且次日不加重"这一关，再往上走一级。</p>
         <table>
             <thead><tr><th>级别</th><th>标准</th><th>时间</th></tr></thead>
             <tbody>
-                <tr><td><strong>Level 1</strong></td><td>无痛完成日常活动</td><td>损伤后即可</td></tr>
-                <tr><td><strong>Level 2</strong></td><td>无痛完成轻度活动</td><td>1-2天</td></tr>
-                <tr><td><strong>Level 3</strong></td><td>无痛完成跑步/跳跃</td><td>3-7天</td></tr>
-                <tr><td><strong>Level 4</strong></td><td>无痛完成专项训练</td><td>1-2周</td></tr>
-                <tr><td><strong>Level 5</strong></td><td>无痛完成全强度训练/比赛</td><td>2-4周</td></tr>
+                <tr><td><strong>Level 1</strong></td><td>无痛完成日常活动（疼痛 ≤2/10）</td><td>损伤后即可，观察 2-3 天</td></tr>
+                <tr><td><strong>Level 2</strong></td><td>无痛完成轻度活动（疼痛 ≤3/10）</td><td>1-2 天</td></tr>
+                <tr><td><strong>Level 3</strong></td><td>无痛完成跑步/跳跃（疼痛 ≤3/10）</td><td>3-7 天</td></tr>
+                <tr><td><strong>Level 4</strong></td><td>患侧力量达健侧 90%，无痛完成专项训练（疼痛 ≤3/10）</td><td>1-2 周</td></tr>
+                <tr><td><strong>Level 5</strong></td><td>无痛完成全强度训练/比赛，连续 20 次全场步法后次日不加重</td><td>2-4 周</td></tr>
             </tbody>
         </table>
 
@@ -205,6 +220,113 @@
             </p>
         </div>
 
+        <h2>分层处方：关键肌群激活动作</h2>
+        <p>康复与预防练的不是"大重量"，是"每块该出力的肌肉按时出力"。先读白话：<strong>激活</strong>就是让一块"睡着了"的肌肉重新被大脑叫动；<strong>疼痛阈值</strong>是你自己打的分（0 无痛、10 无法忍受）。更多术语见 <a href="41-glossary.html">术语词典（41）</a>。</p>
+        <p><strong>通用规则：疼痛 ≤3/10 才继续。</strong>练的过程中到 4/10 就停下或降难度；练完 24 小时内疼痛回到基线、不加重，才算这一档过关。</p>
+
+        <table>
+            <thead><tr><th>关键肌群</th><th>激活动作</th><th>组次</th><th>频率</th><th>疼痛阈值</th></tr></thead>
+            <tbody>
+                <tr><td><strong>冈下肌 / 小圆肌</strong>（肩外旋）</td><td>弹力带肩外旋，肘屈 90° 贴紧身体</td><td>3 组 × 15 次，离心 3 秒</td><td>每周 3 次，练球前做</td><td>≤3/10 继续；肩前侧刺痛立即停</td></tr>
+                <tr><td><strong>中下斜方肌 + 菱形肌</strong></td><td>俯身 Y/T/W，拇指朝上，先沉肩再后缩</td><td>每个姿势 10 次 × 2 轮</td><td>每周 3-4 次</td><td>≤3/10 继续；颈部代偿酸痛则减半</td></tr>
+                <tr><td><strong>前锯肌</strong>（肩胛前伸上旋）</td><td>靠墙滑手 / 仰卧肩胛前伸（推墙加 2-3 cm）</td><td>3 组 × 10 次</td><td>每周 2-3 次</td><td>≤3/10 继续；肩峰下"卡住"感就减幅度</td></tr>
+                <tr><td><strong>臀中肌</strong></td><td>蚌式开合（弹力带在膝上）→ 侧卧抬腿</td><td>3 组 × 12-15 次/侧</td><td>每周 3 次，或每天做至通过单腿蹲测试</td><td>≤3/10 继续；髋外侧锐痛停做</td></tr>
+                <tr><td><strong>股内侧肌（VMO）</strong></td><td>短弧伸膝：膝下垫毛巾，从屈 30° 伸直到 0°</td><td>3 组 × 15 次，离心 3 秒</td><td>每周 3 次</td><td>≤3/10 继续；膝前痛升到 4/10 就减少活动范围</td></tr>
+                <tr><td><strong>腘绳肌</strong></td><td>臀桥 → 单腿臀桥 → 罗马尼亚硬拉（轻）</td><td>3 组 × 10-12 次</td><td>每周 2-3 次</td><td>≤3/10 继续；腘窝牵扯痛则减小幅度</td></tr>
+                <tr><td><strong>腹横肌 + 多裂肌</strong></td><td>死虫式，全程腰部贴地；退阶做仰卧屈膝抬腿</td><td>3 组 × 8-10 次/侧</td><td>每周 3-4 次（可每天）</td><td>≤3/10 继续；腰部出现尖锐痛立刻停</td></tr>
+                <tr><td><strong>腓骨长短肌</strong>（踝外翻）</td><td>弹力带足外翻 → 单足站立（闭眼/软垫进阶）</td><td>3 组 × 15 次；单足站立 30 秒</td><td>每周 3 次</td><td>≤3/10 继续；踝外侧肿胀或"打软腿"停做</td></tr>
+                <tr><td><strong>小腿三头肌 + 足底</strong></td><td>站姿提踵（慢放 3 秒）→ 筋膜球滚足底 1 分钟</td><td>3 组 × 15 次</td><td>每周 3 次</td><td>≤3/10 继续；跟腱晨起僵硬加重则减量</td></tr>
+            </tbody>
+        </table>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">无痛日常 · 刚恢复练球</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>肩外旋（最轻弹力带）、蚌式开合、死虫式退阶、坐姿短弧伸膝</li>
+                    <li><strong>组次：</strong>每个动作 2 组 × 12 次，离心段慢放 3 秒</li>
+                    <li><strong>强度：</strong>RPE 3-4（很轻松）——这一档不练力量，练"叫得动"</li>
+                    <li><strong>频率：</strong>每周 3 次，隔天做；不练球的当天做</li>
+                    <li><strong>单次时长上限：</strong>12 分钟（不含热身）</li>
+                    <li><strong>疼痛阈值：</strong>全程 ≤3/10；练完 24 小时疼痛不加重</li>
+                    <li><strong>进阶触发：</strong>连续 5 次训练动作标准、无代偿、疼痛 ≤2/10 → 加 1 组或换更重的弹力带</li>
+                </ul>
+                <p><strong>恢复：</strong>同一肌群力量训练间隔 ≥48 小时（按上面"每周 3 次、隔天做"排即可）；康复动作每天最多 1 次、同一动作之间间隔 ≥12 小时；当天疼痛 ≥4/10 只做等长收缩。</p>
+                <p class="rx-note">这一档的目标是"敢动"，不是"练到累"。</p>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">已能对抗 · 疼痛 ≤2/10</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>弹力带外旋（加阻力）、Y/T/W、单腿臀桥、罗马尼亚硬拉（轻）、单足站立 30 秒</li>
+                    <li><strong>组次：</strong>每个动作 3 组 × 12-15 次；单侧动作左右各做，先做患侧、健侧只做同次数</li>
+                    <li><strong>强度：</strong>RPE 5-6，RIR 3（还能再做 3 次）</li>
+                    <li><strong>频率：</strong>每周 3-4 次，其中 2 次放在球场训练前当作激活</li>
+                    <li><strong>单次时长上限：</strong>20 分钟</li>
+                    <li><strong>疼痛阈值：</strong>≤3/10 才继续；达到 4/10 减一组，超过 5/10 当天停该项</li>
+                    <li><strong>进阶触发：</strong>患侧力量达健侧 90%，且测试动作（见下表）通过 → 进入功能期训练</li>
+                </ul>
+                <p><strong>恢复：</strong>同一肌群力量训练间隔 ≥48 小时；康复动作每天 1 次、同一动作之间间隔 ≥12 小时；当天疼痛 ≥4/10 只做等长并减 1 组。</p>
+                <p class="rx-note">左右差比绝对力量重要：两侧次数先做到一样，再一起加。</p>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">半专业以上 · 每周 ≥5 次训练</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>离心强化（慢放 4 秒的短弧伸膝、提踵）、单腿落地控制（从 10 cm 台跳下稳定 3 秒）、专项模拟（全场步法 + 击球）</li>
+                    <li><strong>组次：</strong>离心 4 组 × 8 次；落地 4 组 × 6 次；专项模拟从半场 20 球加到全场 20 次步法</li>
+                    <li><strong>强度：</strong>RPE 6-7；专项模拟段心率可达 80-90% 最大心率，但疼痛仍须 ≤3/10</li>
+                    <li><strong>频率：</strong>每周 3 次预防训练（肩/膝/踝各 1 组流程）+ 每天 10-15 分钟保养</li>
+                    <li><strong>单次时长上限：</strong>30 分钟（预防训练单独算 15 分钟）</li>
+                    <li><strong>疼痛阈值：</strong>≤3/10 才继续；比赛或高强度课后 24 小时内疼痛加重 → 下一档退回进阶版</li>
+                    <li><strong>进阶触发：</strong>连续 20 次全场步法后次日不加重 → 恢复对抗；对抗 2 周无反复才回到全强度比赛</li>
+                </ul>
+                <p><strong>恢复：</strong>同一肌群力量训练间隔 ≥48 小时，比赛或高强度课当天不练同部位离心；每天 1 次保养但同一动作之间间隔 ≥12 小时；当天疼痛 ≥4/10 只做等长。</p>
+                <p class="rx-note">赛季内"保养剂量"不能停：肩袖与踝每天 10-15 分钟，比周末补一次有用。</p>
+            </div>
+        </div>
+
+        <h2>自测与进阶标准</h2>
+        <p>受伤后每 1-2 周测 1 次，全部记录日期与分数。任何一项不达标，先做退阶项，不要带着疼痛硬测。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td>肩关节空罐测试（Empty Can）</td><td>双侧对比无痛、无明显无力；疼痛 ≤2/10</td><td>改做无痛范围内的弹力带外旋 3 组 × 15 次，先做 2 周</td></tr>
+                <tr><td>握力（持拍手）</td><td>达健侧 90% 以上，拧毛巾无肘外侧痛</td><td>前臂离心训练（慢放 3-4 秒）3 组 × 15 次，每周 3 次，持续 4 周</td></tr>
+                <tr><td>单腿下蹲（屈膝 45°）</td><td>膝盖对准第二脚趾、无内扣、无晃动，疼痛 ≤3/10</td><td>臀中肌激活（蚌式开合 + 侧卧抬腿）2 组 × 15 次/侧，连续 2 周后重测</td></tr>
+                <tr><td>单足闭眼站立</td><td>≥10 秒不移动支撑脚；睁眼 ≥30 秒</td><td>睁眼单足站立 3 组 × 30 秒，扶墙减半负重</td></tr>
+                <tr><td>提踵（患侧单腿）</td><td>≥20 次且不生硬；次日晨起跟腱僵硬不超过原来的 2/10</td><td>双腿提踵 3 组 × 15 次（慢放 3 秒），2 周后再测单腿</td></tr>
+                <tr><td>直腿抬高 / 弯腰</td><td>腿可抬到 80° 以上无下肢放射痛；弯腰摸到小腿中段无腰痛</td><td>腘绳肌毛巾辅助拉伸每侧 30 秒 × 2 组，配合死虫式 3 组 × 8 次/侧</td></tr>
+                <tr><td>全场步法 + 击球</td><td>连续 20 次全场步法，疼痛 ≤3/10，次日不加重</td><td>半场步法 10 次 × 2 组，只做无痛方向，1 周后再加量</td></tr>
+                <tr><td>疼痛与功能自评</td><td>疼痛 ≤3/10 且患侧力量达健侧 90%</td><td>退回上一级重返标准，每天做无痛范围内的等长收缩 10 秒 × 10-15 次</td></tr>
+            </tbody>
+        </table>
+
+        <h2>错误 → 原因 → 纠正（录像自查版）</h2>
+        <p>每条都能自己在手机录像或镜子里看到。先找出你中的 1-2 条，只改它们。</p>
+        <table>
+            <thead><tr><th>录像里的错误</th><th>原因</th><th>纠正（可直接执行）</th></tr></thead>
+            <tbody>
+                <tr><td>肩外旋时耸肩、肘离开身体</td><td>用上斜方肌代偿，阻力超过肩袖当前能力</td><td>降一档弹力带，肘夹住毛巾做 3 组 × 12 次，离心 3 秒；疼痛控制在 ≤2/10</td></tr>
+                <tr><td>蚌式开合时躯干后翻、骨盆转动</td><td>臀中肌没激活，用腰和躯干"甩"出角度</td><td>背靠墙做，膝盖打开幅度减到 30° 以内，2 组 × 12 次，节奏放慢到 2 秒开、2 秒回</td></tr>
+                <tr><td>激痛点按压后疼痛加剧超过 24 小时</td><td>按压力度过大（超过 7/10 痛感）或按到了急性损伤区</td><td>力度降到 4-5/10 痛感，每点 30-60 秒、每天 1 次；痛感持续两天不缓解就停手并就医</td></tr>
+                <tr><td>蹲、跳落地时膝盖向内夹</td><td>臀中肌无力 + 足弓塌陷，重心落在脚内侧</td><td>落地前把膝盖顶向第二脚趾方向，从 10 cm 台跳下稳定 3 秒，4 组 × 6 次；配合蚌式开合 3 组 × 15 次</td></tr>
+                <tr><td>疼痛 5/10 还坚持练完</td><td>把"练到痛"当成努力，超过疼痛阈值</td><td>立刻停该项，当天改成无痛范围内的等长收缩 10 秒 × 10-15 次；24 小时后疼痛回到基线再改做进阶版</td></tr>
+                <tr><td>踝扭伤后第三天就全速跑</td><td>肿痛未消就跳过重返标准的第 2-3 级</td><td>退回单足站立 30 秒（闭眼 10 秒）与弹力带外翻 3 组 × 15 次，逐级过标准再跑</td></tr>
+            </tbody>
+        </table>
+
+        <h2>精英细节：同样动作，高手多做什么</h2>
+        <ol>
+            <li><strong>每天 10-15 分钟保养，不等痛了才练。</strong>肩袖、臀中肌、腓骨长短肌各 1 组流程，每周 4 次；业余是"不痛不练"，精英是把预防排进日程表。</li>
+            <li><strong>每周录 1 次落地视频。</strong>用手机慢动作看三个点：膝盖是否对准第二脚趾、髋是否稳、落地后能否定住 3 秒。发现问题就当场加到当天的激活内容里。</li>
+            <li><strong>用患侧校准流量，不用"感觉"。</strong>单侧动作先做患侧、做到目标次数，健侧只做同样次数；两侧差 ≤1 次才算平衡，差 2 次以上就补练。</li>
+            <li><strong>疼痛打分写下来，看趋势不看单次。</strong>每天记 0-10 分与晨起僵硬程度（分钟）；连续 3 天升高 1 分以上就减量 50%，连续升高 2 分以上停该项。</li>
+            <li><strong>疼痛在 24 小时内恢复基线，才算负荷合格。</strong>这条比"当场不痛"重要：当场不痛、次日加重，说明量已经超了。</li>
+            <li><strong>离心训练给足 3-4 秒。</strong>跟腱、髌腱、网球肘的恢复都靠慢放阶段的负荷，用节拍器或数出来，不靠"差不多慢"。</li>
+            <li><strong>赛季内保养剂量不砍。</strong>比赛周把力量容量砍掉，但肩袖与踝的 10-15 分钟、每周 3 次保留；赛前 48 小时只做无痛范围内的激活。</li>
+            <li><strong>出现疼痛先查"哪个环节掉了"，而不是按痛点。</strong>膝痛常从臀中肌与踝背屈查起，肩痛常从胸椎活动度与肩胛控制查起，腰痛常从髋活动度与呼吸查起。</li>
+            <li><strong>把"酸"和"痛"分开记。</strong>训练后 24-48 小时的肌肉酸痛（≤4/10）可以继续练同一肌群；关节或肌腱的刺痛、锐痛一律停并降一档。</li>
+        </ol>
+
         <h2>什么情况不能练</h2>
         <div class="callout danger">
             <p><strong>出现以下情况，立即停止训练：</strong><br>
@@ -213,6 +335,14 @@
             • 活动范围明显受限<br>
             • 疼痛持续超过48小时<br>
             • 伴随发热/红肿</p>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>安全边界：什么时候就医、什么时候找教练。</strong>出现下列任一情况，先就医再谈训练：关节明显肿胀或变形、夜间痛醒、肢体麻木无力或放射痛、无法负重行走、外伤时有"啪"的断裂声、疼痛超过 2 周不缓解、伴随发热红肿。找专业教练或康复师的信号：自查测试阳性但不确定是哪一步错了、左右力量差大于 10%、同一部位 3 个月内反复发作、动作自己看录像 2-3 轮都改不过来、或者你想直接测极限重量（1RM）。本篇的测试与阈值用于自查与进度管理，不用于自我诊断；确诊需要医生与影像检查。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本篇参数来自三类来源：NSCA CSCS 训练学框架（组次、频率、离心节奏、恢复间隔的取值区间）、运动解剖与运动生理常识（肌肉激活顺序、肌腱与结缔组织的适应时间、疼痛与负荷的关系）、以及羽毛球项目康复惯例（重返训练的逐级标准与专项模拟方式）。疼痛评分（0-10）、激痛点按压力度（4-7/10）、力量对称标准（90%）都是康复与训练中常用的口径，不是唯一标准；个体差异真实存在，请用 2-4 周的自测记录校准你自己的阈值。与你的医生或教练方案冲突时，以医生和教练为准。本篇不引用具体文献，也不给无出处的百分比结论。</p>
         </div>
 
         <p class="page-stamp" data-bl-stamp="1">最后更新：2026-09-16 · 内容标准 v2 · 发现错误或有更好的练法？<a href="https://github.com/gxsri/badminton-knowledge-base/issues/new">在 GitHub 提 Issue</a> · 文件：<span class="mono">25-anatomy-rehabilitation.html</span></p>

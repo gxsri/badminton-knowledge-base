@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="学习路径规划：按目标与水平生成个性化学习路线">
     <meta property="og:title" content="学习路径 — 羽毛球职业训练系统">
@@ -35,6 +36,20 @@
         .callout p{margin:0;color:var(--text)}
         .callout.info{border-left-color:var(--blue)}
         .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        .rx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1rem;margin:1.5rem 0}
+        .rx{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+        .rx h3{font-size:1rem;margin:0 0 0.6rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap}
+        .rx h3 .rx-badge{font-size:0.7rem;font-weight:600;padding:0.1rem 0.45rem;border:1px solid var(--border);border-radius:9999px;color:var(--text-2)}
+        .rx ul{margin:0;padding-left:1.1rem}
+        .rx li{font-size:0.9rem;color:var(--text-2);margin-bottom:0.3rem}
+        .rx-base{border-top-color:var(--green)}
+        .rx-mid{border-top-color:var(--blue)}
+        .rx-elite{border-top-color:var(--accent)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.65rem 0.8rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
         .path-container{position:relative;padding-left:2rem}
         .path-line{position:absolute;left:15px;top:0;bottom:0;width:2px;background:var(--border)}
         .path-stage{position:relative;margin-bottom:3rem;padding-left:2rem}
@@ -86,6 +101,10 @@
         <div class="badge">学习指南</div>
         <h1>学习路径</h1>
         <div class="meta">清晰的学习路线 · 从零基础到职业水平</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>按每周能练几次选路线（≤2 次走基础版、3-4 次走进阶版、≥5 次走精英版），每个阶段练满 4-6 周、评估通过再进下一段，不要按"感觉会了"跳级。</p>
+        </div>
 
         <div class="callout info">
             <p><strong>如何使用这个路径？</strong>先完成基线评估，确定你的起始级别，然后按照路径顺序学习。每个阶段完成后，进行评估确认是否可以进入下一阶段。</p>
@@ -251,6 +270,109 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <h2>自测与进阶标准 — 学习路径</h2>
+        <p>评估节点就三个：每 4 周一次小节点、每个阶段结束一次总评、每 12 周一次大节点。测法固定，数据才比得出来。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td><strong>起步评估</strong><br>对照<a href="38-level-locator.html">级别定位</a>与你每周能练的次数</td><td>每周 ≤2 次走基础版、3-4 次走进阶版、≥5 次走精英版，三者对齐后才能开第一段；基线评估 9 项全部测完</td><td>时间不确定先按基础版走 4 周，确认能稳定练满再换档</td></tr>
+                <tr><td><strong>阶段周期长度</strong><br>对照训练日历数周数</td><td>基础版每段 6 周、进阶版每段 4-6 周、精英版每段 4 周；一个阶段内不改路线</td><td>练不满就延长到每段 8 周，先把出勤率做稳</td></tr>
+                <tr><td><strong>出勤率</strong><br>实际训练次数 ÷ 计划次数</td><td>每周完成率 ≥80%；连续 2 周 &lt;60% 就停在当前阶段</td><td>把单次时长减到 60 分钟、每周保底 2 次，先保住频率</td></tr>
+                <tr><td><strong>评估节点通过率</strong><br>节点测试项目逐项核对</td><td>当前阶段 4-6 项测试 ≥80% 达标（如高远球连续 5 个落点过 8 米线、两点步法 30 秒 ≥14 个来回），才进下一段</td><td>未达标项留 2 周专项补练后重测，仍不达标就按上一段的处方再走 2 周</td></tr>
+                <tr><td><strong>大节点复盘</strong><br>每 12 周对照打分表</td><td>每 12 周复盘 1 次，只调整 1-2 项内容；单项退步 ≥2 分先减量 20%</td><td>退到上一阶段最稳定的两周内容重练，再往前走</td></tr>
+                <tr><td><strong>跳级判定</strong><br>按本节四条同时核</td><td>4 条同时满足才能跳 1 段：阶段测试 ≥90% 达标、连续 4 周出勤 ≥90%、力量与技术同时达标、教练或录像确认</td><td>任一条不满足就留在原阶段；不许用"感觉还行"替换哪一条</td></tr>
+                <tr><td><strong>体能配置</strong><br>数每周力量与步法次数</td><td>基础版每周 1 次力量 + 1 次步法；进阶版力量 2 次、步法 2 次；精英版各自 ≥3 次。体能占每周总时长 30%-40%</td><td>减到每周基础力量 1 次（30-40 分钟），保技术课不降</td></tr>
+                <tr><td><strong>恢复与减量</strong><br>看晨脉、睡眠、训练日志</td><td>每 4 周安排 1 周减量（训练量降 30%-40%）；晨脉比基线高 ≥5 次/分或睡眠 &lt;6 小时，当周减量 20%-30%</td><td>停两周加体能内容，只做技术与恢复，等晨脉回到基线再恢复原量</td></tr>
+                <tr><td><strong>伤后复出</strong><br>按阶段量核对</td><td>无痛且力量恢复到伤前 ≥90% 才回到原阶段；回归前 2 周只用原阶段量的 50%-60%</td><td>从更低一段重走 2-4 周，疼痛或肿胀出现就停当天课</td></tr>
+            </tbody>
+        </table>
+
+        <h2>错误 → 原因 → 纠正</h2>
+        <p>都能用你的训练日历对照。跳级省下来的时间，通常会在两个月后连本带利还回去。</p>
+        <table>
+            <thead><tr><th>错误</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr><td>练了 3 次就跳到后面的阶段</td><td>把"懂了"当成"会了"，跳过动作固化</td><td>先按阶段测过标准再进下一段：一个阶段练满 4-6 周（基础版 6 周），每项技术累计 200-300 次高质量重复</td></tr>
+                <tr><td>只走技术线，不练体能和步法</td><td>觉得练体能不"爽"、看不到技术涨</td><td>每周固定 1-2 次力量、2 次步法；体能占每周总时长的 30%-40%，先加 30-40 分钟基础力量开始</td></tr>
+                <tr><td>换路线比换衣服快，每个计划都试两周</td><td>把换计划当成进步的错觉</td><td>一个周期（4-6 周）内不改路线，只改训练内容细节；每 12 周复盘 1 次、只调 1-2 项</td></tr>
+                <tr><td>评估节点全靠感觉，没有数字</td><td>懒得测，或者不知道测什么</td><td>每个节点固定 5 项（技术 2 项 + 体能 2 项 + 比赛/对抗 1 项），用成功次数或达标次数记，每 4 周测 1 次并留档</td></tr>
+                <tr><td>伤没好就回到原来的阶段</td><td>怕进度落后，赶回原路线</td><td>先做 2 周 50%-60% 量的回归周，无痛且力量 ≥ 伤前 90% 再回原阶段；否则从上一段重走</td></tr>
+                <tr><td>阶段卡住就整条路线重来</td><td>以为换路线能解决进度问题</td><td>先查 3 件事：每周练了几次、单次多少分钟、睡眠几小时；先把出勤率提到 ≥80%，再谈改内容</td></tr>
+                <tr><td>比赛期照旧拉满训练量</td><td>没有比赛期与减量概念</td><td>赛前 2 周训练量降 40%-50%、强度保留；赛后 3 天只做低强度主动恢复，第 4-7 天回到 60% 量</td></tr>
+            </tbody>
+        </table>
+
+        <h2>分层处方 — 学习路径（三档照做）</h2>
+        <p>同一条路线，三档差别只有五个数：每周练几次、单次多少分钟、一个阶段几周、多久评估一次、什么条件才算跳级。先按你能稳定拿出的时间选档。</p>
+        <p>先说两个词。<strong>阶段周期</strong>就是一个阶段练几周，到点就评估，不按感觉延后。<strong>跳级判定</strong>就是满足写明的条件后一次跨一段，而不是随时往前挪。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周训练 ≤2 次</span></h3>
+                <ul>
+                    <li><strong>每周次数与时长：</strong>每周 2 次，单次 60-75 分钟，其中 10 分钟热身、10 分钟放松；两次间隔 ≥48 小时。</li>
+                    <li><strong>阶段周期：</strong>每段 6 周，基础入门（阶段 1）→ 基础训练（阶段 2）各 6 周，共 12 周走完前两段。</li>
+                    <li><strong>评估节点：</strong>每 4 周 1 次小节点（10 分钟自测），每段结束 1 次总评；全项大复盘每 12 周 1 次。</li>
+                    <li><strong>体能配置：</strong>每周 1 次力量（30-40 分钟，RPE 5-6）+ 1 次步法；不额外加量。</li>
+                    <li><strong>跳级判定：</strong>阶段测试 ≥90% 达标 + 连续 4 周出勤 ≥90% + 同伴或录像确认动作稳定，三条同时满足才跳 1 段。</li>
+                    <li><strong>减量与恢复：</strong>每 4 周安排 1 周减量（训练量降 30%-40%）；晨脉比基线高 ≥5 次/分就减量 20%-30%。</li>
+                    <li><strong>进阶触发：</strong>能稳定每周 3 次、连续 4 周出勤 ≥80%，再换到进阶版。</li>
+                </ul>
+                <p><strong>每周执行量：</strong>每周 2 个学习单元，每单元 3 组 × 10 次专项练习 + 1 次录像复盘。</p>
+                <p><strong>时长上限：</strong>单次学习单元 ≤45 分钟，每周总学习时间 ≤3 小时，到点就停。</p>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周训练 3-4 次</span></h3>
+                <ul>
+                    <li><strong>每周次数与时长：</strong>每周 3-4 次，单次 90-120 分钟（技术 60-70 分钟 + 体能 20-30 分钟）；两次高强度课间隔 ≥48 小时。</li>
+                    <li><strong>阶段周期：</strong>每段 4-6 周；技术入门到技术熟练按 4 周推进，瓶颈阶段延到 6 周。</li>
+                    <li><strong>评估节点：</strong>每 2 周 1 次小节点（5 项自测），每段结束 1 次总评，每 12 周 1 次全项大复盘。</li>
+                    <li><strong>体能配置：</strong>每周力量 2 次（40-50 分钟，RPE 7-8）+ 步法 2 次 + 1 次间歇或对抗；体能占每周总时长 30%-40%。</li>
+                    <li><strong>跳级判定：</strong>阶段测试 ≥90% 达标 + 连续 4 周出勤 ≥90% + 力量与技术双达标（如深蹲 ≥1.2 倍体重、两点步法 30 秒 ≥14 个来回）+ 实战验证，四条同时满足。</li>
+                    <li><strong>减量与恢复：</strong>每 4 周减量 1 周（训练量降 30%-40%）；赛前 2 周减量 40%-50%，强度保留。</li>
+                    <li><strong>进阶触发：</strong>连续 8 周出勤 ≥90%、每段评估一次通过，再考虑精英版。</li>
+                </ul>
+                <p><strong>时长上限：</strong>单次学习单元 ≤60 分钟，每周总学习时间 ≤4 小时，录像复盘算在学习单元内，不额外加时。</p>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周训练 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>每周次数与时长：</strong>每周 5-6 次，单次 120-150 分钟；超过 150 分钟就拆成两练（技术一段、体能一段），两次间隔 ≥6 小时。</li>
+                    <li><strong>阶段周期：</strong>每段 4 周，其中每周 1 次大强度课；赛季中按 4 周为一个小周期循环。</li>
+                    <li><strong>评估节点：</strong>每 2 周 1 次小节点、每 4 周 1 次阶段评、每 8-12 周 1 次全项测评（含体成分与体能）。</li>
+                    <li><strong>体能配置：</strong>每周力量 3 次（50-60 分钟，RPE 8-9）、专项步法 3 次、间歇 2 次；赛前 2 周把总量降到 50%-60%。</li>
+                    <li><strong>跳级判定：</strong>阶段测试 ≥90% 达标 + 连续 6 周出勤 ≥95% + 体能指标同时达标（深蹲 ≥1.5 倍体重、1 分钟双摇 ≥60 次）+ 比赛数据与录像确认，四条同时满足才跳 1 段。</li>
+                    <li><strong>减量与恢复：</strong>每 3-4 周安排 1 周减量（量降 40%-50%、强度保留）；晨脉比基线高 ≥5 次/分、睡眠 &lt;6 小时或体重 3 天内掉 ≥1 kg，当天降量。减脂速度 ≤0.25 kg/周。</li>
+                    <li><strong>进阶触发：</strong>体能、技术、比赛三线数据连续 3 周稳定且无新增疼痛，才推进下一段。</li>
+                </ul>
+                <p><strong>每周执行量：</strong>每周 3 个学习单元，每单元 4 组 × 15 次专项练习 + 1 次录像复盘；单个技术累计 ≥200 次有效重复。</p>
+                <p><strong>时长上限：</strong>单次学习单元 ≤75 分钟，每周总学习时间 ≤6 小时，超出就拆成两个 30-40 分钟的小段。</p>
+            </div>
+        </div>
+
+        <h2>精英细节 — 同样走路，高手多做 8 件事</h2>
+        <ul>
+            <li><strong>先建出勤习惯：</strong>前 6 周不改路线、不追进度，只把每周次数做实。出勤率 ≥80% 之后再谈内容优化。</li>
+            <li><strong>周期按周登记完成率：</strong>计划写每周几次，实际也按周记；连续 2 周 &lt;60% 就自动降一档，不用等评估节点。</li>
+            <li><strong>评估节点只调 1-2 项：</strong>每 12 周复盘 1 次，一次只动 1-2 个训练变量，其余保持不变，出问题才好归因。</li>
+            <li><strong>阶段内允许微调、不许换路线：</strong>同一个阶段内可以换练习形式（多球改对抗），但目标指标与测法不变。</li>
+            <li><strong>减量周写进日历：</strong>每 4 周或每 3-4 周安排 1 周，训练量降 30%-50%、强度保留；不写进日历的减量周基本不会发生。</li>
+            <li><strong>比赛期重排而不是停练：</strong>赛前 2 周量降 40%-50%、强度保留；赛后 3 天只做低强度主动恢复，第 4-7 天回到 60% 量。</li>
+            <li><strong>体能线永远不断：</strong>每周保底 1-2 次力量与 1 次步法，青少年先长身体再上强度，技术才有本钱继续涨。</li>
+            <li><strong>两条线一起看：</strong>技术监控记录配<a href="47-body-status.html">身体状态</a>与<a href="45-training-calendar.html">训练日历</a>，晨脉、睡眠、体重三项里有两项异常就先降量再谈推进。</li>
+        </ul>
+        <p>8 条里先做前两条和第五条：出勤率、完成率、减量周。这三件做稳，路线的其余部分会自己往前走。</p>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>出现下面任何一条，先停下计划、先找专业人士：训练中或训练后关节疼痛、肿胀、夜间痛醒，或疼痛持续 &gt;1 周；晨脉连续 2 周比基线高 ≥5 次/分、睡眠长期 &lt;6 小时、成绩持续下滑、情绪低落或对训练失去兴趣（可能是过度训练，先减量 40%-50% 或休息 2-3 天）；头晕、胸闷、心悸，或运动中出现胸痛与异常呼吸困难，请立即停止并就医。</p>
+            <p style="margin-top:0.6rem">有心血管、呼吸系统疾病史或医生限制运动的人，任何阶段推进前先取得医生同意。青少年运动员不做减脂、不堆训练量，优先保证睡眠与能量摄入，技术动作未定型时不上大负重。伤后复出按"无痛 + 力量恢复到伤前 ≥90%"两个条件放行，急不得。计划可以等，关节等不了。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页的阶段划分（基础入门到职业水平共 8 段）与页面原有的路线安排来自本站项目惯例；每周次数、单次时长（60-150 分钟）、阶段周期（4-6 周）、评估节点（2-12 周）与减量幅度（30%-50%）按 NSCA CSCS 训练学框架中的周期化与渐进负荷常识给出，属于通用口径，不是你个人的精确日程。</p>
+            <p style="margin-top:0.6rem">个体差异来自训练年限、恢复能力（睡眠、营养）与既往伤病，实际推进速度必须用自己的记录校准；年龄段、女性生理周期、伤后复出等情况请结合对应页面或教练意见调整。本页不引用没有出处的具体研究数据，也不承诺任何具体时长内能达到的水平。</p>
         </div>
 
         <div class="cta">

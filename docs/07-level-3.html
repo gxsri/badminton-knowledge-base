@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="1-2年 · 技术自动化与简单战术应用">
     <meta property="og:title" content="Level 3：技术熟练 — 羽毛球职业训练系统">
@@ -65,6 +66,11 @@
         .assessment-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem}
         .assessment-label{font-size:0.8rem;color:var(--text-2);margin-bottom:0.25rem}
         .assessment-value{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--accent)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        td strong{color:var(--text)}
         .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
         .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
         .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
@@ -105,6 +111,10 @@
         <h1>技术熟练</h1>
         <div class="meta">1-2年 · 实现技术自动化，掌握技术变化</div>
 
+        <div class="callout">
+            <p><strong>一句话结论：</strong>Level 3 的分水岭是"自动化"——同一个技术连做 10 次，落点误差 ≤1 米、动作看不出区别。做不到就退回慢速练一致性，别急着加杀球速度。控制不住的速度，不是你的速度。</p>
+        </div>
+
         <div class="progress-bar">
             <div class="progress-title">学习进度</div>
             <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
@@ -140,6 +150,54 @@
                     <div class="assessment-value">11分制≥70%</div>
                 </div>
             </div>
+        </div>
+
+        <h2>🧩 分层处方（基础 / 进阶 / 精英）</h2>
+
+        <p>同一批技术，三档人的组次和强度差一倍以上。按你的现状选一档，练满 2 周再对照"进阶触发条件"。</p>
+        <p>三个词先说明白：<strong>1RM</strong>＝你只能标准完成 1 次的最大重量；<strong>RPE</strong>＝主观用力程度，10 分是拼尽全力；<strong>RIR</strong>＝这一组做完还能再做几次。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">刚过 Level 2</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>原地对搓、反手高远球定点、两点移动高远球；下肢做分腿蹲与臀桥打底</li>
+                    <li><strong>组次：</strong>搓球 3 组 × 20 球；反手高远球 3 组 × 15 球；分腿蹲 3 组 × 8 次/腿 @ 40-50% 1RM</li>
+                    <li><strong>强度：</strong>技术 RPE 5-6（RIR 4-5）；力量 40-50% 1RM</li>
+                    <li><strong>频率：</strong>每周 3 次（含 1 次对搓专练）</li>
+                    <li><strong>恢复间隔：</strong>同一技术间隔 ≥24 小时；力量组间 60-90 秒</li>
+                    <li><strong>单次时长上限：</strong>70 分钟（含热身 10 分钟）</li>
+                    <li><strong>进阶触发：</strong>20 球搓球有 14 球贴网（过网高度 ≤30 cm），连续 2 次达成</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周打 4 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>上网搓球/推球接后场高远球、杀上网、单一战术套路；力量加六角杠硬拉与面拉</li>
+                    <li><strong>组次：</strong>随机多球 5 组 × 40 球（每组 40 秒）；杀上网 4 组 × 10 次；战术套路 3 组 × 5 分钟；六角杠硬拉 4 组 × 5 次 @ 65-75% 1RM</li>
+                    <li><strong>强度：</strong>技术 RPE 7-8（RIR 2-3）；力量 65-75% 1RM</li>
+                    <li><strong>频率：</strong>每周 4 次（技术 3 次 + 力量 2 次，其中 1 天同日）</li>
+                    <li><strong>恢复间隔：</strong>高强度多球间隔 ≥48 小时；力量组间 2-3 分钟</li>
+                    <li><strong>单次时长上限：</strong>90 分钟</li>
+                    <li><strong>进阶触发：</strong>随机多球 40 球成功率 ≥85%，且 11 分制队内赛胜率 ≥70%</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次 · 有教练</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>比赛强度多球、杀球测速、假动作 1 对 1 对抗、比分压力下的战术执行；力量维持跳跃与后链</li>
+                    <li><strong>组次：</strong>多球 6 组 × 45 秒（组间 60 秒）；杀球 5 组 × 10 球（取最快 3 球均值）；六角杠硬拉 4 组 × 4 次 @ 80-90% 1RM；跳箱 4 组 × 5 次</li>
+                    <li><strong>强度：</strong>技术 RPE 9（RIR 1）；力量 80-90% 1RM</li>
+                    <li><strong>频率：</strong>每周 5-6 次，每周至少留 1 天完全休息</li>
+                    <li><strong>恢复间隔：</strong>同肌群 ≥48 小时；赛前 48 小时训练量降到平时的 40%</li>
+                    <li><strong>单次时长上限：</strong>110 分钟（含热身 15 分钟、放松 10 分钟）</li>
+                    <li><strong>进阶触发：</strong>6 组多球后第 6 组成功率仍 ≥80%，且 3 局比赛技术失误率 <20%</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>别跳档：</strong>精英版的 45 秒 × 6 组多球，是给有 2 年以上系统训练、且肩肘膝无痛的人准备的。基础版照这个量练，通常在第 3 周出现肘内侧或肩前侧疼痛。</p>
         </div>
 
         <h2>🏸 技术进阶</h2>
@@ -208,6 +266,51 @@
             </ol>
             <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>目标：</strong>建立2-3个常用的战术套路。</p>
         </div>
+
+        <h2>📊 自测与进阶标准</h2>
+
+        <p>每 2 周测一轮，7 项全测，把数字记在训练日志里。同一台设备、同一个同伴、同一块场地，数字才有可比性。</p>
+
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶方案</th></tr></thead>
+            <tbody>
+                <tr><td>① 后场定点高远球 10 球</td><td>落点误差 ≤1 米，合格 ≥8 球（80%）</td><td>退回 5 球一组，出球速度降到 60%，只打一个固定落点</td></tr>
+                <tr><td>② 网前搓球 20 球</td><td>贴网（过网高度 ≤30 cm）≥14 球（70%）</td><td>退回固定搓球：同伴把球举到网带上方 10 cm，只练旋转不管过网</td></tr>
+                <tr><td>③ 反手高远球 10 球</td><td>到对方双打后发球线后 1 米内 ≥6 球</td><td>退回 3 米近距离反手抽墙 3 组 × 30 次，大臂不动</td></tr>
+                <tr><td>④ 杀球测速 10 球（取最快 3 球均值）</td><td>≥200 km/h</td><td>退回原地半场杀球 3 组 × 10 球，只看击球点高度与拍面</td></tr>
+                <tr><td>⑤ 假动作 20 次（1 对 1）</td><td>对手重心先动 ≥12 次（60%）</td><td>退回空挥一致性：两种球路同一准备动作，各 20 次 × 3 组</td></tr>
+                <tr><td>⑥ 11 分制队内赛</td><td>胜率 ≥70%（10 场赢 7 场）</td><td>退回半场计分，只允许用 2 种球路，练到失误率 <20%</td></tr>
+                <tr><td>⑦ 多拍相持（半场，不限制球路）</td><td>连续 ≥30 拍不失误</td><td>退回 15 拍一组，先限定回球落点范围再加拍数</td></tr>
+            </tbody>
+        </table>
+
+        <h2>🔧 错误 → 原因 → 纠正</h2>
+
+        <p>下面 5 条都能用手机录像对照。一次只改一条，改完拍一次对比，别同时动 5 个地方。</p>
+
+        <table>
+            <thead><tr><th>错误（录像能看出来）</th><th>真正原因</th><th>纠正动作</th></tr></thead>
+            <tbody>
+                <tr><td>搓球贴网了但球不转，对手轻松回放</td><td>拍面切的是球头正后方——那是放网，不是搓球</td><td>先用手指模拟"切"：食指从掌心侧面斜切过去；再练拍面切球头侧面，动作幅度 ≤15 cm</td></tr>
+                <tr><td>反手高远球总到不了底线</td><td>手先走、肘没领先，靠手腕甩而不是拇指顶推</td><td>毛巾甩鞭 3 组 × 10 次找前臂外旋时机；反手抽墙 3 组 × 30 次，要求大臂不动</td></tr>
+                <tr><td>假动作骗不到人，对手提前移动</td><td>准备动作不一致，高手在引拍阶段就读出来了</td><td>录像逐帧对比两种球路的架拍与引拍，必须一致；一致性空挥 20 次 × 3 组</td></tr>
+                <tr><td>前两局能打，第三局决策和动作一起崩</td><td>体能掉到阈值以下，动作先变形、再影响选球</td><td>每周 2 次间歇跑：30 秒快 / 30 秒慢 × 10 组；赛前 3 周开始练 3 局连打</td></tr>
+                <tr><td>战术套路打一两拍就被打断</td><td>只有"打法"没有预判，下一拍没有提前准备</td><td>每打完一拍默念对手最可能的 2 个回球方向；练 3+1 球路（前 3 拍同向、第 4 拍变线），落点偏差 ≤1 米</td></tr>
+            </tbody>
+        </table>
+
+        <h2>🧠 精英细节：同样动作，高手多做什么</h2>
+
+        <ol>
+            <li><strong>速度按"控制"来加，不按心情加。</strong>50% 速度落点偏差 &lt;30 cm → 升到 70% 速度、偏差 &lt;50 cm → 再升到 85%。任何一级不达标，退回上一级重来。</li>
+            <li><strong>杀球分级使用。</strong>点杀（动作小）RPE 6-7 用来组织，重杀 RPE 9-10 每局控制在 8-12 拍。全程全力杀，第三局一定掉速。</li>
+            <li><strong>每拍之间流程不超过 6 秒。</strong>捡球 → 走位 → 想好下一拍打哪。节奏本身就是技术，僵在原地想太久会被对手带着走。</li>
+            <li><strong>比赛期减量要减"量"不减"强度"。</strong>赛前 48 小时训练量降到平时的 40%，但保留 1-2 组短时高强度多球（20 球，RPE 8）。</li>
+            <li><strong>用"失误归因表"代替"今天手感不好"。</strong>把失误分 3 类：选球错、动作错、被对手打死。每场记 10 分，赛后看比例——选球错多就调战术，动作错多才调技术。</li>
+            <li><strong>每周固定 1 次 45 分钟"只练弱项"。</strong>给自己 6 项技术打 1-10 分，取最低的 2 项各练 20 分钟。练到 7 分以上再换下一项。</li>
+            <li><strong>网前封网站位提前半步。</strong>拍子举到网带以上 20-30 cm，重心低于网带。封网不是等球到身前，是提前站在球会到的地方。</li>
+            <li><strong>反手只求过渡，不追反手杀。</strong>反手球的目标是过网 1.5-2 米、落在中场，把反手杀留给每周 ≤10 次的专项练习，其余时间别在比赛里试。</li>
+        </ol>
 
         <h2>📅 4周训练计划</h2>
 
@@ -281,6 +384,14 @@
                     <div class="day-content">评估通过？<br>进入Level 4</div>
                 </div>
             </div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>肩过顶动作痛、肘内侧痛、膝前痛、下压时腰痛，这四种情况先停掉杀球、跳箱和全力多球，改成技术课与固定点练习。出现下面任一信号立刻停练并就医：关节肿胀 48 小时不消、夜里被痛醒、手臂发麻、单腿落地膝盖内扣并伴随疼痛。青少年每周跳跃落地总量控制在 240 次以内。女性球员在经期前后把跳跃类减量 30-50%，用网前手感和球路课替换。疼痛持续 2 周没有减轻，找医生或康复师，不要靠"再练练就好了"硬顶。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本篇参数来自三类来源——NSCA CSCS 训练学框架（组次、%1RM 强度区间、组间恢复、减量与单次时长上限的取值逻辑）、运动生理与生物力学常识（前臂旋转发力、旋转球的不稳定性、疲劳对动作控制的影响）、羽毛球项目惯例（多球组数、贴网率与落点误差的评估口径）。没有引用任何具体文献，也不承诺个体效果。杀球速度 200 km/h 是业余进阶的常见参照值，测速方式不同（出球初速 / 拍头速度）数字差别很大，请用同一台设备做前后对比，不要跨设备比。</p>
         </div>
 
         <h2>✅ 学习清单</h2>

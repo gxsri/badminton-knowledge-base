@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="6-12个月 · 高远球、网前与步法的连贯技术">
     <meta property="og:title" content="Level 2：技术入门 — 羽毛球职业训练系统">
@@ -65,6 +66,11 @@
         .assessment-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem}
         .assessment-label{font-size:0.8rem;color:var(--text-2);margin-bottom:0.25rem}
         .assessment-value{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--accent)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        td strong{color:var(--text)}
         .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
         .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
         .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
@@ -105,6 +111,10 @@
         <h1>技术入门</h1>
         <div class="meta">6-12个月 · 掌握基础击球技术，建立步法连贯性</div>
 
+        <div class="callout">
+            <p><strong>一句话结论：</strong>Level 2 只解决一件事——把动作练"定型"。每周 3 次、每次 60-75 分钟，先做到 20 球高远球有 14 球落进对方底线 1 米内，再谈吊球和杀球。动作没定型就加量，练出来的是错动作。</p>
+        </div>
+
         <div class="progress-bar">
             <div class="progress-title">学习进度</div>
             <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
@@ -140,6 +150,54 @@
                     <div class="assessment-value">≥20拍</div>
                 </div>
             </div>
+        </div>
+
+        <h2>🧩 分层处方（基础 / 进阶 / 精英）</h2>
+
+        <p>同一套技术，三档人的参数完全不同。先按你的现状选一档，练满 2 周再对照"进阶触发条件"往上走。</p>
+        <p>三个词先说明白：<strong>1RM</strong>＝你只能标准完成 1 次的最大重量；<strong>RPE</strong>＝主观用力程度，10 分是拼尽全力；<strong>RIR</strong>＝这一组做完还能再做几次。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">打球不足 1 年</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>原地正手高远球（先空挥再上球）、启动步、网前挑球；力量只做自重深蹲与平板支撑</li>
+                    <li><strong>组次：</strong>高远球 4 组 × 20 球；启动步 3 组 × 15 次；自重深蹲 3 组 × 12 次</li>
+                    <li><strong>强度：</strong>技术 RPE 5-6（RIR 4-5）；力量用自重或 ≤40% 1RM</li>
+                    <li><strong>频率：</strong>每周 3 次（2 次技术 + 1 次对打）</li>
+                    <li><strong>恢复间隔：</strong>同一技术间隔 ≥24 小时；力量组间 60-90 秒</li>
+                    <li><strong>单次时长上限：</strong>60 分钟（含热身 10 分钟）</li>
+                    <li><strong>进阶触发：</strong>连续 2 次训练，20 球高远球有 14 球（70%）落底线 1 米内</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周打 3-4 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>移动中高远球（从中心跑到后场两点）、吊球、网前放网；下肢加分腿蹲</li>
+                    <li><strong>组次：</strong>高远球 5 组 × 30 球；吊球 4 组 × 20 球；分腿蹲 3 组 × 8 次/腿 @ 50-60% 1RM</li>
+                    <li><strong>强度：</strong>技术 RPE 7（RIR 2-3）；力量 50-60% 1RM</li>
+                    <li><strong>频率：</strong>每周 3-4 次（含 1 次多球课）</li>
+                    <li><strong>恢复间隔：</strong>高强度多球间隔 ≥48 小时；力量组间 90-120 秒</li>
+                    <li><strong>单次时长上限：</strong>75 分钟</li>
+                    <li><strong>进阶触发：</strong>移动中高远球 30 球有 24 球（80%）进底线 1 米，且 4 点移动 ≤4.0 秒</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>随机多球（两点/四点）、变速吊球、杀球上网；力量用六角杠硬拉与跳箱</li>
+                    <li><strong>组次：</strong>多球 6 组 × 40 球（每组 40-50 秒）；4 点移动 6 组 × 30 秒；六角杠硬拉 4 组 × 5 次 @ 75-85% 1RM；跳箱 4 组 × 5 次</li>
+                    <li><strong>强度：</strong>技术 RPE 8-9（RIR 1）；力量 75-85% 1RM</li>
+                    <li><strong>频率：</strong>每周 5 次，其中 2 次为技术 + 力量同日（技术在前）</li>
+                    <li><strong>恢复间隔：</strong>同肌群 ≥48 小时；力量组间 2-3 分钟</li>
+                    <li><strong>单次时长上限：</strong>90 分钟（含热身与放松）</li>
+                    <li><strong>进阶触发：</strong>多球 40 球一组成功率 ≥85%，且 4 点移动 ≤3.6 秒连续 3 次</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>别跳档：</strong>基础版的人直接照精英版的球量练，90% 会在第 2-3 周出现肩肘疼痛。宁可把 40 球一组打成质量高的 20 球一组，也不要凑数量。</p>
         </div>
 
         <h2>🏸 技术训练</h2>
@@ -195,6 +253,23 @@
             <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>检查点：</strong>是否用全身发力？击球点是否够高？</p>
         </div>
 
+        <div class="exercise">
+            <div class="exercise-title">训练6：网前放网与挑球（补齐前后场两头）</div>
+            <div class="exercise-meta">
+                <span><strong>组数：</strong>3组</span>
+                <span><strong>次数：</strong>20次/组</span>
+                <span><strong>频率：</strong>每周2次</span>
+            </div>
+            <ol class="exercise-steps">
+                <li>网前握拍：手指往拍柄前端挪 2-3 cm，拇指与食指控制力度</li>
+                <li>放网：拍面后仰 15-20 度，触球点控制在网带以上 10 cm 内</li>
+                <li>挑球：前臂从下向上送，手腕固定，球到对方后发球线后 1 米</li>
+                <li>上网最后一步蹬跨，跨度 ≥1.2 米，膝盖不超过脚尖</li>
+                <li>放完网重心向前，随时准备扑下一拍</li>
+            </ol>
+            <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>关键：</strong>放网靠"接"不靠"打"。如果你感觉是自己发力把球推过去的，球一定弹太高。</p>
+        </div>
+
         <h2>👟 步法训练</h2>
 
         <div class="exercise">
@@ -226,6 +301,50 @@
                 <li>计时，目标<4秒</li>
             </ol>
         </div>
+
+        <h2>📊 自测与进阶标准</h2>
+
+        <p>每 2 周测一次，一次测完 6 项，记录数字。数字不动，就说明该退阶，不该加量。</p>
+
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶方案</th></tr></thead>
+            <tbody>
+                <tr><td>① 原地正手高远球 20 球</td><td>落点在对方底线 1 米内 ≥14 球（70%）</td><td>退到离网 3 米定点喂球，先空挥 10 次找击球点再上球</td></tr>
+                <tr><td>② 移动中高远球 10 球（从中心启动）</td><td>底线 1 米内 ≥6 球（60%）</td><td>只跑正手后场一个点，移动速度降到 60%，练 3 组 × 8 球</td></tr>
+                <tr><td>③ 全场 4 点移动（1 轮含回中）</td><td>≤4.0 秒（做 2 次取较快那次）</td><td>改成 3 点移动且不要求回中；启动步 3 组 × 15 次</td></tr>
+                <tr><td>④ 半场连续对打（只打高远球）</td><td>≥20 拍不失误</td><td>改成 10 拍一组，喂球高度固定，练 3 组再加拍数</td></tr>
+                <tr><td>⑤ 原地跳杀 10 球</td><td>≥6 球过网且落在对方中场 2 米内</td><td>退到不跳的"高点触球" 3 组 × 10 次，只求动作完整</td></tr>
+                <tr><td>⑥ 网前挑球 10 球</td><td>到对方后发球线后 1 米内 ≥7 球</td><td>退到原地定点挑球，距离缩到 4 米，先求过网高度</td></tr>
+            </tbody>
+        </table>
+
+        <h2>🔧 错误 → 原因 → 纠正</h2>
+
+        <p>下面 5 条都能用手机侧拍录像对照。一次只改一条，改完再拍一次对比。</p>
+
+        <table>
+            <thead><tr><th>错误（录像能看出来）</th><th>真正原因</th><th>纠正动作</th></tr></thead>
+            <tbody>
+                <tr><td>打完 20 球，肩膀比腿先酸</td><td>只用手臂抡，脚下没蹬地，动力链第一步就断了</td><td>只做"右脚蹬地 + 髋转动"的空挥 10 次，练到腿酸手不酸，再拿拍上球</td></tr>
+                <tr><td>高远球总是到不了底线</td><td>击球点偏后（在身体侧后方），拍面没在最高点碰到球</td><td>侧拍录像看击球瞬间肘是否高于肩；把击球点前移 10-15 cm，练 3 组 × 10 次</td></tr>
+                <tr><td>跑到位后动作变形、球下网</td><td>最后一步太小，重心没降下来，只能弯腰够球</td><td>练蹬跨上网：最后一步跨度 ≥1.2 米，膝盖不超过脚尖；先慢速 5 次再加速</td></tr>
+                <tr><td>杀球挂网或出界偏多</td><td>起跳太早、击球点偏低，手腕下压过多</td><td>先不跳，做原地高点触球 3 组 × 10 次；落点只要求过网 1.5 米</td></tr>
+                <tr><td>打完一拍站在原地看球</td><td>没有回中习惯，等着打下一拍</td><td>每次击球后喊"打—回"，多球 20 球里要求至少 18 球回到中心</td></tr>
+            </tbody>
+        </table>
+
+        <h2>🧠 精英细节：同样动作，高手多做什么</h2>
+
+        <ol>
+            <li><strong>架拍时先预转髋 15-20 度。</strong>脚落地那一下髋已朝发力方向拧好，蹬地时弹性势能直接释放，出手快 0.05-0.1 秒。这叫"分腿加载"。</li>
+            <li><strong>节奏是"慢—慢—快—慢"。</strong>架拍约 1 秒、引拍约 0.5 秒、击球 0.1 秒、随挥 0.3 秒。业余最常见的毛病是全程都快，等于没有蓄力。</li>
+            <li><strong>握拍分三级松紧。</strong>准备 1 级（最松）→ 引拍 2 级 → 击球 3-4 级（握紧）→ 随挥回 2 级。全程握死，前臂会提前 10-15 分钟疲劳。</li>
+            <li><strong>击球后 0.1-0.2 秒迈出回位第一步。</strong>业余通常在击球后 0.3-0.5 秒才动，差的这 0.2 秒就是对手打你空当的窗口。</li>
+            <li><strong>每球之间固定 5-8 秒流程。</strong>捡球 → 回中心 → 深呼吸一次 → 想好下一拍落点。用固定节奏把心率压住，多球才扛得住。</li>
+            <li><strong>落点用"目标区"，不用"大概方向"。</strong>在对方底线放一个 1 米 × 1 米的目标区，10 球进 6 球才加难度。没有目标区的多球只是消耗体力。</li>
+            <li><strong>每次训练拍 30 秒侧拍视频，只看 2 个点。</strong>看击球点高度和脚下最后一步。一次只改一个动作，同时改 5 个等于没改。</li>
+            <li><strong>每周 3 次跳绳 3 组 × 60 秒（组间 45 秒）。</strong>踝关节和小腿的落地缓冲是所有步法的地基，也是最容易被业余选手忽略的一环。</li>
+        </ol>
 
         <h2>📅 4周训练计划</h2>
 
@@ -299,6 +418,14 @@
                     <div class="day-content">评估通过？<br>进入Level 3</div>
                 </div>
             </div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>肩、肘、膝、腰正在痛的时候，不要继续练杀球、跳箱和全力多球。出现下面任一信号就停练并就医：关节肿胀 48 小时不消、夜里被痛醒、手臂或腿发麻、单腿落地时膝盖内扣并伴随疼痛。青少年每周跳跃类落地总量控制在 240 次以内。同一个技术练了 2 周、录像对比还是没变化，就找教练现场看一次，比你自己再打 200 球有用。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本篇参数来自三类来源——NSCA CSCS 训练学框架（组次、强度区间、组间恢复、单次时长上限的取值逻辑）、运动生理与生物力学常识（动力链顺序、弹性势能、握力与疲劳的关系）、羽毛球项目惯例（多球组数、四点移动计时、落点目标区）。没有引用任何具体文献，也不承诺个体效果。有旧伤、基础病或术后恢复期，先找医生或康复师评估再照本页执行。</p>
         </div>
 
         <h2>✅ 学习清单</h2>

@@ -430,8 +430,19 @@ if (DATA) {
         const params = (c.match(/\d+\s*(?:组|次|%|RM|RPE|RIR|分钟|秒|小时|小时|天|周|米|kg|磅|心率\s*[2-5]\s*区)/g) || []).length;
         if (params < 8) bad(rel.replace('docs/', ''), `量化参数不足（${params} < 8）`);
     }
-    if (qualityPages.length < 20) bad('内容质量 v2', `达标页面不足（${qualityPages.length} < 20，标准要求持续扩面）`);
-    else ok('内容质量 v2', `${qualityPages.length} 页通过必备区块与参数密度检查`);
+    /* 未打标记的页面必须落在显式豁免清单里：防止"悄悄新增/退回一篇没按标准写的文章" */
+    const V2_EXEMPT = new Set(['40-search.html']); // 纯功能入口页：正文由 JS 动态渲染，无文章结构（豁免需在 CONTENT-STANDARD.md 备案）
+    const unmarked = htmlFiles
+        .filter(rel => rel.startsWith('docs/') && !qualityPages.includes(rel))
+        .map(rel => rel.replace('docs/', ''));
+    const strayUnmarked = unmarked.filter(f => !V2_EXEMPT.has(f));
+    if (strayUnmarked.length) bad('内容质量 v2', `未打标记且不在豁免清单：${strayUnmarked.join('、')}（请按 CONTENT-STANDARD.md 补写或登记豁免）`);
+    const staleExempt = [...V2_EXEMPT].filter(f => !unmarked.includes(f));
+    if (staleExempt.length) bad('内容质量 v2', `豁免清单已过期，请移除已达标项：${staleExempt.join('、')}`);
+
+    const v2Floor = DATA.docs.length - V2_EXEMPT.size;
+    if (qualityPages.length < v2Floor) bad('内容质量 v2', `达标页面不足（${qualityPages.length} < ${v2Floor}，标准要求全站覆盖，豁免页已备案）`);
+    else ok('内容质量 v2', `${qualityPages.length} 页通过必备区块与参数密度检查（全站覆盖，豁免 ${V2_EXEMPT.size} 页）`);
 
     // 站点级资产：sitemap / robots / 数据面板能力
     try {

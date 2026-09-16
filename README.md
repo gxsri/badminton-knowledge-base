@@ -194,7 +194,9 @@ https://gxsri.github.io/badminton-knowledge-base/
 | ✅ 配套图册 | 16张解剖示意图 |
 | ✅ 可打印表格 | 16张表格 + 4份A4印刷版HTML |
 | ✅ 训练系统网页版 | 51篇交互文档（docs/）+ 登记表驱动主页 + 回归测试 |
-| ✅ 动作示范动图 | 13个 GIF（images/exercises/，© Gym visual，保留署名） |
+| ✅ 内容标准 v2（三档处方） | 全站 51 篇中 50 篇达标（`<!-- quality:v2 -->`，唯一豁免：40 搜索页），逐档机器审稿 |
+| ✅ 动作示范动图 | 36 个 GIF（images/exercises/，© Gym visual，保留署名） |
+| ✅ 质量门禁 | push/PR 跑「静态回归 + 逐档内容审稿」，部署依赖门禁 —— 不达标不上线 |
 | ✅ GitHub Pages | 根目录自动部署（push main → Actions → gh-pages） |
 | ✅ 诊断索引 | 60+症状 → 原因 → 解决方案 |
 | ✅ 训练安全边界 | RICE处理 + 重返运动标准 |

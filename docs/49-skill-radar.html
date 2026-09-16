@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="技术雷达图：多维技术自评与可视化对比">
     <meta property="og:title" content="技术雷达图 — 羽毛球职业训练系统">
@@ -34,6 +35,21 @@
         .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
         .callout p{margin:0;color:var(--text)}
         .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        .rx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1rem;margin:1.5rem 0}
+        .rx{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+        .rx h3{font-size:1rem;margin:0 0 0.6rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap}
+        .rx h3 .rx-badge{font-size:0.7rem;font-weight:600;padding:0.1rem 0.45rem;border:1px solid var(--border);border-radius:9999px;color:var(--text-2)}
+        .rx ul{margin:0;padding-left:1.1rem}
+        .rx li{font-size:0.9rem;color:var(--text-2);margin-bottom:0.3rem}
+        .rx-base{border-top-color:var(--green)}
+        .rx-mid{border-top-color:var(--blue)}
+        .rx-elite{border-top-color:var(--accent)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.65rem 0.8rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
         .radar-container{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0;text-align:center}
         .radar-canvas{max-width:400px;margin:0 auto}
         .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
@@ -95,6 +111,10 @@
         <h1>技术雷达图</h1>
         <div class="meta">可视化技术掌握程度 · 识别弱项 · 制定提升计划</div>
 
+        <div class="callout">
+            <p><strong>一句话结论：</strong>固定 8 项、每项 1-10 分，每 2-4 周自评 1 次，每周期只主攻 1-2 项 ≤4 分的弱项，比一次把 8 项都练一遍涨得快。</p>
+        </div>
+
         <div class="callout info">
             <p><strong>什么是技术雷达？</strong>技术雷达是一个可视化工具，帮助你了解各项技术的掌握程度。通过定期评估，你可以清楚地看到自己的进步和需要加强的地方。</p>
         </div>
@@ -132,6 +152,105 @@
                 </div>
             </div>
             <button class="btn" onclick="updateSkill()">更新评分</button>
+        </div>
+
+        <h2>自测与进阶标准 — 技术雷达图</h2>
+        <p>评分只有 1-10 的整数，方便对比。测法固定下来，分数才有可比性：每次都在热身 20 分钟后、体力八成状态下打分。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td><strong>评分项数</strong><br>看雷达图上的项数</td><td>固定 8 项（高远球 / 吊球 / 杀球 / 网前 / 反手 / 步法 / 防守 / 战术），不临时增删</td><td>项数变过就先清零重评一次，把 8 项基准线补齐</td></tr>
+                <tr><td><strong>自评频率</strong><br>数本月的自评次数</td><td>基础版每月 1 次；进阶版每 2 周 1 次；精英版每周 1 次</td><td>降到每月 1 次，固定在同一天同一时段测</td></tr>
+                <tr><td><strong>评分一致性</strong><br>同一项隔 3 天重评</td><td>两次差值 ≤1 分；>2 分说明打分标准没固定</td><td>用录像代替感觉：录 10 次同一技术，数成功次数再换算分数</td></tr>
+                <tr><td><strong>弱项主攻数量</strong><br>数本周期在练的弱项</td><td>每周期只主攻 1-2 项 ≤4 分的项目，逐项轮流</td><td>先只练 1 项，每节课 15-20 分钟专项，练满 4 周再换</td></tr>
+                <tr><td><strong>每周期复评时间点</strong><br>对照训练日历</td><td>主攻弱项每 4 周复评 1 次；8 项全项复评每 8-12 周 1 次</td><td>改为每月固定一天全项复评，主攻项只在周期结束时测</td></tr>
+                <tr><td><strong>单项达标阈值</strong><br>看单项分数</td><td>6 分以上算该项达标；8-10 分进入维持，不再追加专项时间</td><td>4 分以下先回到无对抗分解练习，降低速度要求</td></tr>
+                <tr><td><strong>推进下一级训练</strong><br>8 项整体检查</td><td>8 项全部 ≥6 分，且连续 2 次复评不退步，才进下一级；单项最高与最低分差收窄到 ≤3 分</td><td>有 2 项以上 &lt;5 分就先不升级，按弱项处方先补 4 周</td></tr>
+                <tr><td><strong>量化对照（可选）</strong><br>用可数的动作替代感觉</td><td>高远球连续 30 秒不掉速；网前搓放 20 次里 ≥16 次过网下落；后场两点步法 30 秒 ≥14 个来回</td><td>先减到 15 秒 / 10 次，速度降一档，达标后再加</td></tr>
+            </tbody>
+        </table>
+
+        <h2>错误 → 原因 → 纠正</h2>
+        <p>都能用你自己的录像对照。分数只跟自己的上月比，不跟别人比。</p>
+        <table>
+            <thead><tr><th>错误</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr><td>一项分数这周 5 分、下周 7 分，来回跳</td><td>凭"今天打得顺不顺"打分，标准每天在变</td><td>固定测法：热身 20 分钟、做 5 分钟专项、歇 1 分钟后立刻打分；同一项隔 3 天重评，差值控制在 ≤1 分</td></tr>
+                <tr><td>雷达图到处是缺口，8 项一起补</td><td>贪多，练完哪项都没练透</td><td>只挑最低的 1-2 项做专项，每节课 15-20 分钟，练满 4 周再复评换项</td></tr>
+                <tr><td>为了好看，把弱项打高 2 分</td><td>不愿面对短板，改分比改技术容易</td><td>每项写一句客观依据（如"杀球 10 次里 4 次出界"）；4 周一致性检查差值 &gt;2 分就重评</td></tr>
+                <tr><td>只看总分加了几点，忽略形状</td><td>被一个总分牵着走，缺口位置没变</td><td>改看单项：最高分与最低分的差距要逐周期缩小；每周期只盯 1-2 项</td></tr>
+                <tr><td>打分一次就定档，中间不测</td><td>嫌麻烦，把一个月的旧分数当现状</td><td>主攻项每 4 周复评 1 次、全项每 8-12 周 1 次，写进训练日历</td></tr>
+                <tr><td>只练分低的项，高分项完全停</td><td>时间全给弱项，强项掉手感</td><td>高分项（8-10 分）每周留 1 次 15-20 分钟维持课，总量控制在 20% 以内</td></tr>
+            </tbody>
+        </table>
+
+        <h2>分层处方 — 技术雷达图（三档照做）</h2>
+        <p>三档只差五个数：评几项、多久自评一次、同时主攻几个弱项、多久复评、多少分算达标。先按你的每周训练次数选一档，别跨档。</p>
+        <p>先说两个词。<strong>自评</strong>就是按固定动作给自己打分，同一套标准测自己。<strong>复评</strong>就是隔一段时间用同样方法再测一遍，只看趋势，不看单次。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周训练 ≤2 次</span></h3>
+                <ul>
+                    <li><strong>评分项数：</strong>固定 8 项，1-10 分整数，不临时加项。</li>
+                    <li><strong>自评频率：</strong>每月 1 次，固定同一天、同一时段（如每月第 1 个周日）。</li>
+                    <li><strong>弱项主攻：</strong>每周期只挑 1 项 ≤4 分的项目，每节课留 15 分钟专项。</li>
+                    <li><strong>复评时间点：</strong>每 4 周复评这 1 项；8 项全项复评每 12 周 1 次。</li>
+                    <li><strong>达标阈值：</strong>主攻项每 4 周涨 ≥1 分算达标；6 分以上停止专项，进入维持。</li>
+                    <li><strong>负荷与时长：</strong>每周训练 ≤2 次，单次 60-75 分钟，自评本身 ≤10 分钟；两次训练间隔 ≥48 小时。</li>
+                    <li><strong>进阶触发：</strong>连续 2 次复评同一项差值 ≤1 分、主攻项 ≥6 分，再增加第二项。</li>
+                </ul>
+                <p><strong>强度基准：</strong>自评按 RPE 口径对齐用力程度：只能做 RPE 5 以下慢速球的记 ≤4 分，能在 RPE 7 以上的对抗回合里稳定做出该技术才记 ≥7 分。</p>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周训练 3-4 次</span></h3>
+                <ul>
+                    <li><strong>评分项数：</strong>固定 8 项 + 每项写 1 句可数依据，评分前先录像 10 次同一技术。</li>
+                    <li><strong>自评频率：</strong>每 2 周 1 次，固定同一时段，评分前先做 20 分钟热身。</li>
+                    <li><strong>弱项主攻：</strong>同时主攻 2 项 ≤4 分的项目；每周安排 2 次专项课，每项 15-20 分钟。</li>
+                    <li><strong>复评时间点：</strong>每 4 周对主攻项复评 1 次；8 项全项复评每 8 周 1 次（与 4 周训练计划对齐）。</li>
+                    <li><strong>达标阈值：</strong>8 项全部 ≥6 分，且最高与最低分差 ≤3 分，才推进下一级训练。</li>
+                    <li><strong>负荷与时长：</strong>每周训练 3-4 次，其中 2 次专项课，单次 ≤120 分钟；两次专项课间隔 ≥24 小时。</li>
+                    <li><strong>进阶触发：</strong>连续 2 个周期主攻项各涨 ≥1 分、录像对比能看到动作变化，再换下一组弱项。</li>
+                </ul>
+                <p><strong>强度基准：</strong>录像与对抗都按 RPE 口径打分：RPE ≥7 的高强度回合才作评分依据，RPE 4-5 的定点喂球最多记 5 分。</p>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周训练 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>评分项数：</strong>8 项再加 1-2 项比赛情境项（如接发球后的第 3 拍质量），共 9-10 项，分项口径全周期不变。</li>
+                    <li><strong>自评频率：</strong>每周 1 次；训练日记里每节课记录 1 个技术数据点（如杀球落点成功率）。</li>
+                    <li><strong>弱项主攻：</strong>每周期主攻 2 项，其中 1 项为对手最可能压制的项；每项每周累计 200-300 次有效重复。</li>
+                    <li><strong>复评时间点：</strong>每 4 周复评、每 8 周全项复评；比赛前 2 周只复评主攻项，不做全项重测。</li>
+                    <li><strong>达标阈值：</strong>主攻项 ≥7 分，全部项 ≥6 分；单月涨 &lt;1 分就换练法或降低速度要求重练。</li>
+                    <li><strong>负荷与时长：</strong>每周训练 5-6 次，其中 3 次专项；单次 ≤150 分钟，超过就拆两段（技术 + 体能分开）；两次大强度课间隔 ≥48 小时。</li>
+                    <li><strong>进阶触发：</strong>比赛录像复盘与自评结论一致（同一处失误出现在 ≥2 场），才把该项降为下一周期主攻。</li>
+                </ul>
+                <p><strong>强度基准：</strong>以最近 3 场比赛的高强度对抗为准：RPE ≥8 的回合记 7 分以上，RPE 6 以下的定点练习不计入自评。</p>
+            </div>
+        </div>
+
+        <h2>精英细节 — 同样自评，高手多做 8 件事</h2>
+        <ul>
+            <li><strong>先固定口径再打分：</strong>同一项的分档写死（如杀球 10 次里落点有效 ≥8 次记 8 分），换人换时间也不改标准。</li>
+            <li><strong>录像比感觉准一档：</strong>用 0.25 倍速看击球点、拍面与重心，每次只挑 1 个要改的点，比同时改 3 处有效。</li>
+            <li><strong>弱项选"可练"的那一个：</strong>每 4 周只主攻 1-2 项；4 周没动就把目标拆成更小的可数子项（如反手 10 次能打出几次到底线）。</li>
+            <li><strong>课表结构服务于弱项：</strong>每周 3-4 课里至少 1 课整节课做弱项单项技术，单次 ≤120 分钟，超出就拆两段。</li>
+            <li><strong>单个动作先攒够重复：</strong>一项技术要 200-300 次高质量重复才算定下来，按每节课 60 次算就是 3-5 节课。</li>
+            <li><strong>赛前两周只保两个点：</strong>把 70% 技术时间给主攻项，30% 给高分项维持手感；赛前 48 小时不安排大强度体能课。</li>
+            <li><strong>达标就撤：</strong>一项到 8 分就退出专项，把时间让给最低分的项；维持项每周 1 次、每次 15-20 分钟。</li>
+            <li><strong>波动先看趋势：</strong>单月 1-2 分的起伏属正常范围，看连续 3 次评估的方向；连续退步两周先查睡眠与恢复，再怀疑技术。</li>
+        </ul>
+        <p>这 8 条里先把第一条和第二条做满：标准固定 + 录像对照，评分才有长期价值。</p>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>自评时出现疼痛、关节肿胀、活动受限（如抬手过肩疼），先停止该项测试并咨询医生或物理治疗师，不要在疼的状态下硬测分数。肩、肘、膝、腰的疼持续 &gt;1 周或夜间痛醒，请找运动医学评估，别靠降分掩盖问题。</p>
+            <p style="margin-top:0.6rem">评分只反映你当前的动作质量，不代表伤病风险，也不能替代教练的现场判断与体能测试。青少年运动员与技术动作尚未定型的人，任一项掉到 3 分以下时应先找教练面授，别只靠自评和录像自己改。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页的项数分类、1-10 分整数制、自评与复评频率（1-4 周）属于项目惯例与 NSCA CSCS 训练学框架中的自评—复评做法，6 分作为单项达标参照线是本页面为便于分层而设的口径，不是某项研究给出的分界线。页内的时间与次数阈值（15-20 分钟专项、200-300 次重复、4 周复评）都写成可执行范围，你可以按自己的恢复情况微调。</p>
+            <p style="margin-top:0.6rem">自评天然带有主观性，所以要求用录像、可数动作（成功次数、落点）来交叉验证；本页不引用没有出处的具体研究数据，也不承诺任何具体提升幅度。得分与训练决策请结合教练观察与身体状态页的记录一起看。</p>
         </div>
 
         <div class="cta">

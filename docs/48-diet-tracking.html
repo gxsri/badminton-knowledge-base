@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="饮食记录工具：三餐与热量摄入追踪、营养搭配提醒">
     <meta property="og:title" content="饮食记录 — 羽毛球职业训练系统">
@@ -35,6 +36,20 @@
         .callout p{margin:0;color:var(--text)}
         .callout.info{border-left-color:var(--blue)}
         .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
+        .rx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1rem;margin:1.5rem 0}
+        .rx{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+        .rx h3{font-size:1rem;margin:0 0 0.6rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap}
+        .rx h3 .rx-badge{font-size:0.7rem;font-weight:600;padding:0.1rem 0.45rem;border:1px solid var(--border);border-radius:9999px;color:var(--text-2)}
+        .rx ul{margin:0;padding-left:1.1rem}
+        .rx li{font-size:0.9rem;color:var(--text-2);margin-bottom:0.3rem}
+        .rx-base{border-top-color:var(--green)}
+        .rx-mid{border-top-color:var(--blue)}
+        .rx-elite{border-top-color:var(--accent)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.65rem 0.8rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
         .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0}
         .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
         .stat-num{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700}
@@ -110,6 +125,10 @@
         <div class="badge">P2工具</div>
         <h1>饮食记录</h1>
         <div class="meta">记录每日饮食 · 追踪营养摄入 · 优化训练效果</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>每周先记满 3 天，盯住蛋白质 1.6-2.0 g/kg 与练后 30-60 分钟那一顿，比精确算每一口热量更能改善训练状态。</p>
+        </div>
 
         <div class="callout info">
             <p><strong>为什么记录饮食？</strong>营养是训练效果的重要保障。通过记录饮食，你可以了解自己的营养摄入是否达标，及时调整饮食结构。</p>
@@ -227,6 +246,108 @@
 
         <div class="callout success">
             <p><strong>快速参考：</strong>100g鸡胸肉≈31g蛋白，1碗米饭≈50g碳水，1个鸡蛋≈6g蛋白</p>
+        </div>
+
+        <h2>自测与进阶标准 — 饮食记录</h2>
+        <p>每周固定一天复盘，回看你自己的记录，不跟别人比。带单位的目标都按体重算，下面用 70 kg 举例。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td><strong>记录天数</strong><br>数本周有记录的天数</td><td>基础版 ≥3 天/周，进阶版 ≥5 天/周，精英版 6-7 天/周</td><td>降到每周 3 天：训练日 + 周末 1 天，先把这 3 天记全</td></tr>
+                <tr><td><strong>餐次记录完整度</strong><br>对照每餐是否都进表</td><td>每天 ≥4 餐次有记录（3 正餐 + 1 练后加餐）</td><td>只记 3 个正餐，加餐用一句话备注带过</td></tr>
+                <tr><td><strong>蛋白质总量</strong><br>日合计 ÷ 体重</td><td>1.6-2.0 g/kg/天（70 kg → 112-140 g/天）</td><td>先减到"每餐 1 掌心蛋白 ×3 餐"，再回到称克数</td></tr>
+                <tr><td><strong>蛋白质分配</strong><br>看每餐蛋白克数</td><td>每餐 20-40 g 蛋白，达标餐次 ≥3 餐/天</td><td>先抓早餐：加 2 个鸡蛋或 1 杯无糖酸奶（约 12-20 g）</td></tr>
+                <tr><td><strong>碳水总量</strong><br>训练日 / 休息日分开统计</td><td>训练日 4-6 g/kg（70 kg → 280-420 g/天），休息日 2-3 g/kg</td><td>每天只算一个数：先保训练前后两顿的碳水各 1 g/kg</td></tr>
+                <tr><td><strong>饮水总量</strong><br>用带刻度水壶累计</td><td>体重 × 33 ml + 训练每分钟 12 ml（70 kg 练 60 分钟 ≈ 3000 ml/天）</td><td>改按次喝：训练中每 15 分钟 150-200 ml，其余时间每小时 200 ml</td></tr>
+                <tr><td><strong>练后补餐时点</strong><br>看记录时间戳</td><td>训练结束 30-60 分钟内完成 ≥1 次补餐</td><td>提前备好：包里放 1 瓶含糖饮料 500 ml + 1 份即食蛋白</td></tr>
+                <tr><td><strong>体重趋势</strong><br>每周同一时间、同一条件称</td><td>周均值波动 ≤±0.5 kg；减脂 ≤0.5 kg/周</td><td>停掉热量赤字 1 周，先把蛋白与睡眠补回来再谈减脂</td></tr>
+                <tr><td><strong>复盘执行率</strong><br>数本周做过的复盘次数</td><td>每周复盘 1 次；每 4 周对照一次目标并只改 1 项</td><td>把复盘写进训练日历，固定周日晚上 10 分钟</td></tr>
+            </tbody>
+        </table>
+
+        <h2>错误 → 原因 → 纠正</h2>
+        <p>每条都能用你 3 天的记录对照。翻记录比回忆准得多。</p>
+        <table>
+            <thead><tr><th>错误</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr><td>只在训练日记录，休息日不记</td><td>把记录当成训练附属，没当成全天习惯</td><td>休息日也记，碳水按 2-3 g/kg 单独算一栏；先连续记 7 天，包括不训练的那天</td></tr>
+                <tr><td>只记总热量，不看蛋白质分配</td><td>被总热量这一个数吸引，忽略了每餐克数</td><td>蛋白质单独记克数与餐次：每天 3-5 餐、每餐 20-40 g；总热量放在第二行看</td></tr>
+                <tr><td>凭周末两天判断一周吃得怎么样</td><td>周末作息变了，吃得比工作日多</td><td>只看周均值：一周记 ≥3 天，跨 7 天摊平后再判断</td></tr>
+                <tr><td>用蛋白粉顶正餐</td><td>图快，把补剂放在正餐前面</td><td>先吃正餐（碳水 1 g/kg + 蛋白 0.3 g/kg），补剂只补差额；1 勺蛋白粉约 25 g 蛋白</td></tr>
+                <tr><td>渴了才喝水，训练中不补</td><td>等口渴，而口渴时已经缺水</td><td>按刻度喝：基础 33 ml/kg + 训练每分钟 12 ml；训练中每 15 分钟 150-200 ml</td></tr>
+                <tr><td>加餐越加越多，越练越饿越吃</td><td>正餐碳水不够，用零食补能量</td><td>把加餐固定成 2 次（练前 1 小时、练后 30 分钟），其余时间不加；正餐碳水先补足</td></tr>
+                <tr><td>体重每天称，看单日数字做决定</td><td>单日波动主要来自水与糖原，不是脂肪</td><td>每周固定 1 次称重（晨起、空腹、上完厕所），看 2-4 周趋势再调</td></tr>
+            </tbody>
+        </table>
+
+        <h2>分层处方 — 饮食记录（三档照做）</h2>
+        <p>三档只差五个数：一周记几天、蛋白质多少 g/kg、每餐几 g、一天喝多少 ml、多久复盘一次。数字都按体重算，下面用 70 kg 举例，你换成自己的体重。</p>
+        <p>先说两个词。<strong>g/kg</strong> 就是每公斤体重吃多少克：70 kg 按 1.6 g/kg 算就是 112 g 蛋白质。<strong>复盘</strong>就是固定时间回看记录、只改一个数，不是重写整份食谱。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周训练 ≤2 次</span></h3>
+                <ul>
+                    <li><strong>记录频率：</strong>每周记 3 天（2 个训练日 + 1 个休息日），当天记完，不隔夜补。</li>
+                    <li><strong>蛋白质：</strong>1.2-1.6 g/kg/天（70 kg → 84-112 g/天），分 3 餐，每餐 20-35 g。</li>
+                    <li><strong>碳水：</strong>训练日 3-4 g/kg（210-280 g/天），休息日 2-3 g/kg（140-210 g/天）。</li>
+                    <li><strong>饮水：</strong>体重 × 33 ml + 训练每分钟 12 ml（70 kg 练 60 分钟 ≈ 3000 ml/天），训练中每 15 分钟 150 ml。</li>
+                    <li><strong>复盘：</strong>每周 1 次，固定周日晚上，10 分钟；一次只改 1 项。</li>
+                    <li><strong>负荷与时长：</strong>每周训练 ≤2 次，单次 ≤90 分钟，RPE 5-6；两次训练间隔 ≥48 小时。</li>
+                    <li><strong>进阶触发：</strong>连续 2 周记录 ≥3 天/周、蛋白质达标 ≥5 天/周、体重波动 ≤±0.5 kg。</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周训练 3-4 次</span></h3>
+                <ul>
+                    <li><strong>记录频率：</strong>每周记 5 天，训练日与休息日的碳水分开记两栏。</li>
+                    <li><strong>蛋白质：</strong>1.6-2.0 g/kg/天（112-140 g/天），分 4-5 餐，每餐 30-40 g；睡前 20-30 g 慢速蛋白。</li>
+                    <li><strong>碳水：</strong>训练日 4-6 g/kg（280-420 g/天），休息日 3 g/kg；训练前 2-3 小时吃 1-2 g/kg。</li>
+                    <li><strong>练后补餐：</strong>30-60 分钟内碳水 1-1.2 g/kg（70-84 g）+ 蛋白 0.3 g/kg（21 g）。</li>
+                    <li><strong>饮水：</strong>33 ml/kg + 训练每分钟 12 ml，气温 &gt;30°C 再加 20%（约 3600 ml/天）；训练前后每轻 1 kg 补 1.25-1.5 L。</li>
+                    <li><strong>复盘：</strong>每周复盘 1 次，每 4 周做一次总评：称重 1 次、量腰围 1 次。</li>
+                    <li><strong>负荷与时长：</strong>每周训练 3-4 次（高强度课 2 次，RPE 7-8），单次 ≤120 分钟；两次高强度课间隔 ≥48 小时。</li>
+                    <li><strong>进阶触发：</strong>连续 4 周体重与腰围稳定、主要力量动作不下降、晨脉不超过基线 +5 次/分。</li>
+                </ul>
+                <p><strong>记录剂量：</strong>每餐记 3 项（主食份量、蛋白质来源、蔬菜份量），每天拍 3 张餐照，每周 1 次用最近 3 天记录算平均份量。</p>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周训练 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>记录频率：</strong>6-7 天全记，加记录每天训练时长与出汗量；每天晨起体重 1 次。</li>
+                    <li><strong>蛋白质：</strong>1.8-2.2 g/kg/天（126-154 g/天），减脂期 2.0-2.4 g/kg；分 5-6 餐，每餐 0.3-0.4 g/kg，睡前 30-40 g 酪蛋白。</li>
+                    <li><strong>碳水：</strong>大强度日 6-8 g/kg、中等日 4-5 g/kg、休息日 3 g/kg（70 kg → 210-560 g/天）；赛前 3 小时集中 1-2 g/kg。</li>
+                    <li><strong>练后补餐：</strong>30 分钟内碳水 1-1.2 g/kg + 蛋白 0.3-0.4 g/kg；比赛日赛后 1 小时内碳水 1 g/kg + 蛋白 0.3 g/kg。</li>
+                    <li><strong>饮水：</strong>训练前 2 小时 400-600 ml，训练中每 15-20 分钟 150-250 ml；出汗率自己算（练前体重 − 练后体重 + 期间喝的水）÷ 训练小时数。</li>
+                    <li><strong>复盘：</strong>每周复盘 1 次、每周体成分评估 1 次、每 4 周更新一次目标克数。</li>
+                    <li><strong>负荷与时长：</strong>每周训练 5-6 次（RPE 8-9 的高强度课 3 次），单次 ≤150 分钟，超过就拆成两练；两次大强度课间隔 ≥48 小时。</li>
+                    <li><strong>进阶触发：</strong>体重、力量、晨脉三项连续 3 周稳定，比赛日不出现肠胃不适；赛前 48 小时不试新食物与新补剂。</li>
+                </ul>
+                <p><strong>记录剂量：</strong>每餐记 4 项（主食克数、蛋白克数、蔬菜份量、饮水毫升），每天拍 3 张餐照，每周 1 次汇总 3 天平均克数。</p>
+            </div>
+        </div>
+
+        <h2>精英细节 — 同样记录，高手多做 8 件事</h2>
+        <ul>
+            <li><strong>按日型改碳水：</strong>大强度日加 1-2 g/kg，休息日减到 3 g/kg，蛋白质基本不变。这是全套记录里性价比最高的一条。</li>
+            <li><strong>练后 30 分钟内的顺序：</strong>先液体（碳水 1 g/kg）后固体；2 小时内会吃正餐时，补 20-25 g 乳清即可，别把正餐顶掉。</li>
+            <li><strong>一次只改一个数：</strong>复盘时记下"今天把早餐蛋白从 15 g 提到 30 g"，观察 2 周再动第二个数。否则出问题你分不清是哪一项的账。</li>
+            <li><strong>补剂只补差额：</strong>正餐达标后蛋白粉 1-2 勺/天（约 25-50 g）封顶，不拿补剂当饭吃。</li>
+            <li><strong>赛前 48 小时不做新尝试：</strong>新食物、新补剂、新咖啡因剂量都不试，比赛日只吃平时练过的东西。</li>
+            <li><strong>体重看趋势不看单日：</strong>每周固定 1 次称重就够了；一周均值涨跌 &gt;1% 再动热量，一次只调 200 kcal。</li>
+            <li><strong>排尿颜色 + 晨脉配套看：</strong>淡柠檬色算合格；晨脉比基线高 ≥5 次/分，当天先减量 20%-30%，再谈补什么。</li>
+            <li><strong>外食也有估算法：</strong>食堂固定两三套组合（如米饭 + 鸡腿 + 青菜），直接套用估算值，比不记录准得多。</li>
+        </ul>
+        <p>这 8 条不要求同时做，先挑 2 条执行 2 周，稳定后再加。</p>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>出现下面任何一条，先停方案、先找专业人士，不要自己硬扛：长期把热量压到男性 &lt;1500 kcal/天、女性 &lt;1200 kcal/天；1 个月内体重下降超过 5% 且不是你主动减脂；对体重和进食出现强烈焦虑、暴食后又催吐，或使用泻药、利尿剂、减肥药；女性月经停止 ≥3 个月，男性性欲与晨勃明显下降。</p>
+            <p style="margin-top:0.6rem">上面这些属于饮食失调与低能量可用性的就医信号，请找运动医学、内分泌科或注册营养师，不要靠继续节食解决。连续 2 周晨脉比基线高 ≥5 次/分、睡眠 &lt;6 小时、成绩持续下滑或情绪低落，可能是过度训练，先减量 40%-50% 或休息 2-3 天，必要时就医。青少年运动员不做减脂，先保证能量与蛋白够；有糖尿病、肾脏病、进食障碍病史的人，任何热量与蛋白调整都要先经过医生。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页参数按运动营养的通行范围与 NSCA CSCS 训练学框架给出，并标注适用条件：蛋白质 1.2-2.4 g/kg/天（按维持、增肌、减脂分档）、碳水 2-8 g/kg/天（按训练量与日型分档）、水合从 33 ml/kg 起并按训练时长与温度加量、记录频率 3-7 天/周按档位区分。它们是常用区间，不是你个人的精确需要值。</p>
+            <p style="margin-top:0.6rem">食物成分表与个体吸收差异都不小，页面数据要拿自己的记录校准；本页不引用没有出处的具体研究数据。有基础疾病或正在服药的人，热量与蛋白调整请先经医生或注册营养师确认。记录工具只做参考，不构成诊断。</p>
         </div>
 
         <div class="cta">

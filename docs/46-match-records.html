@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="比赛记录与复盘：比分数据、表现评分与赛后小结">
     <meta property="og:title" content="比赛记录 — 羽毛球职业训练系统">
@@ -35,6 +36,7 @@
         .callout p{margin:0;color:var(--text)}
         .callout.info{border-left-color:var(--blue)}
         .callout.success{border-left-color:var(--green)}
+        .callout.warn{border-left-color:var(--orange)}
         .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0}
         .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
         .stat-num{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent)}
@@ -101,6 +103,10 @@
         <div class="badge">比赛数据</div>
         <h1>比赛记录</h1>
         <div class="meta">记录每场比赛 · 分析表现 · 持续进步</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>比赛记录只为下一场服务，不为存档服务。每场赛后 30 分钟内记 6 个数（每局比分、时长、主动失误、18 分后得失分、RPE、赛后 24 小时酸痛），下一场只改 1-2 个决定；<strong>主动失误 ≥12 次/局就把下一阶段技术课的 40% 时间投到稳定性上</strong>。</p>
+        </div>
 
         <div class="callout info">
             <p><strong>为什么记录比赛？</strong>比赛是检验训练成果的最佳方式。通过记录和分析比赛数据，你可以发现自己的优势和不足，为下一阶段训练提供方向。</p>
@@ -177,6 +183,120 @@
         <h2>📋 比赛记录</h2>
         <div class="match-list" id="match-list">
             <!-- 比赛记录将在这里显示 -->
+        </div>
+
+        <h2>分层处方：记录与复盘深度</h2>
+        <p>这 3 张卡决定你"记多少、赛后怎么用"。先按自己那一档做满 4 周，再对照触发条件升档。</p>
+        <p><strong>RPE</strong> 是主观用力程度（白话：10 分是拼到说不出话，6 分是还能说短句）；<strong>主动失误</strong>指没人逼你、球自己出界或下网（白话：送分）；<strong>受迫失误</strong>是被对手压出来的失误（白话：被逼丢分）。两者必须分开记，训练方向完全不同。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周 ≤1 场 / 业余球局</span></h3>
+                <ul>
+                    <li><strong>记录频率：</strong>每场都记，每周 1-2 条；输球场次优先记。</li>
+                    <li><strong>每次耗时：</strong>≤2 分钟，赛后当晚补记。</li>
+                    <li><strong>记录项（4 项）：</strong>日期与对手、比分、胜负、1 句"今天最顺的一球"。</li>
+                    <li><strong>强度：</strong>每场记赛后 RPE（0-10）与对手水平等级（1-5 级）：业余球局 RPE 5-7 属正常，RPE ≥8 的场次每周不超过 1 场；打完 RPE 9 以上就只再打 1 局收工。</li>
+                    <li><strong>复盘周期：</strong>每周 10 分钟，只看胜率与最近 3 场的失分方式。</li>
+                    <li><strong>触发调整：</strong>连续 3 场在 18 分后丢 ≥3 分 → 下次训练加 10 组关键分模拟；单场 &gt;60 分钟且赛后 24 小时仍酸痛 → 下一场前安排 1 天休息。</li>
+                    <li><strong>单次上限：</strong>一天不超过 2 场正式比赛（含热身共 ≤120 分钟）。</li>
+                    <li><strong>退阶：</strong>只记"比分 + 1 个失误类型"，一行字也算记录。</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周 2-3 场 / 打业余比赛</span></h3>
+                <ul>
+                    <li><strong>记录频率：</strong>每场都记、每周 2-3 条，赛后 30 分钟内完成。</li>
+                    <li><strong>每次耗时：</strong>≤5 分钟。</li>
+                    <li><strong>记录项（10 项）：</strong>基础 4 项 + 每局比分、比赛时长（分钟）、主动失误数、受迫失误数、发接发得失分、赛后 RPE 1-10。</li>
+                    <li><strong>复盘周期：</strong>每周 20 分钟（按对手类型归类）+ 每 4 周 40 分钟（对照胜率趋势改训练配比）。</li>
+                    <li><strong>触发调整：</strong>主动失误 ≥12 次/局 → 技术课 40% 时间练稳定性（连续 20 拍不失误）；18 分后丢分率 &gt;60% → 每周加 10 组 18-18 起的模拟局；胜率 4 周不升且 RPE 均值 &gt;8 → 减量 30%。</li>
+                    <li><strong>单次上限：</strong>一天 ≤3 场，间隔 ≥45 分钟；赛后 48 小时内不排高强度课。</li>
+                    <li><strong>退阶：</strong>密集赛事只记 6 项核心（比分、失误、时长、RPE、酸痛、睡眠）。</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">半专业以上 / 有教练与录像</span></h3>
+                <ul>
+                    <li><strong>记录频率：</strong>每场必记、每天 1 条总结，赛后 24 小时内完成复盘。</li>
+                    <li><strong>每次耗时：</strong>≤10 分钟（含标 3 个录像时间戳）。</li>
+                    <li><strong>记录项（14 项）：</strong>进阶 10 项 + 分段 RPE（每局）、多拍回合分布、对手得分手段分类、自己得分球路、疼痛部位与 0-10 分、赛后 24/48 小时酸痛、睡眠时长（小时）。</li>
+                    <li><strong>强度：</strong>每场记录分段 RPE 1-10 分与对手水平等级（1-5 级）：赛后 RPE 8-10 的场次每周 ≤2 场，两场高强度比赛间隔 ≥24 小时并写进记录，赛次日补标恢复状态（酸痛 0-10 分、晨脉）。</li>
+                    <li><strong>复盘周期：</strong>赛后 24 小时内 30 分钟 + 每 4 周 60 分钟做对手档案与技战术调整。</li>
+                    <li><strong>触发减量：</strong>急性:慢性负荷比 &gt;1.5 → 减量 30-40%；晨起静息心率比基线高 ≥7 次/分 → 当天只做 15-20 分钟恢复课；连续 2 场打满三局且单场 &gt;70 分钟 → 下一站赛前安排 1 天完全休息。</li>
+                    <li><strong>比赛期减量：</strong>重要比赛前 7-10 天总量降 40-50%，强度保留，不加新内容。</li>
+                    <li><strong>退阶：</strong>赛季期只记 3 项核心：比赛局数、赛后 24 小时酸痛、睡眠时长。</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>比赛数据判读阈值（照表执行）</h3>
+        <table>
+            <thead><tr><th>信号</th><th>阈值（数字）</th><th>照着做什么</th></tr></thead>
+            <tbody>
+                <tr><td><strong>主动失误</strong></td><td>≥12 次/局</td><td>下周技术课的 40% 时间练稳定性（连续 20 拍不失误）</td></tr>
+                <tr><td><strong>18 分后丢分率</strong></td><td>&gt;60%</td><td>每周 10 组 18-18 起的模拟局，只打关键分</td></tr>
+                <tr><td><strong>RPE 均值</strong></td><td>&gt;8 连续 3 天</td><td>训练量减 30%，比赛周只维持不追加</td></tr>
+                <tr><td><strong>赛后 24 小时酸痛</strong></td><td>≥6/10</td><td>48 小时内不排高强度课，只做 20 分钟恢复课</td></tr>
+                <tr><td><strong>晨起静息心率</strong></td><td>比基线高 ≥7 次/分</td><td>当天改轻松课，不练主项</td></tr>
+                <tr><td><strong>急性:慢性负荷比</strong></td><td>&gt;1.5</td><td>减量 30-40%，先把专项量砍一半</td></tr>
+                <tr><td><strong>比赛时长</strong></td><td>单场 &gt;70 分钟或打满三局</td><td>当天补水与碳水按局间补，赛后先睡够再谈加练</td></tr>
+            </tbody>
+        </table>
+
+        <h2>自测与进阶标准</h2>
+        <p>每 4 周测一次，测的是"记录有没有改变下一场的决定"。<strong>任何一项不达标，就按右列退阶</strong>。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td><strong>赛后记录及时率</strong><br>统计赛后多久写完</td><td>≥90% 的比赛在赛后 2 小时内记录</td><td>先拍一张比分牌照片，回家只补"失误类型"1 格</td></tr>
+                <tr><td><strong>字段填满率</strong><br>已填字段 ÷ 该档要求字段</td><td>进阶档 10 项填满率 ≥80%</td><td>砍到 6 项核心，先保住"比分 + 失误 + RPE"</td></tr>
+                <tr><td><strong>失误分类质量</strong><br>抽查 3 场，主动/受迫是否分开</td><td>分类一致率 ≥80%（3 场里 ≥2 场分对）</td><td>只记主动失误总数，暂不分类，减少记错</td></tr>
+                <tr><td><strong>关键分记录</strong><br>18 分后得失分是否有数</td><td>≥90% 场次有这一项</td><td>只记 1 个数：18 分后我丢了几分</td></tr>
+                <tr><td><strong>复盘产出可执行</strong><br>复盘写了几条能落到课表的改动</td><td>每次复盘 ≥1 条，且写成"动作 + 组次"（如反手过渡 3 组 × 20 次）</td><td>只写 1 条，写进下周第一次训练的第一个项目</td></tr>
+                <tr><td><strong>对手档案复用</strong><br>赛前是否调出上次交手记录</td><td>近 4 周 ≥1 次赛前回看</td><td>只给对手打 1 个标签：快攻/拉吊/杀上网/双打前后</td></tr>
+                <tr><td><strong>比赛期减量执行</strong><br>赛前 7-10 天总量变化</td><td>总量降 40-50%，强度保留</td><td>只在赛前 3 天把总量减半，先做到不临时加练</td></tr>
+                <tr><td><strong>胜率趋势可读</strong><br>能否说出近 4 周胜率变化</td><td>能量出变化幅度，误差 ≤5%</td><td>把"胜负"改成记每局得分（如 21-18），分差比胜负更敏感</td></tr>
+            </tbody>
+        </table>
+
+        <h2>错误 → 原因 → 纠正</h2>
+        <p>这 5 条不用别人检查，翻回你自己的比赛记录就能对上号。</p>
+        <table>
+            <thead><tr><th>错误（翻记录就能看到）</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr><td>只写"输了 0-2"，两周后想不起怎么输的</td><td>记录只留结果，丢了过程</td><td>补 3 项：对手打法标签、我的主动失误数、18 分后比分；每项 10 秒</td></tr>
+                <tr><td>失误全部记成"自己失误"</td><td>没区分主动失误与受迫失误</td><td>分两栏记：受迫失误（被压出来的）与主动失误（自己打丢的）；下一周只对着主动失误练</td></tr>
+                <tr><td>每场写 5 条改进点，下周一条都没练</td><td>复盘产出超出训练容量</td><td>每场只留 1-2 条，写成下周课表里的动作与组次，例如后场反手过渡 3 组 × 20 次</td></tr>
+                <tr><td>赢了记流水账，输了干脆不记</td><td>把记录当成成绩单</td><td>规定"输球必须写 1 条可执行改动"；输球场次的 3 行数据比赢球场次更值钱</td></tr>
+                <tr><td>赛事密集期照抄平时的长模板，结果一项没记</td><td>模板太重，赛程里没时间</td><td>比赛周只记 3 项：比赛局数、赛后 24 小时酸痛、睡眠时长；技术统计交给录像</td></tr>
+            </tbody>
+        </table>
+
+        <h2>精英细节</h2>
+        <p>同样是那几行数据，职业选手多做的 7 件事——核心是让每个数字都连到一个训练决定。</p>
+        <ul>
+            <li><strong>每个数字都挂一条训练改动。</strong>主动失误 14 次/局 → 下周 40% 技术时间练稳定性；18 分后丢分率 &gt;60% → 每周 10 组关键分模拟。记录不落到课表，就只是情绪日记。</li>
+            <li><strong>用 sRPE 把一场比赛折算进周负荷。</strong>局数 × 每局约 15 分钟 × 赛后 RPE：3 局 × 15 分钟 × RPE 8 = 360，并入当周总量再看急性:慢性负荷比。</li>
+            <li><strong>对手按"类型"归档，不按姓名。</strong>快攻型、拉吊磨、杀上网、双打前后站位各存一组。赛前 3 分钟只看同类对手上场的 3 行记录，定 1 个开局策略。</li>
+            <li><strong>分段 RPE 找体能断点。</strong>每局记 1 个 RPE：第 3 局比第 1 局高 ≥2 且主动失误翻倍，说明问题在体能分配，不在技术。</li>
+            <li><strong>赛季期只记 3 项核心。</strong>比赛局数、赛后 24 小时酸痛、睡眠时长；技术统计交给录像，赛后 24 小时内补齐。字段越少，越不容易在赛区断档。</li>
+            <li><strong>赛前 7-10 天减量、赛中只维持。</strong>总量降 40-50%，保留 1-2 次高质量专项；比赛周只做 20-30 分钟保持课，不加新内容、不改动作。</li>
+            <li><strong>跨设备备份。</strong>记录只存在这台设备的浏览器里。去外地比赛前先用页面右下角的"导出 / 导入我的训练数据"导出 JSON，换设备后导入即可恢复；赛区里用手机离线记，回酒店补时长与酸痛。</li>
+        </ul>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>比赛记录不是诊断工具，比分和酸痛分都不能代替检查。<br>
+            出现这些情况停赛并就医：<strong>胸痛或胸闷</strong>、<strong>晕厥或眼前发黑</strong>、比赛中抽筋伴头晕、比赛后 48 小时静息心率仍比基线高 ≥7 次/分、发热、关节红肿热痛、夜间痛醒、单侧小腿肿胀。<br>
+            带伤上场前先问医生，别靠止痛药压住信号。青少年、孕产期、术后康复期或有未控制慢病的人，先经医生同意再按本页调量。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页参数属于三类来源，没有一句来自虚构文献。<br>
+            1）<strong>NSCA CSCS 训练学框架</strong>：RPE 自评强度、sRPE 负荷、急性:慢性负荷比的一般区间、赛前 7-10 天减量且强度保留、赛后 24-72 小时恢复窗口。<br>
+            2）<strong>运动生理常识</strong>：三局比赛的体能分配特点、比赛后静息心率升高常与恢复不足同时出现、睡眠不足会削弱动作控制。<br>
+            3）<strong>项目惯例</strong>：主动失误与受迫失误分栏统计、18 分后关键分单独记录、按对手类型归档、技术统计以录像为主。<br>
+            本页阈值是教练口径的分档线，不是官方比赛统计标准；个体差异请以教练现场评估与医生意见为准。</p>
         </div>
 
         <div class="cta">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- quality:v2 -->
     <meta charset="UTF-8">
     <meta name="description" content="2-3年 · 假动作与高质量技术变化">
     <meta property="og:title" content="Level 4：技术精进 — 羽毛球职业训练系统">
@@ -78,6 +79,9 @@
         .progress-track{background:var(--bg);border-radius:4px;height:8px;overflow:hidden}
         .progress-fill{background:var(--orange);height:100%;transition:width 0.3s}
         .progress-text{font-size:0.85rem;color:var(--text-2);margin-top:0.5rem;text-align:right}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{color:var(--text);font-weight:600;background:var(--surface)}
             @media print {
             :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
             .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
@@ -105,6 +109,10 @@
         <h1>技术精进</h1>
         <div class="meta">2-3年 · 技术精细化打磨，掌握高级技术</div>
 
+        <div class="callout">
+            <p><strong>一句话结论：</strong>Level 4 的分水岭不是"会更多技术"，而是<strong>同一个准备动作能打出两条以上球路</strong>。先把劈杀、推球、勾球的准备姿势练到看不出差别，再谈假动作。</p>
+        </div>
+
         <div class="progress-bar">
             <div class="progress-title">学习进度</div>
             <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
@@ -117,6 +125,50 @@
         <div class="callout info">
             <p><strong>核心理念：</strong>这个阶段是"从打好到精"的提升期。需要在细节上下功夫，追求技术的完美。</p>
         </div>
+
+        <h2>📐 分层处方：三档技术精进参数</h2>
+        <p>三档共用同一批动作（劈杀、推球、勾球、推吊一致性），差别在负荷、密度和判定阈值。先看你每周能打几次，再选档。</p>
+        <p><strong>术语先说清：</strong>RPE 是主观强度分（1-10 分，RPE 6 大致等于"还能再做 4 次"）；RIR 是这一组还剩几次的余力；"1 米区"指边线内侧 1 米的范围，是一条带，不是一个点。</p>
+
+        <div class="rx-grid">
+            <div class="rx rx-base">
+                <h3>基础版 <span class="rx-badge">每周 2-3 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>定线劈杀 + 半场推球，固定落点区，不做假动作</li>
+                    <li><strong>组次：</strong>3 组 × 15 次，左右手位各一半</li>
+                    <li><strong>强度：</strong>RPE 6（RIR 4），出手不追求速度，只追求落点</li>
+                    <li><strong>频率：</strong>每周 3 次，同一技术隔天练</li>
+                    <li><strong>恢复：</strong>组间 ≥60 秒；同一技术间隔 ≥24 小时</li>
+                    <li><strong>单次上限：</strong>技术训练 ≤45 分钟（不含热身与放松）</li>
+                    <li><strong>进阶触发：</strong>20 球里落进 1 米区 ≥14 球（70%），连续 2 次训练达成</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周 3-4 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>推吊同一准备动作 + 3+1 诱饵球路（前 3 拍同方向，第 4 拍变向）</li>
+                    <li><strong>组次：</strong>5 组 × 20 球，其中 2 组带步法衔接</li>
+                    <li><strong>强度：</strong>RPE 7（RIR 3），末组掉速 ≤10%</li>
+                    <li><strong>频率：</strong>每周 4 次（2 次纯技术 + 2 次技术带计分）</li>
+                    <li><strong>恢复：</strong>组间 90 秒；高密度日之间间隔 ≥48 小时</li>
+                    <li><strong>单次上限：</strong>≤70 分钟（含 10 分钟步法衔接）</li>
+                    <li><strong>进阶触发：</strong>前 3 拍落点偏差 &lt;1 米，且陪练猜错方向 ≥60%，连续 3 周</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>疲劳状态下的定线技术：先保证步法到位，再保证出手质量</li>
+                    <li><strong>组次：</strong>6 × 30 秒 全场步法 → 4 组 × 12 球 定线劈杀，循环 2-3 轮</li>
+                    <li><strong>强度：</strong>步法后心率到 4 区，出手 RPE 8-9；20 球耗时比首组慢 ≤10%</li>
+                    <li><strong>频率：</strong>每周 5 次，其中 2 次是疲劳技术课</li>
+                    <li><strong>恢复：</strong>疲劳技术课间隔 ≥48 小时；赛前 72 小时停掉这类课</li>
+                    <li><strong>单次上限：</strong>≤90 分钟（热身 15 分钟 + 主课 60 分钟 + 放松 15 分钟）</li>
+                    <li><strong>进阶触发：</strong>疲劳后落点命中率比基线掉 ≤10 个百分点，且多拍 ≥30 拍不变形</li>
+                </ul>
+            </div>
+        </div>
+        <p><strong>选档规则：</strong>这一周里只要出现过一次"打不动、动作散"，就退一档；三档都用下面同一张自测表判定，别靠感觉升档。</p>
 
         <h2>📋 通关条件</h2>
 
@@ -142,6 +194,47 @@
             </div>
         </div>
 
+        <h2>🧪 自测与进阶标准</h2>
+        <p>测法固定：陪练连续喂球，你按指定球路回球，20 球一组；手机架在后场底线高度录 60 帧慢放，只看落点和你触球前的准备动作。每 2 周测一次，同一项连续 2 次达成才算过关。</p>
+
+        <table>
+            <thead>
+                <tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>劈杀定线 20 球</td>
+                    <td>落进边线 1 米区 ≥15 球（75%），其中 50 厘米区 ≥8 球</td>
+                    <td>退回原地无步法劈杀 3 组 × 10 次；落点命中 1.5 米区 ≥70% 再回移动劈杀</td>
+                </tr>
+                <tr>
+                    <td>推球落点（后场两角）</td>
+                    <td>20 球里 ≥14 球落在两角 1 米区内，出界 ≤2 球</td>
+                    <td>先把距离缩到半场，3 组 × 12 次；拍面角度固定住，再恢复全场距离</td>
+                </tr>
+                <tr>
+                    <td>搓球贴网 + 勾球对角</td>
+                    <td>网前 20 球里 ≥16 球过网高度 ≤30 厘米（贴网率 80%），对角 1 米区 ≥13 球</td>
+                    <td>先做 3 组 × 10 次原地搓球，网高控制在 20-30 厘米，合格后再加勾球</td>
+                </tr>
+                <tr>
+                    <td>准备动作一致性（推 / 吊）</td>
+                    <td>60 帧录像里，触球前 0.3 秒的画面差异 ≤1 个可辨认动作；陪练猜错方向 ≥6 次（60%）</td>
+                    <td>先做无球挥拍 3 组 × 20 次，对镜确认引拍一致，再回到有球练习</td>
+                </tr>
+                <tr>
+                    <td>多拍稳定性</td>
+                    <td>连续 30 拍技术不变形，失误 ≤2 次，步法回位不掉拍</td>
+                    <td>从 15 拍起，每达成 1 次加 5 拍，逐级加到 30 拍；中途散了就退回 20 拍</td>
+                </tr>
+                <tr>
+                    <td>疲劳后的技术保持</td>
+                    <td>6 × 30 秒 全场步法（心率 4 区）后立刻测 20 球劈杀，命中率比基线掉 ≤10 个百分点</td>
+                    <td>步法先减到 4 × 20 秒；先测出不疲劳的基线命中率，有基线再谈掉了多少</td>
+                </tr>
+            </tbody>
+        </table>
+
         <h2>🏸 高级技术</h2>
 
         <div class="exercise">
@@ -150,6 +243,7 @@
                 <span><strong>组数：</strong>3组</span>
                 <span><strong>次数：</strong>20次/组</span>
                 <span><strong>频率：</strong>隔天</span>
+                <span><strong>强度：</strong>RPE 7（RIR 3）</span>
             </div>
             <ol class="exercise-steps">
                 <li>准备动作与杀球相同</li>
@@ -166,6 +260,7 @@
                 <span><strong>组数：</strong>3组</span>
                 <span><strong>次数：</strong>25次/组</span>
                 <span><strong>频率：</strong>隔天</span>
+                <span><strong>强度：</strong>RPE 6（RIR 4）</span>
             </div>
             <ol class="exercise-steps">
                 <li>拍面稍后仰</li>
@@ -181,6 +276,7 @@
                 <span><strong>组数：</strong>3组</span>
                 <span><strong>次数：</strong>20次/组</span>
                 <span><strong>频率：</strong>隔天</span>
+                <span><strong>强度：</strong>RPE 7（RIR 3）</span>
             </div>
             <ol class="exercise-steps">
                 <li>拍面斜切，改变球路方向</li>
@@ -189,6 +285,47 @@
                 <li>时机：对手站位偏后时使用</li>
             </ol>
         </div>
+
+        <h2>🔧 错误 → 原因 → 纠正</h2>
+        <p>下面每一条都能自己录像对照。手机放在后场底线高度、60 帧慢放，只看触球前 0.3 秒到触球后 0.2 秒这三帧。</p>
+
+        <table>
+            <thead>
+                <tr><th>错误（录像里能看到）</th><th>原因</th><th>纠正（下一节课就改）</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>劈杀总是出边线，越用力越出</td>
+                    <td>触球点落在身体前上方偏后，靠手腕"压"球改变方向</td>
+                    <td>击球点前移半个身位；先做 3 组 × 10 次半力定线劈杀，只要求落进 1.5 米区</td>
+                </tr>
+                <tr>
+                    <td>推球弧度偏高，对手上前一步就抓</td>
+                    <td>拍面后仰过多，发力靠大臂往前推</td>
+                    <td>拍面固定在前倾 10-15 度，用前臂与手指发力；3 组 × 12 次，过网高度控制在 30 厘米内</td>
+                </tr>
+                <tr>
+                    <td>勾球贴网率低，经常下网</td>
+                    <td>触球点低于网带，拍面打开太晚</td>
+                    <td>触球点提到网带以上一拳；先练 3 组 × 10 次原地搓球（网高 20-30 厘米），再加勾球</td>
+                </tr>
+                <tr>
+                    <td>假动作被对手看穿，他根本不动</td>
+                    <td>为了"做假"而放慢引拍，准备姿势反而变得可辨认</td>
+                    <td>用 60 帧录像比对"推"和"吊"的引拍，要求触球前 0.3 秒画面差异 ≤1 个动作；3 组 × 15 次</td>
+                </tr>
+                <tr>
+                    <td>多拍打到 20 拍后，击球点掉到腰部</td>
+                    <td>回位第一步太大，重心留在移动方向，第二拍只能伸手够球</td>
+                    <td>每球后做 2 步小碎步回中；练 3 组 × 20 拍，允许失误 ≤2 次</td>
+                </tr>
+                <tr>
+                    <td>训练里能打出来，比赛里用不出来</td>
+                    <td>训练没有计分与后果，出手还是老习惯</td>
+                    <td>每周至少 1 次计分练习（11 分制），规定这局只打 2 个计划球路，统计执行次数</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2>🧠 高级战术</h2>
 
@@ -207,6 +344,19 @@
             </ol>
             <p style="font-size:0.85rem;color:var(--text-2);margin-top:1rem"><strong>目标：</strong>建立3-5个常用的战术组合。</p>
         </div>
+
+        <h2>🧩 精英细节：同样动作，高手多做这 8 件事</h2>
+        <p>下面是同一套动作的边际收益项。动作你会了，差的是做的时间点、节奏和取舍。</p>
+        <ol>
+            <li><strong>时机：</strong>假动作做在对手"已经起步、还不能变向"的那一瞬。他脚一动你再出手，骗到的概率最高；提前做，等于把答案先给他。</li>
+            <li><strong>节奏：</strong>同一条球路准备三种节奏（快、中、慢），准备动作完全一样。训练时用秒表测 20 球耗时，把三种节奏的差异控制在 ±0.3 秒内，比赛里才能随手切换。</li>
+            <li><strong>预判：</strong>不要盯着球，盯持拍手的肘和拍面。拍面朝向决定球的去向，引拍高低决定球的深度。每局统计自己"提前移动"的次数，目标每局 ≥8 次。</li>
+            <li><strong>个体化：</strong>如果肩或腕有旧伤，把跳劈杀换成"点杀 + 斜线吊"，落点要求不变（边线 1 米区 ≥70%），挥拍幅度减少 20-30%，疼痛消失后再逐步加回来。</li>
+            <li><strong>比赛期处理：</strong>赛前 72 小时只做技术"保鲜"（3 组 × 8 次，RPE 5-6），不学新技术；新技术放在赛后 2 周的准备期里学。</li>
+            <li><strong>落点用带不用点：</strong>把边线内侧 50 厘米划成一条带，目标是"带内 ≥50%、1 米区 ≥75%"。这样手感波动时你还有容错，不会因为压线出界而不敢打。</li>
+            <li><strong>把第三局搬进训练：</strong>先在 RPE 8 的状态下打 4 组 × 12 球，同时盯两个指标：20 球耗时和落点命中率。两个都不掉才算过关，掉一个就减量。</li>
+            <li><strong>录像只看三帧：</strong>触球前 0.3 秒的拍面、触球瞬间的手腕、你回位的第一步。一局只看这三样，10 分钟就能找出下次要改的一件事。</li>
+        </ol>
 
         <h2>📅 4周训练计划</h2>
 
@@ -295,6 +445,14 @@
             <li onclick="toggleCheck(this)">多拍能力≥30拍</li>
             <li onclick="toggleCheck(this)">通过Level 4评估</li>
         </ul>
+
+        <div class="callout warn">
+            <p><strong>安全边界与禁忌：</strong>急性肩、肘、腕疼痛，或训练中出现关节弹响伴疼痛、头晕、胸闷时，当天停止挥拍类训练，改为步法与核心。肩袖术后 3 个月内不做过头劈杀；腰椎间盘问题不做过度后仰的跳杀。<br>出现以下信号请先找教练或就医：疼痛超过 48 小时不缓解、夜间痛、手指麻木、单侧力量明显下降。业余读者单次技术训练不超过 90 分钟，每周至少留 1 天完全不碰拍。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本篇参数按 NSCA CSCS 训练学框架给出——强度用 RPE / RIR 标定，恢复用小时计，进阶靠可测阈值判定；机制部分属于运动生理常识（疲劳后技术退化、心率分区、渐进负荷）。<br>球路与落点要求沿用本站知识库的项目惯例（参见 zh/12 球路训练、zh/16 阅读比赛）。这些是训练学与项目经验参数，不是医学诊断，也不引用虚构文献；个体差异请用上面的自测表自行校准。</p>
+        </div>
 
         <div class="cta">
             <a href="09-level-5.html">通过评估？进入Level 5</a>
