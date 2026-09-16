@@ -78,8 +78,23 @@ const LS_ALLOWED = new Set(['badminton-baseline','badminton-history','badminton-
     'level0-progress','level1-progress','level2-progress','level3-progress','level4-progress','level5-progress','level6-progress','level7-progress',
     'training-calendar','match-records','body-status','diet-records','skill-radar','bl-theme','bl-mode']);
 
-/* 文风红线：无依据的绝对化表述（破坏专业可信度） */
-const FORBIDDEN_PHRASES = [/研究表明/, /史上最强/, /包治/, /保证提升/, /100%有效/, /绝对有效/];
+/* 文风红线：无依据的绝对化表述（破坏专业可信度）
+ * 注意：声明「不使用某研究表明」属正当免责表述，需按语境放行 */
+const FORBIDDEN_PHRASES = [/史上最强/, /包治/, /保证提升/, /100%有效/, /绝对有效/];
+const NEGATION_RE = /(不|无|没有|避免|拒绝|未)[^。；;]{0,12}$/;
+
+function forbiddenHits(text) {
+    const hits = [];
+    for (const re of FORBIDDEN_PHRASES) if (re.test(text)) hits.push(String(re));
+    /* 「研究表明」：仅当没有否定语境（不写/不使用/不引用…）时才判违规 */
+    const re = /研究表明/g;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+        const before = text.slice(Math.max(0, m.index - 18), m.index);
+        if (!NEGATION_RE.test(before)) hits.push('研究表明（无出处且无否定语境）');
+    }
+    return hits;
+}
 
 function stripBlocks(text) {
     return text
@@ -300,8 +315,8 @@ for (const rel of htmlFiles) {
     }
 
     /* ---------- 隐性需求守则：可信度 / 性能 / 可发现性 / 数据可携带 ---------- */
-    // 1) 文风红线：禁用无依据的绝对化表述
-    for (const re of FORBIDDEN_PHRASES) if (re.test(text)) bad(tag, `禁用表述: ${re}`);
+    // 1) 文风红线：禁用无依据的绝对化表述（语境感知）
+    for (const hit of forbiddenHits(text)) bad(tag, `禁用表述: ${hit}`);
     const bang = (text.match(/！/g) || []).length;
     if (bang > 3) warn(tag, `感叹号偏多（${bang} 个），建议改为陈述句`);
 
@@ -415,7 +430,7 @@ if (DATA) {
         const params = (c.match(/\d+\s*(?:组|次|%|RM|RPE|RIR|分钟|秒|小时|小时|天|周|米|kg|磅|心率\s*[2-5]\s*区)/g) || []).length;
         if (params < 8) bad(rel.replace('docs/', ''), `量化参数不足（${params} < 8）`);
     }
-    if (qualityPages.length === 0) warn('内容质量 v2', '尚无页面标记 quality:v2（升级完成后需设置下限）');
+    if (qualityPages.length < 20) bad('内容质量 v2', `达标页面不足（${qualityPages.length} < 20，标准要求持续扩面）`);
     else ok('内容质量 v2', `${qualityPages.length} 页通过必备区块与参数密度检查`);
 
     // 站点级资产：sitemap / robots / 数据面板能力
