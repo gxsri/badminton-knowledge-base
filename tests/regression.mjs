@@ -458,14 +458,27 @@ if (DATA) {
         bad('站点级资产', e.message);
     }
 
-    // 质量门禁：CI 必须跑回归，且部署依赖它（规范不自动执行 = 没有规范）
+    // 质量门禁：CI 必须跑回归+内容审稿，且部署依赖它（规范不自动执行 = 没有规范）
     try {
         const deploy = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8');
         const quality = readFileSync(resolve(ROOT, '.github/workflows/quality.yml'), 'utf8');
         if (!/node tests\/regression\.mjs/.test(deploy)) bad('deploy.yml', '部署前未运行回归测试');
         if (!/needs:\s*quality/.test(deploy)) bad('deploy.yml', 'deploy 未依赖 quality 门禁');
         if (!/node tests\/regression\.mjs/.test(quality)) bad('quality.yml', '门禁未运行回归测试');
-        ok('CI 质量门禁', 'push/PR 跑回归 · 部署依赖门禁');
+        if (!/node scripts\/review-content\.mjs/.test(quality)) bad('quality.yml', '门禁未运行逐档内容审稿');
+        if (!/node scripts\/review-content\.mjs/.test(deploy)) bad('deploy.yml', '部署前未运行逐档内容审稿');
+
+        /* workflow YAML 体检：未加引号的标量里出现 ": " 会被 YAML 当成映射分隔符，
+           GitHub 会直接拒绝整个 workflow（表现为「0 个 job」的秒失败）。这类错误本地脚本跑不出来，只能靠这里挡。 */
+        for (const [name, text] of [['quality.yml', quality], ['deploy.yml', deploy]]) {
+            text.split('\n').forEach((line, i) => {
+                const scalar = line.replace(/^\s*-\s+name:\s*/, '');
+                if (/^\s*-\s+name:\s/.test(line) && !/^\s*-\s+name:\s*["']/.test(line) && /:\s/.test(scalar)) {
+                    bad(name, `第 ${i + 1} 行 step 名含未转义的「: 」，会让 GitHub 拒绝整个 workflow（请加引号）`);
+                }
+            });
+        }
+        ok('CI 质量门禁', 'push/PR 跑回归 + 内容审稿 · 部署依赖门禁 · workflow YAML 体检验证');
     } catch (e) {
         bad('CI 质量门禁', e.message);
     }
