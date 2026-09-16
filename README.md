@@ -25,7 +25,8 @@ https://gxsri.github.io/badminton-knowledge-base/
 - **主页** `index.html`：文档库由 `docs-data.js` 登记表渲染（编号 00-03 核心框架 / L0-L7 八级路线 / 12-32 专项模块 / 33-50 实用工具），并内置基线评估、热量/水合等计算器
 - **入口**：`docs/00-quickstart.html` 快速开始（5 分钟完成基线测试）；`docs/40-search.html` 全文搜索（登记表驱动）
 - **动作示范动图**：全站共 **36 个 GIF**（`images/exercises/`，© Gym visual 180×180，来源与许可见该目录 `README.md`），覆盖力量动作（16/17）、**泡沫轴放松**（44）、**动态热身与激活**（43/30/29）、**发力链辅助**（23/12）、弹跳与反应（16/17/19）
-- **工程质量**：`tests/regression.mjs` 静态回归（登记表完整性/结构/链接/脚本/素材署名与台账一致性），修改后运行 `node tests/regression.mjs`；页面制作规范见 `scripts/PAGE-SPEC.md`
+- **工程质量**：`tests/regression.mjs` 静态回归（登记表完整性 / 标签配平 / 链接与锚点 / 脚本语法 / 元数据 / 素材台账三方一致 / h1 与登记表一致 / 防重复样式等），修改后运行 `node tests/regression.mjs`；页面制作规范见 `scripts/PAGE-SPEC.md`，缺陷修复脚本 `scripts/quality-pass.mjs`
+- **无障碍与元数据**：跳转到正文链接、进度条与按钮 ARIA 标注、键盘可用（`/` 切换器、`Esc` 关闭）、`color-scheme`/`theme-color`/Open Graph 全站补齐；主题在无本地偏好时跟随系统深浅色
 - **视觉与交互**（`assets/site-ui.css` + `assets/site-ui.js`，全站 52 页共享）：
   - ☀️/🌙 **深色/浅色主题切换**（记忆偏好、防首屏闪烁、打印自动白底）
   - 顶部**阅读进度条**、宽屏**本页目录**（滚动高亮）、**回到顶部**、标题锚点、**代码块一键复制**、**📚 文档快速切换器**（按 `/` 唤起）

@@ -49,6 +49,20 @@
     var bar = el('div', 'bl-progress');
     bar.setAttribute('role', 'progressbar');
     bar.setAttribute('aria-label', '阅读进度');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', '100');
+
+    /* ---------- 跳到正文（键盘 / 读屏用户） ---------- */
+    function addSkipLink() {
+        if (doc.querySelector('.bl-skip')) return;
+        var target = doc.querySelector('.content') || doc.querySelector('main') || doc.querySelector('.section');
+        if (!target) return;
+        if (!target.id) target.id = 'bl-main';
+        var a = el('a', null, 'bl-skip');
+        a.href = '#' + target.id;
+        a.textContent = '跳到正文';
+        doc.body.appendChild(a);
+    }
 
     /* ---------- 回到顶部 ---------- */
     var topBtn = el('button', 'bl-top');
@@ -311,7 +325,12 @@
             input.value = '';
             setTimeout(function () { input.focus(); }, 30);
         }
-        function hide() { open = false; panel.classList.remove('show'); }
+        function hide() {
+            if (!open) return;
+            open = false;
+            panel.classList.remove('show');
+            try { btn.focus(); } catch (e) { /* 忽略 */ }
+        }
         btn.addEventListener('click', function () { if (open) hide(); else show(); });
         close.addEventListener('click', hide);
         panel.addEventListener('click', function (e) { if (e.target === panel) hide(); });
@@ -338,6 +357,7 @@
         updateThemeBtn();
         applyTheme(currentTheme());
         doc.body.appendChild(bar);
+        addSkipLink();
         doc.body.appendChild(themeBtn);
         doc.body.appendChild(topBtn);
         var toc = buildToc();

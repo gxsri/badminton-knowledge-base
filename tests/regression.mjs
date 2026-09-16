@@ -258,6 +258,32 @@ for (const rel of htmlFiles) {
     if (navCount > 1 && /(^|\})\s*nav\s*\{/m.test(styleText))
         bad(tag, `存在 ${navCount} 个 <nav> 且样式含裸 nav 选择器（会把页脚导航也固定到顶部）`);
 
+    // 元数据：色彩方案 / 浏览器主题色 / Open Graph（分享卡片与浏览器 UI 配色）
+    if (!/name="color-scheme"/.test(text)) bad(tag, '缺少 meta color-scheme');
+    if (!/name="theme-color"/.test(text)) bad(tag, '缺少 meta theme-color');
+    if (!/property="og:title"/.test(text)) bad(tag, '缺少 og:title');
+    if (!/property="og:description"/.test(text)) bad(tag, '缺少 og:description');
+    if (/fonts\.googleapis\.com/.test(text) && !/rel="preconnect"/.test(text)) bad(tag, '引用 Google Fonts 但缺少 preconnect');
+
+    // 性能：外链脚本必须 defer/async，不得阻塞渲染
+    for (const m of cleanHtml.matchAll(/<script[^>]*src="https?:[^"]+"[^>]*>/g)) {
+        if (!/\s(?:defer|async)\b/.test(m[0])) bad(tag, '外链脚本未 defer/async（阻塞渲染）');
+    }
+
+    // 去重：site-ui.css 已提供 .demo-* 样式，页内不得重复定义
+    if (/assets\/site-ui\.css/.test(text) && /\.demo-grid\s*\{/.test(styleText))
+        bad(tag, '页内重复定义 .demo-grid（应统一使用 site-ui.css）');
+
+    // h1 与登记表标题一致（Level 页允许省略 "Level N：" 前缀）
+    if (DATA && rel.startsWith('docs/')) {
+        const reg = DATA.docs.find(d => d.file === tag);
+        const h1 = (text.match(/<h1>(.*?)<\/h1>/) || [])[1];
+        if (reg && h1) {
+            const expect = [reg.title, reg.title.replace(/^Level \d：/, '')];
+            if (!expect.includes(h1.trim())) bad(tag, `h1 与登记表标题不一致: h1="${h1.trim()}" vs "${reg.title}"`);
+        }
+    }
+
     // 本页零问题则记一次通过（让"全绿"直观可见）
     if (failures === 0 && warnings === 0) ok(tag, '全部结构/脚本/链接检查通过');
 }
@@ -282,6 +308,19 @@ if (DATA) {
     // index 每篇文档都有一个卡片锚点（渲染由 JS 完成，静态下检查登记表条目数被引用至少一次）
     const countRefs = idx.match(/docs\/[a-z0-9-]+\.html/g) || [];
     if (!countRefs.length) bad('index.html', '没有任何 docs/ 链接');
+
+    // 主页 Hero 徽章数字必须与登记表 / 素材台账一致（防止数量漂移）
+    const chips = [...idx.matchAll(/<span class="hero-chip">([^<]*)<\/span>/g)].map(m => m[1]);
+    const docChip = chips.find(c => /篇文档/.test(c));
+    const gifChip = chips.find(c => /个动作动图/.test(c));
+    if (!docChip) bad('index.html', 'Hero 缺少"篇文档"徽章');
+    else if (parseInt(docChip.replace(/\D/g, ''), 10) !== DATA.docs.length)
+        bad('index.html', `Hero 文档数(${docChip}) 与登记表(${DATA.docs.length}) 不一致`);
+    const gifCount = readdirSync(resolve(ROOT, 'images/exercises')).filter(f => f.endsWith('.gif')).length;
+    if (!gifChip) bad('index.html', 'Hero 缺少"个动作动图"徽章');
+    else if (parseInt(gifChip.replace(/\D/g, ''), 10) !== gifCount)
+        bad('index.html', `Hero 动图数(${gifChip}) 与实际(${gifCount}) 不一致`);
+    ok('主页 Hero 徽章', `文档 ${DATA.docs.length} 篇 · 动图 ${gifCount} 个（与登记表/台账一致）`);
 
     // 线性脊柱前后篇导航对称性（03 core + 专项 12-32）
     const spine = DATA.docs.filter(d => d.num === '03' || (d.group === 'topic' && /^\d+$/.test(d.num)))

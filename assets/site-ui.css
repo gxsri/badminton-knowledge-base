@@ -108,6 +108,23 @@ table tbody tr:hover td { background: rgba(244, 63, 94, 0.06); background: color
     pointer-events: none;
 }
 
+/* ---------- 跳到正文（仅键盘聚焦时可见） ---------- */
+.bl-skip {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 10001;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    color: #fff;
+    background: var(--accent);
+    border-radius: 8px;
+    text-decoration: none;
+    transform: translateY(-220%);
+    transition: transform 0.15s ease;
+}
+.bl-skip:focus { transform: translateY(0); }
+
 /* ---------- 悬浮按钮（主题切换 / 回到顶部） ---------- */
 #bl-theme, #bl-top {
     position: fixed;
