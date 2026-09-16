@@ -821,6 +821,11 @@
     <script>try{var t=localStorage.getItem('bl-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
     <link rel="stylesheet" href="assets/site-ui.css">
     <script src="assets/site-ui.js" defer></script>
+    <!-- simple-mode: 小白/专业双模式（?mode=simple 可直接进入） -->
+    <script>try{var q=new URLSearchParams(location.search).get('mode');var m=q||localStorage.getItem('bl-mode');if(q==='simple'||q==='pro')localStorage.setItem('bl-mode',q);if(m==='simple')document.documentElement.setAttribute('data-mode','simple');}catch(e){}</script>
+    <link rel="stylesheet" href="assets/simple-mode.css">
+    <script src="docs-simple.js" defer></script>
+    <script src="assets/simple-mode.js" defer></script>
 </head>
 <body>
     <nav class="topnav">
@@ -838,6 +843,7 @@
                         <a href="#formula">计算公式</a>
                     </div>
                 </li>
+                <li><a href="#newbie">🙂 新手入口</a></li>
                 <li><a href="#docs">文档库</a></li>
                 <li><a href="#fitness">健身与体能</a></li>
                 <li class="nav-drop">
@@ -897,6 +903,55 @@
             </div>
         </div>
     </div>
+
+    <!-- NEWBIE ENTRY -->
+    <section class="section" id="newbie">
+        <div class="section-header">
+            <div class="section-tag">Beginner</div>
+            <h2 class="section-title">🙂 第一次来？从这里开始</h2>
+            <p class="section-desc">不用先看懂原理和参数。点下面的卡片会自动进入<b>小白模式</b>：每页只讲「怎么做、别踩什么坑」，术语都配大白话解释。</p>
+        </div>
+
+        <div class="doc-grid">
+            <a class="doc-card" href="docs/04-level-0.html?mode=simple">
+                <div>
+                    <div class="doc-num">A</div>
+                    <div class="doc-title">完全没打过</div>
+                    <div class="doc-desc">从零开始：平衡、核心、基础蹲，先让身体安全地动起来</div>
+                    <div class="doc-tags"><span class="doc-tag">Level 0</span><span class="doc-tag">20-30 分钟/次</span></div>
+                </div>
+            </a>
+            <a class="doc-card" href="docs/06-level-2.html?mode=simple">
+                <div>
+                    <div class="doc-num">B</div>
+                    <div class="doc-title">会打，但动作不好看</div>
+                    <div class="doc-desc">学标准高远球、挑球和步法，别再靠手臂硬抡</div>
+                    <div class="doc-tags"><span class="doc-tag">Level 2</span><span class="doc-tag">技术入门</span></div>
+                </div>
+            </a>
+            <a class="doc-card" href="docs/09-level-5.html?mode=simple">
+                <div>
+                    <div class="doc-num">C</div>
+                    <div class="doc-title">想系统练、打比赛</div>
+                    <div class="doc-desc">战术、节奏、体力分配：从「会打」变成「会赢」</div>
+                    <div class="doc-tags"><span class="doc-tag">Level 5</span><span class="doc-tag">战术应用</span></div>
+                </div>
+            </a>
+            <a class="doc-card" href="docs/38-level-locator.html?mode=simple">
+                <div>
+                    <div class="doc-num">?</div>
+                    <div class="doc-title">不知道自己什么水平</div>
+                    <div class="doc-desc">回答几个问题，1 分钟得到你的起始级别</div>
+                    <div class="doc-tags"><span class="doc-tag">级别定位器</span></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="callout" style="margin-top:1.5rem">
+            <p><strong>两种模式随时切换：</strong>顶栏的 <code>🙂 小白模式 / 🎓 专业模式</code> 按钮，或在网址后加 <code>?mode=simple</code>。
+            小白模式只是把话讲白、把术语解释清楚，<strong>不会删减任何内容</strong>；想深入时随时切回专业模式。</p>
+        </div>
+    </section>
 
     <!-- PHILOSOPHY -->
     <section class="section" id="philosophy">

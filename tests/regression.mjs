@@ -76,7 +76,7 @@ const ALLOWED_TAGS = new Set(['div','section','table','tbody','thead','tr','td',
 const VOID_TAGS = new Set(['br','hr','img','input','meta','link','source','wbr','area','base','col','embed','track','param']);
 const LS_ALLOWED = new Set(['badminton-baseline','badminton-history','badminton-stats','badminton-level-locator','safety-check-log','bsfs-history',
     'level0-progress','level1-progress','level2-progress','level3-progress','level4-progress','level5-progress','level6-progress','level7-progress',
-    'training-calendar','match-records','body-status','diet-records','skill-radar','bl-theme']);
+    'training-calendar','match-records','body-status','diet-records','skill-radar','bl-theme','bl-mode']);
 
 function stripBlocks(text) {
     return text
@@ -193,7 +193,8 @@ for (const rel of htmlFiles) {
     for (const { raw } of parseLinks(cleanHtml, base)) {
         if (!raw || raw === '#' || raw.includes('${') || raw.startsWith('http') || raw.startsWith('//') || raw.startsWith('mailto:') ||
             raw.startsWith('javascript:') || raw.startsWith('data:') || raw.startsWith('tel:') || raw.startsWith('file:')) continue;
-        const [pathPart, fragPart] = raw.split('#');
+        const [pathAndQuery, fragPart] = raw.split('#');
+        const [pathPart] = pathAndQuery.split('?');   // 忽略查询串（如 ?mode=simple）
         if (!pathPart) { if (fragPart && !frag.has(fragPart)) bad(tag, `站内锚点缺失: #${fragPart}`); continue; }
         const target = resolve(ROOT, base + decodeURIComponent(pathPart));
         try {
@@ -244,6 +245,11 @@ for (const rel of htmlFiles) {
     // 共享视觉增强层（主题切换/进度条/目录）必须注入且资源可达
     if (!/assets\/site-ui\.css/.test(text)) bad(tag, '缺少 site-ui.css 引用');
     if (!/assets\/site-ui\.js/.test(text)) bad(tag, '缺少 site-ui.js 引用');
+
+    // 双模式（小白 / 专业）：资源必须注入
+    if (!/assets\/simple-mode\.css/.test(text)) bad(tag, '缺少 simple-mode.css 引用');
+    if (!/assets\/simple-mode\.js/.test(text)) bad(tag, '缺少 simple-mode.js 引用');
+    if (!/docs-simple\.js/.test(text)) bad(tag, '缺少 docs-simple.js 引用');
     for (const m of cleanHtml.matchAll(/<link\s[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)) {
         const raw = m[1];
         if (!raw || raw.startsWith('http') || raw.startsWith('//')) continue;
@@ -321,6 +327,41 @@ if (DATA) {
     else if (parseInt(gifChip.replace(/\D/g, ''), 10) !== gifCount)
         bad('index.html', `Hero 动图数(${gifChip}) 与实际(${gifCount}) 不一致`);
     ok('主页 Hero 徽章', `文档 ${DATA.docs.length} 篇 · 动图 ${gifCount} 个（与登记表/台账一致）`);
+
+    // 小白模式：数据覆盖完整性 + 新手通道入口
+    try {
+        const src = readFileSync(resolve(ROOT, 'docs-simple.js'), 'utf8');
+        const sb = { window: {} };
+        vm.createContext(sb);
+        vm.runInContext(src, sb);
+        const S = sb.window.SIMPLE_MODE;
+        if (!S || !S.terms || !S.pages) bad('docs-simple.js', '结构缺少 terms/pages');
+        else {
+            const termKeys = Object.keys(S.terms);
+            const wrapCount = termKeys.filter(k => S.terms[k].wrap).length;
+            if (termKeys.length < 30) bad('docs-simple.js', `术语数偏少: ${termKeys.length}`);
+            if (wrapCount < 20) bad('docs-simple.js', `可悬浮解释的术语偏少: ${wrapCount}`);
+            let covered = 0;
+            for (const d of DATA.docs) {
+                const e = S.pages[d.file];
+                if (!e) { bad('小白模式', `缺少白话要点: ${d.file}`); continue; }
+                covered++;
+                if (!e.t || e.t.length < 8) bad('小白模式', `${d.file} 一句话看点过短`);
+                if (!Array.isArray(e.s) || e.s.length < 2) bad('小白模式', `${d.file} 步骤不足 2 条`);
+                if (!Array.isArray(e.m) || e.m.length < 1) bad('小白模式', `${d.file} 缺少常见坑`);
+                if (e.lv !== 'b' && e.lv !== 'a') bad('小白模式', `${d.file} 难度标记非法: ${e.lv}`);
+                for (const k of (e.tm || [])) if (!S.terms[k]) bad('小白模式', `${d.file} 引用了未定义的术语: ${k}`);
+            }
+            for (const f of Object.keys(S.pages)) if (!DATA.docs.some(d => d.file === f)) bad('小白模式', `白话要点指向未登记文档: ${f}`);
+            ok('小白模式数据', `${covered}/${DATA.docs.length} 篇白话要点 · 术语 ${termKeys.length}（可悬浮 ${wrapCount}）`);
+        }
+        if (!/id="newbie"/.test(idx)) bad('index.html', '缺少新手通道区块 #newbie');
+        const simpleLinks = (idx.match(/href="docs\/[a-z0-9-]+\.html\?mode=simple"/g) || []).length;
+        if (simpleLinks < 3) bad('index.html', `新手通道入口不足（${simpleLinks}）`);
+        ok('新手通道', `${simpleLinks} 个入口（自动进入小白模式）`);
+    } catch (e) {
+        bad('docs-simple.js', `解析失败: ${e.message}`);
+    }
 
     // 线性脊柱前后篇导航对称性（03 core + 专项 12-32）
     const spine = DATA.docs.filter(d => d.num === '03' || (d.group === 'topic' && /^\d+$/.test(d.num)))

@@ -1,0 +1,140 @@
+/* ============================================================
+ * simple-mode.css — 「傻瓜化模式」样式
+ * 由 assets/simple-mode.js 在 <html data-mode="simple"> 时启用。
+ * 小白视角：字号更大、行长更短、术语有白话气泡、每页顶部有 30 秒看懂卡。
+ * ============================================================ */
+
+/* ---------- 模式切换按钮（顶栏内） ---------- */
+.bl-mode {
+    display: inline-flex;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    overflow: hidden;
+    background: var(--surface);
+}
+.bl-mode button {
+    padding: 0.28rem 0.7rem;
+    font-size: 0.76rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text-2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+.bl-mode button:hover { color: var(--text); background: var(--surface-2); }
+.bl-mode button.active { background: var(--accent); color: #fff; font-weight: 600; }
+@media (max-width: 640px) { .bl-mode button { padding: 0.3rem 0.5rem; font-size: 0.72rem; } }
+
+/* ---------- 小白模式下的阅读体验 ---------- */
+:root[data-mode="simple"] { font-size: 17px; }
+:root[data-mode="simple"] .content { max-width: 720px; }
+:root[data-mode="simple"] p,
+:root[data-mode="simple"] li { line-height: 1.95; }
+:root[data-mode="simple"] #bl-toc { display: none !important; }
+:root[data-mode="simple"] .code-block { font-size: 0.9rem; }
+@media (max-width: 768px) { :root[data-mode="simple"] { font-size: 16.5px; } }
+
+/* ---------- 「30 秒看懂」摘要卡 ---------- */
+.simple-card {
+    margin: 1.5rem 0 2rem;
+    padding: 1.35rem 1.5rem;
+    background: linear-gradient(180deg, rgba(244, 63, 94, 0.07), transparent 70%), var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+}
+.simple-card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.85rem;
+}
+.simple-card-head strong { font-size: 1.02rem; }
+.simple-card-head .simple-level {
+    font-size: 0.72rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    color: var(--text-2);
+}
+.simple-card .simple-tldr {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+.simple-block { margin: 1rem 0 0; }
+.simple-block h4 {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin-bottom: 0.5rem;
+}
+.simple-steps { margin: 0; padding-left: 1.2rem; }
+.simple-steps li { margin-bottom: 0.35rem; color: var(--text-2); }
+.simple-tips { margin: 0; padding-left: 1.2rem; }
+.simple-tips li { margin-bottom: 0.3rem; color: var(--text-2); font-size: 0.92rem; }
+.simple-terms { margin: 0; display: grid; gap: 0.35rem; }
+.simple-terms div { display: grid; grid-template-columns: minmax(4.5em, auto) 1fr; gap: 0.6rem; font-size: 0.9rem; }
+.simple-terms dt { font-weight: 600; color: var(--text); }
+.simple-terms dd { margin: 0; color: var(--text-2); }
+.simple-foot {
+    margin-top: 1.1rem;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--border);
+    font-size: 0.82rem;
+    color: var(--text-2);
+    display: flex;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.simple-foot a { color: var(--accent); text-decoration: none; }
+.simple-foot a:hover { text-decoration: underline; }
+
+/* ---------- 正文术语白话气泡 ---------- */
+.bl-term {
+    border-bottom: 1px dashed var(--accent);
+    cursor: help;
+    position: relative;
+}
+.bl-term::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 8px);
+    width: max-content;
+    max-width: 260px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow-2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    z-index: 1300;
+    pointer-events: none;
+}
+.bl-term:hover::after,
+.bl-term:focus::after,
+.bl-term:focus-visible::after { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* 打印：保留摘要卡，去掉交互元素 */
+@media print {
+    .bl-mode, .bl-term::after { display: none !important; }
+    .simple-card { border-left-color: #999; background: #fff; }
+}

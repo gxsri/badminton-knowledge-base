@@ -15,6 +15,8 @@
    - `<style>` 末尾保留 `@media print` 打印配色块
    - 共享视觉增强层（**必须保留，勿删除**）：主题引导内联脚本 + `assets/site-ui.css` + `assets/site-ui.js`，
      由 `node scripts/apply-site-ui.mjs` 幂等注入（提供深浅主题切换、阅读进度条、本页目录、回到顶部、标题锚点、移动端表格横向滚动）
+   - 双阅读模式层（**必须保留**）：模式引导内联脚本 + `assets/simple-mode.css` + `docs-simple.js` + `assets/simple-mode.js`，
+     由 `node scripts/apply-simple-mode.mjs` 幂等注入（小白模式：30 秒看懂卡 + 术语白话气泡 + 放宽排版）
    （head 其余统一项可运行 `node scripts/unify-head.mjs` 自动补齐/修复）
 2. `<body>` 顶部固定：`<div class="back"><a href="../index.html">← 返回首页</a></div>`
 3. 主体容器：`<div class="content">`（max-width 800px 居中，由 CSS 控制）
