@@ -1,11 +1,17 @@
 #!/usr/bin/env node
-/* 临时：站点体检（当前门禁未覆盖的维度） */
+/* 站点体检报告（只读，不参与 CI）：把回归测不到的「规模与体积」摊开看
+ *   - 每页体积、全站总体积、最重的页面
+ *   - 动图与共享资源的体积分布（性能预算参考）
+ *   - 元数据 / 可访问性缺口的全量计数（回归只报第一处，这里给计数明细）
+ * 用法: node scripts/site-audit.mjs
+ */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = resolve(ROOT, 'docs');
+const TXT = (s) => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const pages = ['index.html', ...readdirSync(DOCS).filter(f => f.endsWith('.html')).map(f => 'docs/' + f)];
 
 const agg = {};
@@ -51,9 +57,15 @@ for (const rel of pages) {
     else if (desc.length < 50 || desc.length > 160) { bump('description 长度异常'); add('description 长度异常', `${name}: ${desc.length}`); }
     if (!/rel="canonical"/.test(t)) { bump('缺 canonical'); add('缺 canonical', name); }
     if (!/property="og:image"/.test(t)) { bump('缺 og:image'); add('缺 og:image', name); }
-    /* 可访问性：交互控件的可读名称 */
-    for (const m of t.matchAll(/<button\b[^>]*>/g)) {
-        if (!/aria-label=/.test(m[0]) && !/aria-expanded=/.test(m[0])) { bump('button 缺 aria-label'); add('button 缺 aria-label', name); break; }
+    /* 可访问性：按钮必须有「可访问名称」——可见文字、aria-label、aria-labelledby 或 title 四者之一 */
+    for (const m of t.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g)) {
+        const attrs = m[1], inner = TXT(m[2]);
+        const named = inner.length > 0 || /aria-label=|aria-labelledby=|title=/.test(attrs);
+        if (!named) { bump('button 无可访问名称'); add('button 无可访问名称', `${name}: ${(attrs.match(/id="([^"]+)"/) || [, ''])[1]}`); }
+    }
+    /* 表格语义：读屏器需要 thead/scope */
+    for (const tb of t.matchAll(/<table\b[\s\S]*?<\/table>/g)) {
+        if (!/<thead\b/.test(tb[0])) { bump('table 缺 thead'); add('table 缺 thead', name); break; }
     }
 }
 
@@ -74,13 +86,23 @@ for (const f of readdirSync(resolve(ROOT, 'images/exercises'))) {
     gifBytes += statSync(resolve(ROOT, 'images/exercises', f)).size; gifN++;
 }
 console.log(`\n动图 ${gifN} 个 · 合计 ${(gifBytes / 1024 / 1024).toFixed(2)} MB · 平均 ${(gifBytes / gifN / 1024).toFixed(0)} KB`);
-for (const f of ['assets/site-ui.js', 'assets/site-ui.css', 'assets/simple-mode.js', 'assets/simple-mode.css', 'docs-data.js', 'docs-simple.js']) {
+for (const f of ['assets/site-ui.js', 'assets/site-ui.css', 'assets/simple-mode.js', 'assets/simple-mode.css', 'docs-data.js', 'docs-simple.js', 'docs-sections.js']) {
     console.log(`${(statSync(resolve(ROOT, f)).size / 1024).toFixed(0).padStart(5)} KB  ${f}`);
 }
 
-/* 搜索页是否索引正文小节 */
+/* 搜索页的索引来源（页面命中 + 小节深链） */
 const search = readFileSync(resolve(DOCS, '40-search.html'), 'utf8');
 console.log('\n=== 搜索页索引来源 ===');
-console.log('引用 docs-data.js: ' + /docs-data\.js/.test(search));
-console.log('扫描 docs 目录/h2 标题: ' + /(<h2|fetch\(|index\.json)/.test(search));
-console.log('索引字段: ' + ((search.match(/d\.(title|desc|tags|num|file)/g) || []).join(' ') || '—'));
+console.log('登记表 docs-data.js: ' + /docs-data\.js/.test(search));
+console.log('小节索引 docs-sections.js: ' + /docs-sections\.js/.test(search));
+try {
+    const secSrc = readFileSync(resolve(ROOT, 'docs-sections.js'), 'utf8');
+    const idx = JSON.parse((secSrc.match(/DOC_SECTIONS\s*=\s*(\{[\s\S]*\})\s*;\s*\}\)\s*\(\s*window\s*\)/) || [])[1]);
+    const list = Object.keys(idx);
+    const sect = list.reduce((a, f) => a + idx[f].length, 0);
+    const kws = list.reduce((a, f) => a + idx[f].reduce((b, s) => b + ((s.k || []).length), 0), 0);
+    console.log(`小节索引内容: ${list.length} 页 · ${sect} 个小节 · ${kws} 条关键词`);
+} catch (e) {
+    console.log('小节索引解析失败: ' + e.message);
+}
+console.log('深链是否启用: ' + (/#/.test(search) && /sectionCard|findSections/.test(search)));
