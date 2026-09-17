@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/38-level-locator.html">
+    <!-- quality:v2 -->
+    <meta name="description" content="级别定位器｜回答问题，找到你的起始级别｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta property="og:title" content="级别定位器 — 羽毛球职业训练系统">
+    <meta property="og:description" content="级别定位器｜回答问题，找到你的起始级别｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/38-level-locator.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="级别定位器 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="级别定位器｜回答问题，找到你的起始级别｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <title>级别定位器 — 羽毛球职业训练系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(99,102,241,0.15);border-radius:4px;font-size:0.8rem;color:var(--indigo);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-field{margin-bottom:1.5rem}
+        .calc-field label{display:block;font-size:0.9rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-field select,.calc-field input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;color:var(--text);font-size:0.95rem;font-family:inherit;outline:none}
+        .calc-field select:focus,.calc-field input:focus{border-color:var(--accent)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.8rem 2rem;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;width:100%}
+        .calc-btn:hover{background:var(--accent-2)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-top:1.5rem;display:none}
+        .calc-result.show{display:block}
+        .result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.75rem}
+        .result-level{font-size:2rem;font-weight:900;margin-bottom:0.5rem}
+        .result-name{font-size:1.2rem;font-weight:600;margin-bottom:0.5rem}
+        .result-desc{font-size:0.9rem;color:var(--text-2);margin-bottom:1rem}
+        .result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:1rem 0}
+        .result-stat{background:var(--surface);border-radius:8px;padding:0.75rem;text-align:center}
+        .result-stat-num{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent)}
+        .result-stat-label{font-size:0.75rem;color:var(--text-2);margin-top:0.25rem}
+        .result-link{display:inline-block;margin-top:1rem;padding:0.75rem 1.5rem;background:var(--accent);color:white;border-radius:6px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .result-link:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .level-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2rem 0}
+        .level-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:all 0.2s}
+        .level-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+        .level-num{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent);margin-bottom:0.25rem}
+        .level-name{font-weight:600;margin-bottom:0.25rem}
+        .level-time{font-size:0.8rem;color:var(--accent-2);margin-bottom:0.5rem}
+        .level-desc{font-size:0.85rem;color:var(--text-2)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);color:var(--text);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        td strong{color:var(--text)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .rx ul{margin:0;padding-left:1.1rem}
+        @media(max-width:768px){
+            .level-cards{grid-template-columns:1fr}
+            .result-stats{grid-template-columns:1fr}
+        }
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+    <!-- simple-mode: 小白/专业双模式（?mode=simple 可直接进入） -->
+    <script>try{var q=new URLSearchParams(location.search).get('mode');var m=q||localStorage.getItem('bl-mode');if(q==='simple'||q==='pro')localStorage.setItem('bl-mode',q);if(m==='simple')document.documentElement.setAttribute('data-mode','simple');}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/simple-mode.css">
+    <script src="../docs-simple.js" defer></script>
+    <script src="../assets/simple-mode.js" defer></script>
+    <!-- seo:jsonld -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"级别定位器","description":"回答问题，找到你的起始级别","inLanguage":"zh-CN","url":"https://gxsri.github.io/badminton-knowledge-base/docs/38-level-locator.html","isPartOf":{"@type":"WebSite","name":"羽毛球职业训练系统","url":"https://gxsri.github.io/badminton-knowledge-base/"}}</script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">P1工具</div>
+        <h1>级别定位器</h1>
+        <div class="meta">回答几个问题，找到你的起始训练级别</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>先花 2 分钟做完下面 6 道题，拿到一个起点级别，然后照着 <a href="#rx">分层处方</a> 里的首月安排练：基础起点每周 2 次、每次 30 分钟；进阶起点每周 3-4 次、每次 45-60 分钟；精英起点每周 5-6 次、每次 75-90 分钟。首月不留加量空间，第 4 周（第 28 天）用同一套动作复测一次，再决定要不要升档。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>为什么需要级别定位？</strong>每个人的基础不同，直接从Level 0开始可能太简单，从Level 3开始可能太难。找到合适的起点，训练效率最高。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>本页怎么读：</strong>先做 <a href="#quick">快速定位</a> 问卷拿到起点 → 看 <a href="#rx">分层处方</a> 定首月每周练几次、每次多久、必做哪 3 项 → 用 <a href="#selftest">自测与进阶标准</a> 在第 28 天复测 → 定位不准就看 <a href="#errors">错误 → 原因 → 纠正</a> → 想长期优化读 <a href="#elite">精英细节</a>。得分接近档位边界、或身上有旧伤时，先读 <a href="#boundary">安全边界</a>。</p>
+        </div>
+
+        <h2 id="quick">🎯 快速定位</h2>
+
+        <div class="calc">
+            <div class="calc-title">📝 级别定位问卷</div>
+            
+            <div class="calc-field">
+                <label>1. 你的羽毛球经验？</label>
+                <select id="q1">
+                    <option value="0">完全不会，没打过</option>
+                    <option value="1">打过几次，但不规律</option>
+                    <option value="2">经常打，有固定球友</option>
+                    <option value="3">受过训练，参加过比赛</option>
+                    <option value="4">专业训练背景</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>2. 你的体能基础？</label>
+                <select id="q2">
+                    <option value="0">很少运动，体能差</option>
+                    <option value="1">偶尔运动，体能一般</option>
+                    <option value="2">规律运动，体能良好</option>
+                    <option value="3">经常运动，体能优秀</option>
+                    <option value="4">专业运动员体能</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>3. 你能做多少个标准俯卧撑？</label>
+                <select id="q3">
+                    <option value="0">不到5个</option>
+                    <option value="1">5-10个</option>
+                    <option value="2">10-20个</option>
+                    <option value="3">20-30个</option>
+                    <option value="4">30个以上</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>4. 你能做多少次标准深蹲？</label>
+                <select id="q4">
+                    <option value="0">不到10次</option>
+                    <option value="1">10-15次</option>
+                    <option value="2">15-20次</option>
+                    <option value="3">20-30次</option>
+                    <option value="4">30次以上</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>5. 你的年龄？</label>
+                <select id="q5">
+                    <option value="0">50岁以上</option>
+                    <option value="1">35-50岁</option>
+                    <option value="2">18-35岁</option>
+                    <option value="3">15-18岁</option>
+                    <option value="4">15岁以下</option>
+                </select>
+            </div>
+
+            <div class="calc-field">
+                <label>6. 你每周能训练几天？</label>
+                <select id="q6">
+                    <option value="0">0-1天</option>
+                    <option value="1">2-3天</option>
+                    <option value="2">4-5天</option>
+                    <option value="3">6-7天</option>
+                    <option value="4">每天2次以上</option>
+                </select>
+            </div>
+
+            <button class="calc-btn" onclick="calcLevel()">确定我的级别</button>
+
+            <div class="calc-result" id="level-result">
+                <div class="result-title">你的起始级别</div>
+                <div class="result-level" id="result-level">Level 0</div>
+                <div class="result-name" id="result-name">零基础启蒙</div>
+                <div class="result-desc" id="result-desc">你是完全的新手，建议从零基础开始，先建立正确的运动模式。</div>
+                <div class="result-stats" id="result-stats"></div>
+                <a href="#" class="result-link" id="result-link">开始Level 0训练</a>
+            </div>
+        </div>
+
+        <h2 id="8级体系概览">📋 8级体系概览</h2>
+        <p>根据你的定位结果，选择对应的级别开始训练：</p>
+
+        <div class="level-cards">
+            <a href="04-level-0.html" class="level-card">
+                <div class="level-num">00</div>
+                <div class="level-name">零基础启蒙</div>
+                <div class="level-time">0-3个月</div>
+                <div class="level-desc">完全新手，建立运动模式</div>
+            </a>
+            <a href="05-level-1.html" class="level-card">
+                <div class="level-num">01</div>
+                <div class="level-name">基础建立</div>
+                <div class="level-time">3-6个月</div>
+                <div class="level-desc">有运动基础，巩固动作模式</div>
+            </a>
+            <a href="06-level-2.html" class="level-card">
+                <div class="level-num">02</div>
+                <div class="level-name">技术入门</div>
+                <div class="level-time">6-12个月</div>
+                <div class="level-desc">会打球，掌握基础技术</div>
+            </a>
+            <a href="07-level-3.html" class="level-card">
+                <div class="level-num">03</div>
+                <div class="level-name">技术熟练</div>
+                <div class="level-time">1-2年</div>
+                <div class="level-desc">经常打，技术自动化</div>
+            </a>
+            <a href="08-level-4.html" class="level-card">
+                <div class="level-num">04</div>
+                <div class="level-name">技术精进</div>
+                <div class="level-time">2-3年</div>
+                <div class="level-desc">技术稳定，追求精细化</div>
+            </a>
+            <a href="09-level-5.html" class="level-card">
+                <div class="level-num">05</div>
+                <div class="level-name">战术应用</div>
+                <div class="level-time">3-4年</div>
+                <div class="level-desc">有战术意识，参加业余比赛</div>
+            </a>
+            <a href="10-level-6.html" class="level-card">
+                <div class="level-num">06</div>
+                <div class="level-name">准专业</div>
+                <div class="level-time">4-5年</div>
+                <div class="level-desc">全面发展，参加省级比赛</div>
+            </a>
+            <a href="11-level-7.html" class="level-card">
+                <div class="level-num">07</div>
+                <div class="level-name">职业水平</div>
+                <div class="level-time">5年+</div>
+                <div class="level-desc">专业水平，参加职业比赛</div>
+            </a>
+        </div>
+
+        <h2 id="rx">分层处方 — 不同起点的首月安排</h2>
+        <p>先解释两个词。<strong>RPE</strong> 是主观用力程度，白话就是"你自己感觉有多累"，10 分是拼尽全力、6 分是还能说几句话。<strong>复测</strong>就是用同一套动作、同一块场地再测一遍，只跟自己的上次比。</p>
+        <p>三档的差别是三个数：每周练几次、每次多少分钟、必做哪 3 项。首月只调一个变量，别同时改频率和时长。</p>
+
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
+                <h3>基础版 <span class="rx-badge">起点 Level 0-1 · 每周 2 次</span></h3>
+                <ul>
+                    <li><strong>频率：</strong>每周 2 次，两次之间间隔 ≥48 小时（例如周二、周六）。</li>
+                    <li><strong>单次时长：</strong>30 分钟（热身 8 分钟 + 主体 15 分钟 + 整理 7 分钟），单次上限 40 分钟。</li>
+                    <li><strong>强度：</strong>全程 RPE 4-5，RIR ≥3，白话就是每组做完还剩 3 次余力。</li>
+                    <li><strong>必做 3 项：</strong>① 挥拍空挥 3 组 × 15 次；② 四点步法 3 组 × 30 秒；③ 死虫式 3 组 × 8 次/侧。</li>
+                    <li><strong>组间恢复：</strong>挥拍与步法组间休息 60 秒，力量组间休息 90 秒。</li>
+                    <li><strong>复测时间点：</strong>第 28 天复测 1 次，比首测退步也要如实记录。</li>
+                    <li><strong>进阶触发：</strong>连续 2 周 2 次课全勤、动作质量不掉（自己录像前后一致）、复测成绩不降 → 每周加 1 次，仍是 30 分钟。</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid" id="rx-mid">
+                <h3>进阶版 <span class="rx-badge">起点 Level 2-3 · 每周 3-4 次</span></h3>
+                <ul>
+                    <li><strong>频率：</strong>每周 3-4 次，其中有球课 2 次、体能课 1-2 次；同一部位大负荷间隔 ≥48 小时。</li>
+                    <li><strong>单次时长：</strong>45-60 分钟，单次上限 75 分钟，超时就砍体能段不砍技术段。</li>
+                    <li><strong>强度：</strong>技术与步法段 RPE 6-7、RIR 2；多球与间歇段心率 3-4 区，用力 30 秒、休息 30 秒的 3 组打底。</li>
+                    <li><strong>必做 3 项：</strong>① 多球杀球 3 组 × 20 球；② 四点移动计时 3 组 × 45 秒；③ 单腿提踵 3 组 × 15 次/侧。</li>
+                    <li><strong>组间恢复：</strong>多球组间 45-60 秒，间歇跑组间 90-120 秒。</li>
+                    <li><strong>复测时间点：</strong>第 28 天复测，之后每 4 周复测 1 次。</li>
+                    <li><strong>进阶触发：</strong>复测四项里至少 3 项进步、且加大幅度 ≤10% 时动作不走形 → 升档到精英起点。</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite" id="rx-elite">
+                <h3>精英版 <span class="rx-badge">起点 Level 4+ · 每周 5-6 次</span></h3>
+                <ul>
+                    <li><strong>频率：</strong>每周 5-6 次训练日 + 1 天完全休息；连续高强度不超过 3 天。</li>
+                    <li><strong>单次时长：</strong>75-90 分钟（含热身 15 分钟与整理 10 分钟），单次上限 120 分钟。</li>
+                    <li><strong>强度：</strong>技术课 RPE 7-8、RIR 1-2；速度与间歇段心率 4-5 区，多球 6 组 × 30 球，间歇 40 秒用力 / 20 秒休息。</li>
+                    <li><strong>必做 3 项：</strong>① 多球 6 组 × 30 球；② 六点米字步 4 组 × 60 秒；③ 高翻 3 组 × 5 次、负荷 80-85% 1RM。</li>
+                    <li><strong>组间恢复：</strong>速度组间 2-3 分钟；力量课后至少 6 小时再上有球训练，同日两练之间隔 ≥6 小时。</li>
+                    <li><strong>复测时间点：</strong>每 2 周复测 1 次，每 4 周做 1 周减量（训练量降到平时 50-60%）。</li>
+                    <li><strong>进阶触发：</strong>晨脉比个人基线高 ≥5 次/分并持续 2 天 → 当周负荷减 30%；指标回落后再继续加量。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout info">
+            <p><strong>三档通用的一条：</strong>得分落在档位边界（总分 6/10/14/18 附近）时往下取一档，先练 2 周。起点低一档最多少练两周，起点高一档大概率练出伤。</p>
+        </div>
+
+        <h2 id="selftest">自测与进阶标准</h2>
+        <p>首月第 1 天的首测数据，要跟你自己的第 28 天对比，不要跟别人比。复测条件固定：同一块场地、同一双鞋、热身 10 分钟后开始，每项做 3 次取平均，别挑最好的那次。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td><strong>四点移动计时</strong><br>从中心出发依次摸四点后回中</td>
+                    <td>4 点总时间 ≤32 秒，且回位到中心 ≤1 步</td>
+                    <td>退到两点直线移动 3 组 × 30 秒，RPE 4，先把回位脚步走顺再计时</td>
+                </tr>
+                <tr>
+                    <td><strong>连续对墙颠球</strong><br>距墙 2 米，正手连续击球</td>
+                    <td>连续 30 次不失误</td>
+                    <td>降到 15 次为 1 组，做 3 组 × 15 次，组间休息 60 秒，先求不失误再求快</td>
+                </tr>
+                <tr>
+                    <td><strong>标准俯卧撑</strong><br>身体一条线，胸口离地约 5 cm</td>
+                    <td>连续 15 次动作不变形</td>
+                    <td>退到跪姿俯卧撑 3 组 × 8 次，RIR 3，练满 2 周再加次数</td>
+                </tr>
+                <tr>
+                    <td><strong>标准深蹲</strong><br>蹲到大腿接近平行</td>
+                    <td>连续 20 次，膝盖不内扣</td>
+                    <td>退到箱式深蹲 3 组 × 10 次，坐箱停 1 秒，先解决膝盖对准脚尖</td>
+                </tr>
+                <tr>
+                    <td><strong>单足站立（闭眼）</strong><br>赤足，双手叉腰</td>
+                    <td>≥20 秒不位移</td>
+                    <td>改成睁眼 3 组 × 30 秒/侧；晃动明显就扶着墙做，练 2 周再闭眼</td>
+                </tr>
+                <tr>
+                    <td><strong>连续慢跑</strong><br>心率控制在 2 区</td>
+                    <td>20 分钟不停、能正常说话</td>
+                    <td>改成跑 2 分钟走 1 分钟 × 6 轮，总时长不变，2 周后再连起来跑</td>
+                </tr>
+                <tr>
+                    <td><strong>复测执行率</strong><br>第 28 天有没有真做</td>
+                    <td>第 1 天与第 28 天各有 1 份完整记录</td>
+                    <td>把复测砍到只剩 2 项（四点计时 + 深蹲），先保证 4 周不断档</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="errors">错误 → 原因 → 纠正 — 定位最容易错的 6 件事</h2>
+        <p>下面 6 条都能用一张复测记录表或一段 30 秒手机录像对照。定位问卷只是起点，真正的判据是复测数字。</p>
+        <table>
+            <thead><tr><th>错误（记录或录像里看得见）</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>凭"我打得还行"选起点，问卷填完直接跳两档</td>
+                    <td>把打球年数当成能力，忽略了可测的力量与耐力</td>
+                    <td>先按问卷总分取起点，往下取一档练 2 周；第 28 天复测达标再升一档，一次只升一档</td>
+                </tr>
+                <tr>
+                    <td>一次加到每周 5-6 次，第 2 周就膝盖或肩痛</td>
+                    <td>结缔组织适应慢于肌肉，频率加太快，恢复跟不上</td>
+                    <td>每周只加 1 次课，单次时长先控制在 30-45 分钟；同一部位间隔 ≥48 小时</td>
+                </tr>
+                <tr>
+                    <td>每次训练时长从 45 分钟拖到 100 分钟</td>
+                    <td>没有设单次上限，把"多练"当成"练得好"</td>
+                    <td>先定死单次上限：基础 40 分钟、进阶 75 分钟、精英 120 分钟；超时就砍体能段</td>
+                </tr>
+                <tr>
+                    <td>复测挑最好的一次填，成绩"月月进步"</td>
+                    <td>把复测当成考核，不是测量</td>
+                    <td>固定做 3 次取平均并记录当天的睡眠与 RPE，差的那次也要留着，看趋势不看单点</td>
+                </tr>
+                <tr>
+                    <td>一周只打球不做体能，深蹲与俯卧撑永远不达标</td>
+                    <td>把"打球"当成全部训练量，缺力量与稳定性刺激</td>
+                    <td>每周固定 1-2 次体能课，15-20 分钟就够：深蹲 3 组 × 10 次 + 提踵 3 组 × 15 次 + 平板支撑 3 组 × 45 秒</td>
+                </tr>
+                <tr>
+                    <td>得分在边界上纠结好几天，一直没开始练</td>
+                    <td>把定位当成一次性判决，而不是可随时修正的假设</td>
+                    <td>边界上就选低的那档，今天先练 30 分钟；2 周后用同一套动作复测再调，调整成本只有 2 周</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="elite">精英细节 — 同样定位，高手多做什么</h2>
+        <ul>
+            <li><strong>把定位当假设，不当结论：</strong>起点只定 4 周，第 28 天用同一套动作复测，达标升一档、退步降一档，让级别跟着数据走。</li>
+            <li><strong>用 30 秒录像当客观证据：</strong>四点移动拍侧面 30 秒，看回位第一步的启动与重心高度，比"我感觉快了"可靠得多。</li>
+            <li><strong>首次测试做 3 次取平均：</strong>第一次测通常偏高，取平均并记下当天的睡眠时长与 RPE，两周后回看才知道差异来自训练还是状态。</li>
+            <li><strong>用晨脉与主观状态决定加量：</strong>晨脉比个人基线高 ≥5 次/分并持续 2 天，当周负荷减 30%，先把睡眠补回来再谈升档。</li>
+            <li><strong>每 4 周安排 1 周减量：</strong>训练量降到平时 50-60%，强度保留；减量周也是复测周，进步常在这周显出来。</li>
+            <li><strong>把长处短板的差距控制在 1 档以内：</strong>体能明显强于技术时，先补弱项而不是继续推强项，加练量每周不超过弱项总时长的 40%。</li>
+            <li><strong>记录比赛数据反向校准：</strong>打完 2 场正式比赛后回看比分卡（第 3 局得分率、失误分布），再决定升档还是补基本功。</li>
+        </ul>
+        <p>这 7 条不用一次全上。先挑 1 条做满 4 周，复测有变化再加下一条。</p>
+
+        <div class="callout warn" id="boundary">
+            <p><strong>安全边界 — 红旗信号与就医指引：</strong>出现下列任何一条，立即停止当天的训练，去骨科或运动医学门诊，不要靠"再练练看"验证：胸痛胸闷、头晕或眼前发黑、发烧体温 &gt;37.5℃、受伤时听到"啪"的响声、关节变形或"卡住"、患处麻木或刺痛、30 分钟内肿胀明显增大、完全不能承重、夜间痛醒、同一位置连续 3 次训练都痛。<br>先别测、也别定位的情形：急性扭伤 24-48 小时内、未控制的高血压、术后 6 个月内、妊娠期、眩晕症，以及任何"不动也痛"的部位。妊娠期能不能练、练到什么强度，先问产科医生。<br>这几种情况找教练当面看一次，比继续自测有用：连续 2 次复测都不达标、边界上反复纠结超过 1 周、自己看录像 3 轮仍找不出原因。本页的问卷与分数是训练分档工具，不是医学诊断量表，不能替代医生检查。急性损伤处理与重返流程见 <a href="32-safety-guide.html">训练安全边界</a>，按症状查原因见 <a href="31-diagnosis-index.html">症状诊断索引</a>。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页参数来自三类来源，没有虚构文献，也没有编造百分比。一是 NSCA CSCS 训练学框架：起始量取基线的 60-70%、同部位恢复间隔 ≥48 小时、每周加量幅度 ≤10%、每 4 周安排 1 周减量。二是运动生理常识：神经系统适应需要 4-6 周，结缔组织适应需要 3-6 个月，所以频率比强度更该慢慢加。三是羽毛球项目惯例：四点移动计时、多球组次、米字步时长、心率 2 区用于有氧打底。<br>本页的三档命名（基础 / 进阶 / 精英）是本站自评标准，用于选训练起点，不是官方等级，也不代表比赛水平。所有秒数、次数、分钟数都是范围值，请用你自己的首测与第 28 天复测记录校准。有旧伤、基础病或术后恢复期，先找医生或运动康复师评估再照本页执行。</p>
+        </div>
+
+        <div class="cta">
+            <a href="02-assessment.html">完成详细基线评估</a>
+            <a href="00-quickstart.html" class="secondary">返回快速开始</a>
+        </div>
+
+        <p class="page-stamp" data-bl-stamp="1">最后更新：2026-09-16 · 内容标准 v2 · 发现错误或有更好的练法？<a href="https://github.com/gxsri/badminton-knowledge-base/issues/new">在 GitHub 提 Issue</a> · 文件：<span class="mono">38-level-locator.html</span></p>
+
+<div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="02-assessment.html">基线评估 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcLevel() {
+            const q1 = +document.getElementById('q1').value;
+            const q2 = +document.getElementById('q2').value;
+            const q3 = +document.getElementById('q3').value;
+            const q4 = +document.getElementById('q4').value;
+            const q5 = +document.getElementById('q5').value;
+            const q6 = +document.getElementById('q6').value;
+            
+            const total = q1 + q2 + q3 + q4 + q5 + q6;
+            
+            let level, name, desc, link, color;
+            
+            if (total <= 6) {
+                level = 'Level 0';
+                name = '零基础启蒙';
+                desc = '你是完全的新手，建议从零基础开始，先建立正确的运动模式和基础力量。';
+                link = '04-level-0.html';
+                color = 'var(--accent)';
+            } else if (total <= 10) {
+                level = 'Level 1';
+                name = '基础建立';
+                desc = '你有一定的运动基础，建议从基础建立开始，巩固动作模式。';
+                link = '05-level-1.html';
+                color = 'var(--blue)';
+            } else if (total <= 14) {
+                level = 'Level 2';
+                name = '技术入门';
+                desc = '你会打羽毛球，建议从技术入门开始，掌握标准动作。';
+                link = '06-level-2.html';
+                color = 'var(--purple)';
+            } else if (total <= 18) {
+                level = 'Level 3';
+                name = '技术熟练';
+                desc = '你经常打球，建议从技术熟练开始，进一步精进技术。';
+                link = '07-level-3.html';
+                color = 'var(--green)';
+            } else {
+                level = 'Level 4+';
+                name = '技术精进';
+                desc = '你有不错的基础，建议从技术精进开始，追求更高水平。';
+                link = '08-level-4.html';
+                color = 'var(--orange)';
+            }
+            
+            document.getElementById('result-level').textContent = level;
+            document.getElementById('result-level').style.color = color;
+            document.getElementById('result-name').textContent = name;
+            document.getElementById('result-desc').textContent = desc;
+            document.getElementById('result-link').href = link;
+            
+            // 显示统计
+            document.getElementById('result-stats').innerHTML = `
+                <div class="result-stat">
+                    <div class="result-stat-num">${q1}</div>
+                    <div class="result-stat-label">羽毛球经验</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-num">${q2}</div>
+                    <div class="result-stat-label">体能基础</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-num">${total}</div>
+                    <div class="result-stat-label">总分</div>
+                </div>
+            `;
+            
+            document.getElementById('level-result').classList.add('show');
+            
+            // 保存到localStorage
+            localStorage.setItem('badminton-level-locator', JSON.stringify({
+                scores: {q1, q2, q3, q4, q5, q6},
+                total: total,
+                level: level,
+                date: new Date().toISOString()
+            }));
+        }
+    </script>
+</body>
+</html>

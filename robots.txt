@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gxsri.github.io/badminton-knowledge-base/sitemap.xml

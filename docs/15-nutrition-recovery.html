@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/15-nutrition-recovery.html">
+    <!-- quality:v2 -->
+    <meta name="description" content="营养与恢复｜TDEE计算 → 营养素分配 → 训练后时间轴 → 恢复评估｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta property="og:title" content="营养与恢复 — 羽毛球职业训练系统">
+    <meta property="og:description" content="营养与恢复｜TDEE计算 → 营养素分配 → 训练后时间轴 → 恢复评估｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/15-nutrition-recovery.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="营养与恢复 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="营养与恢复｜TDEE计算 → 营养素分配 → 训练后时间轴 → 恢复评估｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <title>营养与恢复 — 羽毛球职业训练系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .doc-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(244,63,94,0.15);border-radius:4px;font-size:0.8rem;color:var(--accent);margin-bottom:1rem;font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent-2)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.warn{border-left-color:#f59e0b}
+        .code-block{font-family:'JetBrains Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;font-size:0.85rem;line-height:1.8;overflow-x:auto;margin:1.5rem 0}
+        .code-block .k{color:var(--accent)}.code-block .v{color:var(--green)}.code-block .c{color:var(--text-2)}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500;font-size:0.95rem}
+        .next a:hover{text-decoration:underline}
+        /* Calculator */
+        .calc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0}
+        .calc-title{font-weight:700;font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .calc-title::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .calc-field{display:flex;flex-direction:column;gap:0.3rem}
+        .calc-field label{font-size:0.85rem;color:var(--text-2)}
+        .calc-field input,.calc-field select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;font-family:inherit;outline:none;transition:border 0.2s}
+        .calc-field input:focus,.calc-field select:focus{border-color:var(--accent)}
+        .calc-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1rem}
+        .calc-result-title{font-size:0.85rem;color:var(--text-2);margin-bottom:0.5rem}
+        .calc-result-value{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:var(--accent)}
+        .calc-result-unit{font-size:0.9rem;color:var(--text-2);margin-left:0.25rem}
+        .calc-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:1rem}
+        .calc-macro{background:var(--surface-2);border-radius:6px;padding:0.75rem;text-align:center}
+        .calc-macro-label{font-size:0.75rem;color:var(--text-2);margin-bottom:0.25rem}
+        .calc-macro-value{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.2rem}
+        .calc-macro-unit{font-size:0.75rem;color:var(--text-2)}
+        .calc-macro.protein .calc-macro-value{color:var(--blue)}
+        .calc-macro.fat .calc-macro-value{color:var(--purple)}
+        .calc-macro.carb .calc-macro-value{color:var(--green)}
+        .calc-btn{background:var(--accent);color:white;border:none;border-radius:6px;padding:0.7rem 1.5rem;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:0.5rem}
+        .calc-btn:hover{background:var(--accent-2);transform:translateY(-1px)}
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+    <!-- simple-mode: 小白/专业双模式（?mode=simple 可直接进入） -->
+    <script>try{var q=new URLSearchParams(location.search).get('mode');var m=q||localStorage.getItem('bl-mode');if(q==='simple'||q==='pro')localStorage.setItem('bl-mode',q);if(m==='simple')document.documentElement.setAttribute('data-mode','simple');}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/simple-mode.css">
+    <script src="../docs-simple.js" defer></script>
+    <script src="../assets/simple-mode.js" defer></script>
+    <!-- seo:jsonld -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"营养与恢复","description":"TDEE计算 → 营养素分配 → 训练后时间轴 → 恢复评估","inLanguage":"zh-CN","url":"https://gxsri.github.io/badminton-knowledge-base/docs/15-nutrition-recovery.html","isPartOf":{"@type":"WebSite","name":"羽毛球职业训练系统","url":"https://gxsri.github.io/badminton-knowledge-base/"}}</script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="doc-badge">15</div>
+        <h1>营养与恢复</h1>
+        <div class="meta">Level 0+ · TDEE计算 → 营养素 → 训练后时间轴 → 恢复评估</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>先算三个数，再谈吃什么。每天蛋白质 1.2-2.4 g/kg、碳水 2-8 g/kg、水从 33 ml/kg 起；练后 30-60 分钟内补碳水 1 g/kg 加蛋白 0.3 g/kg，睡够 7-9 小时。这三件事做满之前，先不用考虑补剂。</p>
+        </div>
+
+        <h2 id="能量">能量 — 从计算开始</h2>
+        <p>一切营养方案的第一步，是算出你一天到底消耗多少热量。</p>
+
+        <div class="calc">
+            <div class="calc-title">🔥 TDEE计算器（每日总能耗）</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>性别</label>
+                    <select id="gender">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>年龄（岁）</label>
+                    <input type="number" id="age" value="25" min="10" max="80">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>体重（kg）</label>
+                    <input type="number" id="weight" value="70" min="30" max="200" step="0.1">
+                </div>
+                <div class="calc-field">
+                    <label>身高（cm）</label>
+                    <input type="number" id="height" value="175" min="100" max="220">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>活动水平</label>
+                    <select id="activity">
+                        <option value="1.2">久坐（几乎不运动）</option>
+                        <option value="1.375">轻度（每周1-3次低强度）</option>
+                        <option value="1.55" selected>中度（每周3-5次中强度）</option>
+                        <option value="1.725">高度（每周6-7次高强度）</option>
+                        <option value="1.9">极高（每天2次训练）</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>目标</label>
+                    <select id="goal">
+                        <option value="0">保持体重</option>
+                        <option value="-300">减脂（慢速 -300kcal）</option>
+                        <option value="-500">减脂（快速 -500kcal）</option>
+                        <option value="200">增肌（慢速 +200kcal）</option>
+                        <option value="500">增肌（快速 +500kcal）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcTDEE()">计算</button>
+            <div class="calc-result" id="tdee-result" style="display:none">
+                <div class="calc-result-title">你的每日总能耗（TDEE）</div>
+                <div><span class="calc-result-value" id="tdee-value">0</span><span class="calc-result-unit">kcal/天</span></div>
+                <div style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-2)">
+                    BMR: <span id="bmr-value">0</span> kcal · 调整后: <span id="adjusted-value">0</span> kcal
+                </div>
+            </div>
+        </div>
+
+        <h2 id="三大营养素">三大营养素 — 按体重算</h2>
+
+        <div class="calc">
+            <div class="calc-title">🥩 三大营养素计算器</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>体重（kg）</label>
+                    <input type="number" id="macro-weight" value="70" min="30" max="200" step="0.1">
+                </div>
+                <div class="calc-field">
+                    <label>训练目标</label>
+                    <select id="macro-goal">
+                        <option value="maintain">维持（1.4g/kg蛋白）</option>
+                        <option value="bulk">增肌（1.8g/kg蛋白）</option>
+                        <option value="cut">减脂（2.2g/kg蛋白）</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>每日热量（kcal，从上面计算）</label>
+                    <input type="number" id="macro-tdee" value="2500" min="1000" max="6000">
+                </div>
+                <div class="calc-field">
+                    <label>训练日/休息日</label>
+                    <select id="macro-day">
+                        <option value="train">训练日（碳水3-5g/kg）</option>
+                        <option value="rest">休息日（碳水2-3g/kg）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcMacros()">计算</button>
+            <div class="calc-result" id="macro-result" style="display:none">
+                <div class="calc-result-title">你的每日营养素分配</div>
+                <div class="calc-breakdown">
+                    <div class="calc-macro protein">
+                        <div class="calc-macro-label">蛋白质</div>
+                        <div class="calc-macro-value" id="protein-g">0</div>
+                        <div class="calc-macro-unit">克</div>
+                    </div>
+                    <div class="calc-macro fat">
+                        <div class="calc-macro-label">脂肪</div>
+                        <div class="calc-macro-value" id="fat-g">0</div>
+                        <div class="calc-macro-unit">克</div>
+                    </div>
+                    <div class="calc-macro carb">
+                        <div class="calc-macro-label">碳水</div>
+                        <div class="calc-macro-value" id="carb-g">0</div>
+                        <div class="calc-macro-unit">克</div>
+                    </div>
+                </div>
+                <div style="margin-top:1rem;font-size:0.85rem;color:var(--text-2)">
+                    <div>蛋白质: <span id="protein-cal">0</span> kcal (×4) · 脂肪: <span id="fat-cal">0</span> kcal (×9) · 碳水: <span id="carb-cal">0</span> kcal (×4)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout warn">
+            <p><strong>减脂底线：</strong>男性不低于1500kcal/天，女性不低于1200kcal/天。低于此线，代谢适应会大幅降低效果。</p>
+        </div>
+
+        <h3>蛋白质分配原则</h3>
+        <ul>
+            <li>每餐20-40g蛋白质（单次肌蛋白合成效率最高的区间）</li>
+            <li>训练后30分钟内补充20-30g快速吸收蛋白</li>
+            <li>睡前20-30g慢速蛋白（酪蛋白/酸奶）</li>
+        </ul>
+
+        <h3>碳水时机选择</h3>
+        <table>
+            <thead><tr><th>时机</th><th>GI值</th><th>食物选择</th></tr></thead>
+            <tbody>
+                <tr><td>训练前2-3小时</td><td>低GI &lt;55</td><td>燕麦、全麦面包、红薯</td></tr>
+                <tr><td>训练前30分钟</td><td>中GI 55-70</td><td>香蕉、全麦饼干</td></tr>
+                <tr><td>训练中（&gt;60分钟）</td><td>高GI &gt;70</td><td>运动饮料、葡萄糖凝胶</td></tr>
+                <tr><td>训练后30分钟内</td><td>高GI &gt;70</td><td>白米饭、土豆、蜂蜜</td></tr>
+                <tr><td>训练后1-2小时</td><td>中GI 55-70</td><td>全麦意面、糙米</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout info">
+            <p><strong>关键原则：</strong>训练前低GI提供稳定能量，训练后高GI快速补充肌糖原，睡前低GI或不吃避免血糖波动影响生长激素。</p>
+        </div>
+
+        <h2 id="水合计算">水合计算</h2>
+
+        <div class="calc">
+            <div class="calc-title">💧 水合计算器</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>体重（kg）</label>
+                    <input type="number" id="water-weight" value="70" min="30" max="200">
+                </div>
+                <div class="calc-field">
+                    <label>训练时长（分钟）</label>
+                    <input type="number" id="water-duration" value="60" min="0" max="300">
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>环境温度（°C）</label>
+                    <input type="number" id="water-temp" value="25" min="-10" max="50">
+                </div>
+                <div class="calc-field"></div>
+            </div>
+            <button class="calc-btn" onclick="calcWater()">计算</button>
+            <div class="calc-result" id="water-result" style="display:none">
+                <div class="calc-result-title">你的每日水合需求</div>
+                <div><span class="calc-result-value" id="water-total">0</span><span class="calc-result-unit">ml/天</span></div>
+                <div style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-2)">
+                    基础: <span id="water-base">0</span>ml + 训练: <span id="water-train">0</span>ml<span id="water-heat"></span>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="训练后恢复时间轴">训练后恢复时间轴</h2>
+
+        <div class="code-block">
+<span class="k">0-30分钟</span>：营养窗口 + 整理拉伸
+  → 快速碳水 <span class="v">1-1.2g/kg</span> + 快速蛋白 <span class="v">0.3-0.4g/kg</span>
+  例：70kg → 碳水84g（2碗米饭）+ 蛋白28g（1勺乳清+1个蛋）
+
+<span class="k">30分钟-2小时</span>：正餐 + 补水
+  → 碳水+蛋白+蔬菜，分次补水（不要一次性喝大量水）
+
+<span class="k">2小时-睡前</span>：轻度活动 + 筋膜放松
+  → 泡沫轴全身10-15分钟，热水澡
+
+<span class="k">睡觉（7-9小时）</span>：生长激素分泌 + 组织修复
+  → 不可替代，最重要的恢复手段
+  → 睡眠&lt;6小时：糖原合成效率下降30%
+  → 连续3天睡眠&lt;6小时：反应速度下降15-20%
+
+<span class="k">第二天早上</span>：评估恢复状态 → 决定今天训练强度
+        </div>
+
+        <h2 id="恢复状态评估">恢复状态评估</h2>
+        <div class="calc">
+            <div class="calc-title">📊 每日恢复状态自检</div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>静息心率（比平时高吗？）</label>
+                    <select id="rec-hr">
+                        <option value="3">正常</option>
+                        <option value="2">高了5次以上</option>
+                        <option value="1">高了10次以上</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>身体感觉</label>
+                    <select id="rec-feel">
+                        <option value="3">精力充沛</option>
+                        <option value="2">懒洋洋</option>
+                        <option value="1">全身沉重</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label>睡眠质量</label>
+                    <select id="rec-sleep">
+                        <option value="3">7小时+，醒来有精神</option>
+                        <option value="2">睡了但醒来还是累</option>
+                        <option value="1">没睡好/失眠</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>训练部位感觉</label>
+                    <select id="rec-muscle">
+                        <option value="3">没有明显感觉</option>
+                        <option value="2">轻微酸痛，活动后消失</option>
+                        <option value="1">明显酸痛，不碰都疼</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcRecovery()">评估</button>
+            <div class="calc-result" id="rec-result" style="display:none">
+                <div class="calc-result-title">你的恢复状态</div>
+                <div class="calc-result-value" id="rec-status">--</div>
+                <div style="margin-top:0.5rem;font-size:0.85rem" id="rec-advice"></div>
+            </div>
+        </div>
+
+        <h2 id="不同训练类型恢复时间">不同训练类型恢复时间</h2>
+        <table>
+            <thead><tr><th>训练类型</th><th>恢复时间</th><th>建议频率</th></tr></thead>
+            <tbody>
+                <tr><td>纯技术训练</td><td>4-8小时</td><td>每天都可以练</td></tr>
+                <tr><td>步法训练</td><td>24-36小时</td><td>隔天练</td></tr>
+                <tr><td>力量训练</td><td>48-72小时</td><td>每周2-3次</td></tr>
+                <tr><td>高强度间歇</td><td>48-72小时</td><td>每周2次</td></tr>
+                <tr><td>对抗/比赛</td><td>48-72小时</td><td>每周1-2次</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="rx">分层处方 — 营养与恢复（三档照做）</h2>
+        <p>三档的差别只有五个数：每天蛋白质、每天碳水、练后补多少、喝多少水、睡几小时。数字都按体重算，下面给 70 kg 的例子，你换成自己的体重就行。</p>
+        <p>先说两个词。<strong>g/kg</strong> 就是每公斤体重吃多少克：70 kg 按 1.6 g/kg 算就是 112 g 蛋白质。<strong>GI 值</strong>是食物让血糖升多快，越高升得越快，训练前要慢的、训练后要快的。</p>
+
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
+                <h3>基础版 <span class="rx-badge">每周 ≤2 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>每天 3 餐 + 训练后 1 次加餐，先把训练日和休息日的碳水分开算。</li>
+                    <li><strong>蛋白质：</strong>1.2-1.6 g/kg/天（70 kg → 84-112 g/天），分 3 餐，每餐 20-35 g。</li>
+                    <li><strong>碳水：</strong>休息日 2-3 g/kg（140-210 g/天），训练日 3-4 g/kg；碳水优先放在训练前后两顿。</li>
+                    <li><strong>练后窗口：</strong>训练结束 60-90 分钟内吃正餐：碳水 1 g/kg（70 g）+ 蛋白 0.3 g/kg（21 g）。一天只练一次时，窗口可放宽到 2 小时。</li>
+                    <li><strong>水合：</strong>体重 × 33 ml + 训练每分钟 12 ml（70 kg 练 60 分钟 ≈ 3000 ml/天）；训练中每 15 分钟喝 150-200 ml。</li>
+                    <li><strong>睡眠：</strong>7-8 小时/晚，周末也固定起床时间。</li>
+                    <li><strong>负荷：</strong>每周训练 ≤2 次，单次 ≤90 分钟，RPE 5-6。</li>
+                    <li><strong>频率：</strong>每周 2 次训练，每周复盘 1 次（同一时间、同一条件称重）。<strong>恢复：</strong>两次训练间隔 ≥48 小时。<strong>单次时长上限：</strong>90 分钟，超过 90 分钟才需要电解质。</li>
+                    <li><strong>进阶触发：</strong>连续 2 周体重波动 ≤±0.5 kg、蛋白质达标 ≥5 天/周、训练后 24 小时内基本恢复。</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid" id="rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周 3-4 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>每天 4-5 餐，训练日与休息日分开配，训练前后各留一顿。</li>
+                    <li><strong>蛋白质：</strong>1.6-2.0 g/kg/天（112-140 g/天），每餐 30-40 g，睡前再加 20-30 g 慢速蛋白（酪蛋白、希腊酸奶）。</li>
+                    <li><strong>碳水：</strong>训练日 4-6 g/kg（280-420 g/天），休息日 3 g/kg；训练前 2-3 小时先吃 1-2 g/kg。</li>
+                    <li><strong>练后窗口：</strong>30-60 分钟内补碳水 1-1.2 g/kg（70-84 g）+ 蛋白 0.3-0.4 g/kg（21-28 g）。一天两练时，第二练后必须在 30 分钟内补。</li>
+                    <li><strong>水合：</strong>33 ml/kg + 每分钟 12 ml，气温 &gt;30°C 再加 20%（约 3600 ml/天）；训练前后体重每轻 1 kg 补 1.25-1.5 L。</li>
+                    <li><strong>睡眠：</strong>7-9 小时/晚，每周睡不足 6 小时的天数 ≤1 天。</li>
+                    <li><strong>负荷：</strong>每周 3-4 次训练，其中高强度课 2 次，RPE 7-8。</li>
+                    <li><strong>频率：</strong>每周 3-4 次训练；每周记录 4-5 天摄入、称重 1 次、量腰围 1 次。<strong>恢复：</strong>两次高强度课间隔 ≥48 小时。<strong>单次时长上限：</strong>120 分钟。</li>
+                    <li><strong>进阶触发：</strong>连续 4 周体重与腰围稳定、主要力量动作不下降、晨脉不超过基线 +5 次/分。</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite" id="rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次</span></h3>
+                <ul>
+                    <li><strong>动作：</strong>每天 5-6 餐，训练前后各一次加餐，碳水化合物按当天训练量现算。</li>
+                    <li><strong>蛋白质：</strong>1.8-2.2 g/kg/天，减脂期升到 2.0-2.4 g/kg；每餐 0.3-0.4 g/kg，睡前 30-40 g 酪蛋白。</li>
+                    <li><strong>碳水：</strong>大强度日 6-8 g/kg、中等日 4-5 g/kg、休息日 3 g/kg（70 kg → 210-560 g/天）；赛前 3 小时 1-2 g/kg。</li>
+                    <li><strong>练后窗口：</strong>30 分钟内碳水 1-1.2 g/kg + 蛋白 0.3-0.4 g/kg；比赛日赛后 1 小时内碳水 1 g/kg + 蛋白 0.3 g/kg。</li>
+                    <li><strong>水合：</strong>训练前 2 小时 400-600 ml，训练中每 15-20 分钟 150-250 ml；每减重 1 kg 补 1.25-1.5 L，出汗率自己算（训练前后体重差 ÷ 时长）。</li>
+                    <li><strong>睡眠：</strong>8-9 小时/晚，午休 ≤30 分钟，15:00 之后不补睡。</li>
+                    <li><strong>负荷：</strong>每周 5-6 次训练，其中 RPE 8-9 的高强度课 3 次。</li>
+                    <li><strong>频率：</strong>每周 5-6 次训练，每天记摄入与晨起体重；每周体成分评估 1 次。<strong>恢复：</strong>减脂速度 ≤0.5 kg/周（赛季中 ≤0.25 kg/周）；减量周碳水降 30%、蛋白不变、总热量减 20%。<strong>单次时长上限：</strong>150 分钟，超过就拆成两练。</li>
+                    <li><strong>进阶触发：</strong>体重、力量、晨脉三项连续 3 周稳定，比赛日不出现肠胃不适；赛前 48 小时不试新补剂、新食物。</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="selftest">自测与进阶标准 — 营养与恢复</h2>
+        <p>每周固定一天测，尽量在早上、空腹、上完厕所之后。数据只跟自己的上周比，不跟别人比。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr><td><strong>训练前后体重差</strong><br>练前练后各称一次（擦干身体）</td><td>每轻 1 kg 补 1.25-1.5 L，2 小时内体重回到练前 ±0.5 kg 以内</td><td>先按"每 15 分钟 150 ml"定时喝，不看数字</td></tr>
+                <tr><td><strong>晨脉</strong><br>起床后静坐 1 分钟测</td><td>比 7 天基线高 &lt;5 次/分；高出 ≥5 次/分当天减量 20%-30%</td><td>减到每周 2 次高强度，加 1 天完全休息</td></tr>
+                <tr><td><strong>尿液颜色</strong><br>起床后第一泡对照色卡</td><td>淡柠檬色（1-3 级）；4 级以上（深黄）在 2 小时内补 500 ml</td><td>换带刻度水壶，按小时定量喝，先做到每小时 150-200 ml</td></tr>
+                <tr><td><strong>蛋白质达标天数</strong><br>对照目标克数记录</td><td>≥5 天/周达标（70 kg 维持期约 98-112 g/天）</td><td>先固定"每餐一掌心蛋白"吃 3 餐，再谈克数</td></tr>
+                <tr><td><strong>练后恢复速度</strong><br>记录酸痛消退时间</td><td>24 小时内基本恢复；48 小时仍酸痛就要减量</td><td>减量 30% 或改主动恢复，热量回到 TDEE ×1.0</td></tr>
+                <tr><td><strong>睡眠时长</strong><br>手环或手机记录</td><td>7-9 小时/晚，连续 5 天达标</td><td>先固定起床时间，保 6.5 小时以上，午休 20 分钟</td></tr>
+                <tr><td><strong>减脂速度</strong><br>每周同一时间称重</td><td>≤0.5 kg/周（赛季中 ≤0.25 kg/周）；两周不掉秤再砍 200 kcal</td><td>停掉热量赤字 1 周，先补蛋白与睡眠</td></tr>
+                <tr><td><strong>力量信号</strong><br>同一动作同样次数比重量</td><td>4 周内重量或次数下降 &lt;5%</td><td>热量回升 200 kcal，回到维持热量 1-2 周</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="错误-原因-纠正">错误 → 原因 → 纠正</h2>
+        <p>每条都能用一周的饮食记录对照。记 3 天比"我大概吃得还行"准得多。</p>
+        <table>
+            <thead><tr><th>错误</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr><td>练完两小时不吃，晚上一次补一大顿</td><td>把窗口理解成"越晚越要补"，白天欠账晚上还</td><td>30-60 分钟内先补 1 g/kg 碳水 + 0.3 g/kg 蛋白，正餐照常吃，睡前只留 20-30 g 慢速蛋白</td></tr>
+                <tr><td>休息日和训练日吃一样多</td><td>没区分日型，热量和碳水没跟着训练量走</td><td>休息日碳水降到 2-3 g/kg、脂肪上调，蛋白质保持不变</td></tr>
+                <tr><td>减脂期一下砍 800 kcal</td><td>想快点掉秤，用大赤字换速度</td><td>一次只砍 200 kcal，观察 1-2 周；蛋白质升到 2.0-2.4 g/kg，底线是男性 1500 kcal、女性 1200 kcal</td></tr>
+                <tr><td>一天只喝 1 L 水，训练中不喝</td><td>等口渴才喝，而口渴时已经缺水</td><td>基础 33 ml/kg + 训练每分钟 12 ml；训练中每 15 分钟 150-200 ml，练完 2 小时内体重差额补回去</td></tr>
+                <tr><td>为了上晚课，睡前 1 小时喝浓咖啡或能量饮料</td><td>用咖啡因换当下状态，牺牲当晚睡眠</td><td>咖啡因半衰期通常 3-7 小时，睡前 8 小时内不摄入；晚课困就午休 20 分钟</td></tr>
+                <tr><td>只喝蛋白粉，正餐碳水不够</td><td>把补剂当饭，把顺序搞反了</td><td>先做到碳水 1-1.2 g/kg + 正餐，补剂只补差额：蛋白粉 1 勺约 25 g</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="elite">精英细节 — 同样动作，高手多做什么</h2>
+        <ul>
+            <li><strong>蛋白质分散着吃：</strong>分 5-6 次、每次 0.3-0.4 g/kg，比一顿吃 60 g 更划算。每餐间隔 3-4 小时。</li>
+            <li><strong>碳水跟着训练量走：</strong>大强度日 6-8 g/kg，减量周降 30%，赛前 3 小时集中 1-2 g/kg。摄入量是变量，蛋白质才是常量。</li>
+            <li><strong>出汗率自己算：</strong>（练前体重 − 练后体重 + 期间喝的水）÷ 训练小时数。夏天高强度项目可以到 1.5-2 L/小时，别人喝多少跟你无关。</li>
+            <li><strong>赛前 48 小时不做新尝试：</strong>新补剂、新食物、新咖啡因剂量都不试。比赛日只吃平时练过的东西。</li>
+            <li><strong>睡眠排在补剂前面：</strong>睡不足 6 小时的那几天，糖原合成与恢复都会打折。先把 7-9 小时做满，再谈补剂。</li>
+            <li><strong>一天两练的衔接：</strong>两练间隔 &lt;6 小时时，第一练后立刻补碳水 1 g/kg + 蛋白 0.3 g/kg，第二练的质量由这一顿决定。</li>
+            <li><strong>减脂放在休赛期：</strong>赛季中只做 ≤0.25 kg/周 的慢速调整，蛋白质不降，训练日碳水不砍。</li>
+            <li><strong>水合看两个数：</strong>晨起体重（比基线低 1 kg 以上要先补液）+ 晨脉（比基线高 ≥5 次/分要先休息）。只看其中一个容易误判。</li>
+        </ul>
+        <p>这 8 条一次只改 1 条，改完观察 1-2 周再动下一条。一次全改，出问题时你分不清是哪一条的账。</p>
+
+        <div class="callout warn">
+            <p><strong>安全边界：</strong>出现下面任何一条，先停方案、先找专业人士：长期把热量压到男性 &lt;1500 kcal/天、女性 &lt;1200 kcal/天；1 个月内体重下降超过 5% 且不是你主动减脂；对体重和进食出现强烈焦虑、暴食后又催吐，或使用泻药、利尿剂、减肥药；女性月经停止 ≥3 个月，男性性欲与晨勃明显下降。</p>
+            <p style="margin-top:0.6rem">上面这些属于饮食失调与低能量可用性的就医信号，请找运动医学、内分泌科或注册营养师。连续 2 周晨脉比基线高 ≥5 次/分、睡眠 &lt;6 小时、成绩持续下滑、情绪低落或对训练失去兴趣，可能是过度训练，先减量 40%-50% 或休息 2-3 天，必要时就医，同时别忽视心理层面的求助。青少年运动员不做减脂，先保证能量与蛋白够；有糖尿病、肾脏病、进食障碍病史的人，任何热量与蛋白调整都要先经过医生。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页参数按运动营养的通行范围给出，并标注适用条件：蛋白质 1.2-2.4 g/kg/天（按维持、增肌、减脂分档）、碳水 2-10 g/kg/天（按训练量与日型分档）、脂肪 0.6-1.2 g/kg/天、水合从 33 ml/kg 起并按训练时长与温度加量、睡眠 7-9 小时。这些区间来自 NSCA CSCS 训练学框架与运动生理常识里的常用口径，不是针对某个人测出来的精确值。</p>
+            <p style="margin-top:0.6rem">出汗率、肠胃耐受、体重变化速度个体差异很大，必须用自己的记录校准。补剂部分（Omega-3、镁、维生素 D）只给常见参考量，是否缺乏与治疗剂量请按医生或注册营养师的意见。页内的体型分类（外胚/中胚/内胚）属于历史分类法，只作参考，处方以实测体重、体脂率与训练量为准。本页不引用没有出处的具体研究数据，也不承诺任何具体效果。</p>
+        </div>
+
+        <p class="page-stamp" data-bl-stamp="1">最后更新：2026-09-16 · 内容标准 v2 · 发现错误或有更好的练法？<a href="https://github.com/gxsri/badminton-knowledge-base/issues/new">在 GitHub 提 Issue</a> · 文件：<span class="mono">15-nutrition-recovery.html</span></p>
+
+<div class="next">
+            <a href="14-psychological-training.html">← 心理训练</a>
+            <a href="16-strength-conditioning.html">力量体能 →</a>
+        </div>
+    </div>
+
+    <script>
+        function calcTDEE() {
+            const gender = document.getElementById('gender').value;
+            const age = +document.getElementById('age').value;
+            const weight = +document.getElementById('weight').value;
+            const height = +document.getElementById('height').value;
+            const activity = +document.getElementById('activity').value;
+            const goal = +document.getElementById('goal').value;
+            
+            let bmr;
+            if (gender === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+            
+            const tdee = Math.round(bmr * activity + goal);
+            
+            document.getElementById('bmr-value').textContent = Math.round(bmr);
+            document.getElementById('adjusted-value').textContent = tdee;
+            document.getElementById('tdee-value').textContent = tdee;
+            document.getElementById('tdee-result').style.display = 'block';
+            
+            document.getElementById('macro-tdee').value = tdee;
+        }
+
+        function calcMacros() {
+            const weight = +document.getElementById('macro-weight').value;
+            const goal = document.getElementById('macro-goal').value;
+            const tdee = +document.getElementById('macro-tdee').value;
+            const day = document.getElementById('macro-day').value;
+            
+            let proteinPerKg;
+            if (goal === 'maintain') proteinPerKg = 1.4;
+            else if (goal === 'bulk') proteinPerKg = 1.8;
+            else proteinPerKg = 2.2;
+            
+            const protein = Math.round(weight * proteinPerKg);
+            const fat = Math.round(weight * 0.9);
+            
+            const proteinCal = protein * 4;
+            const fatCal = fat * 9;
+            const carbCal = tdee - proteinCal - fatCal;
+            const carb = Math.round(carbCal / 4);
+            
+            document.getElementById('protein-g').textContent = protein;
+            document.getElementById('fat-g').textContent = fat;
+            document.getElementById('carb-g').textContent = carb;
+            document.getElementById('protein-cal').textContent = proteinCal;
+            document.getElementById('fat-cal').textContent = fatCal;
+            document.getElementById('carb-cal').textContent = carbCal;
+            document.getElementById('macro-result').style.display = 'block';
+        }
+
+        function calcWater() {
+            const weight = +document.getElementById('water-weight').value;
+            const duration = +document.getElementById('water-duration').value;
+            const temp = +document.getElementById('water-temp').value;
+            
+            let base = weight * 33;
+            let train = duration * 12;
+            let heat = 0;
+            
+            if (temp > 30) {
+                heat = (base + train) * 0.2;
+            }
+            
+            const total = Math.round(base + train + heat);
+            
+            document.getElementById('water-base').textContent = Math.round(base);
+            document.getElementById('water-train').textContent = Math.round(train);
+            document.getElementById('water-heat').heat > 0 ? ` + 高温: ${Math.round(heat)}ml` : '';
+            document.getElementById('water-heat').textContent = heat > 0 ? ` + 高温: ${Math.round(heat)}ml` : '';
+            document.getElementById('water-total').textContent = total;
+            document.getElementById('water-result').style.display = 'block';
+        }
+
+        function calcRecovery() {
+            const hr = +document.getElementById('rec-hr').value;
+            const feel = +document.getElementById('rec-feel').value;
+            const sleep = +document.getElementById('rec-sleep').value;
+            const muscle = +document.getElementById('rec-muscle').value;
+            
+            const total = hr + feel + sleep + muscle;
+            
+            let status, advice, color;
+            if (total >= 10) {
+                status = '✅ 完全恢复';
+                advice = '可以正常训练，按计划执行。';
+                color = 'var(--green)';
+            } else if (total >= 7) {
+                status = '⚠️ 部分恢复';
+                advice = '建议减量20-30%，或做恢复训练。';
+                color = '#f59e0b';
+            } else {
+                status = '🚫 未恢复';
+                advice = '建议休息一天，或做轻度主动恢复。';
+                color = 'var(--accent)';
+            }
+            
+            document.getElementById('rec-status').textContent = status;
+            document.getElementById('rec-status').style.color = color;
+            document.getElementById('rec-advice').textContent = advice;
+            document.getElementById('rec-result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

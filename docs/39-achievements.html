@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/39-achievements.html">
+    <!-- quality:v2 -->
+    <meta name="description" content="成就系统｜记录进步，解锁成就，保持动力｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta property="og:title" content="成就系统 — 羽毛球职业训练系统">
+    <meta property="og:description" content="成就系统｜记录进步，解锁成就，保持动力｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/39-achievements.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="成就系统 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="成就系统｜记录进步，解锁成就，保持动力｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <title>成就系统 — 羽毛球职业训练系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--surface:#18181b;--surface-2:#27272a;--border:#3f3f46;--text:#fafafa;--text-2:#a1a1aa;--accent:#f43f5e;--accent-2:#fb7185;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--yellow:#eab308;--indigo:#6366f1}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .back{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center}
+        .back a{color:var(--text-2);text-decoration:none;font-size:0.9rem}.back a:hover{color:var(--text)}
+        .content{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem}
+        .badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(234,179,8,0.15);border-radius:4px;font-size:0.8rem;color:var(--yellow);font-family:'JetBrains Mono',monospace}
+        h1{font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;line-height:1.3}
+        .meta{color:var(--text-2);font-size:0.9rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        h2{font-size:1.4rem;font-weight:700;margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        p{margin-bottom:1rem;color:var(--text-2)}
+        strong{color:var(--text)}
+        .callout{background:var(--surface);border-left:3px solid var(--accent);padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0}
+        .callout p{margin:0;color:var(--text)}
+        .callout.info{border-left-color:var(--blue)}
+        .callout.success{border-left-color:var(--green)}
+        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2rem 0}
+        .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center}
+        .stat-num{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent)}
+        .stat-label{font-size:0.8rem;color:var(--text-2);margin-top:0.25rem}
+        .badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+        .badge-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;transition:all 0.2s}
+        .badge-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+        .badge-card.locked{opacity:0.5}
+        .badge-icon{font-size:2.5rem;margin-bottom:0.75rem}
+        .badge-name{font-weight:600;margin-bottom:0.25rem}
+        .badge-desc{font-size:0.8rem;color:var(--text-2)}
+        .badge-status{margin-top:0.75rem;font-size:0.75rem;font-weight:600}
+        .badge-status.unlocked{color:var(--green)}
+        .badge-status.locked{color:var(--text-2)}
+        .streak-card{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center}
+        .streak-num{font-family:'JetBrains Mono',monospace;font-size:4rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .streak-label{font-size:1.1rem;margin-top:0.5rem}
+        .streak-sub{font-size:0.9rem;color:var(--text-2);margin-top:0.25rem}
+        .progress-section{margin:2rem 0}
+        .progress-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin:1rem 0}
+        .progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem}
+        .progress-title{font-weight:600}
+        .progress-percent{font-family:'JetBrains Mono',monospace;color:var(--accent)}
+        .progress-track{background:var(--bg);border-radius:4px;height:8px;overflow:hidden}
+        .progress-fill{height:100%;border-radius:4px;transition:width 0.3s}
+        .progress-fill.blue{background:var(--blue)}
+        .progress-fill.green{background:var(--green)}
+        .progress-fill.purple{background:var(--purple)}
+        .progress-fill.orange{background:var(--orange)}
+        .cta{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap}
+        .cta a{flex:1;min-width:200px;padding:1rem;text-align:center;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.2s}
+        .cta a:hover{background:var(--accent-2);transform:translateY(-2px)}
+        .cta a.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .cta a.secondary:hover{background:var(--surface)}
+        .next{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+        .next a{color:var(--accent);text-decoration:none;font-weight:500}
+        .next a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+        th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+        th{background:var(--surface);color:var(--text);font-weight:600;font-size:0.85rem}
+        td{color:var(--text-2)}
+        td strong{color:var(--text)}
+        ul,ol{margin:1rem 0;padding-left:1.5rem;color:var(--text-2)}
+        li{margin-bottom:0.5rem}
+        .rx ul{margin:0;padding-left:1.1rem}
+        @media(max-width:768px){
+            .stats-grid{grid-template-columns:repeat(2,1fr)}
+            .badge-grid{grid-template-columns:repeat(2,1fr)}
+        }
+            @media print {
+            :root { --bg:#ffffff; --surface:#f4f4f5; --surface-2:#e4e4e7; --border:#d4d4d8; --text:#18181b; --text-2:#3f3f46; --accent:#be123c; --accent-2:#9f1239; --green:#15803d; --blue:#1d4ed8; --purple:#6d28d9; --orange:#c2410c; --yellow:#a16207; --indigo:#4338ca; }
+            .back, .next, .cta, .search-hints, .search-box, .fitness-actions, nav { display: none !important; }
+            body { background: #fff; }
+            .content, .section, .hero-content { max-width: 100%; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+    <!-- site-ui: 主题引导（防止浅色主题闪烁） -->
+    <script>try{var t=localStorage.getItem('bl-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/site-ui.css">
+    <script src="../assets/site-ui.js" defer></script>
+    <!-- simple-mode: 小白/专业双模式（?mode=simple 可直接进入） -->
+    <script>try{var q=new URLSearchParams(location.search).get('mode');var m=q||localStorage.getItem('bl-mode');if(q==='simple'||q==='pro')localStorage.setItem('bl-mode',q);if(m==='simple')document.documentElement.setAttribute('data-mode','simple');}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/simple-mode.css">
+    <script src="../docs-simple.js" defer></script>
+    <script src="../assets/simple-mode.js" defer></script>
+    <!-- seo:jsonld -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"成就系统","description":"记录进步，解锁成就，保持动力","inLanguage":"zh-CN","url":"https://gxsri.github.io/badminton-knowledge-base/docs/39-achievements.html","isPartOf":{"@type":"WebSite","name":"羽毛球职业训练系统","url":"https://gxsri.github.io/badminton-knowledge-base/"}}</script>
+</head>
+<body>
+    <div class="back"><a href="../index.html">← 返回首页</a></div>
+    <div class="content">
+        <div class="badge">成就系统</div>
+        <h1>成就系统</h1>
+        <div class="meta">记录你的进步 · 解锁成就 · 保持训练动力</div>
+
+        <div class="callout">
+            <p><strong>一句话结论：</strong>成就系统只记两个数：今天练没练、连续练了几周。基础玩法是每周完成 2 次训练就打勾、每周日花 10 分钟做一次复盘（看打卡表 + 定下周 1 个目标），进阶玩法是每周 3-4 次打卡 + 每周 15 分钟复盘 + 每 4 周复测一次。中断 1-2 天不惩罚，接着往下记就行；连续中断 ≥3 天，按中断的 1.5 倍天数重来，先保住频率，再谈连续纪录。</p>
+        </div>
+
+        <div class="streak-card">
+            <div class="streak-num" id="streak-num">0</div>
+            <div class="streak-label">连续训练天数</div>
+            <div class="streak-sub">保持每天训练，解锁更多成就！</div>
+        </div>
+
+        <h2 id="训练统计">📊 训练统计</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num" id="stat-sessions">0</div>
+                <div class="stat-label">总训练次数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-hours">0</div>
+                <div class="stat-label">总训练小时</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-level">0</div>
+                <div class="stat-label">当前级别</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-badges">0</div>
+                <div class="stat-label">解锁成就</div>
+            </div>
+        </div>
+
+        <h2 id="成就徽章">🏆 成就徽章</h2>
+        <div class="badge-grid" id="badge-grid">
+            <div class="badge-card" data-badge="first-session">
+                <div class="badge-icon">🎯</div>
+                <div class="badge-name">初出茅庐</div>
+                <div class="badge-desc">完成第一次训练</div>
+                <div class="badge-status locked" id="badge-first-session">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="week-streak">
+                <div class="badge-icon">🔥</div>
+                <div class="badge-name">一周坚持</div>
+                <div class="badge-desc">连续训练7天</div>
+                <div class="badge-status locked" id="badge-week-streak">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="month-streak">
+                <div class="badge-icon">⭐</div>
+                <div class="badge-name">月度之星</div>
+                <div class="badge-desc">连续训练30天</div>
+                <div class="badge-status locked" id="badge-month-streak">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="level-1">
+                <div class="badge-icon">📗</div>
+                <div class="badge-name">Level 1达成</div>
+                <div class="badge-desc">通过Level 1评估</div>
+                <div class="badge-status locked" id="badge-level-1">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="level-2">
+                <div class="badge-icon">📘</div>
+                <div class="badge-name">Level 2达成</div>
+                <div class="badge-desc">通过Level 2评估</div>
+                <div class="badge-status locked" id="badge-level-2">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="level-3">
+                <div class="badge-icon">📙</div>
+                <div class="badge-name">Level 3达成</div>
+                <div class="badge-desc">通过Level 3评估</div>
+                <div class="badge-status locked" id="badge-level-3">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="early-bird">
+                <div class="badge-icon">🌅</div>
+                <div class="badge-name">早起鸟</div>
+                <div class="badge-desc">早上6点前完成训练</div>
+                <div class="badge-status locked" id="badge-early-bird">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="night-owl">
+                <div class="badge-icon">🦉</div>
+                <div class="badge-name">夜猫子</div>
+                <div class="badge-desc">晚上10点后完成训练</div>
+                <div class="badge-status locked" id="badge-night-owl">未解锁</div>
+            </div>
+            <div class="badge-card" data-badge="safety-first">
+                <div class="badge-icon">🛡️</div>
+                <div class="badge-name">安全第一</div>
+                <div class="badge-desc">完成10次训练前安全检查</div>
+                <div class="badge-status locked" id="badge-safety-first">未解锁</div>
+            </div>
+        </div>
+
+        <h2 id="学习进度">📈 学习进度</h2>
+        <div class="progress-section">
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 0 完成度</div>
+                    <div class="progress-percent" id="progress-l0">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill blue" id="progress-l0-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 1 完成度</div>
+                    <div class="progress-percent" id="progress-l1">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill green" id="progress-l1-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 2 完成度</div>
+                    <div class="progress-percent" id="progress-l2">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill purple" id="progress-l2-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 3 完成度</div>
+                    <div class="progress-percent" id="progress-l3">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill orange" id="progress-l3-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 4 完成度</div>
+                    <div class="progress-percent" id="progress-l4">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill blue" id="progress-l4-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 5 完成度</div>
+                    <div class="progress-percent" id="progress-l5">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill green" id="progress-l5-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 6 完成度</div>
+                    <div class="progress-percent" id="progress-l6">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill purple" id="progress-l6-fill" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-header">
+                    <div class="progress-title">Level 7 完成度</div>
+                    <div class="progress-percent" id="progress-l7">0%</div>
+                </div>
+                <div class="progress-track"><div class="progress-fill orange" id="progress-l7-fill" style="width:0%"></div></div>
+            </div>
+        </div>
+
+        <div class="callout success">
+            <p><strong>提示：</strong>完成训练后会自动记录你的进度。每天坚持训练，解锁更多成就！</p>
+        </div>
+
+        <h2 id="rx">分层处方 — 目标设定与打卡频率</h2>
+        <p>先解释三个词。<strong>打卡</strong>就是练完当场记一笔，记"练了"比记"练得好"重要。<strong>周复盘</strong>是每周固定一次回看记录、给下周定 1 个目标，白话就是"给训练做一次小结"。<strong>连续达成</strong>是连着几周都完成周目标，不要求每天都练。</p>
+        <p>三档的差别是三个数：每周打卡几次、复盘花几分钟、中断后怎么恢复。下面就按这三个数开方。</p>
+
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
+                <h3>基础版 <span class="rx-badge">每周 ≤2 次 · 先养成习惯</span></h3>
+                <ul>
+                    <li><strong>目标设定：</strong>只定 1 个"行为目标"——每周完成 2 次训练，每次 ≥30 分钟。别定"一个月打赢谁"这类结果目标。</li>
+                    <li><strong>打卡频率：</strong>每周 2 次，练完 10 秒内记 1 行：日期 + 时长 + 1 个感受词。手机备忘录或本子都行。</li>
+                    <li><strong>每周复盘：</strong>周日固定 10 分钟。只回答 3 个问题：这周练了几次？哪次质量最好？下周练哪两天？</li>
+                    <li><strong>连续达成：</strong>连续 4 周完成周目标 = 第一段连续纪录，约 8 次训练、4 小时。达标就别急着加，先把节奏稳到 8 周。</li>
+                    <li><strong>中断后的恢复：</strong>中断 1-2 天不补偿、不加练，恢复日做 30 分钟轻技术（RPE 4-5）即可；连续中断 ≥3 天，从原训练量的 60% 起步，用 3 次课回到原量。</li>
+                    <li><strong>单次时长上限：</strong>每天 ≤10 分钟查看与更新（打卡 10 秒 1 行、周日复盘 10 分钟都算在内），单次挑战任务 ≤30 分钟；到点就停在当前进度，下次接着做。</li>
+                    <li><strong>进阶触发：</strong>连续 4 周 8 次全勤、且每次都能记满 3 项 → 每周加 1 次，进入进阶版。</li>
+                </ul>
+            </div>
+            <div class="rx rx-mid" id="rx-mid">
+                <h3>进阶版 <span class="rx-badge">每周 3-4 次 · 稳定输出</span></h3>
+                <ul>
+                    <li><strong>目标设定：</strong>1 个行为目标 + 1 个技术目标。行为目标写"每周 4 次打卡"，技术目标写"第 4 周复测四点移动 ≤32 秒"。</li>
+                    <li><strong>打卡频率：</strong>每周 3-4 次，每次记 4 项：时长、RPE、1 个技术重点、1 个待改问题。缺一次就在当天补记原因。</li>
+                    <li><strong>每周复盘：</strong>每次 15 分钟：10 分钟看打卡表（完成率、平均 RPE、睡眠时长），5 分钟写下周 1 个重点。</li>
+                    <li><strong>连续达成：</strong>连续 6 周完成周目标（约 21 次训练、21 小时）= 稳定期纪录；每 4 周做 1 周减量（训练量降到 50-60%），减量周照常打卡。</li>
+                    <li><strong>中断后的恢复：</strong>中断 1-2 天：下次课按原量的 80% 走；连续中断 3-7 天：当周总量减 30%，先做 2 次 RPE 6 的技术课；中断 ≥7 天：按"每中断 3 天补 1 次课"的节奏，用 2 周回到原量。</li>
+                    <li><strong>单次时长上限：</strong>每天查看与更新 ≤15 分钟、单次挑战任务 ≤45 分钟；同一天不做两项完整挑战，第二项压在 20 分钟以内的技术任务上。</li>
+                    <li><strong>进阶触发：</strong>连续 6 周完成率 ≥85%、复测至少 2 项进步 → 进入精英版。</li>
+                </ul>
+            </div>
+            <div class="rx rx-elite" id="rx-elite">
+                <h3>精英版 <span class="rx-badge">每周 ≥5 次 · 为比赛服务</span></h3>
+                <ul>
+                    <li><strong>目标设定：</strong>把目标按周期拆：每周 1 个技术指标 + 1 个体能指标，赛前 3 周改成"维持 + 减量"目标，不再追新增量。</li>
+                    <li><strong>打卡频率：</strong>每周 5-6 次，每次记 6 项：时长、RPE、分组完成率、晨脉、睡眠时长、当天 1 个失误类型。训练以外不算打卡。</li>
+                    <li><strong>每周复盘：</strong>每次 20-30 分钟：10 分钟数据（完成率、平均 RPE、晨脉波动、睡眠），10 分钟录像（挑 1 个失误类型看 3 段），5-10 分钟定下周负荷。</li>
+                    <li><strong>强度：</strong>挑战任务按 RPE 6-7 做，连续击球 ≥20 个不失误才算达标；心率控制在 HRmax 85% 以下，疼痛 ≤3 分就停当天挑战。</li>
+                    <li><strong>单次时长上限：</strong>每天查看与更新 ≤20 分钟、单次挑战任务 ≤60 分钟；比赛周压到 30 分钟以内，只留与本周比赛相关的那 1 项。</li>
+                    <li><strong>连续达成：</strong>连续 8 周完成周目标 = 一个完整训练块；每 4 周安排 1 周减量，减量周只保留强度、砍掉总量 50-60%。</li>
+                    <li><strong>中断后的恢复：</strong>因病中断 3-5 天：回归首周总量减 40-50%，第 2 周减 20%，第 3 周才回原量；中断 ≥10 天按新周期重排，先测晨脉与体重再定负荷。</li>
+                    <li><strong>加练红线：</strong>每周额外加练不超过总时长的 20%，连续高强度不超过 3 天，每周至少留 1 天完全休息。</li>
+                    <li><strong>进阶触发：</strong>解锁条件：连续 7 天完成 ≥15 分钟训练，或 30 天内累计 20 次打卡 → 解锁"比赛准备"徽章；缺 1 天就从下一个 7 天重新起算，不用补记凑数。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout info">
+            <p><strong>三档通用的一条：</strong>打卡记录"做了"而不是"做得好"。状态差的那次也记进去，还标个"低"，否则你的完成率数据会一路漂亮，到比赛才发现练的量根本没上去。</p>
+        </div>
+
+        <h2 id="selftest">自测与进阶标准</h2>
+        <p>每 4 周核对一次下面的 6 项。数字来源就是你自己的打卡记录，不需要额外测试场次，复盘时顺手就能算出来。</p>
+        <table>
+            <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td><strong>周打卡完成率</strong><br>本周打卡次数 ÷ 周目标次数</td>
+                    <td>连续 4 周 ≥80%（每周 2 次目标 = 至少 2 次）</td>
+                    <td>目标降到每周 1 次，只记"练了/没练"两项，先连成 4 周</td>
+                </tr>
+                <tr>
+                    <td><strong>记录完整性</strong><br>每次打卡记了几项</td>
+                    <td>每次 ≥4 项（时长、RPE、技术重点、待改问题）</td>
+                    <td>砍到只记时长 + RPE 两项，记满 2 周再加回</td>
+                </tr>
+                <tr>
+                    <td><strong>周复盘时长</strong><br>周日复盘实际花了多久</td>
+                    <td>10-20 分钟，且写下下周 1 个目标</td>
+                    <td>缩成 5 分钟 3 问版：练了几次 / 哪次最好 / 下周练哪天</td>
+                </tr>
+                <tr>
+                    <td><strong>连续达成周数</strong><br>连续完成周目标的周数</td>
+                    <td>基础 ≥4 周，进阶 ≥6 周，精英 ≥8 周</td>
+                    <td>退回上一档目标值重算，别把中断的那周算进连续纪录</td>
+                </tr>
+                <tr>
+                    <td><strong>中断恢复速度</strong><br>从中断回到原训练量用了几次课</td>
+                    <td>≤3 次课回到中断前负荷，且 RPE 不高于中断前 1 分</td>
+                    <td>次数翻倍（用 6 次课回量），每次只加原量的 10-20%</td>
+                </tr>
+                <tr>
+                    <td><strong>数据可核对性</strong><br>随机挑 4 周，记录是否对得上</td>
+                    <td>4 周里至少 3 周有连续的日期与时长记录</td>
+                    <td>改成"练完立即记"，并固定记在同一个地方（本子或同一个备忘录）</td>
+                </tr>
+                <tr>
+                    <td><strong>身体信号同步记录</strong><br>有没有记睡眠与晨脉</td>
+                    <td>每次训练都记睡眠时长；每周记 ≥3 次晨脉</td>
+                    <td>只在周复盘那天补记本周平均睡眠，先保证有一列数据</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="errors">错误 → 原因 → 纠正 — 打卡最容易做错的 6 件事</h2>
+        <p>下面 6 条都能用你的打卡表和复盘记录对照，不需要额外设备。先看数据长什么样，再改习惯。</p>
+        <table>
+            <thead><tr><th>错误（记录里看得见）</th><th>原因</th><th>纠正</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>只记成功的那几次，中断的那几天不填</td>
+                    <td>把打卡当成给自己打分，怕看到差记录</td>
+                    <td>中断也记一行并写明原因；完成率按"打卡次数 ÷ 周目标次数"算，分母固定，不许改</td>
+                </tr>
+                <tr>
+                    <td>追连续天数，感冒也上，最后练出伤</td>
+                    <td>把连续纪录当目标，忽略了恢复也是训练的一部分</td>
+                    <td>把"连续达成"改成按周算（每周完成 N 次即算达标）；发烧 &gt;37.5℃、胸痛、关节痛当天直接记 0 分并休息</td>
+                </tr>
+                <tr>
+                    <td>每次打卡写 200 字感想，坚持 1 周就放弃</td>
+                    <td>记录成本太高，超过了收益</td>
+                    <td>压到 4 项、40 字以内，单次记录 ≤60 秒；想多写就放到周日复盘里</td>
+                </tr>
+                <tr>
+                    <td>目标定成"这个月水平提升一大截"</td>
+                    <td>目标不可量化，做完也不知道算不算完成</td>
+                    <td>改成可数的目标："每周 3 次打卡"或"第 4 周复测四点移动 ≤32 秒"，一次只定 2 个</td>
+                </tr>
+                <tr>
+                    <td>中断 2 周后想"补回来"，一次练 3 小时</td>
+                    <td>把总量当成唯一变量，忽略了身体已经掉档</td>
+                    <td>回归首课按原量的 60% 走（约 30 分钟），RPE 控制在 5-6；用 3 次课回到原量，每次只加 10-20%</td>
+                </tr>
+                <tr>
+                    <td>打卡记了三个月，但从没回看过一次</td>
+                    <td>只收集数据，不复盘数据</td>
+                    <td>周日固定 10-20 分钟复盘，只回答 3 个问题并写下 1 个下周目标；每个月挑 1 个指标画折线看趋势</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="elite">精英细节 — 同样的打卡，高手多做什么</h2>
+        <ul>
+            <li><strong>按周算连续，不按天算：</strong>本周完成目标次数就是连续达成，哪怕 3 次都挤在周五到周日；按天算会让你为了凑天数去打一场没质量的球。</li>
+            <li><strong>打卡只留 4 个字段：</strong>时长、RPE、1 个技术重点、1 个待改问题。字段一多，第 3 周就会开始漏记，数据断档比数据少更麻烦。</li>
+            <li><strong>每周复盘固定 15 分钟并计时：</strong>10 分钟看完成率与平均 RPE，5 分钟写下周 1 个重点；超过 30 分钟通常是在纠结，不是在复盘。</li>
+            <li><strong>用四周看趋势、不用单次下判断：</strong>一次 RPE 高可能只是没睡好；连续 3 次 RPE 都在 8 以上且动作变形，就把当周总量砍 30%。</li>
+            <li><strong>把里程写成"可核对"的：</strong>累计训练小时、总打卡次数、解锁徽章数都能从记录里数出来，别凭印象估。</li>
+            <li><strong>减量周照常打卡、目标减半：</strong>减量周训练量降到 50-60%，打卡目标也降到 1-2 次，这样"连续达成"不会因为一次正常减量就断掉。</li>
+            <li><strong>比赛周换一套指标：</strong>赛前 3 周不再追次数，改记睡眠时长（≥8 小时）与晨脉波动；赛后 48 小时内只记恢复活动，成绩指标暂停。</li>
+        </ul>
+        <p>这 7 条不用一次全上。先挑 1 条做满 4 周，看完数据再加下一条。</p>
+
+        <div class="callout warn" id="boundary">
+            <p><strong>安全边界 — 红旗信号与就医指引：</strong>打卡系统记录的是训练，不是身体诊断。出现下列任何一条，当天记 0 分并停止训练，去骨科或运动医学门诊：胸痛胸闷、头晕或眼前发黑、发烧体温 &gt;37.5℃、夜间痛醒、关节肿胀或"卡住"、患处麻木或刺痛、同一位置连续 3 次训练都痛、疼痛超过 72 小时不减轻。<br>先别练也别打卡的情形：急性损伤 24-48 小时内、未控制的高血压、术后 6 个月内、妊娠期（能否训练与强度上限问产科医生）、以及任何"不动也痛"的部位。<br>心理层面同样有红线：连续 2 周情绪持续低落且训练后不缓解、为了完成打卡而带伤带病硬练、因为少练一次就强烈自责到影响睡眠，这几种情况请找心理科或精神科医生，不要靠加练来调情绪。别用打卡数据自我诊断；本页的记录是训练管理工具，不替代体检与医生检查。伤病处理流程见 <a href="32-safety-guide.html">训练安全边界</a>，按症状查原因见 <a href="31-diagnosis-index.html">症状诊断索引</a>。</p>
+        </div>
+
+        <div class="callout info">
+            <p><strong>依据说明：</strong>本页参数来自三类来源，没有虚构文献，也没有编造百分比。一是 NSCA CSCS 训练学框架：渐进负荷、每周加量幅度 ≤10%、同一部位恢复间隔 ≥48 小时、每 4 周安排 1 周减量（训练量降到 50-60%）。二是运动生理常识：习惯的形成靠重复频率而不是单次时长，所以打卡以"周完成次数"为分母；睡眠不足时训练表现与动作控制都会下降，因此睡眠与晨脉要一起记。三是羽毛球项目惯例：以"周"为训练计划的最小单位，赛前 3 周转为维持与减量，赛后先恢复再谈加量。<br>本页的分钟数、次数与百分比都是范围值，请用你自己 4 周的打卡记录校准。徽章与连续纪录是自我管理工具，不是能力评级，也不代表比赛水平。有旧伤、基础病或术后恢复期，先找医生或运动康复师评估再照本页执行。</p>
+        </div>
+
+        <div class="cta">
+            <a href="00-quickstart.html">开始训练</a>
+            <a href="02-assessment.html" class="secondary">完成基线评估</a>
+        </div>
+
+        <p class="page-stamp" data-bl-stamp="1">最后更新：2026-09-16 · 内容标准 v2 · 发现错误或有更好的练法？<a href="https://github.com/gxsri/badminton-knowledge-base/issues/new">在 GitHub 提 Issue</a> · 文件：<span class="mono">39-achievements.html</span></p>
+
+<div class="next">
+            <a href="../index.html">← 返回首页</a>
+            <a href="00-quickstart.html">快速开始 →</a>
+        </div>
+    </div>
+
+    <script>
+        // 加载统计数据
+        function loadStats() {
+            const stats = JSON.parse(localStorage.getItem('badminton-stats') || '{}');
+            const sessions = stats.sessions || 0;
+            const hours = stats.hours || 0;
+            const level = stats.level || 0;
+            
+            document.getElementById('stat-sessions').textContent = sessions;
+            document.getElementById('stat-hours').textContent = hours;
+            document.getElementById('stat-level').textContent = level;
+            
+            // 计算连续天数
+            const streak = calculateStreak();
+            document.getElementById('streak-num').textContent = streak;
+            
+            // 检查成就
+            checkBadges();
+            
+            // 加载进度
+            loadProgress();
+        }
+
+        // 计算连续训练天数
+        function calculateStreak() {
+            const log = JSON.parse(localStorage.getItem('safety-check-log') || '[]');
+            if (log.length === 0) return 0;
+            
+            let streak = 0;
+            let lastDate = null;
+            
+            for (let i = log.length - 1; i >= 0; i--) {
+                const date = new Date(log[i].date).toDateString();
+                if (lastDate === null || date === lastDate) {
+                    streak++;
+                    lastDate = date;
+                } else if (new Date(lastDate) - new Date(date) === 86400000) {
+                    streak++;
+                    lastDate = date;
+                } else {
+                    break;
+                }
+            }
+            
+            return streak;
+        }
+
+        // 检查成就解锁
+        function checkBadges() {
+            const stats = JSON.parse(localStorage.getItem('badminton-stats') || '{}');
+            const streak = calculateStreak();
+            const sessions = stats.sessions || 0;
+            const level = stats.level || 0;
+            const safetyChecks = JSON.parse(localStorage.getItem('safety-check-log') || '[]').length;
+            
+            const badges = {
+                'first-session': sessions >= 1,
+                'week-streak': streak >= 7,
+                'month-streak': streak >= 30,
+                'level-1': level >= 1,
+                'level-2': level >= 2,
+                'level-3': level >= 3,
+                'early-bird': false, // 需要更复杂的逻辑
+                'night-owl': false, // 需要更复杂的逻辑
+                'safety-first': safetyChecks >= 10
+            };
+            
+            let unlocked = 0;
+            for (const [badge, isUnlocked] of Object.entries(badges)) {
+                const el = document.getElementById(`badge-${badge}`);
+                const card = el.closest('.badge-card');
+                if (isUnlocked) {
+                    el.textContent = '已解锁';
+                    el.className = 'badge-status unlocked';
+                    card.classList.remove('locked');
+                    unlocked++;
+                }
+            }
+            
+            document.getElementById('stat-badges').textContent = unlocked;
+        }
+
+        // 加载学习进度
+        function loadProgress() {
+            const levels = [
+                { key: 'level0-progress', id: 'l0' },
+                { key: 'level1-progress', id: 'l1' },
+                { key: 'level2-progress', id: 'l2' },
+                { key: 'level3-progress', id: 'l3' },
+                { key: 'level4-progress', id: 'l4' },
+                { key: 'level5-progress', id: 'l5' },
+                { key: 'level6-progress', id: 'l6' },
+                { key: 'level7-progress', id: 'l7' }
+            ];
+            
+            levels.forEach(({ key, id }) => {
+                const progress = JSON.parse(localStorage.getItem(key) || '[]');
+                const done = progress.filter(p => p).length;
+                const total = 10; // 每个级别10个检查项
+                const percent = Math.round((done / total) * 100);
+                
+                document.getElementById(`progress-${id}`).textContent = `${percent}%`;
+                document.getElementById(`progress-${id}-fill`).style.width = `${percent}%`;
+            });
+        }
+
+        // 页面加载时执行
+        loadStats();
+    </script>
+</body>
+</html>
