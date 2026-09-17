@@ -29,14 +29,14 @@ https://gxsri.github.io/badminton-knowledge-base/
   - 白话内容与术语词典的**唯一数据源**：`docs-simple.js`（51 篇要点 + 50 条术语）；新增文档只需在此补一条即可
   - 首页设有 **🙂 新手入口** 区块：完全没打过 / 会打但动作不好看 / 想系统练打比赛 / 不知道自己什么水平（4 个入口自动进入小白模式）
 - **主页** `index.html`：文档库由 `docs-data.js` 登记表渲染（编号 00-03 核心框架 / L0-L7 八级路线 / 12-32 专项模块 / 33-50 实用工具），并内置基线评估、热量/水合等计算器
-- **入口**：`docs/00-quickstart.html` 快速开始（5 分钟完成基线测试）；`docs/40-search.html` 全文搜索（登记表驱动）
+- **入口**：`docs/00-quickstart.html` 快速开始（5 分钟完成基线测试）；`docs/40-search.html` 全文搜索 —— 除了页面命中，还会**直接命中到「某一节」并深链过去**（索引 `docs-sections.js`，50 页 · 473 个小节 · 含关键词，搜「深蹲」「泡沫轴」「冰敷」都能直达那一节）
 - **动作示范动图**：全站共 **36 个 GIF**（`images/exercises/`，© Gym visual 180×180，来源与许可见该目录 `README.md`），覆盖力量动作（16/17）、**泡沫轴放松**（44）、**动态热身与激活**（43/30/29）、**发力链辅助**（23/12）、弹跳与反应（16/17/19）
 - **内容标准与协作**：`scripts/CONTENT-STANDARD.md`（作者身份 = NSCA CSCS 双线教练；三档读者 基础/进阶/精英；必备区块与参数密度；禁止项）、`scripts/prompts/`（四个可复用提示词：升级 / 新建 / 白话要点 / 反派审稿）、`CONTRIBUTING.md`（工作流、质量红线、素材许可、常见问题）
 - **数据可携带**：右下角 **💾 面板**导出 / 导入 / 清空本机训练数据（换设备、清缓存前先导出，导入即恢复）
 - **可信度与可发现性**：每页脚注「最后更新 + 内容标准版本 + 提 Issue 入口」；`sitemap.xml`、`robots.txt`、每页 JSON-LD（`scripts/stamp-pages.mjs`、`scripts/gen-seo.mjs`）
 - **隐私承诺**：无账号、无追踪、无第三方分析；训练数据只存在你本机浏览器；外部依赖仅 Google Fonts（文档页，可回退）与 Chart.js（仅基线评估页，离线降级）
-- **工程质量**：`tests/regression.mjs` 静态回归（登记表完整性 / 标签配平 / 链接与锚点 / 脚本语法 / 元数据 / 素材台账三方一致 / h1 一致 / 内容质量 v2 / 文风红线 / 动图预算与懒加载 / sitemap 覆盖 等），修改后运行 `node tests/regression.mjs`；页面制作规范见 `scripts/PAGE-SPEC.md`，缺陷修复脚本 `scripts/quality-pass.mjs`
-- **无障碍与元数据**：跳转到正文链接、进度条与按钮 ARIA 标注、键盘可用（`/` 切换器、`Esc` 关闭）、`color-scheme`/`theme-color`/Open Graph 全站补齐；主题在无本地偏好时跟随系统深浅色
+- **工程质量**：`tests/regression.mjs` 静态回归 **64 项**（登记表完整性 / 标签配平 / 链接与锚点 / 脚本语法 / 元数据 / 素材台账三方一致 / h1 一致 / 内容质量 v2 / 可访问性与 SEO / 小节索引同步 / 文风红线 / 动图预算与懒加载 / sitemap 覆盖 等），修改后运行 `node tests/regression.mjs`；逐档内容审稿用 `node scripts/review-content.mjs`；页面制作规范见 `scripts/PAGE-SPEC.md`，缺陷修复脚本 `scripts/quality-pass.mjs`
+- **无障碍与元数据**：跳转到正文链接、进度条与按钮 ARIA 标注、键盘可用（`/` 切换器、`Esc` 关闭）；每个章节都有**稳定锚点**（深链可分享）；全站 `canonical`、`og:image`（1200×630 品牌分享图）、`twitter:card`、50-160 字 `meta description`；图片一律 `alt` + `width/height` + 懒加载（无布局抖动）；主题在无本地偏好时跟随系统深浅色
 - **视觉与交互**（`assets/site-ui.css` + `assets/site-ui.js`，全站 52 页共享）：
   - ☀️/🌙 **深色/浅色主题切换**（记忆偏好、防首屏闪烁、打印自动白底）
   - 顶部**阅读进度条**、宽屏**本页目录**（滚动高亮）、**回到顶部**、标题锚点、**代码块一键复制**、**📚 文档快速切换器**（按 `/` 唤起）

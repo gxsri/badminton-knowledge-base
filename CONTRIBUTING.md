@@ -21,13 +21,20 @@
    node scripts/unify-head.mjs            # head 元数据/字体/favicon/打印样式
    node scripts/apply-site-ui.mjs         # 视觉增强层
    node scripts/apply-simple-mode.mjs     # 双模式资源
+   node scripts/gen-anchors.mjs           # 给新的 <h2> / 三档卡片补稳定 id（深链用）
+   node scripts/gen-img-dims.mjs          # 给 <img> 补真实 width/height（防布局抖动）
+   node scripts/gen-meta.mjs              # canonical / 分享图 / description 长度
+   node scripts/gen-section-index.mjs     # 重算文档小节索引（搜索页深链依赖）
    node scripts/stamp-pages.mjs           # 更新时间 + 反馈入口
    node scripts/gen-seo.mjs               # sitemap / robots / JSON-LD
    node tests/regression.mjs              # 必须 0 失败 0 警告
+   node scripts/review-content.mjs        # 逐档语义审稿（三档卡片六维是否写全）
    ```
+   > 顺序有讲究：**先改内容 → 再跑 gen-anchors → 最后跑 gen-section-index**。
+   > 新增/删除小节后忘了重算索引，回归里的「小节索引」检查会直接报错。
 5. **提交**：`git push` 到 `main` 后：
-   - **Quality Gate**（`.github/workflows/quality.yml`）自动跑静态回归，红灯即内容不合规
-   - **部署**（`.github/workflows/deploy.yml`）依赖该门禁 —— **回归不通过就不会发布到 Pages**
+   - **Quality Gate**（`.github/workflows/quality.yml`）自动跑静态回归 + 逐档内容审稿，红灯即内容不合规
+   - **部署**（`.github/workflows/deploy.yml`）依赖该门禁 —— **检查不通过就不会发布到 Pages**
 
 ## 二、页面结构规范
 
@@ -39,7 +46,10 @@
 - 三档读者都要有可执行的下一步；`CONTENT-STANDARD v2` 必备区块齐全
 - 每篇 ≥8 处带单位参数；禁用无依据绝对化表述（"研究表明""史上最强""保证提升"等）
 - 标题与登记表一致（h1 = `docs-data.js` 标题）；前后篇导航对称
-- 链接/锚点/图片/样式表全部可达；`<img>` 必须 `loading="lazy"` + 中文 `alt`
+- 链接/锚点/图片/样式表全部可达；`<img>` 必须 `loading="lazy"` + 中文 `alt` + `width/height`
+- 每个 `<h2>` 都要有 id 且全页 id 唯一；标题层级不许跳级（h2 不能直接接 h4）
+- 每页都要有 canonical、og:image、twitter:card；meta description 50-160 字且包含登记表 desc
+- 小节索引（`docs-sections.js`）必须与页面 h2 锚点完全一致（新增小节后重跑生成脚本）
 - 单页动图数量上限 16（性能预算）；动图素材必须登记并保留署名
 - 白话要点覆盖 51/51；术语引用必须在词典中定义
 

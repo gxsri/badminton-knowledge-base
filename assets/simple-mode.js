@@ -153,6 +153,21 @@
         anchor.parentNode.insertBefore(card, anchor.nextSibling);
     }
 
+    /* ---------- 分层处方导航：小白只被指向「基础版」，不要求读三档 ---------- */
+    function addTierGuide() {
+        var grid = doc.querySelector('.rx-grid');
+        if (!grid || doc.getElementById('simple-tier-guide')) return;
+        var base = doc.querySelector('.rx-base');
+        var box = doc.createElement('div');
+        box.className = 'simple-tier-guide';
+        box.id = 'simple-tier-guide';
+        box.innerHTML = '<strong>你现在只需要看这一档 👉</strong>' +
+            '<span>下面这份处方分了三档（基础 / 进阶 / 精英）。刚开始打球、每周打 2-3 次的话，' +
+            '<a href="' + (base && base.id ? '#' + base.id : '#rx') + '">直接照「基础版」那张卡做</a>' +
+            '，其余两档等你练到「不觉得吃力」再看。</span>';
+        grid.parentNode.insertBefore(box, grid);
+    }
+
     /* ---------- 正文术语白话气泡（限制数量，避免噪音） ---------- */
     var MAX_TIPS = 10;
     function addTermTips() {
@@ -204,6 +219,7 @@
         if (isHome()) return;                 /* 主页不插摘要卡（已有新手通道） */
         if (mode() !== 'simple') return;
         insertSummary();
+        addTierGuide();
         addTermTips();
     }
     if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', mount);

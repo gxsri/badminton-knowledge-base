@@ -3,12 +3,21 @@
 <head>
     <!-- quality:v2 -->
     <meta charset="UTF-8">
-    <meta name="description" content="技术雷达图：多维技术自评与可视化对比">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/49-skill-radar.html">
+    <meta name="description" content="技术雷达图｜技术雷达图：多维技术自评与可视化对比｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="技术雷达图 — 羽毛球职业训练系统">
-    <meta property="og:description" content="技术雷达图：多维技术自评与可视化对比">
+    <meta property="og:description" content="技术雷达图｜技术雷达图：多维技术自评与可视化对比｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/49-skill-radar.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="技术雷达图 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="技术雷达图｜技术雷达图：多维技术自评与可视化对比｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -119,17 +128,17 @@
             <p><strong>什么是技术雷达？</strong>技术雷达是一个可视化工具，帮助你了解各项技术的掌握程度。通过定期评估，你可以清楚地看到自己的进步和需要加强的地方。</p>
         </div>
 
-        <h2>📊 技术雷达图</h2>
+        <h2 id="技术雷达图">📊 技术雷达图</h2>
         <div class="radar-container">
             <canvas id="radarChart" class="radar-canvas" width="400" height="400"></canvas>
         </div>
 
-        <h2>📋 技术评分</h2>
+        <h2 id="技术评分">📋 技术评分</h2>
         <div class="skills-grid" id="skills-grid">
             <!-- 技术评分将在这里显示 -->
         </div>
 
-        <h2>✏️ 更新技术评分</h2>
+        <h2 id="更新技术评分">✏️ 更新技术评分</h2>
         <div class="update-section">
             <div class="update-title">更新技术评分</div>
             <div class="form-row">
@@ -154,7 +163,7 @@
             <button class="btn" onclick="updateSkill()">更新评分</button>
         </div>
 
-        <h2>自测与进阶标准 — 技术雷达图</h2>
+        <h2 id="selftest">自测与进阶标准 — 技术雷达图</h2>
         <p>评分只有 1-10 的整数，方便对比。测法固定下来，分数才有可比性：每次都在热身 20 分钟后、体力八成状态下打分。</p>
         <table>
             <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
@@ -170,7 +179,7 @@
             </tbody>
         </table>
 
-        <h2>错误 → 原因 → 纠正</h2>
+        <h2 id="错误-原因-纠正">错误 → 原因 → 纠正</h2>
         <p>都能用你自己的录像对照。分数只跟自己的上月比，不跟别人比。</p>
         <table>
             <thead><tr><th>错误</th><th>原因</th><th>纠正</th></tr></thead>
@@ -184,12 +193,12 @@
             </tbody>
         </table>
 
-        <h2>分层处方 — 技术雷达图（三档照做）</h2>
+        <h2 id="rx">分层处方 — 技术雷达图（三档照做）</h2>
         <p>三档只差五个数：评几项、多久自评一次、同时主攻几个弱项、多久复评、多少分算达标。先按你的每周训练次数选一档，别跨档。</p>
         <p>先说两个词。<strong>自评</strong>就是按固定动作给自己打分，同一套标准测自己。<strong>复评</strong>就是隔一段时间用同样方法再测一遍，只看趋势，不看单次。</p>
 
-        <div class="rx-grid">
-            <div class="rx rx-base">
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
                 <h3>基础版 <span class="rx-badge">每周训练 ≤2 次</span></h3>
                 <ul>
                     <li><strong>评分项数：</strong>固定 8 项，1-10 分整数，不临时加项。</li>
@@ -202,7 +211,7 @@
                 </ul>
                 <p><strong>强度基准：</strong>自评按 RPE 口径对齐用力程度：只能做 RPE 5 以下慢速球的记 ≤4 分，能在 RPE 7 以上的对抗回合里稳定做出该技术才记 ≥7 分。</p>
             </div>
-            <div class="rx rx-mid">
+            <div class="rx rx-mid" id="rx-mid">
                 <h3>进阶版 <span class="rx-badge">每周训练 3-4 次</span></h3>
                 <ul>
                     <li><strong>评分项数：</strong>固定 8 项 + 每项写 1 句可数依据，评分前先录像 10 次同一技术。</li>
@@ -215,7 +224,7 @@
                 </ul>
                 <p><strong>强度基准：</strong>录像与对抗都按 RPE 口径打分：RPE ≥7 的高强度回合才作评分依据，RPE 4-5 的定点喂球最多记 5 分。</p>
             </div>
-            <div class="rx rx-elite">
+            <div class="rx rx-elite" id="rx-elite">
                 <h3>精英版 <span class="rx-badge">每周训练 ≥5 次</span></h3>
                 <ul>
                     <li><strong>评分项数：</strong>8 项再加 1-2 项比赛情境项（如接发球后的第 3 拍质量），共 9-10 项，分项口径全周期不变。</li>
@@ -230,7 +239,7 @@
             </div>
         </div>
 
-        <h2>精英细节 — 同样自评，高手多做 8 件事</h2>
+        <h2 id="elite">精英细节 — 同样自评，高手多做 8 件事</h2>
         <ul>
             <li><strong>先固定口径再打分：</strong>同一项的分档写死（如杀球 10 次里落点有效 ≥8 次记 8 分），换人换时间也不改标准。</li>
             <li><strong>录像比感觉准一档：</strong>用 0.25 倍速看击球点、拍面与重心，每次只挑 1 个要改的点，比同时改 3 处有效。</li>

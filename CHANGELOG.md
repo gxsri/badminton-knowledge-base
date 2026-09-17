@@ -1,5 +1,33 @@
 # 更新日志
 
+## v2.8 — 2026-09 站点体检与体验补强：可分享锚点 · 小节搜索 · 社交分享图 · 可访问性门禁
+
+### 新增能力
+- **每个章节都有稳定锚点**：全站新增 628 个 id（473 个小节），替代原先由 JS 临时生成的 `bl-sec-N`；
+  链接可分享、可被搜索引擎收录。标准区块沿用固定 id（`#rx`/`#selftest`/`#errors`/`#elite`/`#boundary`）
+- **搜索能直接命中「某一节」**：新增自动生成的小节索引 `docs-sections.js`（50 页 · 473 小节 · 含关键词），
+  搜「深蹲」「泡沫轴」「冰敷」「经期」这类词会给出**带锚点的深链**，点一下直达那一节，不再只列页面
+- **社交分享卡片**：全站补 `og:image`（新生成 1200×630 品牌封面 `images/og-cover.png`）、`og:site_name`、
+  `twitter:card/title/description/image`
+- **小白模式分层引导**：分层处方上方新增「你现在只需要看这一档 👉 直接照『基础版』那张卡做」并深链 `#rx-base`，
+  初学者不再被三档参数淹没
+
+### SEO 与可访问性修复
+- 全站补 `rel="canonical"`（消除 `?mode=simple` 与正文页构成的重复内容问题）
+- `meta description` 从 21-29 字扩写到 50-160 字（仍包含登记表 desc，保持单一数据源）
+- 52 张 `<img>` 按文件头补真实 `width/height`，消除布局抖动（CLS）
+- 修复 `27-national-team-systems.html` 标题层级跳跃（h2 → h4 改为 h2 → h3）
+- 首页 description 里过期的「42 篇文档」更新为 51 篇
+
+### 新增工具与门禁（幂等，可反复运行）
+- `scripts/gen-anchors.mjs`：给 `<h2>` 与三档卡片补 id（中文标题取短名，标准区块映射为约定 id）
+- `scripts/gen-meta.mjs`：canonical / og / twitter / description 长度统一
+- `scripts/gen-img-dims.mjs`：按图片文件头补 `<img>` 尺寸
+- `scripts/gen-section-index.mjs`：生成搜索用的小节索引
+- 回归新增两组检查（共 **64 项**）：
+  - **可访问性与 SEO**：52 页的 h2 锚点、id 唯一性、标题层级、canonical、分享图、描述长度、图片 alt+尺寸+懒加载
+  - **小节索引**：索引与页面锚点双向一致、搜索页已接入深链
+
 ## v2.7 — 2026-09 全站内容升级收官：50/51 篇达标内容标准 v2 + 逐档审稿门禁
 
 ### 内容升级（全站覆盖）

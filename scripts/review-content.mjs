@@ -36,7 +36,7 @@ for (const path of targets) {
        曾把「已经写了的字段」误判成缺失；先剥掉 <script> 再配对，避免脚本里的模板串干扰） */
     const src = t.replace(/<script[\s\S]*?<\/script>/gi, '');
     const cards = [];
-    const head = /<div class="rx rx-(base|mid|elite)">/g;
+    const head = /<div class="rx rx-(base|mid|elite)"[^>]*>/g;
     let m0;
     while ((m0 = head.exec(src))) {
         const start = head.lastIndex;

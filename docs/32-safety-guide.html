@@ -2,13 +2,22 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/32-safety-guide.html">
     <!-- quality:v2 -->
-    <meta name="description" content="RICE损伤处理、重返运动五级标准">
+    <meta name="description" content="训练安全边界｜RICE损伤处理、重返运动五级标准｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="训练安全边界 — 羽毛球职业训练系统">
-    <meta property="og:description" content="RICE损伤处理、重返运动五级标准">
+    <meta property="og:description" content="训练安全边界｜RICE损伤处理、重返运动五级标准｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/32-safety-guide.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="训练安全边界 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="训练安全边界｜RICE损伤处理、重返运动五级标准｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -87,8 +96,8 @@
         <p>先说两个词。<strong>RICE</strong> 是急性损伤的头四步：休息、冰敷、加压、抬高。<strong>负荷百分比</strong>指"相对你伤前的正常训练量或正常击球强度"，比如 50% 就是只做平时一半的量和一半的用力。</p>
         <p>三档的差别只有三件事：0-48 小时怎么处理（频次与时长）、恢复期用多大负荷、回归测试要多严。表格里的天数只是参考，测试没过就不过。</p>
 
-        <div class="rx-grid">
-            <div class="rx rx-base">
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
                 <h3>基础版 <span class="rx-badge">每周 ≤2 次</span></h3>
                 <ul>
                     <li><strong>急性期 0-48 小时：</strong>冰敷每次 15-20 分钟，前 24 小时每 2-3 小时 1 次（一天约 6-8 次）；24-48 小时减到每 4 小时 1 次。冰袋隔一层毛巾，同一处两次冰敷间隔 ≥1 小时。</li>
@@ -102,7 +111,7 @@
                 <p><strong>强度口径：</strong>康复动作全程疼痛 ≤2/10，负荷从平时的 25-30% 起步、两周内不超过 40-50%；训练后 24 小时疼痛升高 1 分就退回上一档的量。</p>
                 <p class="rx-note">这一步只做两件事：止血消肿、把无痛活动范围找回来。</p>
             </div>
-            <div class="rx rx-mid">
+            <div class="rx rx-mid" id="rx-mid">
                 <h3>进阶版 <span class="rx-badge">每周 3-4 次</span></h3>
                 <ul>
                     <li><strong>急性期 0-48 小时：</strong>冰敷每次 15-20 分钟，每 2-3 小时 1 次；第 24-48 小时改每 4 小时 1 次并观察消肿曲线。48 小时后换热敷，每次 15-20 分钟、每天 2-3 次，热敷后立刻做 10 分钟无痛活动。</li>
@@ -113,7 +122,7 @@
                 </ul>
                 <p class="rx-note">这一步的关键不是练得多，而是每次都比上次多一点、且第二天不反弹。</p>
             </div>
-            <div class="rx rx-elite">
+            <div class="rx rx-elite" id="rx-elite">
                 <h3>精英版 <span class="rx-badge">每周 ≥5 次</span></h3>
                 <ul>
                     <li><strong>急性期 0-48 小时：</strong>冰敷每次 10-15 分钟、每 2 小时 1 次，48 小时内总共不超过 12 次，避免长时间冰敷影响组织修复。加压用分级压力（远端紧、近端松），抬高 ≥30 分钟 × 每天 6 次。</li>
@@ -127,7 +136,7 @@
             </div>
         </div>
 
-        <h2>疼痛 vs 酸痛 — 必须区分</h2>
+        <h2 id="疼痛-vs-酸痛">疼痛 vs 酸痛 — 必须区分</h2>
         <div class="callout danger">
             <p><strong>这是最重要的安全原则：</strong>酸痛是正常的训练反应，疼痛是身体的警告信号。混淆两者会导致严重损伤。</p>
         </div>
@@ -144,7 +153,7 @@
             </tbody>
         </table>
 
-        <h2>RICE损伤处理原则</h2>
+        <h2 id="RICE损伤处理原则">RICE损伤处理原则</h2>
         <div class="code-block">
 <span class="k">急性损伤48小时内执行：</span>
 
@@ -184,7 +193,7 @@
             <p><strong>48-72 小时观察窗：</strong>冰敷只用于急性损伤。腰背酸痛、肌肉僵硬这类没有明确外伤的慢性不适不做冰敷，改热敷或放松。超过 48-72 小时肿胀不消、疼痛不降，或夜间被痛醒，去做检查，不要自己继续处理。</p>
         </div>
 
-        <h2>重返运动五级标准</h2>
+        <h2 id="重返运动五级标准">重返运动五级标准</h2>
         <table>
             <thead><tr><th>级别</th><th>标准</th><th>时间参考</th></tr></thead>
             <tbody>
@@ -216,7 +225,7 @@
             <p><strong>升级红线：</strong>第三级到第五级，允许训练中疼痛 ≤2/10 且训练结束后 24 小时内回到 0-1/10；只要 24 小时后疼痛比训练前高 1 分以上，就算失败，退回上一级再等 48 小时。第二级之前要求 0/10，一点点痛都不算过。</p>
         </div>
 
-        <h2>什么情况不能练</h2>
+        <h2 id="什么情况不能练">什么情况不能练</h2>
         <div class="callout danger">
             <p><strong>出现以下情况，立即停止训练并就医：</strong><br>
             • 刺痛/锐痛（不是酸胀感）<br>
@@ -252,7 +261,7 @@
         </table>
         <p><strong>颈线法则</strong>（用症状位置判断能不能练）：症状在脖子以上，可以轻练；在脖子以下（胸闷、咳嗽、全身酸痛），休息。</p>
 
-        <h2>红码状态处理</h2>
+        <h2 id="红码状态处理">红码状态处理</h2>
         <div class="code-block">
 <span class="k">以下情况必须休息：</span>
 
@@ -276,7 +285,7 @@
   不要"硬撑"训练——一次受伤倒退3-10倍时间
         </div>
 
-        <h2>常见训练错误</h2>
+        <h2 id="常见训练错误">常见训练错误</h2>
         <table>
             <thead><tr><th>错误</th><th>后果</th><th>正确做法</th></tr></thead>
             <tbody>

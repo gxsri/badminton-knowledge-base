@@ -2,13 +2,22 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/39-achievements.html">
     <!-- quality:v2 -->
-    <meta name="description" content="记录进步，解锁成就，保持动力">
+    <meta name="description" content="成就系统｜记录进步，解锁成就，保持动力｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="成就系统 — 羽毛球职业训练系统">
-    <meta property="og:description" content="记录进步，解锁成就，保持动力">
+    <meta property="og:description" content="成就系统｜记录进步，解锁成就，保持动力｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/39-achievements.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="成就系统 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="成就系统｜记录进步，解锁成就，保持动力｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -122,7 +131,7 @@
             <div class="streak-sub">保持每天训练，解锁更多成就！</div>
         </div>
 
-        <h2>📊 训练统计</h2>
+        <h2 id="训练统计">📊 训练统计</h2>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-num" id="stat-sessions">0</div>
@@ -142,7 +151,7 @@
             </div>
         </div>
 
-        <h2>🏆 成就徽章</h2>
+        <h2 id="成就徽章">🏆 成就徽章</h2>
         <div class="badge-grid" id="badge-grid">
             <div class="badge-card" data-badge="first-session">
                 <div class="badge-icon">🎯</div>
@@ -200,7 +209,7 @@
             </div>
         </div>
 
-        <h2>📈 学习进度</h2>
+        <h2 id="学习进度">📈 学习进度</h2>
         <div class="progress-section">
             <div class="progress-item">
                 <div class="progress-header">
@@ -268,8 +277,8 @@
         <p>先解释三个词。<strong>打卡</strong>就是练完当场记一笔，记"练了"比记"练得好"重要。<strong>周复盘</strong>是每周固定一次回看记录、给下周定 1 个目标，白话就是"给训练做一次小结"。<strong>连续达成</strong>是连着几周都完成周目标，不要求每天都练。</p>
         <p>三档的差别是三个数：每周打卡几次、复盘花几分钟、中断后怎么恢复。下面就按这三个数开方。</p>
 
-        <div class="rx-grid">
-            <div class="rx rx-base">
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
                 <h3>基础版 <span class="rx-badge">每周 ≤2 次 · 先养成习惯</span></h3>
                 <ul>
                     <li><strong>目标设定：</strong>只定 1 个"行为目标"——每周完成 2 次训练，每次 ≥30 分钟。别定"一个月打赢谁"这类结果目标。</li>
@@ -281,7 +290,7 @@
                     <li><strong>进阶触发：</strong>连续 4 周 8 次全勤、且每次都能记满 3 项 → 每周加 1 次，进入进阶版。</li>
                 </ul>
             </div>
-            <div class="rx rx-mid">
+            <div class="rx rx-mid" id="rx-mid">
                 <h3>进阶版 <span class="rx-badge">每周 3-4 次 · 稳定输出</span></h3>
                 <ul>
                     <li><strong>目标设定：</strong>1 个行为目标 + 1 个技术目标。行为目标写"每周 4 次打卡"，技术目标写"第 4 周复测四点移动 ≤32 秒"。</li>
@@ -293,7 +302,7 @@
                     <li><strong>进阶触发：</strong>连续 6 周完成率 ≥85%、复测至少 2 项进步 → 进入精英版。</li>
                 </ul>
             </div>
-            <div class="rx rx-elite">
+            <div class="rx rx-elite" id="rx-elite">
                 <h3>精英版 <span class="rx-badge">每周 ≥5 次 · 为比赛服务</span></h3>
                 <ul>
                     <li><strong>目标设定：</strong>把目标按周期拆：每周 1 个技术指标 + 1 个体能指标，赛前 3 周改成"维持 + 减量"目标，不再追新增量。</li>

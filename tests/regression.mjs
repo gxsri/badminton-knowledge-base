@@ -152,8 +152,9 @@ for (const rel of htmlFiles) {
             if (reg) {
                 const titlePrefix = (text.match(/<title>(.*?) — 羽毛球职业训练系统<\/title>/) || [])[1];
                 if (titlePrefix !== reg.title) bad(tag, `标题与登记表不一致: 页面"${titlePrefix}" vs 登记表"${reg.title}"`);
-                const metaDesc = (text.match(/<meta name="description" content="([^"]*)"/) || [])[1];
-                if (metaDesc !== reg.desc) bad(tag, 'meta description 与登记表 desc 不一致');
+                const metaDesc = (text.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
+                /* 描述可以按 SEO 长度要求扩写（scripts/gen-meta.mjs），但必须仍然包含登记表里的 desc，保持单一数据源 */
+                if (metaDesc !== reg.desc && !metaDesc.includes(reg.desc)) bad(tag, 'meta description 与登记表 desc 不一致（应包含登记表 desc，可再补 SEO 后缀）');
             }
         }
         if (!/<link rel="icon"/.test(text)) bad(tag, '缺少 favicon');
@@ -514,6 +515,75 @@ if (DATA) {
         ok('动作示范素材', `${gifs.length} 个 GIF · 台账/README/磁盘三方一致 · 署名齐全`);
     } catch (e) {
         bad('images/exercises', `素材目录异常: ${e.message}`);
+    }
+
+    /* ---------- 可访问性 / SEO / 锚点体检（此前完全没有门禁覆盖） ---------- */
+    const SITE = 'https://gxsri.github.io/badminton-knowledge-base/';
+    let a11yPages = 0;
+    for (const rel of htmlFiles) {
+        const c = rel.startsWith('docs/') ? readFileSync(resolve(ROOT, rel), 'utf8') : html(rel);
+        const tag = rel.replace('docs/', '');
+        a11yPages++;
+
+        /* 1) 每个 <h2> 都要有稳定 id（深链 / 搜索 / TOC 复用），且全页 id 不重复 */
+        const h2s = [...c.matchAll(/<h2\b([^>]*)>/g)];
+        const noId = h2s.filter(m => !/\bid=/.test(m[1])).length;
+        if (noId) bad(tag, `${noId} 个 <h2> 没有 id（跑 node scripts/gen-anchors.mjs）`);
+        const ids = [...c.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]);
+        const dupIds = [...new Set(ids.filter((x, i) => ids.indexOf(x) !== i))];
+        if (dupIds.length) bad(tag, `重复 id: ${dupIds.slice(0, 3).join(', ')}`);
+
+        /* 2) 标题层级不能跳级（h2 → h4） */
+        let prev = 0, jumps = 0;
+        for (const m of c.matchAll(/<h([1-6])\b/g)) {
+            const lv = +m[1];
+            if (prev && lv - prev > 1) jumps++;
+            prev = lv;
+        }
+        if (jumps) bad(tag, `标题层级跳跃 ${jumps} 处（如 h2 直接接 h4）`);
+
+        /* 3) SEO：canonical / 分享图 / 描述长度 */
+        const canonical = (c.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
+        const expect = rel === 'index.html' ? SITE : SITE + rel;
+        if (!canonical) bad(tag, '缺少 <link rel="canonical">（?mode=simple 会与正文页构成重复内容）');
+        else if (canonical !== expect) bad(tag, `canonical 应为 ${expect}，实际 ${canonical}`);
+        if (!/property="og:image"/.test(c)) bad(tag, '缺少 og:image（分享时无卡片图）');
+        if (!/name="twitter:card"/.test(c)) bad(tag, '缺少 twitter:card');
+        const desc = (c.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
+        if (desc.length < 50 || desc.length > 160) bad(tag, `meta description 长度 ${desc.length}（应在 50-160 字之间，跑 node scripts/gen-meta.mjs）`);
+
+        /* 4) 图片：alt / 尺寸（防 CLS）/ 懒加载 */
+        for (const m of c.matchAll(/<img\b[^>]*>/g)) {
+            const t = m[0];
+            const srcAttr = (t.match(/src="([^"]+)"/) || [])[1] || '?';
+            if (!/\balt=/.test(t)) bad(tag, `<img> 缺 alt: ${srcAttr}`);
+            if (!/\bwidth=/.test(t) || !/\bheight=/.test(t)) bad(tag, `<img> 缺 width/height（布局抖动）: ${srcAttr}`);
+            if (!/loading="lazy"/.test(t)) bad(tag, `<img> 未懒加载: ${srcAttr}`);
+        }
+    }
+    if (!failures) ok('可访问性与 SEO', `${a11yPages} 页：h2 锚点齐全 · id 唯一 · canonical/分享图/描述长度 · 图片 alt+尺寸+懒加载 · 标题层级`);
+
+    /* 小节索引与页面同步（搜索页深链依赖它） */
+    try {
+        const secSrc = readFileSync(resolve(ROOT, 'docs-sections.js'), 'utf8');
+        const secJson = (secSrc.match(/DOC_SECTIONS\s*=\s*(\{[\s\S]*\})\s*;\s*\}\)\s*\(\s*window\s*\)/) || [])[1];
+        if (!secJson) throw new Error('未找到 DOC_SECTIONS 赋值块');
+        const secIndex = JSON.parse(secJson);
+        let listed = 0, missing = 0;
+        for (const file of readdirSync(DOCS_DIR).filter(f => f.endsWith('.html')).sort()) {
+            const c = readFileSync(resolve(ROOT, 'docs', file), 'utf8').replace(/<script[\s\S]*?<\/script>/gi, '');
+            const ids = [...c.matchAll(/<h2\b[^>]*\bid="([^"]+)"/g)].map(m => m[1]);
+            const listedIds = (secIndex[file] || []).map(x => x.i);
+            listed += listedIds.length;
+            for (const id of ids) if (!listedIds.includes(id)) { missing++; if (missing <= 3) bad('docs-sections.js', `${file} 的 #${id} 未收录（跑 node scripts/gen-section-index.mjs）`); }
+            for (const id of listedIds) if (!ids.includes(id)) { missing++; if (missing <= 3) bad('docs-sections.js', `${file} 收录了不存在的 #${id}`); }
+        }
+        const search = html('docs/40-search.html');
+        if (!/docs-sections\.js/.test(search)) bad('docs/40-search.html', '未加载小节索引，搜索无法命中到小节');
+        if (!/SECTIONS|DOC_SECTIONS/.test(search)) bad('docs/40-search.html', '未使用小节索引做深链');
+        if (!missing) ok('小节索引', `${Object.keys(secIndex).length} 页 · ${listed} 个小节与页面锚点一致 · 搜索页已接入`);
+    } catch (e) {
+        bad('docs-sections.js', `解析失败: ${e.message}（跑 node scripts/gen-section-index.mjs）`);
     }
 }
 

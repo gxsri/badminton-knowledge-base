@@ -3,12 +3,21 @@
 <head>
     <!-- quality:v2 -->
     <meta charset="UTF-8">
-    <meta name="description" content="比赛记录与复盘：比分数据、表现评分与赛后小结">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/46-match-records.html">
+    <meta name="description" content="比赛记录｜比赛记录与复盘：比分数据、表现评分与赛后小结｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="比赛记录 — 羽毛球职业训练系统">
-    <meta property="og:description" content="比赛记录与复盘：比分数据、表现评分与赛后小结">
+    <meta property="og:description" content="比赛记录｜比赛记录与复盘：比分数据、表现评分与赛后小结｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/46-match-records.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="比赛记录 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="比赛记录｜比赛记录与复盘：比分数据、表现评分与赛后小结｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -112,7 +121,7 @@
             <p><strong>为什么记录比赛？</strong>比赛是检验训练成果的最佳方式。通过记录和分析比赛数据，你可以发现自己的优势和不足，为下一阶段训练提供方向。</p>
         </div>
 
-        <h2>📊 比赛统计</h2>
+        <h2 id="比赛统计">📊 比赛统计</h2>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-num" id="stat-matches">0</div>
@@ -132,7 +141,7 @@
             </div>
         </div>
 
-        <h2>➕ 添加比赛记录</h2>
+        <h2 id="添加比赛记录">➕ 添加比赛记录</h2>
         <div class="add-match">
             <div class="add-match-title">记录比赛</div>
             <div class="form-row">
@@ -180,17 +189,17 @@
             <button class="btn" onclick="addMatch()">添加记录</button>
         </div>
 
-        <h2>📋 比赛记录</h2>
+        <h2 id="比赛记录">📋 比赛记录</h2>
         <div class="match-list" id="match-list">
             <!-- 比赛记录将在这里显示 -->
         </div>
 
-        <h2>分层处方：记录与复盘深度</h2>
+        <h2 id="rx">分层处方：记录与复盘深度</h2>
         <p>这 3 张卡决定你"记多少、赛后怎么用"。先按自己那一档做满 4 周，再对照触发条件升档。</p>
         <p><strong>RPE</strong> 是主观用力程度（白话：10 分是拼到说不出话，6 分是还能说短句）；<strong>主动失误</strong>指没人逼你、球自己出界或下网（白话：送分）；<strong>受迫失误</strong>是被对手压出来的失误（白话：被逼丢分）。两者必须分开记，训练方向完全不同。</p>
 
-        <div class="rx-grid">
-            <div class="rx rx-base">
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
                 <h3>基础版 <span class="rx-badge">每周 ≤1 场 / 业余球局</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每场都记，每周 1-2 条；输球场次优先记。</li>
@@ -203,7 +212,7 @@
                     <li><strong>退阶：</strong>只记"比分 + 1 个失误类型"，一行字也算记录。</li>
                 </ul>
             </div>
-            <div class="rx rx-mid">
+            <div class="rx rx-mid" id="rx-mid">
                 <h3>进阶版 <span class="rx-badge">每周 2-3 场 / 打业余比赛</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每场都记、每周 2-3 条，赛后 30 分钟内完成。</li>
@@ -215,7 +224,7 @@
                     <li><strong>退阶：</strong>密集赛事只记 6 项核心（比分、失误、时长、RPE、酸痛、睡眠）。</li>
                 </ul>
             </div>
-            <div class="rx rx-elite">
+            <div class="rx rx-elite" id="rx-elite">
                 <h3>精英版 <span class="rx-badge">半专业以上 / 有教练与录像</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每场必记、每天 1 条总结，赛后 24 小时内完成复盘。</li>
@@ -244,7 +253,7 @@
             </tbody>
         </table>
 
-        <h2>自测与进阶标准</h2>
+        <h2 id="selftest">自测与进阶标准</h2>
         <p>每 4 周测一次，测的是"记录有没有改变下一场的决定"。<strong>任何一项不达标，就按右列退阶</strong>。</p>
         <table>
             <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
@@ -260,7 +269,7 @@
             </tbody>
         </table>
 
-        <h2>错误 → 原因 → 纠正</h2>
+        <h2 id="错误-原因-纠正">错误 → 原因 → 纠正</h2>
         <p>这 5 条不用别人检查，翻回你自己的比赛记录就能对上号。</p>
         <table>
             <thead><tr><th>错误（翻记录就能看到）</th><th>原因</th><th>纠正</th></tr></thead>
@@ -273,7 +282,7 @@
             </tbody>
         </table>
 
-        <h2>精英细节</h2>
+        <h2 id="elite">精英细节</h2>
         <p>同样是那几行数据，职业选手多做的 7 件事——核心是让每个数字都连到一个训练决定。</p>
         <ul>
             <li><strong>每个数字都挂一条训练改动。</strong>主动失误 14 次/局 → 下周 40% 技术时间练稳定性；18 分后丢分率 &gt;60% → 每周 10 组关键分模拟。记录不落到课表，就只是情绪日记。</li>

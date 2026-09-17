@@ -3,12 +3,21 @@
 <head>
     <!-- quality:v2 -->
     <meta charset="UTF-8">
-    <meta name="description" content="身体状态自评仪表盘：疲劳、酸痛、睡眠与训练准备度">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/47-body-status.html">
+    <meta name="description" content="身体状态仪表盘｜身体状态自评仪表盘：疲劳、酸痛、睡眠与训练准备度｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="身体状态仪表盘 — 羽毛球职业训练系统">
-    <meta property="og:description" content="身体状态自评仪表盘：疲劳、酸痛、睡眠与训练准备度">
+    <meta property="og:description" content="身体状态仪表盘｜身体状态自评仪表盘：疲劳、酸痛、睡眠与训练准备度｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/47-body-status.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="身体状态仪表盘 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="身体状态仪表盘｜身体状态自评仪表盘：疲劳、酸痛、睡眠与训练准备度｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -124,7 +133,7 @@
             <p><strong>为什么监控身体状态？</strong>及时发现身体问题，预防运动损伤。当你感到某个部位不适时，记录下来，观察变化趋势。</p>
         </div>
 
-        <h2>📊 当前身体状态</h2>
+        <h2 id="当前身体状态">📊 当前身体状态</h2>
         <div class="body-map">
             <div class="body-map-title">点击部位查看详情</div>
             <div class="body-parts" id="body-parts">
@@ -179,7 +188,7 @@
             </div>
         </div>
 
-        <h2>➕ 记录身体状态</h2>
+        <h2 id="记录身体状态">➕ 记录身体状态</h2>
         <div class="add-status">
             <div class="add-status-title">今日身体状态</div>
             <div class="form-row">
@@ -224,7 +233,7 @@
             <button class="btn" onclick="addStatus()">保存记录</button>
         </div>
 
-        <h2>📋 历史记录</h2>
+        <h2 id="历史记录">📋 历史记录</h2>
         <div class="status-history" id="status-history">
             <!-- 历史记录将在这里显示 -->
         </div>
@@ -233,12 +242,12 @@
             <p><strong>⚠️ 注意：</strong>如果疼痛程度达到2级以上，或持续超过3天，请立即停止训练并咨询专业人士。</p>
         </div>
 
-        <h2>分层处方：记录与复盘深度</h2>
+        <h2 id="rx">分层处方：记录与复盘深度</h2>
         <p>这 3 张卡决定你"记几天、记几项、看多细"。先按自己那一档做满 4 周，再对照触发条件升档；无论哪一档，都固定在同一时间点记。</p>
         <p><strong>晨起静息心率</strong>是醒后未起床时测的每分钟心跳（白话：身体的基础耗油量，比平时高说明还没恢复）；<strong>RPE</strong> 是主观用力程度（白话：10 分是拼到说不出话，6 分是还能说短句）；<strong>急性:慢性负荷比</strong>是本周训练量除以近 4 周平均量（白话：这周比平时重了多少倍）。</p>
 
-        <div class="rx-grid">
-            <div class="rx rx-base">
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
                 <h3>基础版 <span class="rx-badge">每周 ≤2 次 / 打球 &lt;1 年</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每天 1 次，练不练都记；每周 ≥5 条，不要求全勤。</li>
@@ -252,7 +261,7 @@
                 <p><strong>强度上限：</strong>状态评分 ≥8/10 可上 RPE 6-7 的课；≤5/10 当天只做 ≤RPE 4 的恢复内容，不碰高强度。</p>
                 <p><strong>恢复安排：</strong>连续 2 天评分 ≤5/10 或睡眠 &lt;6 小时连着 2 晚，安排 1-2 天完全休息；同一部位大负荷训练间隔 ≥48 小时。</p>
             </div>
-            <div class="rx rx-mid">
+            <div class="rx rx-mid" id="rx-mid">
                 <h3>进阶版 <span class="rx-badge">每周 3-4 次 / 打球 1-3 年</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每天 1 次，每周 ≥6 条；晨脉固定在醒后未起床时测。</li>
@@ -266,7 +275,7 @@
                 <p><strong>强度上限：</strong>状态评分 ≥8/10 可上 RPE 8-9 的高强度课；晨脉比基线高 ≥7 次/分当天 RPE 上限压到 6，只做技术不做体能。</p>
                 <p><strong>恢复安排：</strong>连续 2 天评分 ≤5/10 或晨脉比基线高 ≥8 次/分，安排 1-2 天完全休息；同一部位大负荷训练间隔 ≥48 小时。</p>
             </div>
-            <div class="rx rx-elite">
+            <div class="rx rx-elite" id="rx-elite">
                 <h3>精英版 <span class="rx-badge">半专业以上 / 每周 ≥5 次</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每天 2 次（晨起 + 训练后），每周 ≥10 条；每次异常都要能追溯到前一天的课。</li>
@@ -295,7 +304,7 @@
             </tbody>
         </table>
 
-        <h2>自测与进阶标准</h2>
+        <h2 id="selftest">自测与进阶标准</h2>
         <p>每 4 周测一次，测的是"这张表有没有改变你今天的课"。<strong>任何一项不达标，就按右列退阶</strong>——把工具降级，别把习惯丢掉。</p>
         <table>
             <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
@@ -311,7 +320,7 @@
             </tbody>
         </table>
 
-        <h2>错误 → 原因 → 纠正</h2>
+        <h2 id="错误-原因-纠正">错误 → 原因 → 纠正</h2>
         <p>这 5 条不用别人检查，翻回你自己的历史记录就能对上号。</p>
         <table>
             <thead><tr><th>错误（翻记录就能看到）</th><th>原因</th><th>纠正</th></tr></thead>
@@ -324,7 +333,7 @@
             </tbody>
         </table>
 
-        <h2>精英细节</h2>
+        <h2 id="elite">精英细节</h2>
         <p>同样是每天那几格，职业队选手多做的 7 件事——关键是让数字直接改当天的课。</p>
         <ul>
             <li><strong>主观与客观配对判读。</strong>主观是疲劳、酸痛、训练动力；客观是晨脉、体重、握力、纵跳。主观差而客观正常 → 先补睡眠；两项都差 → 当天只做恢复课，不练主项。</li>

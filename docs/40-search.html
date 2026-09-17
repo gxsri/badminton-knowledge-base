@@ -2,12 +2,21 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="在全部文档中搜索训练内容">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/40-search.html">
+    <meta name="description" content="全文搜索｜在全部文档中搜索训练内容｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="全文搜索 — 羽毛球职业训练系统">
-    <meta property="og:description" content="在全部文档中搜索训练内容">
+    <meta property="og:description" content="全文搜索｜在全部文档中搜索训练内容｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/40-search.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="全文搜索 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="全文搜索｜在全部文档中搜索训练内容｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -46,6 +55,12 @@
         .result-desc{font-size:0.85rem;color:var(--text-2)}
         .result-tags{display:flex;gap:0.5rem;margin-top:0.5rem;flex-wrap:wrap}
         .result-tag{padding:0.15rem 0.5rem;background:var(--surface-2);border-radius:4px;font-size:0.7rem;color:var(--text-2)}
+        .section-group-title{font-weight:600;color:var(--accent-2);margin:1.5rem 0 0.25rem;font-size:0.95rem}
+        .result-sec{padding:0.9rem 1.1rem;margin:0.6rem 0}
+        .result-sec .result-title{font-size:0.98rem}
+        .result-sec .sec-subs{font-size:0.8rem;color:var(--text-2);margin-top:0.35rem;display:flex;gap:0.4rem;flex-wrap:wrap}
+        .result-sec .sec-sub{padding:0.1rem 0.45rem;background:var(--surface-2);border-radius:4px}
+        .result-sec .sec-jump{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent);margin-top:0.4rem}
         .no-results{text-align:center;padding:3rem;color:var(--text-2)}
         .no-results-icon{font-size:3rem;margin-bottom:1rem}
         .category-section{margin:2rem 0}
@@ -125,10 +140,15 @@
     </div>
 
     <script src="../docs-data.js"></script>
+    <script src="../docs-sections.js"></script>
     <script>
         // 文档数据：统一登记表 docs-data.js（与首页同一来源）
         const DOCS = window.DOCS_DATA ? window.DOCS_DATA.docs : [];
         const GROUPS = window.DOCS_DATA ? window.DOCS_DATA.groups : [];
+        // 小节索引：docs-sections.js（自动生成），用于把小节直接搜索出来并深链到锚点
+        const SECTIONS = window.DOC_SECTIONS || {};
+        const DOC_BY_FILE = {};
+        DOCS.forEach(d => { DOC_BY_FILE[d.file] = d; });
         const GROUP_NAME = {};
         GROUPS.forEach(g => { GROUP_NAME[g.key] = g.name; });
 
@@ -140,6 +160,36 @@
                 '<div class="result-title">' + hl(doc.title) + '</div>' +
                 '<div class="result-desc">' + hl(doc.desc) + '</div>' +
                 '<div class="result-tags">' + tags + '</div></a>';
+        }
+
+        /* 小节结果卡片：直接跳到该页的 #锚点；命中的关键词优先展示 */
+        function sectionCard(doc, sec, query) {
+            const hl = (t) => query ? highlightText(t, query) : t;
+            const kws = (sec.k || []).filter(k => k.toLowerCase().indexOf(query) !== -1).slice(0, 3);
+            const show = kws.length ? kws : (sec.s || []).slice(0, 4);
+            const subs = show.map(s => '<span class="sec-sub">' + hl(s) + '</span>').join('');
+            return '<a href="' + doc.file + '#' + sec.i + '" class="result-item result-sec">' +
+                '<div class="result-num">' + doc.num + ' · ' + (GROUP_NAME[doc.group] || doc.group) + ' · ' + doc.title + '</div>' +
+                '<div class="result-title">' + hl(sec.t) + '</div>' +
+                (subs ? '<div class="sec-subs">' + subs + '</div>' : '') +
+                '<div class="sec-jump">跳到 #' + sec.i + '</div></a>';
+        }
+
+        function findSections(query) {
+            const hits = [];
+            for (const file in SECTIONS) {
+                const doc = DOC_BY_FILE[file];
+                if (!doc) continue;
+                for (const sec of SECTIONS[file]) {
+                    const hay = (sec.t + ' ' + (sec.s || []).join(' ') + ' ' + (sec.k || []).join(' ')).toLowerCase();
+                    if (hay.indexOf(query) !== -1) hits.push({ doc, sec });
+                    else if (doc.title.toLowerCase().indexOf(query) !== -1) {
+                        /* 页名命中时，把该页前两个小节作为入口，省得再点进去找 */
+                        if (hits.filter(h => h.doc === doc).length < 2) hits.push({ doc, sec, viaPage: true });
+                    }
+                }
+            }
+            return hits;
         }
 
         function performSearch() {
@@ -158,20 +208,30 @@
                        doc.desc.toLowerCase().includes(query) ||
                        doc.tags.some(tag => tag.toLowerCase().includes(query));
             });
+            const sections = findSections(query);
 
-            if (results.length === 0) {
+            if (results.length === 0 && sections.length === 0) {
                 resultsContainer.innerHTML = `
                     <div class="no-results">
                         <div class="no-results-icon">🔍</div>
                         <p>没有找到相关内容</p>
-                        <p style="font-size:0.85rem">尝试其他关键词，如：高远球、深蹲、健身、营养</p>
+                        <p style="font-size:0.85rem">尝试其他关键词，如：高远球、深蹲、健身、营养、分层处方</p>
                     </div>
                 `;
                 allContent.style.display = 'none';
                 return;
             }
 
-            resultsContainer.innerHTML = results.map(d => docCard(d, query)).join('');
+            const parts = [];
+            if (results.length) {
+                parts.push('<div class="section-group-title">📄 页面命中 · ' + results.length + ' 篇</div>');
+                parts.push(results.map(d => docCard(d, query)).join(''));
+            }
+            if (sections.length) {
+                parts.push('<div class="section-group-title">📍 小节命中 · ' + sections.length + ' 处（可直接跳到那一节）</div>');
+                parts.push(sections.slice(0, 40).map(h => sectionCard(h.doc, h.sec, query)).join(''));
+            }
+            resultsContainer.innerHTML = parts.join('');
             allContent.style.display = 'none';
         }
 

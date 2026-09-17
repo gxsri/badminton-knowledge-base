@@ -3,12 +3,21 @@
 <head>
     <!-- quality:v2 -->
     <meta charset="UTF-8">
-    <meta name="description" content="可视化训练日历：周计划排期、执行与打卡记录">
+    <link rel="canonical" href="https://gxsri.github.io/badminton-knowledge-base/docs/45-training-calendar.html">
+    <meta name="description" content="训练日历｜可视化训练日历：周计划排期、执行与打卡记录｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:title" content="训练日历 — 羽毛球职业训练系统">
-    <meta property="og:description" content="可视化训练日历：周计划排期、执行与打卡记录">
+    <meta property="og:description" content="训练日历｜可视化训练日历：周计划排期、执行与打卡记录｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://gxsri.github.io/badminton-knowledge-base/docs/45-training-calendar.html">
+    <meta property="og:site_name" content="羽毛球职业训练系统">
+    <meta property="og:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="训练日历 — 羽毛球职业训练系统">
+    <meta name="twitter:description" content="训练日历｜可视化训练日历：周计划排期、执行与打卡记录｜含基础/进阶/精英三档处方、自测达标线、错误纠正与安全边界；羽毛球职业训练系统（NSCA CSCS 体系）">
+    <meta name="twitter:image" content="https://gxsri.github.io/badminton-knowledge-base/images/og-cover.png">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='88'%3E🏸%3C/text%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -123,7 +132,7 @@
             <p><strong>为什么需要训练日历？</strong>可视化训练安排，帮助你坚持训练计划。记录每次训练，追踪进步，保持动力。</p>
         </div>
 
-        <h2>📊 本月统计</h2>
+        <h2 id="本月统计">📊 本月统计</h2>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-num" id="stat-total">0</div>
@@ -139,7 +148,7 @@
             </div>
         </div>
 
-        <h2>📅 训练日历</h2>
+        <h2 id="训练日历">📅 训练日历</h2>
         <div class="calendar">
             <div class="calendar-header">
                 <div class="calendar-title" id="calendar-title">2026年6月</div>
@@ -153,7 +162,7 @@
             </div>
         </div>
 
-        <h2>➕ 添加训练记录</h2>
+        <h2 id="添加训练记录">➕ 添加训练记录</h2>
         <div class="add-training">
             <div class="add-training-title">记录今天的训练</div>
             <div class="form-row">
@@ -194,17 +203,17 @@
             <button class="btn" onclick="addTraining()">添加记录</button>
         </div>
 
-        <h2>📋 最近训练记录</h2>
+        <h2 id="最近训练记录">📋 最近训练记录</h2>
         <div class="training-list" id="training-list">
             <!-- 训练记录将在这里显示 -->
         </div>
 
-        <h2>分层处方：记录与复盘深度</h2>
+        <h2 id="rx">分层处方：记录与复盘深度</h2>
         <p>这 3 张卡决定你"记多少、看多细"。先按自己那一档做满 4 周，再对照触发条件升档；无论哪一档，都先做到"练完就打卡"。</p>
         <p><strong>RPE</strong> 是主观用力程度（白话：10 分是拼到说不出话，6 分是还能说短句）；<strong>急性:慢性负荷比</strong>是本周训练量除以近 4 周平均量（白话：这周比平时重了多少倍）；<strong>恢复课</strong>指低强度、只为促循环的课（白话：练完不喘，第二天更松）。</p>
 
-        <div class="rx-grid">
-            <div class="rx rx-base">
+        <div class="rx-grid" id="rx-grid">
+            <div class="rx rx-base" id="rx-base">
                 <h3>基础版 <span class="rx-badge">打球 ≤1 年 / 每周 ≤2 次</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每次训练都打卡，每周 ≥2 条。日历上先占住固定的训练日，不写"看情况"。</li>
@@ -217,7 +226,7 @@
                     <li><strong>退阶：</strong>只记"日期 + 时长"2 格，备注留到周末一起补。</li>
                 </ul>
             </div>
-            <div class="rx rx-mid">
+            <div class="rx rx-mid" id="rx-mid">
                 <h3>进阶版 <span class="rx-badge">打球 1-3 年 / 每周 3-4 次</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每周排 4 次（含 1 次恢复课），练完打卡，每周 ≥4 条；两次高强度课间隔 ≥48 小时。</li>
@@ -228,7 +237,7 @@
                     <li><strong>退阶：</strong>比赛周或出差周只保"时长 + RPE"2 项，回来再补。</li>
                 </ul>
             </div>
-            <div class="rx rx-elite">
+            <div class="rx rx-elite" id="rx-elite">
                 <h3>精英版 <span class="rx-badge">半专业以上 / 每周 ≥5 次</span></h3>
                 <ul>
                     <li><strong>记录频率：</strong>每天 1 条、每周 ≥5 条；按 2-4 周一个小周期排期，把减量周提前写进日历。</li>
@@ -256,7 +265,7 @@
             </tbody>
         </table>
 
-        <h2>自测与进阶标准</h2>
+        <h2 id="selftest">自测与进阶标准</h2>
         <p>每 4 周测一次，测的是"日历有没有帮你改计划"，不是"你练得多苦"。<strong>任何一项不达标，就按右列退阶</strong>——把工具降级，别把习惯丢掉。</p>
         <table>
             <thead><tr><th>测试动作</th><th>通过标准（数字）</th><th>不达标时的退阶</th></tr></thead>
@@ -272,7 +281,7 @@
             </tbody>
         </table>
 
-        <h2>错误 → 原因 → 纠正</h2>
+        <h2 id="错误-原因-纠正">错误 → 原因 → 纠正</h2>
         <p>这 5 条不用别人检查，翻开你自己的日历就能对上号。</p>
         <table>
             <thead><tr><th>错误（翻日历就能看到）</th><th>原因</th><th>纠正</th></tr></thead>
@@ -285,7 +294,7 @@
             </tbody>
         </table>
 
-        <h2>精英细节</h2>
+        <h2 id="elite">精英细节</h2>
         <p>同样是那几行格子，职业队选手多做的 7 个细节——都不额外花时间，只是换个记法。</p>
         <ul>
             <li><strong>用 sRPE 把一节课压成一个数。</strong>RPE × 训练分钟数：RPE 7 × 60 分钟 = 420。周与周比总分，不看单次感觉，负荷曲线才画得出来。</li>
